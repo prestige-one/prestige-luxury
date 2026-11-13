@@ -1,0 +1,130 @@
+[
+ {
+  "id": 232,
+  "slug": "apartments",
+  "name": "Apartments",
+  "parent": 0,
+  "count": 0,
+  "path": "/category/apartments/"
+ },
+ {
+  "id": 229,
+  "slug": "architecture",
+  "name": "Architecture",
+  "parent": 0,
+  "count": 0,
+  "path": "/category/architecture/"
+ },
+ {
+  "id": 235,
+  "slug": "blog",
+  "name": "Blog",
+  "parent": 0,
+  "count": 50,
+  "path": "/category/blog/"
+ },
+ {
+  "id": 2,
+  "slug": "business",
+  "name": "Business",
+  "parent": 0,
+  "count": 0,
+  "path": "/category/business/"
+ },
+ {
+  "id": 3,
+  "slug": "construction",
+  "name": "Construction",
+  "parent": 0,
+  "count": 1,
+  "path": "/category/construction/"
+ },
+ {
+  "id": 233,
+  "slug": "living-room",
+  "name": "Living Room",
+  "parent": 0,
+  "count": 0,
+  "path": "/category/living-room/"
+ },
+ {
+  "id": 5289,
+  "slug": "luxury-living",
+  "name": "Luxury Living",
+  "parent": 0,
+  "count": 2,
+  "path": "/category/luxury-living/"
+ },
+ {
+  "id": 234,
+  "slug": "luxury-property-market",
+  "name": "Luxury property market",
+  "parent": 0,
+  "count": 6,
+  "path": "/category/luxury-property-market/"
+ },
+ {
+  "id": 4,
+  "slug": "marketing",
+  "name": "Marketing",
+  "parent": 0,
+  "count": 1,
+  "path": "/category/marketing/"
+ },
+ {
+  "id": 2725,
+  "slug": "off-plan",
+  "name": "Off plan",
+  "parent": 5,
+  "count": 4,
+  "path": "/category/real-estate/off-plan/"
+ },
+ {
+  "id": 5,
+  "slug": "real-estate",
+  "name": "Real Estate",
+  "parent": 0,
+  "count": 13,
+  "path": "/category/real-estate/"
+ },
+ {
+  "id": 5278,
+  "slug": "real-estate-analysis",
+  "name": "Real Estate Analysis",
+  "parent": 5,
+  "count": 2,
+  "path": "/category/real-estate/real-estate-analysis/"
+ },
+ {
+  "id": 2751,
+  "slug": "recruitment",
+  "name": "Recruitment",
+  "parent": 0,
+  "count": 1,
+  "path": "/category/recruitment/"
+ },
+ {
+  "id": 1,
+  "slug": "uncategorized",
+  "name": "Uncategorized",
+  "parent": 0,
+  "count": 0,
+  "path": "/category/uncategorized/"
+ },
+ {
+  "id": 2820,
+  "slug": "uncategorized-ar",
+  "name": "Uncategorized",
+  "parent": 0,
+  "count": 0,
+  "path": "/category/uncategorized-ar/"
+ },
+ {
+  "id": 2824,
+  "slug": "uncategorized-ru",
+  "name": "Uncategorized",
+  "parent": 0,
+  "count": 0,
+  "path": "/category/uncategorized-ru/"
+ }
+]

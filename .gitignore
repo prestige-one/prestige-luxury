@@ -1,0 +1,9 @@
+node_modules/
+.next/
+.vercel/
+.env*
+!.env.example
+crawl/data/
+New Text Document.txt
+*.log
+.DS_Store
