@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { isUnoptimized } from "@/lib/listing-format";
+import { isUnoptimized, sizedImage } from "@/lib/listing-format";
 import { ChevronIcon, CloseIcon, ExpandIcon } from "./icons";
 
 /** Main photo + thumbnails, with a full-screen lightbox (native <dialog>: Esc closes, arrow keys navigate). */
@@ -78,7 +78,7 @@ export default function PropertyGallery({ images, title }: { images: string[]; t
                   i === index ? "outline-2 outline-ink" : "opacity-70 hover:opacity-100"
                 }`}
               >
-                <Image src={src} alt="" fill unoptimized={isUnoptimized(src)} sizes="130px" className="object-cover" />
+                <Image src={sizedImage(src, "thumb")} alt="" fill unoptimized={isUnoptimized(src)} sizes="130px" loading="lazy" className="object-cover" />
               </button>
             </li>
           ))}

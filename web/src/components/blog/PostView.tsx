@@ -105,7 +105,7 @@ export default function PostView({ post }: { post: Post }) {
       </section>
 
       <Container className="py-14 md:py-20">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
           <article className="min-w-0">
             {image && (
               <Image
@@ -144,7 +144,7 @@ export default function PostView({ post }: { post: Post }) {
             </div>
 
             {(older || newer) && (
-              <nav aria-label="More posts" className="mt-8 grid gap-4 sm:grid-cols-2">
+              <nav aria-label="More posts" className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {older ? (
                   <Link href={older.path} className="group border border-line p-5 hover:border-ink">
                     <span className="text-[12px] uppercase tracking-[0.06em] text-muted">‹ Previous post</span>

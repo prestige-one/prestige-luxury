@@ -57,7 +57,7 @@ export default function ServicesPage() {
     <>
       <PageBanner title="Services" image="/wp-content/uploads/2020/02/bg-bw.jpg" />
 
-      <section className="py-[80px]">
+      <section className="py-16 md:py-[80px]">
         <Container className="max-w-[900px] space-y-4 text-center text-[15px] leading-[1.8] text-body">
           <p>
             Prestige Real Estate offers a wide range of fully integrated real estate services with Residential &amp; Commercial Sales and
@@ -74,7 +74,7 @@ export default function ServicesPage() {
         </Container>
       </section>
 
-      <div className="space-y-10 pb-[100px] md:space-y-0">
+      <div className="space-y-10 pb-16 md:space-y-0 md:pb-[100px]">
         {services.map((s, i) => (
           <section key={s.id} id={s.id} className="scroll-mt-24">
             <Container className="grid md:grid-cols-2">

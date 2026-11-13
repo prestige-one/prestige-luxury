@@ -32,7 +32,7 @@ export function CtaBanner({
     <section className="relative overflow-hidden bg-black">
       <Image src={image} alt="" fill sizes="100vw" className="object-cover" />
       <div className={`absolute inset-0 ${overlay}`} aria-hidden />
-      <Container className="relative z-10 flex flex-col items-center gap-5 py-[120px] text-center text-white">
+      <Container className="relative z-10 flex flex-col items-center gap-5 py-20 text-center text-white md:py-[120px]">
         <h2 className="max-w-[760px] text-[23px] font-semibold leading-snug">{title}</h2>
         {lines.map((l) => (
           <p key={l} className="max-w-[580px] text-[17px] leading-[1.45] text-white/90">

@@ -111,7 +111,7 @@ export default function DubaiNeighbourhoodsPage() {
                         alt=""
                         fill
                         sizes={isWide(i) ? "(min-width: 1024px) 570px, 100vw" : "(min-width: 1024px) 285px, (min-width: 640px) 50vw, 100vw"}
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                       />
                     )}
                     <span className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent transition-colors duration-300 group-hover:bg-black/20" />

@@ -107,7 +107,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero: full-screen YouTube background video + search */}
-      <section className="relative flex min-h-[640px] h-screen items-center overflow-hidden bg-black">
+      <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-black py-24 md:h-screen md:min-h-[640px] md:py-0">
         <div className="pointer-events-none absolute inset-0" aria-hidden>
           <iframe
             className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2"
@@ -117,9 +117,11 @@ export default function HomePage() {
             tabIndex={-1}
           />
           <div className="absolute inset-0 bg-black/30" />
+          {/* gentle top/bottom shading for headline + search legibility */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/45" />
         </div>
-        <div className="relative z-10 w-full px-5 pt-20">
-          <h1 className="mb-[150px] text-center text-[32px] font-semibold capitalize text-white md:text-[36px]">
+        <div className="relative z-10 w-full px-5 pt-14 md:pt-20">
+          <h1 className="mx-auto mb-10 max-w-[900px] text-center text-[28px] font-semibold capitalize leading-[1.25] tracking-[-0.01em] text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.35)] sm:text-[32px] md:mb-[150px] md:text-[36px]">
             Discover Your Dream Home in Dubai
           </h1>
           <HeroSearch locations={locations} types={propertyTypes} />
@@ -136,7 +138,7 @@ export default function HomePage() {
       </section>
 
       {/* Services */}
-      <section className="py-[100px]">
+      <section className="py-16 md:py-[100px]">
         <Container>
           <SectionTitle
             title="Every Property Decision Deserves the Right Expertise."
@@ -144,12 +146,15 @@ export default function HomePage() {
           />
           <div className="grid gap-5 md:grid-cols-3">
             {services.map((s) => (
-              <div key={s.title} className="flex flex-col items-center border border-line bg-white px-6 pb-8 pt-10 text-center">
+              <div
+                key={s.title}
+                className="flex flex-col items-center rounded-[2px] border border-line bg-white px-6 pb-8 pt-10 text-center transition-[translate,box-shadow,border-color] duration-500 ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-[0_14px_34px_rgba(0,0,0,0.08)]"
+              >
                 <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#222" strokeWidth="0.9" aria-hidden>
                   {s.icon}
                 </svg>
                 <h3 className="mt-6 text-[18px] capitalize text-ink">{s.title}</h3>
-                <p className="mt-2 mb-6 text-[14px] leading-[1.45] text-muted">{s.text}</p>
+                <p className="mt-2 mb-6 text-[14px] leading-[1.6] text-muted">{s.text}</p>
                 <Button href={s.href} className="mt-auto">
                   {s.cta}
                 </Button>
@@ -160,7 +165,7 @@ export default function HomePage() {
       </section>
 
       {/* Residential properties */}
-      <section className="pb-[100px]">
+      <section className="pb-16 md:pb-[100px]">
         <Container>
           <SectionTitle title="Residential Properties" subtitle="Browse through our beautiful collection of residential properties" />
           <div className="grid gap-[30px] md:grid-cols-3">
@@ -172,7 +177,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured areas */}
-      <section className="bg-mist py-[100px]">
+      <section className="bg-mist py-16 md:py-[100px]">
         <Container>
           <SectionTitle
             title="Explore the top featured areas of Dubai"
@@ -187,12 +192,12 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="relative flex min-h-[414px] items-center justify-center overflow-hidden text-center">
+      <section className="relative flex min-h-[360px] items-center justify-center overflow-hidden py-16 text-center md:min-h-[414px]">
         <Image src="/wp-content/uploads/2026/11/dubai-skyline-view.webp" alt="" fill sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-black/45" />
         <div className="relative z-10 max-w-[600px] px-5">
-          <h2 className="text-[30px] font-medium capitalize text-white">Connect with our sales experts</h2>
-          <p className="mt-3 text-[17px] capitalize text-white">
+          <h2 className="text-[26px] font-medium capitalize leading-[1.25] tracking-[-0.01em] text-white md:text-[30px]">Connect with our sales experts</h2>
+          <p className="mt-3 text-[15px] capitalize leading-[1.6] text-white/90 md:text-[17px]">
             Connect with our property specialists to discover the right real estate opportunity in Dubai.
           </p>
           <Button href="/contact-us/" variant="light" className="mt-6">

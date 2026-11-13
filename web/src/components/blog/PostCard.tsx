@@ -22,7 +22,7 @@ export default function PostCard({ post, priority = false }: { post: Post; prior
   const cat = primaryCategory(post);
   const title = decodeEntities(post.title);
   return (
-    <article className="group flex h-full flex-col border border-line bg-white transition-shadow duration-300 hover:shadow-[0_6px_24px_rgba(0,0,0,0.08)]">
+    <article className="group flex h-full flex-col overflow-hidden rounded-[2px] border border-line bg-white transition-[translate,box-shadow,border-color] duration-500 ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-[0_14px_34px_rgba(0,0,0,0.09)]">
       <Link href={post.path} className="relative block aspect-[16/10] overflow-hidden" tabIndex={-1} aria-hidden>
         {image ? (
           <Image
@@ -31,32 +31,32 @@ export default function PostCard({ post, priority = false }: { post: Post; prior
             fill
             priority={priority}
             sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
           />
         ) : (
           <ImagePlaceholder className="absolute inset-0" />
         )}
       </Link>
-      <div className="flex flex-1 flex-col px-6 pb-6 pt-5">
+      <div className="flex flex-1 flex-col px-5 pb-6 pt-5 sm:px-6">
         <div className="flex flex-wrap items-center gap-x-2 text-[12px] uppercase tracking-[0.04em] text-muted">
           <time dateTime={post.date}>{formatDate(post.date)}</time>
           {cat && (
             <>
               <span aria-hidden>•</span>
-              <Link href={cat.path} className="hover:text-accent">
+              <Link href={cat.path} className="transition-colors hover:text-accent">
                 {cat.name}
               </Link>
             </>
           )}
         </div>
         <h2 className="mt-3 text-[18px] font-medium leading-snug text-ink">
-          <Link href={post.path} className="hover:text-accent">
+          <Link href={post.path} className="transition-colors duration-200 hover:text-accent">
             {title}
           </Link>
         </h2>
         <p className="mt-3 flex-1 text-[14px] leading-[1.7] text-body">{excerptText(post)}</p>
-        <Link href={post.path} className="mt-5 inline-flex items-center gap-1.5 self-start text-[13px] font-medium text-ink hover:text-accent">
-          Continue reading <span aria-hidden>→</span>
+        <Link href={post.path} className="group/more mt-5 inline-flex items-center gap-1.5 self-start text-[13px] font-medium text-ink transition-colors hover:text-accent">
+          Continue reading <span aria-hidden className="transition-transform duration-300 group-hover/more:translate-x-1">→</span>
           <span className="sr-only">: {title}</span>
         </Link>
       </div>

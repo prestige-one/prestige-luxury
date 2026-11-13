@@ -29,7 +29,9 @@ export function decodeEntities(s: string) {
   return s
     .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
     .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
-    .replace(/&([a-z]+);/gi, (m, n: string) => entities[n.toLowerCase()] ?? m);
+    .replace(/&([a-z]+);/gi, (m, n: string) => entities[n.toLowerCase()] ?? m)
+    // non-breaking spaces from the WordPress editor stop long titles wrapping on phones
+    .replace(/ /g, " ");
 }
 
 /** Plain-text excerpt without the WordPress "[…]" suffix. */

@@ -18,7 +18,7 @@ const fields: LeadField[] = [
 export default function ContactPage() {
   return (
     <>
-      <section className="py-[80px] md:py-[100px]">
+      <section className="py-16 md:py-[100px]">
         <Container className="grid gap-12 md:grid-cols-[67%_1fr] md:gap-[3%]">
           <div>
             <h1 className="mb-8 text-[34px] font-normal uppercase text-ink md:text-[42px]">Get in Touch</h1>

@@ -200,7 +200,7 @@ export default function PropertyManagementPage() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="scroll-mt-20 border-t border-white/10 bg-black py-[80px] md:py-[100px]">
+      <section id="pricing" className="scroll-mt-20 border-t border-white/10 bg-black py-16 md:py-[100px]">
         <Container>
           <div className="mb-12 text-center text-white">
             <h2 className="text-[30px] font-medium md:text-[36px]">Choose the perfect plan</h2>
@@ -256,7 +256,7 @@ export default function PropertyManagementPage() {
       </section>
 
       {/* FAQ + contact */}
-      <section className="bg-black py-[80px] md:py-[100px]">
+      <section className="bg-black py-16 md:py-[100px]">
         <Container className="grid gap-14 lg:grid-cols-2">
           <div>
             <h2 className="text-[30px] font-medium text-white md:text-[36px]">FAQ</h2>
@@ -272,7 +272,7 @@ export default function PropertyManagementPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-[80px] md:py-[100px]">
+      <section className="py-16 md:py-[100px]">
         <Container>
           <h2 className="mb-10 text-center font-heading text-[30px] text-ink md:text-[34px]">Our clients say</h2>
           <div className="grid gap-6 md:grid-cols-2">

@@ -72,7 +72,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Intro: title | text | photo */}
-      <section className="bg-[#fcfcfc] py-[80px] md:py-[100px]">
+      <section className="bg-[#fcfcfc] py-16 md:py-[100px]">
         <div className="mx-auto grid max-w-[1400px] gap-10 px-5 md:grid-cols-2 lg:grid-cols-[35%_38%_27%] lg:gap-0">
           <Eyebrow as="h1" label="About Us" title="Prestige Luxury Real Estate" className="md:col-span-2 lg:col-span-1 lg:pl-[12%] lg:pr-12" />
           <div className="space-y-5 text-[14px] font-light leading-[2] text-body lg:pr-[15%] lg:pt-[50px]">

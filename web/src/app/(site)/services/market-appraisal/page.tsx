@@ -28,7 +28,7 @@ export default function MarketAppraisalPage() {
   return (
     <>
       {/* Hero with enquiry form */}
-      <section id="contact" className="scroll-mt-20 bg-black py-[80px] md:py-[100px]">
+      <section id="contact" className="scroll-mt-20 bg-black py-16 md:py-[100px]">
         <Container className="grid items-center gap-12 lg:grid-cols-[1fr_480px]">
           <div className="text-white">
             <h1 className="text-[34px] font-medium leading-tight md:text-[46px]">Book your free market appraisal today</h1>
@@ -46,7 +46,7 @@ export default function MarketAppraisalPage() {
       </section>
 
       {/* What is a market appraisal */}
-      <section className="py-[80px] md:py-[100px]">
+      <section className="py-16 md:py-[100px]">
         <Container className="grid items-center gap-12 md:grid-cols-2">
           <div>
             <p className="text-[14px] font-semibold uppercase tracking-[2px] text-accent">What’s my house worth? Ask us today.</p>
@@ -78,7 +78,7 @@ export default function MarketAppraisalPage() {
       {/* Client quote */}
       <section className="relative overflow-hidden bg-black">
         <Image src="/wp-content/uploads/2020/07/11E20A0779.jpg" alt="" fill sizes="100vw" className="object-cover opacity-40" />
-        <Container className="relative z-10 py-[100px] text-center text-white">
+        <Container className="relative z-10 py-16 text-center text-white md:py-[100px]">
           <figure className="mx-auto max-w-[860px]">
             <blockquote className="text-[20px] font-light italic leading-[1.6] md:text-[24px]">
               “I would like to thank your company for your professional selection of the sales team. Really it was my pleasure to deal with
@@ -90,7 +90,7 @@ export default function MarketAppraisalPage() {
       </section>
 
       {/* Right advice upfront */}
-      <section className="py-[80px] md:py-[100px]">
+      <section className="py-16 md:py-[100px]">
         <Container className="grid items-center gap-12 md:grid-cols-2">
           <div className="relative aspect-[4/3] overflow-hidden md:order-2">
             <Image

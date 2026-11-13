@@ -160,7 +160,7 @@ export default function AreasPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden bg-black px-5 py-[120px] text-center md:px-[100px]">
+      <section className="relative overflow-hidden bg-black px-5 py-20 text-center md:px-[100px] md:py-[120px]">
         <Image src="/wp-content/uploads/2026/11/city-view.webp" alt="" fill sizes="100vw" className="object-cover opacity-[0.33]" />
         <div className="relative z-10">
           <h2 className="text-[23px] font-medium text-white">Exceptional Properties. Expert Advisory. Trusted Relationships.</h2>

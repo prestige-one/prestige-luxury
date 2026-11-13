@@ -57,14 +57,20 @@ export const paragraphs = (text: string) =>
     .map((s) => s.trim())
     .filter(Boolean);
 
-const optimizedHosts = /(^|\.)(propertyfinder\.ae|bayut\.com|bayutcdn\.com)$/i;
-
-/** next/image can only optimise local files and the hosts configured in next.config.ts. */
+/**
+ * Listing photos come straight from the portals' own image CDNs, which already serve
+ * resized JPEGs. We don't run them through Vercel's image optimiser (thousands of photos
+ * would exhaust its monthly quota), so every remote image is served as-is.
+ */
 export function isUnoptimized(src: string) {
-  if (!/^https?:/i.test(src)) return false;
-  try {
-    return !optimizedHosts.test(new URL(src).hostname);
-  } catch {
-    return true;
-  }
+  return /^https?:/i.test(src);
+}
+
+/**
+ * Property Finder photo URLs end in a size, e.g. ".../1312x894.jpg". Ask the CDN for a
+ * smaller variant for cards and thumbnails. Other URLs are returned unchanged.
+ */
+export function sizedImage(src: string, size: "thumb" | "card" | "full" = "card") {
+  const dims = { thumb: "416x272", card: "668x452", full: "1312x894" }[size];
+  return src.replace(/(static\.shared\.propertyfinder\.ae\/media\/images\/listing\/.+\/)\d+x\d+(\.\w+)$/, `$1${dims}$2`);
 }

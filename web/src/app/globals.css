@@ -20,6 +20,12 @@
 
 html {
   scroll-behavior: smooth;
+  /* anchors land below the sticky header */
+  scroll-padding-top: 88px;
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
 
 body {
@@ -29,13 +35,55 @@ body {
   font-size: 15px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip; /* guard against stray horizontal scroll on mobile */
 }
+
+/* Headings: balanced line breaks; paragraphs avoid lone last words */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* Consistent, visible keyboard focus everywhere (mouse clicks stay clean) */
+:where(a, button, [role="button"], summary, [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Lazy images fade in softly (next/image sets data-nimg). Above-the-fold `priority` images are
+   left alone so they paint instantly. Only a `from` frame, so the animation ends on the image's
+   own opacity (e.g. dimmed banner photos stay dimmed). */
+img[data-nimg][loading="lazy"] {
+  animation: img-fade-in 0.7s ease-out;
+}
+@keyframes img-fade-in {
+  from { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  img[data-nimg][loading="lazy"] { animation: none; }
+}
+
+/* Hide scrollbars on horizontally scrolling tab rows */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
 
 /* Rich text copied from WordPress (blog posts, policies, etc.) */
 .wp-content {
   font-size: 15px;
   line-height: 1.8;
   color: var(--color-body);
+  /* some old posts contain long URLs / non-breaking-space runs that would widen the page on phones */
+  overflow-wrap: anywhere;
+  min-width: 0;
 }
 .wp-content h1, .wp-content h2, .wp-content h3, .wp-content h4 {
   color: var(--color-ink);
@@ -58,6 +106,18 @@ body {
 .wp-content table { width: 100%; border-collapse: collapse; margin-bottom: 1.2em; }
 .wp-content td, .wp-content th { border: 1px solid var(--color-line); padding: 8px 10px; }
 .wp-content > *:first-child { margin-top: 0; }
+.wp-content a { transition: color 0.2s ease; }
+.wp-content a:hover { color: var(--color-accent-dark); }
+.wp-content strong, .wp-content b { color: var(--color-ink); font-weight: 600; }
+.wp-content iframe, .wp-content video, .wp-content figure { max-width: 100%; }
+.wp-content h1, .wp-content h2, .wp-content h3, .wp-content h4 { scroll-margin-top: 96px; }
+@media (max-width: 767px) {
+  /* wide WordPress tables scroll inside themselves instead of widening the page */
+  .wp-content table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .wp-content h1 { font-size: 1.65rem; }
+  .wp-content h2 { font-size: 1.4rem; }
+  .wp-content h3 { font-size: 1.2rem; }
+}
 
 /* Developer logo marquee */
 @keyframes marquee {

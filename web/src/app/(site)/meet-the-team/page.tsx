@@ -52,7 +52,7 @@ const team = [
 
 export default function MeetTheTeamPage() {
   return (
-    <section className="py-[80px] md:py-[100px]">
+    <section className="py-16 md:py-[100px]">
         <Container>
           <h1 className="mb-12 text-center font-heading text-[30px] font-normal capitalize text-ink md:text-[34px]">Meet our Team</h1>
           <ul className="flex flex-wrap justify-center gap-x-6 gap-y-10">
@@ -65,7 +65,7 @@ export default function MeetTheTeamPage() {
                       alt={`${m.name}, ${m.role}`}
                       fill
                       sizes="(min-width: 1024px) 270px, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                     />
                     {/* Houzez team widget: description slides over the photo on hover (desktop) */}
                     <div aria-hidden className="absolute inset-0 hidden flex-col justify-end bg-black/80 p-5 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 lg:flex">

@@ -29,7 +29,7 @@ export default function CareersPage() {
     <>
       <PageBanner title="Careers" />
 
-      <section className="py-[80px] md:py-[100px]">
+      <section className="py-16 md:py-[100px]">
         <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <h2 className="text-[25px] font-semibold leading-snug text-ink">Your Ambition Deserves the Right Address.</h2>

@@ -31,7 +31,7 @@ const fields: LeadField[] = [
 
 export default function InquiryFormPage() {
   return (
-    <section className="bg-mist py-[80px] md:py-[100px]">
+    <section className="bg-mist py-16 md:py-[100px]">
       <Container className="max-w-[860px]">
         <div className="border border-line bg-white p-6 sm:p-10">
           <h1 className="text-[26px] font-semibold text-ink md:text-[30px]">Custom Inquiry Form</h1>

@@ -48,7 +48,7 @@ export default function FaqPage() {
   return (
     <>
       <PageBanner title="Frequently Asked Questions" />
-      <section className="py-[80px] md:py-[100px]">
+      <section className="py-16 md:py-[100px]">
         <Container className="max-w-[960px] space-y-14">
           {groups.map((g) => (
             <div key={g.title}>

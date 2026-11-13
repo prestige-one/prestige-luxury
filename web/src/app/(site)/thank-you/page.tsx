@@ -6,7 +6,7 @@ export const metadata: Metadata = { ...seoMetadata(getPage("/thank-you/")!), rob
 
 export default function ThankYouPage() {
   return (
-    <section className="flex min-h-[60vh] items-center bg-cream py-[100px]">
+    <section className="flex min-h-[60vh] items-center bg-cream py-16 md:py-[100px]">
       <Container className="max-w-[720px] text-center">
         <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-black text-white" aria-hidden>
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">

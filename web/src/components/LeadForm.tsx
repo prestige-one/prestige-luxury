@@ -64,13 +64,26 @@ export default function LeadForm({
     }
   }
 
-  const input = `w-full rounded-[2px] border px-4 py-3 text-[14px] outline-none focus:border-accent ${
-    dark ? "border-white/30 bg-white/10 text-white placeholder:text-white/60" : "border-line bg-white text-ink placeholder:text-muted"
+  const input = `w-full min-h-[48px] rounded-[2px] border px-4 py-3 text-[14px] outline-none transition-[border-color,box-shadow,background-color] duration-200 focus-visible:outline-none ${
+    dark
+      ? "border-white/30 bg-white/10 text-white placeholder:text-white/65 hover:border-white/50 focus:border-white focus:bg-white/[0.14] focus:shadow-[0_0_0_3px_rgba(255,255,255,0.15)] [&>option]:text-ink"
+      : "border-line bg-white text-ink placeholder:text-[#8a8a8a] hover:border-[#cfcfcf] focus:border-accent focus:shadow-[0_0_0_3px_rgba(131,90,90,0.14)]"
   }`;
 
   if (state === "sent") {
     return (
-      <div className={`rounded-[2px] border p-6 text-center ${dark ? "border-white/30 text-white" : "border-line"}`} role="status">
+      <div
+        className={`rounded-[2px] border p-8 text-center animate-[img-fade-in_0.4s_ease-out] ${dark ? "border-white/30 text-white" : "border-line bg-cream text-ink"}`}
+        role="status"
+      >
+        <span
+          className={`mx-auto mb-3 grid h-11 w-11 place-items-center rounded-full ${dark ? "bg-white/15 text-white" : "bg-accent text-white"}`}
+          aria-hidden
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="m5 12.5 4.5 4.5L19 7.5" />
+          </svg>
+        </span>
         <p className="text-[18px] font-medium">Thank you!</p>
         <p className="mt-1 text-[14px] opacity-80">Your message has been sent. Our team will be in touch shortly.</p>
       </div>
@@ -104,14 +117,22 @@ export default function LeadForm({
         <button
           type="submit"
           disabled={state === "sending"}
-          className={`px-8 py-3 text-[14px] font-medium transition-colors disabled:opacity-60 ${
+          className={`inline-flex min-h-[48px] items-center justify-center gap-2 rounded-[2px] px-8 py-3 text-[14px] font-medium tracking-[0.02em] transition-colors duration-300 active:translate-y-px disabled:cursor-wait disabled:opacity-60 max-sm:w-full ${
             dark ? "bg-white text-ink hover:bg-accent hover:text-white" : "bg-black text-white hover:bg-accent"
           }`}
         >
+          {state === "sending" && (
+            <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-r-transparent" aria-hidden />
+          )}
           {state === "sending" ? "Sending…" : submitLabel}
         </button>
         {state === "error" && (
-          <p className="mt-3 text-[13px] text-red-600" role="alert">
+          <p
+            className={`mt-3 flex items-start gap-2 rounded-[2px] border-l-2 px-3 py-2 text-[13px] ${
+              dark ? "border-red-300 bg-red-500/10 text-red-200" : "border-red-600 bg-red-50 text-red-700"
+            }`}
+            role="alert"
+          >
             {error}
           </p>
         )}

@@ -82,7 +82,7 @@ export default function SellPage() {
       <h1 className="sr-only">List With Us – Sell Your Property in Dubai</h1>
 
       {/* Selling process + valuation form */}
-      <section className="py-[80px] md:py-[100px]">
+      <section className="py-16 md:py-[100px]">
         <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <h2 className="mb-8 text-[26px] font-semibold uppercase tracking-wide text-ink md:text-[30px]">Property Selling Process</h2>
@@ -103,7 +103,7 @@ export default function SellPage() {
       </section>
 
       {/* Why sell with us */}
-      <section className="bg-mist py-[80px] md:py-[100px]">
+      <section className="bg-mist py-16 md:py-[100px]">
         <Container className="max-w-[960px]">
           <h2 className="mb-8 text-center font-heading text-[28px] text-ink md:text-[34px]">
             Why Sell Your Property in Dubai with Prestige Luxury?
@@ -147,7 +147,7 @@ export default function SellPage() {
       </section>
 
       {/* Our properties */}
-      <section className="py-[80px] md:py-[100px]">
+      <section className="py-16 md:py-[100px]">
         <Container className="text-center">
           <h2 className="font-heading text-[28px] text-ink md:text-[34px]">Our Properties</h2>
           <h3 className="mt-5 text-[17px] font-medium text-ink">
@@ -164,7 +164,7 @@ export default function SellPage() {
       </section>
 
       {/* FAQ */}
-      <section className="pb-[80px] md:pb-[100px]">
+      <section className="pb-16 md:pb-[100px]">
         <Container className="max-w-[960px]">
           <h2 className="mb-8 text-[24px] font-medium text-ink">Questions about selling</h2>
           <Accordion items={faqs} />
