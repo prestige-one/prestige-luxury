@@ -71,10 +71,14 @@ const buyMega: NavMega = {
       ],
     },
   ],
+  // Was "Signature Living", but that page is unedited Elementor template content ("Surf's up!",
+  // "Writing, made simple."), so the menu no longer drives buyers to it. The photograph is of
+  // Address Downtown, so the panel now promotes the community it actually shows.
   promo: {
-    title: "Signature Living",
-    href: "/signature-living/",
-    cta: "Explore Signature",
+    title: "Downtown Dubai",
+    subtitle: "Homes beside Burj Khalifa",
+    href: "/area/downtown-dubai/",
+    cta: "Explore Downtown",
     image:
       "/wp-content/uploads/2024/04/Address-Downtown-Downtown-Dubai-Downtown-Dubai-ADM240062-Prestige-Luxury-Real-Estate-30-1170x785.jpg",
   },

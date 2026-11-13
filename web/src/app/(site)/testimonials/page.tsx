@@ -49,7 +49,9 @@ export default function TestimonialsPage() {
       <section className="py-[70px] md:py-[90px]">
         <Container>
           <div className={ELFSIGHT_APP} data-elfsight-app-lazy />
-          <Script src="https://apps.elfsight.com/p/platform.js" strategy="lazyOnload" />
+          {/* The live reviews are this page's main content, so they load as soon as the page is
+              interactive rather than last — on lazyOnload they took about five seconds to appear. */}
+          <Script src="https://apps.elfsight.com/p/platform.js" strategy="afterInteractive" />
 
           <h2 className="mb-2 mt-14 text-center font-heading text-[28px] text-ink md:text-[34px]">What our clients say</h2>
           <p className="mx-auto mb-10 max-w-[560px] text-center text-[15px] leading-[1.7] text-muted">
