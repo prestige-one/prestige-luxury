@@ -1,0 +1,10 @@
+const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/130 Safari/537.36';
+const url = process.argv[2];
+const h = await (await fetch(url, { headers: { 'User-Agent': UA } })).text();
+const m = h.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
+const j = JSON.parse(m[1]);
+const pp = j.props.pageProps;
+const walk = (o, p, d) => { if (d > 5 || !o || typeof o !== 'object') return; for (const k of Object.keys(o)) { const v = o[k]; if (Array.isArray(v)) console.log(p + '.' + k, 'array', v.length, typeof v[0] === 'object' ? Object.keys(v[0] || {}).slice(0, 25).join(',') : ''); else walk(v, p + '.' + k, d + 1); } };
+walk(pp, 'pp', 0);
+globalThis.pp = pp;
+if (process.argv[3]) console.log(JSON.stringify(eval(process.argv[3]), null, 1).slice(0, 6000));
