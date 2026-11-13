@@ -1,6 +1,6 @@
 // /areas/ — Elementor page 1727209 (same content blocks as the original "About" layout).
 import type { Metadata } from "next";
-import Image from "next/image";
+import Media from "@/components/Media";
 import { Button, Container } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
 
@@ -109,7 +109,7 @@ export default function AreasPage() {
             </p>
           </div>
           <div className="hidden md:block">
-            <Image
+            <Media
               src="/wp-content/uploads/elementor/thumbs/12356844_499481870212421_8140513907742737406_o-7pkuhn1f49ey4j4ja02ar0ifi6t4xzgyfrid2kaz1n4.jpg"
               alt="Prestige Real Estate - Marina Plaza"
               width={600}
@@ -161,7 +161,7 @@ export default function AreasPage() {
 
       {/* CTA */}
       <section className="relative overflow-hidden bg-black px-5 py-20 text-center md:px-[100px] md:py-[120px]">
-        <Image src="/wp-content/uploads/2026/11/city-view.webp" alt="" fill sizes="100vw" className="object-cover opacity-[0.33]" />
+        <Media src="/wp-content/uploads/2019/06/emaar-downtown-1536x864.jpg" alt="" fill tone="ink" sizes="100vw" className="object-cover opacity-[0.33]" />
         <div className="relative z-10">
           <h2 className="text-[23px] font-medium text-white">Exceptional Properties. Expert Advisory. Trusted Relationships.</h2>
           <Button href="/contact-us/" variant="light" className="mt-6 rounded-[3px] border border-black">

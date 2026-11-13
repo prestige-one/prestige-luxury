@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Media from "@/components/Media";
 import LeadForm, { type LeadField } from "@/components/LeadForm";
 import { Button, Container } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
@@ -70,14 +70,14 @@ export default function MarketAppraisalPage() {
             </Button>
           </div>
           <div className="relative aspect-[4/3] overflow-hidden">
-            <Image src="/wp-content/uploads/2020/09/MA-PRE.jpg" alt="Market appraisal of a Dubai property" fill sizes="(min-width: 768px) 550px, 100vw" className="object-cover" />
+            <Media src="/wp-content/uploads/2020/09/MA-PRE.jpg" alt="Market appraisal of a Dubai property" fill sizes="(min-width: 768px) 550px, 100vw" className="object-cover" />
           </div>
         </Container>
       </section>
 
       {/* Client quote */}
       <section className="relative overflow-hidden bg-black">
-        <Image src="/wp-content/uploads/2020/07/11E20A0779.jpg" alt="" fill sizes="100vw" className="object-cover opacity-40" />
+        <Media src="/wp-content/uploads/2020/07/11E20A0779.jpg" alt="" fill tone="ink" sizes="100vw" className="object-cover opacity-40" />
         <Container className="relative z-10 py-16 text-center text-white md:py-[100px]">
           <figure className="mx-auto max-w-[860px]">
             <blockquote className="text-[20px] font-light italic leading-[1.6] md:text-[24px]">
@@ -93,7 +93,7 @@ export default function MarketAppraisalPage() {
       <section className="py-16 md:py-[100px]">
         <Container className="grid items-center gap-12 md:grid-cols-2">
           <div className="relative aspect-[4/3] overflow-hidden md:order-2">
-            <Image
+            <Media
               src="/wp-content/uploads/elementor/thumbs/DSC_6050-Small-scaled-rra8yos467v7l49f4siec7v217jojgv90pazckhe3k.jpg"
               alt="Luxury apartment interior in Dubai Marina"
               fill

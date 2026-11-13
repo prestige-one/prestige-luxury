@@ -1,6 +1,6 @@
 // Building blocks for the company/info pages (about, services, careers, contact, FAQ...).
 // They recreate the Elementor widgets used on those pages as plain React + Tailwind.
-import Image from "next/image";
+import Media from "@/components/Media";
 import { Button, Container } from "@/components/ui";
 
 /** Small eyebrow heading + big title + short black divider (Elementor "text + heading + divider") */
@@ -30,7 +30,7 @@ export function CtaBanner({
 }) {
   return (
     <section className="relative overflow-hidden bg-black">
-      <Image src={image} alt="" fill sizes="100vw" className="object-cover" />
+      <Media src={image} alt="" fill tone="ink" sizes="100vw" className="object-cover" />
       <div className={`absolute inset-0 ${overlay}`} aria-hidden />
       <Container className="relative z-10 flex flex-col items-center gap-5 py-20 text-center text-white md:py-[120px]">
         <h2 className="max-w-[760px] text-[23px] font-semibold leading-snug">{title}</h2>

@@ -1,6 +1,6 @@
 // Template of the single-project landing pages built on the same Elementor design:
 // /orra-embankment/, /vista-by-prestige-one/, /the-residence-by-prestige-one/
-import Image from "next/image";
+import Media from "@/components/Media";
 import LeadForm from "@/components/LeadForm";
 import Gallery, { type GalleryImage } from "./Gallery";
 import LeadModal from "./LeadModal";
@@ -50,7 +50,7 @@ export default function OffPlanProject({ c }: { c: OffPlanConfig }) {
 
       {/* Hero */}
       <section className="relative flex min-h-[640px] flex-col justify-end overflow-hidden bg-black lg:min-h-screen">
-        <Image src={c.heroImage} alt={`${c.title} ${c.developer}`} fill priority sizes="100vw" className="object-cover" />
+        <Media src={c.heroImage} alt={`${c.title} ${c.developer}`} fill priority tone="ink" sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-[linear-gradient(190deg,#FFFFFF00_63%,#3E3E3E_100%)]" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
         <div className="relative px-5 pb-12 pt-40 text-center md:px-[8%] lg:px-[100px] lg:pb-16">
@@ -67,9 +67,10 @@ export default function OffPlanProject({ c }: { c: OffPlanConfig }) {
             ))}
           </dl>
           {c.heroLogo && (
-            <Image
+            <Media
               src={c.heroLogo.src}
               alt=""
+              tone="ink"
               width={c.heroLogo.width}
               height={c.heroLogo.height}
               className="mx-auto mt-10 h-auto w-full max-w-[600px]"
@@ -138,7 +139,7 @@ function AmenityGrid({ items }: { items: Amenity[] }) {
     <ul className="mx-auto grid max-w-[1400px] grid-cols-2 gap-x-5 gap-y-8 lg:grid-cols-4 lg:gap-x-[30px]">
       {items.map((a) => (
         <li key={a.label} className="flex flex-col items-center border-b-[3px] border-[#4E4E4E] px-2 pb-5 pt-2.5 text-center">
-          <Image src={a.icon} alt="" width={98} height={98} className="h-[70px] w-[70px] md:h-[98px] md:w-[98px]" />
+          <Media src={a.icon} alt="" width={98} height={98} className="h-[70px] w-[70px] md:h-[98px] md:w-[98px]" />
           <span className="mt-4 text-[14px] uppercase leading-[1.55] tracking-[2px] md:text-[16px] lg:text-[20px] lg:tracking-[2.7px]">{a.label}</span>
         </li>
       ))}

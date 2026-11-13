@@ -1,5 +1,5 @@
 // Sections of the multi-project landing pages: /projects-for-sale/ and /projects-for-sale-arabic/
-import Image from "next/image";
+import Media from "@/components/Media";
 import { LOGO_WHITE, LpHeading } from "./shared";
 
 type Img = { src: string; width: number; height: number };
@@ -24,11 +24,11 @@ export function ShowcaseHero({
 }) {
   return (
     <section className="relative overflow-hidden">
-      <Image src={background} alt="" fill priority sizes="100vw" className="object-cover" />
+      <Media src={background} alt="" fill priority tone="ink" sizes="100vw" className="object-cover" />
       <div className="absolute inset-0 bg-[linear-gradient(0deg,#000000_3%,#02071200_77%)] opacity-[0.97]" />
       <div className="relative">
         <div className="border-b-2 border-white bg-black px-5 py-[15px] md:px-[100px]">
-          <Image src={LOGO_WHITE.src} alt="Prestige Luxury Real Estate" width={LOGO_WHITE.width} height={LOGO_WHITE.height} priority className="h-auto w-[150px] md:w-[199px]" />
+          <Media src={LOGO_WHITE.src} alt="Prestige Luxury Real Estate" tone="ink" width={LOGO_WHITE.width} height={LOGO_WHITE.height} priority className="h-auto w-[150px] md:w-[199px]" />
         </div>
         <div className="grid items-center gap-12 px-5 py-16 md:px-[100px] md:py-[100px] lg:grid-cols-2">
           <div>
@@ -59,7 +59,7 @@ export function FeatureList({ items, className = "" }: { items: ProjectFeature[]
     <ul className={`space-y-4 ${className}`}>
       {items.map((f, i) => (
         <li key={i} className="flex items-center gap-4 text-[18px] font-light leading-[1.4] md:text-[24px]">
-          <Image src={f.icon.src} alt="" width={f.icon.width} height={f.icon.height} className="h-[40px] w-[40px] shrink-0 object-contain md:h-[46px] md:w-[46px]" />
+          <Media src={f.icon.src} alt="" width={f.icon.width} height={f.icon.height} className="h-[40px] w-[40px] shrink-0 object-contain md:h-[46px] md:w-[46px]" />
           <span>{f.text}</span>
         </li>
       ))}
@@ -99,11 +99,11 @@ export function ProjectBlock({
       <div className="mx-auto max-w-[1500px]">
         <div className="flex items-center justify-between gap-6">
           <div className="flex items-center gap-5">
-            <Image src={numberImg(n).src} alt="" width={146} height={94} className="h-auto w-[90px] md:w-[146px]" />
+            <Media src={numberImg(n).src} alt="" width={146} height={94} className="h-auto w-[90px] md:w-[146px]" />
             <h3 className={`font-bold uppercase ${titleClass}`}>{title}</h3>
           </div>
           {developer && (
-            <Image src={developer.src} alt={developer.alt} width={developer.width} height={developer.height} className="h-auto w-[110px] md:w-auto" />
+            <Media src={developer.src} alt={developer.alt} width={developer.width} height={developer.height} className="h-auto w-[110px] md:w-auto" />
           )}
         </div>
         <div className="mt-10 grid items-start gap-10 lg:grid-cols-2 lg:gap-[100px]">
@@ -129,7 +129,7 @@ export function MediaFrame({ children }: { children: React.ReactNode }) {
 export function PhotoBand({ heading, children }: { heading: React.ReactNode; children: React.ReactNode }) {
   return (
     <section className="relative overflow-hidden px-5 py-24 md:px-[100px] md:pb-[200px] md:pt-[150px]">
-      <Image src="/wp-content/uploads/2023/04/Rectangle-39.png" alt="" fill sizes="100vw" className="object-cover" />
+      <Media src="/wp-content/uploads/2023/04/Rectangle-39.png" alt="" fill tone="ink" sizes="100vw" className="object-cover" />
       <div className="absolute inset-0 bg-black/45" />
       <div className="relative">
         <LpHeading>{heading}</LpHeading>
@@ -145,7 +145,7 @@ export function AssociateSection({ heading, paragraphs, action }: { heading: str
     <section className="px-5 py-16 md:px-[100px] md:py-[100px]">
       <LpHeading className="mx-auto max-w-[1300px]">{heading}</LpHeading>
       <div className="mx-auto mt-14 grid max-w-[1400px] items-center gap-12 lg:grid-cols-2">
-        <Image src="/wp-content/uploads/2023/04/Rectangle-44.png" alt="" width={651} height={1075} className="mx-auto h-auto w-full max-w-[520px]" />
+        <Media src="/wp-content/uploads/2023/04/Rectangle-44.png" alt="" width={651} height={1075} className="mx-auto h-auto w-full max-w-[520px]" />
         <div className="text-[18px] font-light leading-[1.6] md:text-[24px] md:leading-[1.65]">
           {paragraphs.map((p) => (
             <p key={p.slice(0, 24)} className="mb-[1em]">

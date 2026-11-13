@@ -4,6 +4,7 @@ import postsJson from "../../content/posts.json";
 import categoriesJson from "../../content/categories.json";
 import tagsJson from "../../content/tags.json";
 import testimonialsJson from "../../content/testimonials.json";
+import { site } from "./site";
 
 export type Seo = { title: string; description: string; ogImage: string };
 
@@ -38,8 +39,36 @@ export type Post = {
 export type Category = { id: number; slug: string; name: string; parent: number; count: number; path: string };
 export type Tag = { id: number; slug: string; name: string };
 
-export const pages = pagesJson as Page[];
-export const posts = postsJson as Post[]; // newest first
+/**
+ * The WordPress copy still carries retired agency numbers — the 4 446 8302 / 8300 landlines on
+ * the contact and landing pages, and a named broker's direct line in two 2023 articles. The
+ * owner wants one published number everywhere, so every UAE number in the imported HTML is
+ * rewritten to it. Matching requires a `tel:` href or an explicit +971 prefix, so RERA numbers,
+ * prices and years are left alone.
+ */
+const TEL_HREF = /tel:(?:\+|00)?971[\d\s()-]{6,16}/gi;
+const TEL_TEXT = /\+971[\s-]*(?:\(0\))?[\s-]*\d[\d\s()-]{5,15}\d/g;
+
+// Display text is rewritten first: doing the href first would leave `tel:+971523702269`
+// for the text rule to find and break back apart into a spaced number.
+function normalisePhones(html: string): string {
+  return html.replace(TEL_TEXT, site.phone).replace(TEL_HREF, site.phoneHref);
+}
+
+// (`.test()` is not used here on purpose: these regexes are global, so it would carry
+// `lastIndex` from row to row and skip matches.)
+const withCurrentPhone = <T extends { html: string; seo: Seo }>(rows: T[]): T[] =>
+  rows.map((row) => {
+    const html = normalisePhones(row.html);
+    // Yoast scraped some descriptions straight off the page, so a retired number can sit in
+    // the meta description as well as the body.
+    const description = normalisePhones(row.seo.description ?? "");
+    if (html === row.html && description === row.seo.description) return row;
+    return { ...row, html, seo: { ...row.seo, description } };
+  });
+
+export const pages = withCurrentPhone(pagesJson as Page[]);
+export const posts = withCurrentPhone(postsJson as Post[]); // newest first
 export const categories = categoriesJson as Category[];
 export const tags = tagsJson as Tag[];
 export const testimonials = testimonialsJson as { id: number; name: string; html: string; image: string }[];
@@ -65,6 +94,10 @@ const descriptionOverrides: Record<string, string> = {
     "Build a real estate career in Dubai with Prestige Luxury Real Estate. See what we look for, what we offer our agents, and apply to join the team.",
   "/services/":
     "Residential and commercial real estate services in Dubai: buying, selling, leasing, off-plan investment, market appraisal and full property management.",
+  // Yoast had scraped this one off the contact form itself ("GET IN TOUCH First Name Last
+  // Name Mobile Email Message Submit This site is protected by reCAPTCHA…").
+  "/contact-us/":
+    "Talk to Prestige Luxury Real Estate in Dubai Marina about buying, selling, renting or managing a property in Dubai. Call, WhatsApp, email or visit our Marina Plaza office.",
 };
 
 /** Build Next.js metadata from the old Yoast SEO data so search rankings carry over. */

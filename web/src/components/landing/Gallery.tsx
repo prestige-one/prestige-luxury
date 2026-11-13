@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Media from "@/components/Media";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 export type GalleryImage = { src: string; width: number; height: number; alt?: string };
@@ -53,7 +53,7 @@ export default function Gallery({
                 }`}
                 aria-label={`Open image ${i + 1} of ${images.length}`}
               >
-                <Image
+                <Media
                   src={img.src}
                   alt={img.alt ?? ""}
                   fill
@@ -80,7 +80,7 @@ export default function Gallery({
               className={`group relative overflow-hidden ${aspect} ${radius}`}
               aria-label={`Open image ${i + 1} of ${images.length}`}
             >
-              <Image
+              <Media
                 src={img.src}
                 alt={img.alt ?? ""}
                 fill
@@ -144,7 +144,7 @@ function Lightbox({
   return (
     <div role="dialog" aria-modal="true" aria-label="Image viewer" className="fixed inset-0 z-[100] bg-black/95" onClick={onClose} dir="ltr">
       <div className="absolute inset-4 md:inset-16" onClick={(e) => e.stopPropagation()}>
-        <Image src={img.src} alt={img.alt ?? ""} fill sizes="100vw" className="object-contain" />
+        <Media src={img.src} alt={img.alt ?? ""} fill tone="ink" sizes="100vw" className="object-contain" />
       </div>
       <p className="absolute left-4 top-4 text-[13px] text-white/70">
         {index + 1} / {images.length}

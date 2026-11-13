@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Media from "@/components/Media";
 import LeadForm from "@/components/LeadForm";
 import LeadModal from "@/components/landing/LeadModal";
 import {
@@ -10,7 +10,7 @@ import {
   ShowcaseHero,
   featureIcons as fi,
 } from "@/components/landing/ProjectsShowcase";
-import { BenefitRow, FormBox, LinksFooter, LpHeading, Reviews, WhatsAppFloat, btn, projectFields } from "@/components/landing/shared";
+import { BenefitRow, FormBox, LinksFooter, LpHeading, Reviews, btn, projectFields } from "@/components/landing/shared";
 import { getPage, seoMetadata } from "@/lib/content";
 
 export const metadata = seoMetadata(getPage("/projects-for-sale-arabic/")!);
@@ -137,7 +137,7 @@ export default function ProjectsForSaleArabicPage() {
           mediaFirst={i % 2 === 0}
           media={
             <MediaFrame>
-              <Image
+              <Media
                 src={`/wp-content/uploads/2023/04/${p.image}`}
                 alt={p.title.join(" ")}
                 width={618}
@@ -181,7 +181,7 @@ export default function ProjectsForSaleArabicPage() {
         <ul id="benefits" className="mx-auto grid max-w-[1300px] grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-5">
           {whyDubai.map((w) => (
             <li key={w.label} className="flex flex-col items-center text-center">
-              <Image src={`/wp-content/uploads/2023/04/${w.icon}`} alt="" width={w.w} height={w.h} className="h-[100px] w-auto object-contain md:h-[130px]" />
+              <Media src={`/wp-content/uploads/2023/04/${w.icon}`} alt="" width={w.w} height={w.h} className="h-[100px] w-auto object-contain md:h-[130px]" />
               <span className="mt-5 text-[20px] font-medium leading-snug md:text-[26px]">{w.label}</span>
             </li>
           ))}
@@ -190,7 +190,7 @@ export default function ProjectsForSaleArabicPage() {
 
       <section id="map" className="scroll-mt-4 px-5 pt-16 md:px-[100px] md:pt-[100px]">
         <LpHeading>اعثر على عقارك</LpHeading>
-        <Image
+        <Media
           src="/wp-content/uploads/2023/04/map2-1-1024x729.png"
           alt="خريطة المشاريع في دبي"
           width={1024}
@@ -229,7 +229,6 @@ export default function ProjectsForSaleArabicPage() {
           { key: "map", label: "الخريطة", href: "#map" },
         ]}
       />
-      <WhatsAppFloat />
     </div>
   );
 }

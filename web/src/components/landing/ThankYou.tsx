@@ -1,5 +1,5 @@
 // Thank-you pages the landing-page forms redirect to (/thank-you-vista/, /thank-you-embankment/, ...)
-import Image from "next/image";
+import Media from "@/components/Media";
 import Link from "next/link";
 import { LogoBar, LpHeading, MiniFooter, btn } from "./shared";
 
@@ -49,7 +49,7 @@ export function DocCard({
         <h3 className={`mb-6 font-extrabold leading-tight ${tour ? "text-[30px] md:text-[48px]" : "text-[26px] md:text-[38px]"}`}>{title}</h3>
       )}
       <a href={href} {...external} className="block w-full overflow-hidden transition-opacity hover:opacity-85">
-        <Image
+        <Media
           src={image.src}
           alt={title ?? label}
           width={image.width}

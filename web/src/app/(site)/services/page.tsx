@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Media from "@/components/Media";
 import { Button, Container, PageBanner } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
 
@@ -79,7 +79,7 @@ export default function ServicesPage() {
           <section key={s.id} id={s.id} className="scroll-mt-24">
             <Container className="grid md:grid-cols-2">
               <div className={`relative min-h-[300px] md:min-h-[420px] ${i % 2 ? "md:order-2" : ""}`}>
-                <Image src={s.image} alt={s.title} fill sizes="(min-width: 768px) 570px, 100vw" className="object-cover" />
+                <Media src={s.image} alt={s.title} fill sizes="(min-width: 768px) 570px, 100vw" className="object-cover" />
               </div>
               <div className="flex flex-col justify-center bg-black px-8 py-12 text-white md:px-14">
                 <h2 className="text-[28px] font-medium md:text-[32px]">{s.title}</h2>

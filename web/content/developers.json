@@ -1,0 +1,1911 @@
+[
+ {
+  "slug": "prestige-one-developments",
+  "name": "Prestige One Developments",
+  "legalName": "PRESTIGE ONE DEVELOPMENTS",
+  "status": "registered-portal",
+  "featured": true,
+  "tagline": "Dubai developer behind Vista and The Residence, part of Prestige Holding Group",
+  "founded": 2023,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Ajmal Saifi, Founder and CEO",
+  "website": "https://prestigeone.ae",
+  "description": [
+   "Prestige One Developments is the property development arm of Prestige Holding Group, a family business established in 1968 whose Dubai real estate investments date from 2007. The company's own timeline marks 2023 as the year it began operating as a developer in its own right. It is led by founder and chief executive Ajmal Saifi, and works from offices at Marina Plaza in Dubai Marina.",
+   "Its portfolio is concentrated in mid-market and upper mid-market apartment buildings across Dubai, including Vista and Golf Residences in Dubai Sports City, The Residence and Berkeley Square in Jumeirah Village Circle, and schemes on Dubai Islands, at Meydan Horizon and in Dubai Maritime City. Handovers at Vista have begun, and the company has said it intends to expand its pipeline further across the emirate."
+  ],
+  "specialities": [
+   "Residential apartment buildings",
+   "Branded residences",
+   "Mid-market and upper mid-market homes"
+  ],
+  "projects": [
+   {
+    "name": "Vista by Prestige One",
+    "community": "Dubai Sports City"
+   },
+   {
+    "name": "Golf Residences by Prestige One",
+    "community": "Dubai Sports City"
+   },
+   {
+    "name": "The Residence by Prestige One",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Berkeley Square North",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Sanctuary Residences by Prestige One",
+    "community": "Meydan Horizon"
+   },
+   {
+    "name": "Hilton Residences by Prestige One",
+    "community": "Dubai Maritime City"
+   },
+   {
+    "name": "FAUCHON Residences by Prestige One",
+    "community": "Jumeirah Garden City"
+   },
+   {
+    "name": "Coastal Haven",
+    "community": "Dubai Islands"
+   }
+  ],
+  "communities": [
+   "Dubai Sports City",
+   "Jumeirah Village Circle",
+   "Dubai Islands",
+   "Dubai Maritime City",
+   "Meydan Horizon",
+   "Palm Jumeirah",
+   "Jumeirah Garden City",
+   "Barsha Heights"
+  ]
+ },
+ {
+  "slug": "nakheel",
+  "name": "Nakheel",
+  "legalName": "DUBAI HOLDING - NAKHEEL",
+  "status": "registered-portal",
+  "featured": true,
+  "tagline": "Dubai master developer of Palm Jumeirah, now part of Dubai Holding",
+  "founded": 2003,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Sheikh Ahmed bin Saeed Al Maktoum, Chairman",
+  "website": "https://www.nakheel.com",
+  "description": [
+   "Nakheel is a Dubai master developer best known for Palm Jumeirah, the reclaimed island it delivered off the Jumeirah coast. Established in 2003 as part of the state-owned Dubai World group, it passed to the Government of Dubai after a debt restructuring, and in March 2024 was merged into Dubai Holding on the instruction of Sheikh Mohammed bin Rashid Al Maktoum.",
+   "The company continues to trade under its own name within Dubai Holding Real Estate. Its master developments include Palm Jumeirah, Palm Jebel Ali, Dubai Islands, The World and District One, alongside established residential communities such as Al Furjan, Jumeirah Village Circle, Jumeirah Park and Discovery Gardens. Its retail assets include Ibn Battuta Mall and Dragon Mart, and recent launches include Bay Grove Residences and Como Residences."
+  ],
+  "specialities": [
+   "Master-planned waterfront communities",
+   "Island developments",
+   "Large residential communities",
+   "Retail assets"
+  ],
+  "projects": [
+   {
+    "name": "Palm Jumeirah",
+    "community": "Palm Jumeirah"
+   },
+   {
+    "name": "Palm Jebel Ali",
+    "community": "Palm Jebel Ali"
+   },
+   {
+    "name": "Dubai Islands",
+    "community": "Dubai Islands"
+   },
+   {
+    "name": "The World",
+    "community": null
+   },
+   {
+    "name": "The Palm Tower",
+    "community": "Palm Jumeirah"
+   },
+   {
+    "name": "Como Residences",
+    "community": "Palm Jumeirah"
+   },
+   {
+    "name": "Bay Grove Residences",
+    "community": "Dubai Islands"
+   },
+   {
+    "name": "Ibn Battuta Mall",
+    "community": null
+   }
+  ],
+  "communities": [
+   "Palm Jumeirah",
+   "Dubai Islands",
+   "Al Furjan",
+   "Jumeirah Village Circle",
+   "Jumeirah Village Triangle",
+   "Jumeirah Park",
+   "Jumeirah Islands",
+   "Discovery Gardens"
+  ]
+ },
+ {
+  "slug": "meraas",
+  "name": "Meraas",
+  "legalName": "DUBAI HOLDING - MERAAS",
+  "status": "registered-portal",
+  "featured": true,
+  "tagline": "Design-led Dubai developer of City Walk and Bluewaters, part of Dubai Holding",
+  "founded": 2007,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Sheikh Ahmed bin Saeed Al Maktoum, Chairman",
+  "website": "https://www.meraas.com",
+  "description": [
+   "Meraas is a Dubai developer and asset owner formed in 2007, known for design-led destinations rather than conventional subdivisions. In 2020 it was brought under Dubai Holding by decree, and it now trades as part of Dubai Holding Real Estate alongside Nakheel and Dubai Properties. Its best-known schemes are City Walk, the low-rise retail and residential district in Al Wasl, and Bluewaters, the island that carries Ain Dubai.",
+   "The portfolio also takes in La Mer and Port de La Mer on the Jumeirah coast, Madinat Jumeirah Living, Jumeira Bay, Pearl Jumeira and Marsa Al Arab. More recent launches move inland and suburban: Nad Al Sheba Gardens, the villa community The Acres, and Design Quarter at Dubai Design District, the first residential addresses within d3. Meraas also holds hospitality and leisure assets across the city."
+  ],
+  "specialities": [
+   "Mixed-use waterfront destinations",
+   "Lifestyle retail districts",
+   "Island developments",
+   "Low-rise urban communities"
+  ],
+  "projects": [
+   {
+    "name": "City Walk",
+    "community": "City Walk"
+   },
+   {
+    "name": "Bluewaters",
+    "community": "Bluewaters Island"
+   },
+   {
+    "name": "La Mer",
+    "community": "La Mer"
+   },
+   {
+    "name": "Port de La Mer",
+    "community": "Port De La Mer"
+   },
+   {
+    "name": "Madinat Jumeirah Living",
+    "community": "Madinat Jumeirah Living"
+   },
+   {
+    "name": "Nad Al Sheba Gardens",
+    "community": "Nad Al Sheba"
+   },
+   {
+    "name": "The Acres",
+    "community": "Dubailand"
+   },
+   {
+    "name": "Design Quarter at d3",
+    "community": "Dubai Design District"
+   }
+  ],
+  "communities": [
+   "City Walk",
+   "Bluewaters Island",
+   "La Mer",
+   "Port De La Mer",
+   "Madinat Jumeirah Living",
+   "Nad Al Sheba",
+   "Dubai Design District",
+   "Jumeirah Bay Island"
+  ]
+ },
+ {
+  "slug": "meydan",
+  "name": "Meydan",
+  "legalName": "DUBAI HOLDING - MEYDAN",
+  "status": "registered-portal",
+  "featured": true,
+  "tagline": "Dubai developer of Meydan Racecourse and Meydan City, now part of Dubai Holding",
+  "founded": 2007,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": null,
+  "website": "https://meydan.ae",
+  "description": [
+   "Meydan is a Dubai developer and asset owner created around the Meydan Racecourse at Nad Al Sheba, which opened in 2010 and hosts the Dubai World Cup. The group was launched in 2007 under the patronage of Sheikh Mohammed bin Rashid Al Maktoum, and its remit widened from the racecourse to master development across the surrounding district.",
+   "In March 2024 Sheikh Mohammed ordered Meydan merged with Nakheel under Dubai Holding, and the boards of both companies were dissolved. Meydan's name remains attached to Meydan City, the Meydan One masterplan, District One in Mohammed Bin Rashid City, developed with Sobha, and the Meydan Horizon masterplan opposite the racecourse. Much of the surrounding residential supply is now built by third-party developers on Meydan land."
+  ],
+  "specialities": [
+   "Master-planned districts",
+   "Racing and leisure assets",
+   "Mixed-use development"
+  ],
+  "projects": [
+   {
+    "name": "Meydan Racecourse",
+    "community": "Meydan City"
+   },
+   {
+    "name": "Meydan One",
+    "community": "Meydan City"
+   },
+   {
+    "name": "District One",
+    "community": "Mohammed Bin Rashid City"
+   },
+   {
+    "name": "Meydan Horizon",
+    "community": "Meydan Horizon"
+   }
+  ],
+  "communities": [
+   "Meydan City",
+   "Mohammed Bin Rashid City",
+   "District One",
+   "Nad Al Sheba",
+   "Meydan Horizon"
+  ]
+ },
+ {
+  "slug": "emaar-properties",
+  "name": "Emaar Properties",
+  "legalName": "EMAAR",
+  "status": "registered-portal",
+  "featured": true,
+  "tagline": "Dubai's master developer, behind Burj Khalifa and Downtown Dubai",
+  "founded": 1997,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Mohamed Alabbar, Founder and Managing Director",
+  "website": "https://www.emaar.com",
+  "description": [
+   "Emaar Properties was founded and incorporated in Dubai in 1997 by Mohamed Alabbar, and is listed on the Dubai Financial Market. It built Downtown Dubai, the district that contains Burj Khalifa, The Dubai Mall, Dubai Opera and the Dubai Fountain. Alabbar stepped down as chairman in December 2020 and continues as managing director; Amit Jain is chief executive of the group.",
+   "Beyond Downtown, Emaar's master communities include Dubai Marina, Arabian Ranches, Emirates Living, Dubai Hills Estate, Dubai Creek Harbour, Emaar Beachfront, Emaar South, The Valley and The Oasis. The company reports more than 130,900 homes delivered and a land bank of around 590 million square feet, and it also operates hotels, malls and leisure assets in Dubai and overseas markets."
+  ],
+  "specialities": [
+   "Master-planned communities",
+   "Mixed-use urban districts",
+   "Luxury apartments",
+   "Hospitality and retail assets"
+  ],
+  "projects": [
+   {
+    "name": "Burj Khalifa",
+    "community": "Downtown Dubai"
+   },
+   {
+    "name": "The Dubai Mall",
+    "community": "Downtown Dubai"
+   },
+   {
+    "name": "Dubai Opera",
+    "community": "Downtown Dubai"
+   },
+   {
+    "name": "The Dubai Fountain",
+    "community": "Downtown Dubai"
+   },
+   {
+    "name": "Dubai Creek Tower",
+    "community": "Dubai Creek Harbour"
+   },
+   {
+    "name": "Arabian Ranches",
+    "community": "Arabian Ranches"
+   },
+   {
+    "name": "The Oasis by Emaar",
+    "community": null
+   },
+   {
+    "name": "Grand Polo Club & Resort",
+    "community": null
+   }
+  ],
+  "communities": [
+   "Downtown Dubai",
+   "Dubai Marina",
+   "Dubai Hills Estate",
+   "Dubai Creek Harbour",
+   "Emaar Beachfront",
+   "Arabian Ranches",
+   "Emaar South",
+   "The Valley"
+  ]
+ },
+ {
+  "slug": "eagle-hills",
+  "name": "Eagle Hills",
+  "legalName": "EAGLE HILLS Abu Dhabi",
+  "status": "registered-portal",
+  "featured": false,
+  "tagline": "Abu Dhabi developer of waterfront destinations in the UAE and abroad",
+  "founded": 2014,
+  "headquarters": "Abu Dhabi, United Arab Emirates",
+  "founder": "Mohamed Alabbar, Founder and Chairman",
+  "website": "https://eaglehills.com",
+  "description": [
+   "Eagle Hills is a privately held developer established in Abu Dhabi in January 2014 by Mohamed Alabbar, who also founded Emaar Properties. The two companies are separate. Eagle Hills concentrates on large mixed-use waterfront masterplans, usually delivered in partnership with governments or state investment bodies, and works across the Middle East, Africa, Europe and, more recently, the Indian Ocean.",
+   "In the UAE its work is concentrated outside Dubai. Ramhan Island, off Abu Dhabi, is planned around villas, marina residences and a hotel; Lulu Island is being revived as a visitor and residential destination. In Sharjah, the joint venture with Shurooq delivered Maryam Island, Palace Al Khan and Kalba Waterfront. Overseas projects include Belgrade Waterfront in Serbia."
+  ],
+  "specialities": [
+   "Waterfront masterplans",
+   "Mixed-use destinations",
+   "Government joint ventures",
+   "Hotels and branded residences"
+  ],
+  "projects": [
+   {
+    "name": "Ramhan Island",
+    "community": "Ramhan Island"
+   },
+   {
+    "name": "Lulu Island",
+    "community": "Lulu Island"
+   },
+   {
+    "name": "Bvlgari Resort & Mansions Abu Dhabi",
+    "community": null
+   },
+   {
+    "name": "Maryam Island",
+    "community": "Maryam Island"
+   },
+   {
+    "name": "Palace Al Khan",
+    "community": "Al Khan"
+   },
+   {
+    "name": "Kalba Waterfront",
+    "community": "Kalba"
+   },
+   {
+    "name": "Fujairah Beach Residence",
+    "community": null
+   },
+   {
+    "name": "Belgrade Waterfront",
+    "community": null
+   }
+  ],
+  "communities": [
+   "Ramhan Island",
+   "Lulu Island",
+   "Maryam Island",
+   "Al Khan",
+   "Kalba"
+  ]
+ },
+ {
+  "slug": "omniyat",
+  "name": "Omniyat",
+  "legalName": "OMNIYAT",
+  "status": "registered",
+  "featured": true,
+  "tagline": "Dubai luxury developer behind The Opus and One at Palm Jumeirah",
+  "founded": 2005,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Mahdi Amjad, Founder and Executive Chairman",
+  "website": "https://omniyat.com",
+  "description": [
+   "Omniyat was founded in Dubai in 2005 by Mahdi Amjad, who remains its executive chairman. The privately held company builds at the top of the Dubai market, commissioning named architects and designers for a comparatively small number of buildings. Its best-known scheme is The Opus in Business Bay, designed inside and out by Zaha Hadid and housing the ME Dubai hotel.",
+   "Several projects carry Dorchester Collection branding, among them The Lana at Marasi Bay, ORLA and ORLA Infinity on Palm Jumeirah, and The Alba Residences. Other developments include One at Palm Jumeirah, AVA at Palm Jumeirah, VELA, Anwa, One by Omniyat and The Sterling. The company marked twenty years of trading in 2025 and puts the value of its portfolio at around ten billion US dollars."
+  ],
+  "specialities": [
+   "Ultra-luxury residences",
+   "Branded residences",
+   "Architect-led design",
+   "Commercial towers"
+  ],
+  "projects": [
+   {
+    "name": "The Opus",
+    "community": "Business Bay"
+   },
+   {
+    "name": "One at Palm Jumeirah",
+    "community": "Palm Jumeirah"
+   },
+   {
+    "name": "AVA at Palm Jumeirah",
+    "community": "Palm Jumeirah"
+   },
+   {
+    "name": "The Lana, Dorchester Collection",
+    "community": "Business Bay"
+   },
+   {
+    "name": "ORLA, Dorchester Collection",
+    "community": "Palm Jumeirah"
+   },
+   {
+    "name": "One by Omniyat",
+    "community": "Business Bay"
+   },
+   {
+    "name": "The Alba Residences, Dorchester Collection",
+    "community": null
+   },
+   {
+    "name": "VELA",
+    "community": null
+   }
+  ],
+  "communities": [
+   "Business Bay",
+   "Palm Jumeirah"
+  ]
+ },
+ {
+  "slug": "devmark",
+  "name": "Devmark",
+  "legalName": "DEVMARK",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Dubai development sales and marketing consultancy, founded 2018",
+  "founded": 2018,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Sean McCauley, Chief Executive Officer",
+  "website": "https://www.devmark.com",
+  "description": [
+   "Devmark is a UAE real estate consultancy founded in 2018 and led by chief executive Sean McCauley. It is not a principal developer: it provides development marketing and sales services to developers, covering project positioning, branding, marketing campaigns and the sales process itself. The business trades under the Devmark Group name and operates through the licensed entity Devmark Real Estate Brokers L.L.C.",
+   "Its work includes residential and commercial schemes for third-party developers, among them Soma Residences, Avida Residences and Arka Enclave on Dubai Islands, The Collection at Wasl Gate, The Pier Residence in Dubai Maritime City and the Christian A. Rockefeller Business Tower on Sheikh Zayed Road. Devmark also runs an affiliate marketing arm, Freedm, and distributes stock through a broker network it describes as exceeding 16,000 agents."
+  ],
+  "specialities": [
+   "Development marketing and sales",
+   "Project positioning and branding",
+   "Investment sales",
+   "Broker network distribution"
+  ],
+  "projects": [],
+  "communities": []
+ },
+ {
+  "slug": "ade-properties",
+  "name": "ADE Properties",
+  "legalName": "ADE PROPERTIES",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Dubai developer of mid-market apartments in Majan and Jumeirah Village Circle",
+  "founded": null,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Mohammed Ahmad Al Dallal, Chief Executive Officer",
+  "website": "https://www.adeproperties.ae",
+  "description": [
+   "ADE Properties is a Dubai-based residential developer whose projects draw on the Al Dallal family's involvement in the emirate's property sector since the 1950s. The company works mainly in the mid-market segment, building apartment blocks that combine ground-floor retail with studio, one- and two-bedroom homes. Its office is at Bay Square in Business Bay, and its current portfolio sits in Majan and Jumeirah Village Circle.",
+   "Barari Gate, announced in 2025, is a 274-unit mixed-use scheme in Majan adjoining Al Barari, with ground-floor retail beneath ten residential levels and completion scheduled for the fourth quarter of 2028. Deansgate, also in Majan, is listed as sold out. Greygate Residences in Jumeirah Village Circle comprises 223 homes - 149 studios and 74 one-bedroom apartments - over fifteen floors, together with five retail units."
+  ],
+  "specialities": [
+   "Residential apartments",
+   "Mixed-use residential and retail buildings",
+   "Mid-market homes"
+  ],
+  "projects": [
+   {
+    "name": "Barari Gate",
+    "community": "Majan"
+   },
+   {
+    "name": "Greygate Residences",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Deansgate",
+    "community": "Majan"
+   }
+  ],
+  "communities": [
+   "Majan",
+   "Jumeirah Village Circle"
+  ]
+ },
+ {
+  "slug": "ag-properties",
+  "name": "AG Properties",
+  "legalName": "AG PROPERTIES",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Dubai developer of apartment buildings in the Dubai Land Residence Complex",
+  "founded": null,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": null,
+  "website": null,
+  "description": [
+   "AG Properties is a Dubai developer of mid-rise residential buildings, concentrated almost entirely in the Dubai Land Residence Complex. Its schemes are apartment blocks of studios and one- and two-bedroom homes, offered at the more accessible end of the Dubai market and sold largely off-plan. The company publishes little corporate information of its own, and no official website or founding date could be confirmed from a reliable source.",
+   "Projects listed as sold out include AG Central, AG Square and AG 7even, all within the Dubai Land Residence Complex. Current off-plan stock comprises AG Ark Tower, AUM Residence and Aum 99 Residences in the same district, with handovers listed between 2027 and 2029. Whitecliffs Residences on Dubai Islands, due in 2027, is the only recorded project outside Dubailand."
+  ],
+  "specialities": [
+   "Residential apartments",
+   "Mid-rise residential buildings",
+   "Off-plan homes"
+  ],
+  "projects": [
+   {
+    "name": "AG Central",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "AG Square",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "AG 7even",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "AG 9ine",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "AG Ark Tower",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "AUM Residence",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "Aum 99 Residences",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "Whitecliffs Residences",
+    "community": "Dubai Islands"
+   }
+  ],
+  "communities": [
+   "Dubai Land Residence Complex",
+   "Dubai Islands"
+  ]
+ },
+ {
+  "slug": "ays-developers",
+  "name": "AYS Developers",
+  "legalName": "AYS DEVELOPER",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Dubai developer of apartments on Dubai Islands and in Jumeirah Village Circle",
+  "founded": null,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Yulia Loshchukhina, Chief Executive Officer",
+  "website": null,
+  "description": [
+   "AYS Developers, which trades on the property portals as AYS Property Development, is a Dubai developer of off-plan apartment buildings working chiefly on Dubai Islands and in Jumeirah Village Circle. Its Q Gardens series covers studios and one-bedroom apartments, while the Dubai Islands schemes are positioned as waterfront residences. The company is led by chief executive Yulia Loshchukhina and runs regular training sessions for the brokers selling its stock.",
+   "Q Gardens Lofts and Q Gardens Lofts Phase 2, both in Jumeirah Village Circle, are complete and sold out, while Q Gardens Aliya in the same community is due in 2027. On Dubai Islands the developer is building Ventone, Tivanno Residence and Breva, with handovers scheduled between 2027 and 2028, and Kusto Aura in Dubai Production City is listed for 2029. In May 2025 AYS set a Guinness World Records title for the largest real estate training session."
+  ],
+  "specialities": [
+   "Residential apartments",
+   "Off-plan waterfront apartments",
+   "Studio and one-bedroom homes"
+  ],
+  "projects": [
+   {
+    "name": "Ventone",
+    "community": "Dubai Islands"
+   },
+   {
+    "name": "Tivanno Residence",
+    "community": "Dubai Islands"
+   },
+   {
+    "name": "Breva",
+    "community": "Dubai Islands"
+   },
+   {
+    "name": "Kusto Aura",
+    "community": "Dubai Production City"
+   },
+   {
+    "name": "Q Gardens Aliya",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Q Gardens Lofts",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Q Gardens Lofts Phase 2",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Q Gardens Boutique Residences",
+    "community": "Arjan"
+   }
+  ],
+  "communities": [
+   "Dubai Islands",
+   "Jumeirah Village Circle",
+   "Arjan",
+   "Dubai Production City"
+  ]
+ },
+ {
+  "slug": "casagrand-developers",
+  "name": "Casagrand Developers",
+  "legalName": "CASAGRAND DEVELOPERS",
+  "status": "registered",
+  "featured": false,
+  "tagline": "UAE arm of Indian developer Casagrand, building its first project on Dubai Islands",
+  "founded": 2003,
+  "headquarters": "Chennai, India",
+  "founder": "Arun MN, Founder and Managing Director",
+  "website": "https://www.casagrand.co.in",
+  "description": [
+   "Casagrand Developers is the UAE arm of Casagrand Premier Builder, an Indian residential developer founded in 2003 and headquartered in Chennai. The group entered the Emirates in 2025 with its first project outside India, and has said it intends to develop more than six million square feet of residential and mixed-use space in Dubai over the following three years. Its Dubai office is in Business Bay, and Luthfullah K is director for Dubai.",
+   "The company's debut UAE scheme is Casagrand Hermina on Dubai Islands, a waterfront development of around 130 apartments valued at about AED 420 million, with one- to four-bedroom layouts ranging from roughly 830 to 2,560 square feet. Construction began in 2026 under contractor Jaseera Building Contracting, with completion reported for 2028. In India the group lists more than 160 projects across Chennai, Bengaluru, Coimbatore and Hyderabad."
+  ],
+  "specialities": [
+   "Residential apartments",
+   "Waterfront residences",
+   "Mixed-use development"
+  ],
+  "projects": [
+   {
+    "name": "Casagrand Hermina",
+    "community": "Dubai Islands"
+   }
+  ],
+  "communities": [
+   "Dubai Islands"
+  ]
+ },
+ {
+  "slug": "citi-developers",
+  "name": "Citi Developers",
+  "legalName": "CITI DEVELOPERS",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Dubai developer of apartments in Jumeirah Village Circle and on Dubai Islands",
+  "founded": null,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Zoraiz Malik, Chief Executive Officer",
+  "website": null,
+  "description": [
+   "Citi Developers is a Dubai residential developer led by chief executive Zoraiz Malik. It began in Jumeirah Village Circle and has since moved to the Dubai Islands waterfront, marketing its schemes under a 'Neo Luxury' positioning. Its buildings are mid- and high-rise apartment blocks of studios and one- to three-bedroom homes, and the company also has projects under way in Umm Al Quwain. It is not connected to the similarly named bank.",
+   "Aveline Residences, a 21-storey building of 263 apartments in Jumeirah Village Circle, was its first Dubai project and was followed by Allura Residences in the same community; both are now sold out. On Dubai Islands it has launched Arya Residences and the two AGUA Residences towers, with handovers listed for 2027. Outside Dubai it is building Amra and Amra Residences 2 in Umm Al Quwain."
+  ],
+  "specialities": [
+   "Residential apartments",
+   "Waterfront apartments",
+   "Off-plan homes"
+  ],
+  "projects": [
+   {
+    "name": "Aveline Residences",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Allura Residences",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Arya Residences",
+    "community": "Dubai Islands"
+   },
+   {
+    "name": "AGUA Residences",
+    "community": "Dubai Islands"
+   },
+   {
+    "name": "Agua Residences Tower 2",
+    "community": "Dubai Islands"
+   },
+   {
+    "name": "Amra",
+    "community": null
+   },
+   {
+    "name": "Amra Residences 2",
+    "community": null
+   }
+  ],
+  "communities": [
+   "Jumeirah Village Circle",
+   "Dubai Islands"
+  ]
+ },
+ {
+  "slug": "deca-properties",
+  "name": "Deca Properties",
+  "legalName": "DECA PROPERTIES",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Dubai developer of premium residential and hospitality projects",
+  "founded": null,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Saad Haq, Founder and Group Chief Executive Officer, with co-founder Emad Haq as Vice Chairman",
+  "website": null,
+  "description": [
+   "DECA, which also appears as Deca Properties and Deca Developments, is a Dubai-based developer of premium residential and hospitality projects. It was founded by the brothers Saad Haq, group chief executive, and Emad Haq, vice chairman, and describes itself as a third-generation family business with more than fifty years of combined experience. Alongside its own schemes it works in partnership with other UAE developers, taking a design-led approach from concept through to handover.",
+   "In November 2026 the company launched the Lorevia Collection, a series of premium residential developments whose first ten addresses are planned across Dubai, the wider UAE and two European locations. The first of these is a waterfront development at Al Zorah. DECA said at the launch that it intended to bring more than AED 3 billion of new projects to market within six months. Avana Residences in Jumeirah Village Circle is listed among its Dubai schemes."
+  ],
+  "specialities": [
+   "Premium residential developments",
+   "Hospitality-led residences",
+   "Development partnerships"
+  ],
+  "projects": [
+   {
+    "name": "Lorevia Collection",
+    "community": null
+   },
+   {
+    "name": "Avana Residences",
+    "community": "Jumeirah Village Circle"
+   }
+  ],
+  "communities": [
+   "Jumeirah Village Circle"
+  ]
+ },
+ {
+  "slug": "forum-real-estate-development",
+  "name": "Forum Real Estate Development",
+  "legalName": "FORUM Real Estate Development",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Dubai developer with projects in Jebel Ali and Jumeirah Village Triangle",
+  "founded": null,
+  "headquarters": null,
+  "founder": null,
+  "website": null,
+  "description": [
+   "Forum Real Estate Development, which also appears on the UAE property portals as Forum Group, is a developer active in Dubai. Two of its projects are listed publicly: Metropoint, an apartment building in Jebel Ali with handover scheduled for 2027, and FH Residency in Jumeirah Village Triangle, which is complete. Published sources disagree on the company's founding date, ownership and head office, so none of those details is recorded here."
+  ],
+  "specialities": [
+   "Residential apartments"
+  ],
+  "projects": [
+   {
+    "name": "Metropoint",
+    "community": "Jebel Ali"
+   },
+   {
+    "name": "FH Residency",
+    "community": "Jumeirah Village Triangle"
+   }
+  ],
+  "communities": [
+   "Jebel Ali",
+   "Jumeirah Village Triangle"
+  ]
+ },
+ {
+  "slug": "gfs-real-estate",
+  "name": "GFS Real Estate",
+  "legalName": "GFS REAL ESTATE",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Dubai developer behind the Coventry series of apartment buildings",
+  "founded": null,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": null,
+  "website": "https://www.gfsdevelopments.ae",
+  "description": [
+   "GFS Real Estate, which trades in Dubai as GFS Builders & Developers and GFS Developments, builds mid-market apartment buildings across the emirate's outer communities. Its homes are studios and one- and two-bedroom units sold off-plan on extended payment plans. Michael John Collings is the company's general manager. Reported founding dates and head-office locations differ widely between sources, so neither is recorded here.",
+   "The developer's output is branded under the Coventry name. Coventry Garden and Coventry Gardens 2 are in the Dubai Land Residence Complex, Coventry 66 is in Dubai South, where construction began in July 2025, Coventry Centro is in Dubai Industrial City with handover listed for 2028, and Coventry 2 is in International City Phase 2. Bayut named GFS its Emerging Developer of the Month for April 2025."
+  ],
+  "specialities": [
+   "Residential apartments",
+   "Studio and one-bedroom homes",
+   "Off-plan homes"
+  ],
+  "projects": [
+   {
+    "name": "Coventry Garden",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "Coventry Gardens 2",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "Coventry 66",
+    "community": "Dubai South"
+   },
+   {
+    "name": "Coventry Centro",
+    "community": "Dubai Industrial City"
+   },
+   {
+    "name": "Coventry 2",
+    "community": "International City Phase 2"
+   }
+  ],
+  "communities": [
+   "Dubai Land Residence Complex",
+   "Dubai South",
+   "Dubai Industrial City",
+   "International City Phase 2"
+  ]
+ },
+ {
+  "slug": "the-heart-of-europe",
+  "name": "The Heart of Europe",
+  "legalName": "HEART OF EUROPE",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Kleindienst Group's six-island resort destination on Dubai's World Islands",
+  "founded": null,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Josef Kleindienst, Founder and Chairman of Kleindienst Group",
+  "website": "https://thoe.com",
+  "description": [
+   "The Heart of Europe is a resort and second-home destination being built by Kleindienst Group on six islands within The World, the artificial archipelago off Dubai's coast. Josef Kleindienst, the group's founder and chairman, is the master developer. The islands are themed on European countries and cities, and the scheme combines hotels, serviced residences, beachfront palaces and floating villas rather than conventional mainland apartment blocks.",
+   "The six islands are Europe Island, Honeymoon Island, Sweden Island, Germany Island, Switzerland Island and the Floating Venice Lido. Announced components include the Floating Venice, Cote d'Azur with its voco Monaco and voco Nice hotels, a Buddha-Bar hotel and floating villas, Portofino Residences and an InterContinental resort. Completion dates have moved repeatedly since construction began, and recent reporting points to phased handovers continuing past 2026."
+  ],
+  "specialities": [
+   "Island resort development",
+   "Hotels and branded resorts",
+   "Floating villas",
+   "Second-home holiday residences"
+  ],
+  "projects": [
+   {
+    "name": "Europe Island",
+    "community": "The World Islands"
+   },
+   {
+    "name": "Honeymoon Island",
+    "community": "The World Islands"
+   },
+   {
+    "name": "Sweden Island",
+    "community": "The World Islands"
+   },
+   {
+    "name": "Germany Island",
+    "community": "The World Islands"
+   },
+   {
+    "name": "Switzerland Island",
+    "community": "The World Islands"
+   },
+   {
+    "name": "The Floating Venice",
+    "community": "The World Islands"
+   },
+   {
+    "name": "Cote d'Azur Monaco Resort",
+    "community": "The World Islands"
+   },
+   {
+    "name": "Portofino Residences",
+    "community": "The World Islands"
+   }
+  ],
+  "communities": [
+   "The World Islands"
+  ]
+ },
+ {
+  "slug": "irth-group",
+  "name": "Irth Group",
+  "legalName": "IRTH GROUP",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Dubai developer of Rove Home branded residences and lifestyle offices",
+  "founded": null,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Osman Celiker, Chief Executive Officer; founded by the Alshamsi family",
+  "website": "https://irth.ae",
+  "description": [
+   "IRTH Group is a privately held Dubai real estate investment and development company founded by the Alshamsi family, with its corporate office in Vision Tower, Business Bay. It develops hospitality-led branded residences and offices, and is the development partner behind the Rove Home brand created with Rove Hotels. Osman Celiker is chief executive. In 2026 the group added an in-house contracting arm, IRTH Contracting, to bring delivery under its own control.",
+   "Rove Home Downtown Dubai launched in 2023 and carries 348 units, with handover expected in 2026. It was followed by Rove Home Marasi Drive in Business Bay, with 809 apartments, and Rove Home Dubai Marina, with 679. On the commercial side the group is building HQ by Rove at Marasi Bay and Haus of Tenet in Business Bay. A multi-year partnership with Rove Hotels announced in October 2026 begins with Rove Home The Greens."
+  ],
+  "specialities": [
+   "Branded residences",
+   "Hospitality-led apartments",
+   "Commercial offices"
+  ],
+  "projects": [
+   {
+    "name": "Rove Home Downtown Dubai",
+    "community": "Downtown Dubai"
+   },
+   {
+    "name": "Rove Home Marasi Drive",
+    "community": "Business Bay"
+   },
+   {
+    "name": "Rove Home Dubai Marina",
+    "community": "Dubai Marina"
+   },
+   {
+    "name": "Rove Home The Greens",
+    "community": "The Greens"
+   },
+   {
+    "name": "HQ by Rove",
+    "community": "Business Bay"
+   },
+   {
+    "name": "Haus of Tenet",
+    "community": "Business Bay"
+   }
+  ],
+  "communities": [
+   "Downtown Dubai",
+   "Business Bay",
+   "Dubai Marina",
+   "The Greens"
+  ]
+ },
+ {
+  "slug": "jad-global",
+  "name": "Jad Global",
+  "legalName": "JAD GLOBAL",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Dubai developer of wellness-led residential towers in Jumeirah Garden City and Al Jaddaf",
+  "founded": null,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Mohammed Al Sheikh, Chief Executive Officer",
+  "website": "https://jadglobal.ae",
+  "description": [
+   "JAD Global Real Estate Development is a Dubai-based developer of residential and mixed-use property, working from offices at One Central in the city's trade centre district. The company describes its approach as wellness-led, and its completed and current buildings are mid-rise residential towers rather than master-planned communities. Mohammed Al Sheikh serves as chief executive officer.",
+   "Its Dubai portfolio centres on Jumeirah Garden City in Al Satwa, where it has launched 171 Garden Heights and JAD288, alongside J188 in Al Jaddaf and the completed Wadi 645. The company has stated that the value of its Dubai investment portfolio exceeds one billion dirhams, and that further schemes are in design for Meydan, Dubai South, Business Bay, Barsha Heights and Al Barsha South."
+  ],
+  "specialities": [
+   "Residential apartments",
+   "Mid-rise residential towers",
+   "Mixed-use development"
+  ],
+  "projects": [
+   {
+    "name": "J188",
+    "community": "Al Jaddaf"
+   },
+   {
+    "name": "JAD288",
+    "community": "Jumeirah Garden City"
+   },
+   {
+    "name": "171 Garden Heights",
+    "community": "Jumeirah Garden City"
+   },
+   {
+    "name": "Wadi 645",
+    "community": null
+   }
+  ],
+  "communities": [
+   "Jumeirah Garden City",
+   "Al Jaddaf"
+  ]
+ },
+ {
+  "slug": "mana-comco-real-estate",
+  "name": "Mana Comco Real Estate",
+  "legalName": "MANA COMCO REAL ESTATE",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Dubai property developer on Prestige Luxury Real Estate's registered list",
+  "founded": null,
+  "headquarters": null,
+  "founder": null,
+  "website": null,
+  "description": [
+   "Mana Comco Real Estate appears on the agency's list of registered Dubai developers. No verifiable public information about the company could be found: searches of news archives, developer directories and the main UAE property portals returned no record of its projects, leadership, registration or founding. The details on this page should be confirmed with the Dubai Land Department before they are relied upon."
+  ],
+  "specialities": [],
+  "projects": [],
+  "communities": []
+ },
+ {
+  "slug": "mashriq-elite",
+  "name": "Mashriq Elite",
+  "legalName": "MASHRIQ ELITE",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Dubai residential developer behind the Floarea collection, part of Mashriq Group",
+  "founded": null,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Kamran Muhammad, Chief Executive Officer",
+  "website": "https://mashriqelite.com",
+  "description": [
+   "Mashriq Elite Developments is a Dubai residential developer and part of the Mashriq Group, with its sales centre and corporate office in Westburry Office Tower, Business Bay. It builds mid-rise apartment buildings under a single brand, the Floarea collection, and has said its portfolio spans roughly 1,525 residential units with a cumulative value of around 1.5 billion dirhams.",
+   "Its first completed building was Floarea Residence in Arjan, a 206-apartment scheme handed over on schedule. Further buildings have followed across Arjan, Discovery Gardens, Jumeirah Village Circle, the Dubai Land Residence Complex, Dubai Production City and Dubai Islands, the last of these being Floarea Breeze, the company's first waterfront project. Kamran Muhammad leads the business as chief executive officer."
+  ],
+  "specialities": [
+   "Residential apartments",
+   "Mid-rise residential towers",
+   "Off-plan residential development"
+  ],
+  "projects": [
+   {
+    "name": "Floarea Residence",
+    "community": "Arjan"
+   },
+   {
+    "name": "Floarea Grande",
+    "community": "Arjan"
+   },
+   {
+    "name": "Floarea Vista",
+    "community": "Discovery Gardens"
+   },
+   {
+    "name": "Floarea Skies",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Floarea Oasis",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "Floarea Breeze",
+    "community": "Dubai Islands"
+   },
+   {
+    "name": "Floarea Lakes",
+    "community": "Dubai Production City"
+   }
+  ],
+  "communities": [
+   "Arjan",
+   "Discovery Gardens",
+   "Jumeirah Village Circle",
+   "Dubai Land Residence Complex",
+   "Dubai Islands",
+   "Dubai Production City"
+  ]
+ },
+ {
+  "slug": "nexus-developers",
+  "name": "Nexus Developers",
+  "legalName": "NEXUS DEVELOPER",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Dubai developer behind Estrella, a boutique residential mid-rise in Majan",
+  "founded": 2020,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Abdul Samad, Chief Executive Officer",
+  "website": null,
+  "description": [
+   "Nexus Developer is a Dubai residential developer established in 2020 and led by chief executive Abdul Samad, with Muhammad Arham as chief commercial officer. Its first publicly announced scheme is Estrella by Nexus, a boutique mid-rise of 60 apartments in Majan, off Sheikh Mohammed Bin Zayed Road. Beyond that launch, little about the company is documented in independent sources, and no corporate website could be confirmed."
+  ],
+  "specialities": [
+   "Residential apartments",
+   "Boutique mid-rise developments"
+  ],
+  "projects": [
+   {
+    "name": "Estrella by Nexus",
+    "community": "Majan"
+   }
+  ],
+  "communities": [
+   "Majan"
+  ]
+ },
+ {
+  "slug": "object-1",
+  "name": "Object 1",
+  "legalName": "OBJECT 1",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Dubai developer of apartment projects concentrated in JVC and JVT",
+  "founded": null,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Tatiana Tonu, Chief Executive Officer",
+  "website": "https://object-1.com",
+  "description": [
+   "Object 1 is a Dubai developer, registered as Object One Real Estate Development LLC, which builds mid-market and upper-mid-market apartment projects. Company statements describe it as part of the international TSZ Group. Its offices are at Emaar Square in Downtown Dubai, with a second office in Abu Dhabi. Published founding dates vary between sources, so the year the business was established is not treated here as settled.",
+   "Its activity is concentrated in Jumeirah Village Circle and Jumeirah Village Triangle, with further projects in Dubai Land Residence Complex, Jumeirah Garden City, Al Furjan, Dubai Sports City and Bukadra. Named schemes include Sky Level 1 and 1Wood Residence in JVC, Elaris Sky and the Luminar towers in JVT, Verdania in Dubai Land Residence Complex and Evergrin House in Jumeirah Garden City. It has also expanded into Abu Dhabi."
+  ],
+  "specialities": [
+   "Mid-market apartments",
+   "Off-plan residential development",
+   "Payment-plan sales"
+  ],
+  "projects": [
+   {
+    "name": "Sky Level 1",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "1Wood Residence",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Iridian Park",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Elaris Sky",
+    "community": "Jumeirah Village Triangle"
+   },
+   {
+    "name": "Luminar Tower 1",
+    "community": "Jumeirah Village Triangle"
+   },
+   {
+    "name": "Verdania",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "Evergrin House",
+    "community": "Jumeirah Garden City"
+   },
+   {
+    "name": "V1stara House",
+    "community": "Al Furjan"
+   }
+  ],
+  "communities": [
+   "Jumeirah Village Circle",
+   "Jumeirah Village Triangle",
+   "Dubai Land Residence Complex",
+   "Jumeirah Garden City",
+   "Al Furjan",
+   "Dubai Sports City",
+   "Bukadra"
+  ]
+ },
+ {
+  "slug": "octa-properties",
+  "name": "Octa Properties",
+  "legalName": "OCTA",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Dubai developer and development manager of branded residences",
+  "founded": null,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Fawaz Sous, Founder and Chief Executive Officer",
+  "website": "https://www.octa.ae",
+  "description": [
+   "OCTA Properties develops and manages branded residential and commercial projects in Dubai, and is one of five businesses within the OCTA Group alongside OCTA Development, House of OCTA interior design, House of OCTA branded marketing and OCTA Investments. It was founded by Fawaz Sous, who remains chief executive, and has represented branded residences in Dubai since 2021. Its office is in Dubai Hills Business Park.",
+   "The company works with design and hospitality brands including Missoni, Elie Saab, Franck Muller, Marriott and Westin. Its Dubai portfolio includes Marriott Residences by Octa in Business Bay and Swiss Residences in Dubai Hills Estate, both ready, together with Octa Isle Interiors and Flora Shore on Dubai Islands, Franck Muller Yachting in Dubai Maritime City, Mi CASA in Jumeirah Village Circle and The Golf Terraces in Dubai Production City."
+  ],
+  "specialities": [
+   "Branded residences",
+   "Design-led apartments",
+   "Development management"
+  ],
+  "projects": [
+   {
+    "name": "Octa Isle Interiors",
+    "community": "Dubai Islands"
+   },
+   {
+    "name": "Flora Shore",
+    "community": "Dubai Islands"
+   },
+   {
+    "name": "Marriott Residences By Octa",
+    "community": "Business Bay"
+   },
+   {
+    "name": "Swiss Residences",
+    "community": "Dubai Hills Estate"
+   },
+   {
+    "name": "Franck Muller Yachting",
+    "community": "Dubai Maritime City"
+   },
+   {
+    "name": "Mi CASA",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "The Golf Terraces",
+    "community": "Dubai Production City"
+   },
+   {
+    "name": "Dubai Creek Gardens",
+    "community": null
+   }
+  ],
+  "communities": [
+   "Dubai Islands",
+   "Business Bay",
+   "Dubai Hills Estate",
+   "Dubai Maritime City",
+   "Jumeirah Village Circle",
+   "Dubai Production City"
+  ]
+ },
+ {
+  "slug": "peace-homes-development",
+  "name": "Peace Homes Development",
+  "legalName": "PEACE HOMES DEVELOPMENT",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Dubai developer of off-plan apartment towers in JVC and Dubai Land Residence Complex",
+  "founded": null,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Ahsan Rasheed, Founder and Chief Executive Officer",
+  "website": null,
+  "description": [
+   "Peace Homes Development, which also trades as Peace Homes Group, is a Dubai developer of residential apartment buildings. Ahsan Rasheed is its founder and chief executive officer. The company works almost entirely in the off-plan market, concentrating on mid-market towers in established suburban communities rather than prime waterfront or downtown districts, and its buildings are typically sold as studios through to two-bedroom apartments.",
+   "Its portfolio falls into two naming families. The Sky series, comprising Sky Suites, Sky Vista, Sky Living and Sky Harmony, sits in Jumeirah Village Circle, while Peace Lagoons and its second phase, together with Sky Line, are in the Dubai Land Residence Complex. Peace Avenue, an 18-storey mixed-use tower, is in Downtown Jebel Ali. In 2025 the company pledged a 50-million-dirham endowment building at Dubai Academic City in support of the Fathers' Endowment campaign."
+  ],
+  "specialities": [
+   "Residential apartments",
+   "Mid-rise residential towers",
+   "Off-plan residential development"
+  ],
+  "projects": [
+   {
+    "name": "Sky Suites",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Sky Vista",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Sky Living",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Sky Harmony",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Peace Lagoons",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "Peace Lagoons Phase 2",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "Sky Line",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "Peace Avenue",
+    "community": "Downtown Jebel Ali"
+   }
+  ],
+  "communities": [
+   "Jumeirah Village Circle",
+   "Dubai Land Residence Complex",
+   "Downtown Jebel Ali"
+  ]
+ },
+ {
+  "slug": "al-yakka-developers",
+  "name": "Al Yakka Developers",
+  "legalName": "AL YAKKA DEVELOPERS",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Freehold residential development arm of Dubai's SBK Group",
+  "founded": null,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Sheikh Suhail bin Khalifa Saeed Al Maktoum, founder",
+  "website": null,
+  "description": [
+   "Al Yakka Developers, also styled Alyakka, is the freehold residential development arm of SBK Group, a diversified Dubai company owned by Sheikh Suhail bin Khalifa Saeed Al Maktoum, who is named as the developer's founder. The group's property interests in Dubai date back to the late 1990s, and Al Yakka was formed to take that experience into the freehold apartment market.",
+   "The company follows a build-first approach, opening sales only once construction has passed the halfway point. Its first freehold scheme, Waha Living in Jumeirah Garden City, comprises 71 residences and began handover on schedule. Ryah Living in Dubai Studio City followed, and the company has since moved into Dubai South with Zura Residences, close to Al Maktoum International Airport."
+  ],
+  "specialities": [
+   "Residential apartments",
+   "Freehold residential development"
+  ],
+  "projects": [
+   {
+    "name": "Waha Living",
+    "community": "Jumeirah Garden City"
+   },
+   {
+    "name": "Ryah Living",
+    "community": "Dubai Studio City"
+   },
+   {
+    "name": "Zura Residences",
+    "community": "Dubai South"
+   }
+  ],
+  "communities": [
+   "Jumeirah Garden City",
+   "Dubai Studio City",
+   "Dubai South"
+  ]
+ },
+ {
+  "slug": "stamn-real-estate-development",
+  "name": "Stamn Real Estate Development",
+  "legalName": "STAMN REAL ESTATE DEVELOPMENT",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Dubai arm of Chinese group SIONE Holdings, building residential towers in the emirate",
+  "founded": null,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Zheng Jian, Chief Executive Officer",
+  "website": "https://stamndevelopment.com",
+  "description": [
+   "Stamn Real Estate Development is a Dubai developer and the international property arm of SIONE Holdings, a group headquartered in Nanchang, Jiangxi province, China, which was established in 1993. The Dubai business operates from Court Tower in Business Bay and is led by chief executive Zheng Jian. Alongside its UAE schemes, the parent group has completed residential projects in Shenzhen, Jiujiang, Zhangshu and Lushan.",
+   "Its Dubai portfolio is concentrated in Jumeirah Garden City, where Stamn One and Stamn Yuni are located, with Stamn Two also in Al Satwa. Nautis Residences, launched in July 2025, is a 63-home mid-rise on Island A of Dubai Islands, and Stamn Mia Tower is planned for the Meydan area at Nad Al Sheba. The company has said it has more than 250 million dirhams invested in Dubai."
+  ],
+  "specialities": [
+   "Residential apartments",
+   "Mid-rise residential towers",
+   "Waterfront residences"
+  ],
+  "projects": [
+   {
+    "name": "Stamn One",
+    "community": "Jumeirah Garden City"
+   },
+   {
+    "name": "Stamn Yuni",
+    "community": "Jumeirah Garden City"
+   },
+   {
+    "name": "Stamn Two",
+    "community": "Jumeirah Garden City"
+   },
+   {
+    "name": "Nautis Residences",
+    "community": "Dubai Islands"
+   },
+   {
+    "name": "Stamn Mia Tower",
+    "community": "Nad Al Sheba"
+   }
+  ],
+  "communities": [
+   "Jumeirah Garden City",
+   "Dubai Islands",
+   "Nad Al Sheba"
+  ]
+ },
+ {
+  "slug": "symbolic-real-estate-development",
+  "name": "Symbolic Real Estate Development",
+  "legalName": "SYMBOLIC REAL ESTATE DEVELOPMENT",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Boutique Dubai residential developer and a division of Speedex Group",
+  "founded": null,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Mustafa Moiz, Managing Director",
+  "website": "https://symbolic.ae",
+  "description": [
+   "Symbolic Developments is a boutique residential developer in Dubai and a division of Speedex Group, a UAE company founded in 1991 by Moiz Tayebali Lokhandwala. Mustafa Moiz is managing director of both Symbolic and the parent group. The company runs an experience centre in Al Quoz 3 on Sheikh Zayed Road, and describes its focus as community, wellbeing and sustainability rather than high-volume output.",
+   "Its first scheme, Symbolic Alpha in Liwan, was delivered ahead of schedule in 2025, roughly fourteen months after construction began. Symbolic Aura followed in Al Furjan, a 72-home building valued at 150 million dirhams, and Symbolic Zen Residences, also in Al Furjan, was launched at 210 million dirhams. Symbolic Altus, a 108-home building, returns the company to Liwan."
+  ],
+  "specialities": [
+   "Residential apartments",
+   "Mid-rise residential buildings",
+   "Sustainable design"
+  ],
+  "projects": [
+   {
+    "name": "Symbolic Alpha",
+    "community": "Liwan"
+   },
+   {
+    "name": "Symbolic Aura",
+    "community": "Al Furjan"
+   },
+   {
+    "name": "Symbolic Zen Residences",
+    "community": "Al Furjan"
+   },
+   {
+    "name": "Symbolic Altus",
+    "community": "Liwan"
+   }
+  ],
+  "communities": [
+   "Liwan",
+   "Al Furjan"
+  ]
+ },
+ {
+  "slug": "taraf-development",
+  "name": "Taraf Development",
+  "legalName": "TARAF DEVELOPMENT",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Boutique luxury developer, the real estate arm of Abu Dhabi's Yas Holding",
+  "founded": 2023,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": null,
+  "website": "https://www.tarafholding.com",
+  "description": [
+   "Taraf is the property development arm of Yas Holding, an Abu Dhabi investment group, and was launched as a developer at the start of 2023. It operates from a corporate office in Marina Plaza, Dubai Marina, and describes itself as a boutique, design-led developer working on luxury residential schemes in Dubai and Abu Dhabi. At launch it said it would introduce five properties in the UAE during 2023.",
+   "Its first Dubai project was Luce on the Crescent at Palm Jumeirah, followed by Terrazzo Residences and Cello in Jumeirah Village Circle, Terra Golf Collection at Jumeirah Golf Estates and the Karl Lagerfeld Villas in Mohammed Bin Rashid City. In Abu Dhabi the company has announced branded residences with Marriott International and Kerzner International. Several Dubai releases, including Luce and Cello, are recorded as sold out on Property Finder."
+  ],
+  "specialities": [
+   "Boutique luxury residences",
+   "Branded residences",
+   "Design-led apartments and villas"
+  ],
+  "projects": [
+   {
+    "name": "Luce",
+    "community": "Palm Jumeirah"
+   },
+   {
+    "name": "Terrazzo Residences",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Cello",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Terra Golf Collection",
+    "community": "Jumeirah Golf Estates"
+   },
+   {
+    "name": "Karl Lagerfeld Villas",
+    "community": "Mohammed Bin Rashid City"
+   },
+   {
+    "name": "Taraf 2 Residence",
+    "community": "Jumeirah Village Triangle"
+   },
+   {
+    "name": "Taraf 3 Residence",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "W Residences",
+    "community": "Al Maryah Island"
+   }
+  ],
+  "communities": [
+   "Palm Jumeirah",
+   "Jumeirah Village Circle",
+   "Jumeirah Village Triangle",
+   "Jumeirah Golf Estates",
+   "Mohammed Bin Rashid City"
+  ]
+ },
+ {
+  "slug": "townx-development",
+  "name": "TownX Development",
+  "legalName": "TOWNX",
+  "status": "registered",
+  "featured": false,
+  "tagline": "Dubai developer of apartments in Jumeirah Village Circle, Arjan and Dubai Science Park",
+  "founded": 2017,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Haider Abduljabbar, Executive Director",
+  "website": "https://www.townx.com",
+  "description": [
+   "TownX Development, registered as TownX Real Estate Development, is a Dubai developer founded in 2017 and based at Boulevard Plaza Tower 1 in Downtown Dubai. It builds mid-market apartment buildings in Jumeirah Village Circle, Arjan and Dubai Science Park, selling largely off-plan to investors and owner-occupiers. Haider Abduljabbar represents the company publicly as executive director.",
+   "Its earliest completed schemes were Easy18 in 2019 and Easy19 in 2021, followed by Luma21 in 2022 and Luma22, both in Jumeirah Village Circle. Luma Park Views, a 600-apartment development in the same community, was finished ahead of schedule and handover has begun. Current projects are Ashley Hills in Arjan, a 616-unit scheme valued at AED 662 million, and 11 Hills Park in Dubai Science Park."
+  ],
+  "specialities": [
+   "Residential apartments",
+   "Mid-market apartment buildings",
+   "Off-plan homes"
+  ],
+  "projects": [
+   {
+    "name": "Ashley Hills",
+    "community": "Arjan"
+   },
+   {
+    "name": "11 Hills Park",
+    "community": "Dubai Science Park"
+   },
+   {
+    "name": "Luma Park Views",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Luma22",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Luma21",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Easy19",
+    "community": null
+   },
+   {
+    "name": "Easy18",
+    "community": null
+   }
+  ],
+  "communities": [
+   "Jumeirah Village Circle",
+   "Arjan",
+   "Dubai Science Park"
+  ]
+ },
+ {
+  "slug": "leos-developments",
+  "name": "Leos Developments",
+  "legalName": "LEOS",
+  "status": "registered",
+  "featured": false,
+  "tagline": "UK-founded residential developer with a mid-market Dubai apartment portfolio",
+  "founded": 2012,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Rui Liu, Founder and Chairman",
+  "website": "https://leosdevelopments.com",
+  "description": [
+   "LEOS Developments is a residential developer that has operated in the United Kingdom since 2012 and has since built a substantial Dubai pipeline. It was founded by Rui Liu, who is now chairman, and Jake Jacobs was appointed chief executive in January 2026. The company keeps offices in London and at Bay Square, Business Bay, in Dubai, and works across residential, commercial and mixed-use schemes.",
+   "Its Dubai portfolio is concentrated in mid-market apartment communities, with Hadley Heights in Jumeirah Village Circle, Cavendish Square in Jumeirah Village Triangle, several phases of Weybridge Gardens in Dubai Land Residence Complex and Knightsbridge in Mohammed Bin Rashid City. More recent releases include Kensington Gardens and Hadley Hills in International City. The company has said it is relocating its headquarters to Dubai alongside a large UAE investment programme."
+  ],
+  "specialities": [
+   "Mid-market apartments",
+   "British-influenced residential design",
+   "Off-plan residential development"
+  ],
+  "projects": [
+   {
+    "name": "Hadley Heights",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Hadley Heights 2",
+    "community": "Dubai Sports City"
+   },
+   {
+    "name": "Cavendish Square",
+    "community": "Jumeirah Village Triangle"
+   },
+   {
+    "name": "Weybridge Gardens",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "Weybridge Gardens 4",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "Knightsbridge",
+    "community": "Mohammed Bin Rashid City"
+   },
+   {
+    "name": "Kensington Gardens",
+    "community": "International City"
+   },
+   {
+    "name": "Hadley Hills",
+    "community": "International City"
+   }
+  ],
+  "communities": [
+   "Jumeirah Village Circle",
+   "Jumeirah Village Triangle",
+   "Dubai Land Residence Complex",
+   "Mohammed Bin Rashid City",
+   "Dubai Sports City",
+   "International City"
+  ]
+ },
+ {
+  "slug": "one-broker-group",
+  "name": "One Broker Group",
+  "legalName": "ONE BROKER GROUP",
+  "status": "registered-portal",
+  "featured": false,
+  "tagline": "Dubai real estate advisory and brokerage, and sales partner to UAE developers",
+  "founded": null,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Umar bin Farooq, Founder and Chief Executive Officer",
+  "website": "https://obg.ae",
+  "description": [
+   "One Broker Group, which also trades as OBG, is a Dubai real estate advisory and brokerage rather than a developer in the conventional sense. Founded and led by Umar bin Farooq as chief executive officer, it works from Al Habtoor Business Tower in Dubai Marina and operates across Dubai and Ras Al Khaimah. Its services span sales and lettings, property management, holiday homes, handover and snagging, interiors and mortgage advisory.",
+   "The company's principal role is as exclusive sales and marketing partner to developers, advising on product positioning, pricing and payment structures while the developer handles construction. It has reported a sales orderbook of more than 29 billion dirhams across sixteen projects, including hospitality schemes branded with JW Marriott, W Hotels, DoubleTree by Hilton and The Luxury Collection. Projects it has sold include London Gate's Aeternitas in Dubai Marina and Ginco Properties' One Residence in Downtown Dubai."
+  ],
+  "specialities": [
+   "Property brokerage",
+   "Development advisory",
+   "Off-plan sales and marketing",
+   "Property management"
+  ],
+  "projects": [],
+  "communities": []
+ },
+ {
+  "slug": "wadan-development",
+  "name": "Wadan Development",
+  "legalName": "WADAN DEVELOPMENT",
+  "status": "registered-portal",
+  "featured": false,
+  "tagline": "Dubai developer launched in 2024, with residential buildings in DLRC and JVC",
+  "founded": 2024,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": null,
+  "website": "https://wadan.ae",
+  "description": [
+   "Wadan Developments, registered as Wadan Real Estate Development LLC, is a Dubai developer that launched in 2024 and introduced five residential projects within its first twelve months. It sells from a gallery on the thirteenth floor of Boulevard Plaza Tower 2 in Downtown Dubai, and construction is handled in-house by its contracting arm, Autolink Contracting.",
+   "Its first project was Nuvana on Dubai Islands, followed by Seraph and Cybele in the Dubai Land Residence Complex and Tresora in Jumeirah Village Circle. Weston, a seventeen-storey building in the Dubai Land Residence Complex offering furnished homes with smart-home technology, was the most recent launch and has since been extended with a second phase."
+  ],
+  "specialities": [
+   "Residential apartments",
+   "Mid-rise residential towers",
+   "Off-plan residential development"
+  ],
+  "projects": [
+   {
+    "name": "Nuvana by Wadan",
+    "community": "Dubai Islands"
+   },
+   {
+    "name": "Seraph by Wadan",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "Cybele by Wadan",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "Tresora by Wadan",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Weston by Wadan",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "Weston Phase 2",
+    "community": "Dubai Land Residence Complex"
+   }
+  ],
+  "communities": [
+   "Dubai Islands",
+   "Dubai Land Residence Complex",
+   "Jumeirah Village Circle"
+  ]
+ },
+ {
+  "slug": "damac-properties",
+  "name": "DAMAC Properties",
+  "legalName": "DAMAC PROPERTIES",
+  "status": "for-renewal",
+  "featured": true,
+  "tagline": "Dubai developer of DAMAC Hills, DAMAC Lagoons and branded residences",
+  "founded": 2002,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Hussain Sajwani, Founder and Chairman",
+  "website": "https://www.damacproperties.com",
+  "description": [
+   "DAMAC Properties is the property development arm of DAMAC Group, which Hussain Sajwani founded in 1982. The development business was established in Dubai in 2002, as freehold ownership opened to foreign buyers, and Sajwani remains its chairman. The company listed on the Dubai Financial Market in 2015 and was taken private again in 2022. It has delivered roughly 50,000 homes.",
+   "Its master communities include DAMAC Hills, built around the Trump International Golf Club, DAMAC Hills 2, DAMAC Lagoons, DAMAC Islands and DAMAC Riverside in Dubai Investments Park. The company works extensively with fashion and hospitality brands, producing towers such as Cavalli Tower, Safa One and Safa Two, DAMAC Towers by Paramount and Chelsea Residences, and it also develops in Saudi Arabia, Qatar and the United Kingdom."
+  ],
+  "specialities": [
+   "Master-planned communities",
+   "Branded residences",
+   "Luxury apartments",
+   "Golf and lagoon communities"
+  ],
+  "projects": [
+   {
+    "name": "DAMAC Hills",
+    "community": "DAMAC Hills"
+   },
+   {
+    "name": "DAMAC Hills 2",
+    "community": "DAMAC Hills 2"
+   },
+   {
+    "name": "DAMAC Lagoons",
+    "community": "DAMAC Lagoons"
+   },
+   {
+    "name": "DAMAC Islands",
+    "community": "DAMAC Islands"
+   },
+   {
+    "name": "DAMAC Riverside",
+    "community": "Dubai Investments Park"
+   },
+   {
+    "name": "Safa One",
+    "community": "Al Safa"
+   },
+   {
+    "name": "DAMAC Towers by Paramount",
+    "community": "Business Bay"
+   },
+   {
+    "name": "Chelsea Residences",
+    "community": "Dubai Maritime City"
+   }
+  ],
+  "communities": [
+   "DAMAC Hills",
+   "DAMAC Hills 2",
+   "DAMAC Lagoons",
+   "DAMAC Islands",
+   "Business Bay",
+   "Dubai Marina",
+   "Jumeirah Village Circle",
+   "Dubai Maritime City"
+  ]
+ },
+ {
+  "slug": "danube-properties",
+  "name": "Danube Properties",
+  "legalName": "DANUBE",
+  "status": "for-renewal",
+  "featured": true,
+  "tagline": "Property arm of Dubai's Danube Group, known for 1% monthly payment-plan apartments",
+  "founded": 2014,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Rizwan Sajan, Founder and Chairman",
+  "website": "https://danubeproperties.com",
+  "description": [
+   "Danube Properties is the property development arm of Dubai's Danube Group, established in 2014 and chaired by the group's founder, Rizwan Sajan. The Danube Group itself began in 1993 as a building materials trading business in Deira. The developer works mainly in the mid-market and 'affordable luxury' segment of Dubai's residential market, building apartment towers rather than villa communities, and has launched projects across more than a dozen Dubai districts.",
+   "The company is widely associated with its 1% monthly payment plan, under which buyers pay instalments during and after construction. Its portfolio ranges from early schemes such as Glitz and Dreamz to recent high-rise launches including Bayz 101 and Bayz 102 in Business Bay, Diamondz in Jumeirah Lake Towers and Oceanz in Dubai Maritime City. Rizwan Sajan remains founder and chairman, and the business is headquartered in Dubai."
+  ],
+  "specialities": [
+   "Affordable-luxury apartments",
+   "1% monthly payment plans",
+   "High-rise residential towers"
+  ],
+  "projects": [
+   {
+    "name": "Bayz 101",
+    "community": "Business Bay"
+   },
+   {
+    "name": "Bayz 102",
+    "community": "Business Bay"
+   },
+   {
+    "name": "Diamondz",
+    "community": "Jumeirah Lake Towers"
+   },
+   {
+    "name": "Oceanz",
+    "community": "Dubai Maritime City"
+   },
+   {
+    "name": "Sportz",
+    "community": "Dubai Sports City"
+   },
+   {
+    "name": "Sparklz",
+    "community": "Al Furjan"
+   },
+   {
+    "name": "Timez",
+    "community": "Dubai Silicon Oasis"
+   },
+   {
+    "name": "Petalz",
+    "community": "International City"
+   }
+  ],
+  "communities": [
+   "Business Bay",
+   "Jumeirah Lake Towers",
+   "Dubai Maritime City",
+   "Dubai Sports City",
+   "Al Furjan",
+   "Dubai Silicon Oasis",
+   "International City",
+   "Jumeirah Village Circle"
+  ]
+ },
+ {
+  "slug": "sobha-realty",
+  "name": "Sobha Realty",
+  "legalName": "SOBHA REALTY",
+  "status": "for-renewal",
+  "featured": true,
+  "tagline": "Dubai luxury developer behind Sobha Hartland, with origins in 1976 Oman",
+  "founded": 1976,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "P.N.C. Menon, Founder; Ravi Menon, Chairman of Sobha Group",
+  "website": "https://www.sobharealty.com",
+  "description": [
+   "Sobha Realty is a Dubai-headquartered luxury developer whose origins lie in an interior decoration business founded in Oman in 1976 by P.N.C. Menon. The group later expanded into construction and real estate across India and the Gulf, and the related Indian listed company, Sobha Limited, was incorporated in Bangalore in 1995. Sobha Realty now has developments and investments in the UAE, Oman, Bahrain, Brunei and India.",
+   "In Dubai the company is best known for Sobha Hartland, a freehold community in Mohammed Bin Rashid City, and for District One, a joint venture with Meydan Group. Later schemes include Sobha One at Ras Al Khor, Sobha Seahaven in Dubai Marina and Sobha Central at Jebel Ali. P.N.C. Menon remains founder; his son Ravi Menon became chairman of Sobha Group in November 2024."
+  ],
+  "specialities": [
+   "Luxury apartments and villas",
+   "Master-planned freehold communities",
+   "Waterfront and golf-course residences"
+  ],
+  "projects": [
+   {
+    "name": "Sobha Hartland",
+    "community": "Mohammed Bin Rashid City"
+   },
+   {
+    "name": "Sobha Hartland II",
+    "community": "Bukadra"
+   },
+   {
+    "name": "District One",
+    "community": "Mohammed Bin Rashid City"
+   },
+   {
+    "name": "Sobha One",
+    "community": "Ras Al Khor"
+   },
+   {
+    "name": "Sobha Seahaven",
+    "community": "Dubai Marina"
+   },
+   {
+    "name": "Sobha Central",
+    "community": "Jebel Ali"
+   },
+   {
+    "name": "Sobha Sanctuary",
+    "community": null
+   },
+   {
+    "name": "Sobha Siniya Island",
+    "community": "Umm Al Quwain Marina"
+   }
+  ],
+  "communities": [
+   "Mohammed Bin Rashid City",
+   "Bukadra",
+   "Ras Al Khor",
+   "Dubai Marina",
+   "Jebel Ali",
+   "Umm Al Quwain Marina"
+  ]
+ },
+ {
+  "slug": "binghatti-developers",
+  "name": "Binghatti Developers",
+  "legalName": "BINGHATTI DEVELOPERS",
+  "status": "for-renewal",
+  "featured": true,
+  "tagline": "Dubai developer of branded residences with Bugatti, Mercedes-Benz and Jacob & Co",
+  "founded": 2008,
+  "headquarters": "Dubai, United Arab Emirates",
+  "founder": "Dr. Hussain Binghatti, Founder; Muhammad BinGhatti, Chairman",
+  "website": "https://www.binghatti.com",
+  "description": [
+   "Binghatti Developers is a Dubai-based developer founded in 2008 by Dr. Hussain Binghatti, who named the company after his late father. It operates as part of Binghatti Holding, with Muhammad BinGhatti as chairman, Ahmed BinGhatti as vice-chairman and Katralnada BinGhatti as chief executive. The company builds residential and commercial projects across Dubai and is recognisable for the repeating, interlocking balcony patterns used on its facades.",
+   "Much of its recent output sits in the branded-residence segment, through tie-ups with Bugatti, Mercedes-Benz and Jacob & Co. Business Bay holds Burj Binghatti Jacob & Co Residences and Bugatti Residences, while Mercedes-Benz Places stands in Downtown Dubai. Elsewhere the company has built extensively in Al Jaddaf, Jumeirah Village Circle, Jumeirah Village Triangle, Majan, Arjan and Nad Al Sheba. It has also issued sukuk listed on Nasdaq Dubai."
+  ],
+  "specialities": [
+   "Branded residences",
+   "Distinctive facade architecture",
+   "Mid-rise and high-rise apartments",
+   "Residential and commercial development"
+  ],
+  "projects": [
+   {
+    "name": "Burj Binghatti Jacob & Co Residences",
+    "community": "Business Bay"
+   },
+   {
+    "name": "Bugatti Residences by Binghatti",
+    "community": "Business Bay"
+   },
+   {
+    "name": "Mercedes-Benz Places by Binghatti",
+    "community": "Downtown Dubai"
+   },
+   {
+    "name": "Binghatti Ghost",
+    "community": "Al Jaddaf"
+   },
+   {
+    "name": "Binghatti Luxuria",
+    "community": "Jumeirah Village Triangle"
+   },
+   {
+    "name": "Binghatti Etherea",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Binghatti Skyflame",
+    "community": "Majan"
+   },
+   {
+    "name": "Binghatti Hillcrest",
+    "community": "Arjan"
+   }
+  ],
+  "communities": [
+   "Business Bay",
+   "Downtown Dubai",
+   "Al Jaddaf",
+   "Jumeirah Village Circle",
+   "Jumeirah Village Triangle",
+   "Majan",
+   "Arjan",
+   "Nad Al Sheba"
+  ]
+ }
+]

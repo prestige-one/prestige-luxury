@@ -1,7 +1,7 @@
 // /signature-living/ — Elementor page 299944, rebuilt section by section with the original text.
 // Background videos of the original are replaced by their overlay colours (only the hero keeps its YouTube loop on desktop).
 import type { Metadata } from "next";
-import Image from "next/image";
+import Media from "@/components/Media";
 import Link from "next/link";
 import { getPage, seoMetadata } from "@/lib/content";
 
@@ -131,7 +131,7 @@ export default function SignatureLivingPage() {
             <PillButton href="/contact-us/">Get Started</PillButton>
           </div>
           <div className="hidden md:block">
-            <Image
+            <Media
               src="/wp-content/uploads/2020/10/Cam-Ext-003-01-Composite_00000-scaled.jpg"
               alt="Solar-powered residential building in Jumeirah Village"
               width={2560}
@@ -268,7 +268,7 @@ export default function SignatureLivingPage() {
           <p className="mt-1 text-[16px] text-white md:text-[21px]">VICE PRESIDENT AND RULER OF DUBAI</p>
         </div>
         <div className="relative hidden min-h-[320px] md:block">
-          <Image src="/wp-content/uploads/2020/10/Cam-Ext-003-01-Composite_00000-1067x600.jpg" alt="" fill sizes="50vw" className="object-cover opacity-60" />
+          <Media src="/wp-content/uploads/2020/10/Cam-Ext-003-01-Composite_00000-1067x600.jpg" alt="" fill tone="ink" sizes="50vw" className="object-cover opacity-60" />
         </div>
       </section>
 

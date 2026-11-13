@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Media from "@/components/Media";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -108,7 +108,7 @@ export default function PostView({ post }: { post: Post }) {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
           <article className="min-w-0">
             {image && (
-              <Image
+              <Media
                 src={image}
                 alt={title}
                 width={1200}

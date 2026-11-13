@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Media from "@/components/Media";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { isUnoptimized, sizedImage } from "@/lib/listing-format";
 import { ChevronIcon, CloseIcon, ExpandIcon } from "./icons";
@@ -39,7 +39,7 @@ export default function PropertyGallery({ images, title }: { images: string[]; t
           className="group absolute inset-0 block w-full cursor-zoom-in"
           aria-label={`Open photo ${index + 1} of ${count} in full screen`}
         >
-          <Image
+          <Media
             src={images[index]}
             alt={alt(index)}
             fill
@@ -78,7 +78,7 @@ export default function PropertyGallery({ images, title }: { images: string[]; t
                   i === index ? "outline-2 outline-ink" : "opacity-70 hover:opacity-100"
                 }`}
               >
-                <Image src={sizedImage(src, "thumb")} alt="" fill unoptimized={isUnoptimized(src)} sizes="130px" loading="lazy" className="object-cover" />
+                <Media src={sizedImage(src, "thumb")} alt="" fill unoptimized={isUnoptimized(src)} sizes="130px" loading="lazy" className="object-cover" />
               </button>
             </li>
           ))}
@@ -98,10 +98,11 @@ export default function PropertyGallery({ images, title }: { images: string[]; t
           }}
         >
           <div className="relative h-[80vh] w-[92vw]">
-            <Image
+            <Media
               src={images[index]}
               alt={alt(index)}
               fill
+              tone="ink"
               unoptimized={isUnoptimized(images[index])}
               sizes="92vw"
               className="object-contain"

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { categories, pages, posts } from "@/lib/content";
+import { developers } from "@/lib/developers";
 import { statuses } from "@/lib/listing-format";
 import { allAreas, typeRoutes } from "@/lib/listing-views";
 import { properties } from "@/lib/properties";
@@ -32,6 +33,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const t of typeRoutes) entries.push({ url: url(`/property-type/${t.slug}/`), priority: 0.6 });
   for (const p of properties) entries.push({ url: url(`/property/${p.slug}/`), lastModified: p.updatedAt, priority: 0.8 });
   for (const a of allAreas()) entries.push({ url: url(`/area/${a.slug}/`), priority: 0.6 });
+
+  // Developer directory — derived from content/developers.json, the same list the routes are
+  // generated from, so new developers appear here as soon as they are added to the data.
+  entries.push({ url: url("/developers/"), priority: 0.7 });
+  for (const d of developers) entries.push({ url: url(`/developers/${d.slug}/`), priority: 0.6 });
 
   return entries;
 }

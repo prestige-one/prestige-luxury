@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Media from "@/components/Media";
 import Link from "next/link";
 import { footerColumns, site } from "@/lib/site";
 import { SocialIcon } from "./icons";
@@ -9,12 +9,12 @@ export default function Footer() {
     <footer className="bg-white">
       <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-x-6 gap-y-10 px-5 py-16 md:grid-cols-2 md:gap-x-8 md:py-20 lg:grid-cols-[1fr_1fr_1fr_1fr]">
         <div className="col-span-2 md:col-span-2 lg:col-span-1 lg:row-span-2">
-          <Image
+          <Media
             src="/wp-content/uploads/2020/06/logo-prestige-black-1x.png"
             alt={site.name}
-            width={140}
-            height={46}
-            className="mb-4 h-auto w-[140px] md:ml-12"
+            width={234}
+            height={44}
+            className="mb-5 h-auto w-[200px] md:ml-12"
           />
           <p className="max-w-[420px] text-[14px] leading-[1.7] text-body">{site.about}</p>
           <ul className="mt-6 space-y-2.5 text-[14px]">
@@ -57,13 +57,23 @@ export default function Footer() {
       </div>
 
       <div className="bg-smoke">
-        <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-3 px-5 py-6 text-[14px] md:flex-row">
+        {/* The floating WhatsApp + scroll-top stack sits over the bottom-right of the viewport, so
+            this bar keeps clear of it: extra bottom space while the row is stacked (mobile), and a
+            right-hand gutter once the socials move to the right edge (md+). */}
+        <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-3 px-5 pb-36 pt-6 text-[14px] md:flex-row md:pb-6 md:pe-[92px]">
           <p className="text-center text-[13px] text-body md:text-[14px]">© {site.name} - All rights reserved</p>
-          <ul className="flex items-center gap-2">
+          {/* Solid dark discs: the old low-opacity outlines were barely visible on the light bar. */}
+          <ul className="flex items-center gap-2.5">
             {site.socials.map((s) => (
               <li key={s.name}>
-                <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.name} className="grid h-10 w-10 place-items-center rounded-full text-body transition-[color,background-color,translate] duration-300 hover:-translate-y-0.5 hover:bg-accent hover:text-white">
-                  <SocialIcon name={s.name} />
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${site.name} on ${s.name}`}
+                  className="grid h-11 w-11 place-items-center rounded-full bg-ink text-white shadow-[0_2px_8px_rgba(0,0,0,0.18)] transition-[background-color,translate,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-accent hover:shadow-[0_8px_18px_rgba(131,90,90,0.35)] focus-visible:bg-accent motion-reduce:transition-none"
+                >
+                  <SocialIcon name={s.name} size={17} />
                 </a>
               </li>
             ))}

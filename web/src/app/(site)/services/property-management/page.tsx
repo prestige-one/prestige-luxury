@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Media from "@/components/Media";
 import LeadForm, { type LeadField } from "@/components/LeadForm";
 import { Accordion, CheckList, QuoteCard } from "@/components/info/blocks";
 import { Container } from "@/components/ui";
@@ -123,11 +123,12 @@ export default function PropertyManagementPage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-black">
-        <Image
+        <Media
           src="/wp-content/uploads/2020/09/PM-Cover1.jpg"
           alt=""
           fill
           priority
+          tone="ink"
           sizes="100vw"
           className="object-cover"
         />
@@ -159,7 +160,7 @@ export default function PropertyManagementPage() {
       <section className="bg-black text-white">
         <div className="grid md:grid-cols-[40%_60%]">
           <div className="relative flex min-h-[320px] items-center justify-center overflow-hidden px-8 py-16">
-            <Image src="/wp-content/uploads/2020/10/Prestige-BG11.jpg" alt="" fill sizes="(min-width: 768px) 40vw, 100vw" className="object-cover opacity-60" />
+            <Media src="/wp-content/uploads/2020/10/Prestige-BG11.jpg" alt="" fill tone="ink" sizes="(min-width: 768px) 40vw, 100vw" className="object-cover opacity-60" />
             <h2 className="relative z-10 max-w-[360px] text-center text-[28px] font-semibold leading-snug">
               At Prestige Luxury Real Estate, We Care!
             </h2>

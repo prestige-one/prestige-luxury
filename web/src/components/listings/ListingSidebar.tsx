@@ -1,6 +1,7 @@
-import Image from "next/image";
+import Media from "@/components/Media";
 import Link from "next/link";
-import { formatPrice, properties } from "@/lib/properties";
+import Price from "@/components/Price";
+import { properties } from "@/lib/properties";
 import { isUnoptimized, sizedImage } from "@/lib/listing-format";
 import { featuredListings, sidebarTypes } from "@/lib/listing-views";
 import RecentlyViewed from "./RecentlyViewed";
@@ -46,7 +47,7 @@ export default function ListingSidebar({ exclude }: { exclude?: string }) {
                 <Link href={`/property/${p.slug}/`} className="group block">
                   <span className="relative block aspect-[4/3] overflow-hidden bg-smoke">
                     {p.images[0] && (
-                      <Image
+                      <Media
                         src={sizedImage(p.images[0], "thumb")}
                         alt=""
                         fill
@@ -56,7 +57,7 @@ export default function ListingSidebar({ exclude }: { exclude?: string }) {
                       />
                     )}
                     <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent px-3 pb-2 pt-8 text-[15px] font-semibold text-white">
-                      {formatPrice(p)}
+                      <Price price={p.price} purpose={p.purpose} rentFrequency={p.rentFrequency} />
                     </span>
                   </span>
                   <span className="mt-2 block text-[14px] font-medium leading-snug text-ink group-hover:text-accent">{p.title}</span>

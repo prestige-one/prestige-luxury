@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Media from "@/components/Media";
 import { CtaBanner, Eyebrow } from "@/components/info/blocks";
 import { Container } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
@@ -99,7 +99,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="relative min-h-[420px] overflow-hidden">
-            <Image
+            <Media
               src="/wp-content/uploads/elementor/thumbs/12356844_499481870212421_8140513907742737406_o-7pkuhn1f49ey4j4ja02ar0ifi6t4xzgyfrid2kaz1n4.jpg"
               alt="Prestige Luxury Real Estate office in Dubai Marina"
               fill
@@ -147,7 +147,7 @@ export default function AboutPage() {
       </section>
 
       <CtaBanner
-        image="/wp-content/uploads/2026/11/city-view.webp"
+        image="/wp-content/uploads/2019/06/emaar-downtown-1536x864.jpg"
         title="Exceptional Properties. Expert Advisory. Trusted Relationships."
         cta={{ label: "Speak to Sales Person", href: "/contact-us/" }}
       />

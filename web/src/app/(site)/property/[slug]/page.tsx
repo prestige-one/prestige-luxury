@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Media from "@/components/Media";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import LeadForm, { type LeadField } from "@/components/LeadForm";
+import Price from "@/components/Price";
 import PropertyCard from "@/components/listings/PropertyCard";
 import PropertyGallery from "@/components/listings/PropertyGallery";
 import { TrackView } from "@/components/listings/RecentlyViewed";
@@ -51,14 +52,6 @@ const enquiryFields: LeadField[] = [
   { name: "phone", label: "Phone", type: "tel", required: true },
   { name: "message", label: "Message", type: "textarea" },
 ];
-
-/** "+971(0) 50 123 4567" / "050 123 4567" → "971501234567" for wa.me links */
-function waNumber(phone: string) {
-  let d = phone.replace(/\(0\)/g, "").replace(/\D/g, "");
-  if (d.startsWith("00")) d = d.slice(2);
-  else if (d.startsWith("0")) d = `971${d.slice(1)}`;
-  return d;
-}
 
 const absolute = (src: string) => (/^https?:/i.test(src) ? src : `${site.url}${src}`);
 
@@ -123,15 +116,18 @@ export default async function PropertyPage({ params }: Props) {
   const beds = bedsLabel(p.bedrooms);
   const similar = similarListings(p, 3);
   const agentName = p.agent?.name || site.name;
-  const phone = p.agent?.phone || site.phone;
-  const tel = p.agent?.phone ? `tel:${p.agent.phone.replace(/\(0\)/g, "").replace(/[^\d+]/g, "")}` : site.phoneHref;
-  const whatsapp = `https://wa.me/${waNumber(p.agent?.phone || site.phoneHref)}?text=${encodeURIComponent(
+  // Every enquiry goes to the agency's one published number, by the owner's instruction — the
+  // listing agent's name is still shown, but their direct line from the portal feed is not
+  // republished here. Change these three lines back to `p.agent?.phone` to restore it.
+  const phone = site.phone;
+  const tel = site.phoneHref;
+  const whatsapp = `${site.whatsappHref}?text=${encodeURIComponent(
     `Hello, I'm interested in "${p.title}" (Ref: ${p.reference}) — ${site.url}/property/${p.slug}/`,
   )}`;
 
-  const facts: [string, string | null | undefined][] = [
+  const facts: [string, React.ReactNode][] = [
     ["Reference", p.reference],
-    ["Price", formatPrice(p)],
+    ["Price", <Price key="price" price={p.price} purpose={p.purpose} rentFrequency={p.rentFrequency} />],
     ["Property Type", p.type],
     ["Purpose", p.purpose === "rent" ? "For Rent" : "For Sale"],
     ["Bedrooms", p.bedrooms === null ? null : p.bedrooms === 0 ? "Studio" : String(p.bedrooms)],
@@ -164,7 +160,9 @@ export default async function PropertyPage({ params }: Props) {
               {addressLine(p)}
             </p>
           </div>
-          <p className="shrink-0 text-[26px] font-semibold text-ink md:text-right md:text-[30px]">{formatPrice(p)}</p>
+          <p className="shrink-0 text-[26px] font-semibold text-ink md:text-right md:text-[30px]">
+            <Price price={p.price} purpose={p.purpose} rentFrequency={p.rentFrequency} />
+          </p>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_350px]">
@@ -247,7 +245,7 @@ export default async function PropertyPage({ params }: Props) {
               <div className="flex items-center gap-4">
                 <span className="relative flex h-[70px] w-[70px] shrink-0 items-center justify-center overflow-hidden rounded-full bg-smoke text-[22px] font-medium text-ink">
                   {p.agent?.photo ? (
-                    <Image src={p.agent.photo} alt={agentName} fill sizes="70px" unoptimized={isUnoptimized(p.agent.photo)} className="object-cover object-top" />
+                    <Media src={p.agent.photo} alt={agentName} fill sizes="70px" unoptimized={isUnoptimized(p.agent.photo)} className="object-cover object-top" />
                   ) : (
                     agentName
                       .split(/\s+/)

@@ -59,18 +59,9 @@ p {
   outline-offset: 2px;
 }
 
-/* Lazy images fade in softly (next/image sets data-nimg). Above-the-fold `priority` images are
-   left alone so they paint instantly. Only a `from` frame, so the animation ends on the image's
-   own opacity (e.g. dimmed banner photos stay dimmed). */
-img[data-nimg][loading="lazy"] {
-  animation: img-fade-in 0.7s ease-out;
-}
-@keyframes img-fade-in {
-  from { opacity: 0; }
-}
-@media (prefers-reduced-motion: reduce) {
-  img[data-nimg][loading="lazy"] { animation: none; }
-}
+/* Image loading: handled by `components/Media.tsx`, which gives every image a tonal placeholder
+   and fades it out on load. There is deliberately no blanket fade on lazy images here — it ran
+   from first paint rather than from load, so it faded the placeholder in instead of the image. */
 
 /* Hide scrollbars on horizontally scrolling tab rows */
 .no-scrollbar { scrollbar-width: none; }

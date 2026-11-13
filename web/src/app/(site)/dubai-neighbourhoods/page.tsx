@@ -1,6 +1,6 @@
 // /dubai-neighbourhoods/ — Elementor page 355699: dark intro banner, neighbourhood dropdown and the Houzez area grid.
 import type { Metadata } from "next";
-import Image from "next/image";
+import Media from "@/components/Media";
 import Link from "next/link";
 import { Container } from "@/components/ui";
 import AreaSelect from "@/components/guides/AreaSelect";
@@ -23,8 +23,8 @@ const areas: { slug: string; name: string; image?: string }[] = [
     name: "Downtown Dubai",
     image: "/wp-content/uploads/2024/04/Address-Downtown-Downtown-Dubai-Downtown-Dubai-ADM240062-Prestige-Luxury-Real-Estate-30-1170x785.jpg",
   },
-  { slug: "business-bay", name: "Business Bay", image: "/wp-content/uploads/2026/11/Dubai-Skyline.webp" },
-  { slug: "jumeirah-beach-residence", name: "Jumeirah Beach Residence", image: "/wp-content/uploads/2026/11/JBR.webp" },
+  { slug: "business-bay", name: "Business Bay", image: "/wp-content/uploads/2021/04/aerial-view-of-dubai-palm-jumeirah-island-1170x785.jpg" },
+  { slug: "jumeirah-beach-residence", name: "Jumeirah Beach Residence", image: "/wp-content/uploads/2019/07/jbr-beach-2048x1271.jpg" },
   { slug: "jumeirah-lake-towers", name: "Jumeirah Lake Towers", image: "/wp-content/uploads/2019/06/jlt-apartments.jpg" },
   { slug: "jumeirah-village-circle", name: "Jumeirah Village Circle", image: "/wp-content/uploads/2019/05/jumeirah-village-circle.jpg" },
   { slug: "al-furjan", name: "Al Furjan" },
@@ -106,7 +106,7 @@ export default function DubaiNeighbourhoodsPage() {
                 <li key={a.slug} className={isWide(i) ? "sm:col-span-2" : ""}>
                   <Link href={`/area/${a.slug}/`} className="group relative flex h-[280px] items-end overflow-hidden rounded-[2px] bg-[#2b2b2b]">
                     {a.image && (
-                      <Image
+                      <Media
                         src={a.image}
                         alt=""
                         fill

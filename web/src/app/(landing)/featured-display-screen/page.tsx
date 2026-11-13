@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Media from "@/components/Media";
 import PropertyCard from "@/components/listings/PropertyCard";
 import { getPage, seoMetadata } from "@/lib/content";
 import { properties } from "@/lib/properties";
@@ -15,7 +15,7 @@ export default function FeaturedDisplayScreenPage() {
 
   return (
     <main className="min-h-screen px-5 pb-[50px] pt-10">
-      <Image
+      <Media
         src="/wp-content/uploads/2022/11/logo-prestige-luxury-white-2x.png"
         alt="Prestige Luxury Real Estate"
         width={438}

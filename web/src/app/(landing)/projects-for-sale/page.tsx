@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Media from "@/components/Media";
 import LeadForm from "@/components/LeadForm";
 import Gallery from "@/components/landing/Gallery";
 import {
@@ -10,7 +10,7 @@ import {
   featureIcons as fi,
   type ProjectFeature,
 } from "@/components/landing/ProjectsShowcase";
-import { BenefitRow, LinksFooter, LpHeading, Reviews, WhatsAppFloat, btn, contactFields } from "@/components/landing/shared";
+import { BenefitRow, LinksFooter, LpHeading, Reviews, btn, contactFields } from "@/components/landing/shared";
 import { getPage, seoMetadata } from "@/lib/content";
 
 export const metadata = seoMetadata(getPage("/projects-for-sale/")!);
@@ -171,7 +171,7 @@ export default function ProjectsForSalePage() {
           </>
         }
       >
-        <Image
+        <Media
           src="/wp-content/uploads/2023/10/Group-23964-1024x166.png"
           alt="Logos of the developers we work with"
           width={1024}
@@ -218,7 +218,6 @@ export default function ProjectsForSalePage() {
           { key: "testimonials", label: "Testimonials", href: "#testimonials" },
         ]}
       />
-      <WhatsAppFloat />
     </>
   );
 }

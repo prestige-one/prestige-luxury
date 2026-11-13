@@ -1,6 +1,7 @@
-import Image from "next/image";
+import Media from "@/components/Media";
 import Link from "next/link";
-import { formatPrice, type Property } from "@/lib/properties";
+import Price from "@/components/Price";
+import { type Property } from "@/lib/properties";
 import { addressLine, bedsLabel, isUnoptimized, propertyStatus, sizedImage, sqft } from "@/lib/listing-format";
 import { AreaIcon, BathIcon, BedIcon, HomeIcon, PinIcon } from "./icons";
 
@@ -23,7 +24,7 @@ export default function PropertyCard({ property: p, priority = false }: { proper
         aria-hidden
       >
         {image ? (
-          <Image
+          <Media
             src={image}
             alt=""
             fill
@@ -41,7 +42,7 @@ export default function PropertyCard({ property: p, priority = false }: { proper
           {status.label}
         </span>
         <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent px-4 pb-3 pt-10 text-[18px] font-semibold text-white">
-          {formatPrice(p)}
+          <Price price={p.price} purpose={p.purpose} rentFrequency={p.rentFrequency} />
         </span>
       </Link>
 

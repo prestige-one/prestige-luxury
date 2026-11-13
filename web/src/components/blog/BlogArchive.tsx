@@ -83,7 +83,7 @@ export default function BlogArchive({
             {items.length ? (
               <div className="grid gap-8 sm:grid-cols-2">
                 {items.map((p, i) => (
-                  <PostCard key={p.id} post={p} priority={i < 2} />
+                  <PostCard key={p.id} post={p} priority={i < 3} />
                 ))}
               </div>
             ) : (

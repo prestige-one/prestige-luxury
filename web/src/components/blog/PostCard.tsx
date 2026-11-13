@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Media from "@/components/Media";
 import Link from "next/link";
 import type { Post } from "@/lib/content";
 import { decodeEntities, excerptText, formatDate, postImage, primaryCategory } from "./blog";
@@ -25,7 +25,7 @@ export default function PostCard({ post, priority = false }: { post: Post; prior
     <article className="group flex h-full flex-col overflow-hidden rounded-[2px] border border-line bg-white transition-[translate,box-shadow,border-color] duration-500 ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-[0_14px_34px_rgba(0,0,0,0.09)]">
       <Link href={post.path} className="relative block aspect-[16/10] overflow-hidden" tabIndex={-1} aria-hidden>
         {image ? (
-          <Image
+          <Media
             src={image}
             alt=""
             fill

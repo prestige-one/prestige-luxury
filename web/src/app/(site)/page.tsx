@@ -1,23 +1,22 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Link from "next/link";
+import Media from "@/components/Media";
 import HeroSearch from "@/components/HeroSearch";
 import { Button, Container, ImageCard, SectionTitle } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
+import { featuredDevelopers } from "@/lib/developers";
 import { communities, propertyTypes } from "@/lib/properties";
 import { site } from "@/lib/site";
 
 const home = getPage("/")!;
 export const metadata: Metadata = { ...seoMetadata({ ...home, path: "/" }), title: { absolute: `${site.name} • ${site.tagline}` } };
 
-// Developers we work with (alt text read off each logo file)
-const developerLogos = [
-  { src: "/wp-content/uploads/2026/11/gs-logo3.webp", name: "Emaar" },
-  { src: "/wp-content/uploads/2026/11/gs-logo5.webp", name: "Nakheel" },
-  { src: "/wp-content/uploads/2026/11/gs-logo-5-1.webp", name: "Prestige One Developments" },
-  { src: "/wp-content/uploads/2026/11/gs-logo-1.webp", name: "Deyaar" },
-  { src: "/wp-content/uploads/2026/11/gs-logo-5.webp", name: "Omniyat" },
-  { src: "/wp-content/uploads/2026/11/gs-logo2.webp", name: "Ellington Properties" },
-];
+/**
+ * Developers we are registered with, set as names rather than logos.
+ * Drawn from the registered-developer list, so the strip can never advertise a developer the
+ * agency is not registered with — which is what the previous hard-coded logo row did.
+ */
+const marqueeDevelopers = featuredDevelopers();
 
 const services = [
   {
@@ -94,7 +93,7 @@ const areas = [
   {
     title: "Business Bay",
     text: "modern landscape comprising commercial, residential, and recreational spaces...",
-    image: "/wp-content/uploads/2026/11/JBR.webp",
+    image: "/wp-content/uploads/2019/07/jbr-beach-2048x1271.jpg",
     href: "/area/business-bay/",
   },
 ];
@@ -129,21 +128,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Developer logos */}
-      <section className="overflow-hidden bg-cream py-8">
-        <div className="flex w-max animate-marquee items-center gap-16" aria-label="Developers we work with" role="group">
+      {/* Developers we are registered with */}
+      <section className="overflow-hidden border-y border-line bg-cream py-7">
+        <div className="flex w-max animate-marquee items-center gap-12" aria-label="Developers we are registered with" role="group">
           {[0, 1, 2, 3].flatMap((copy) =>
-            developerLogos.map((logo) => (
-              <Image
-                key={`${copy}-${logo.src}`}
-                src={logo.src}
+            marqueeDevelopers.map((d) => (
+              <Link
+                key={`${copy}-${d.slug}`}
+                href={`/developers/${d.slug}/`}
                 // the marquee repeats the row to loop seamlessly: only the first copy is announced
-                alt={copy === 0 ? logo.name : ""}
                 aria-hidden={copy === 0 ? undefined : true}
-                width={180}
-                height={80}
-                className="h-[70px] w-auto object-contain"
-              />
+                tabIndex={copy === 0 ? undefined : -1}
+                className="shrink-0 whitespace-nowrap font-heading text-[17px] font-medium uppercase tracking-[0.14em] text-ink/55 transition-colors duration-200 hover:text-accent md:text-[19px]"
+              >
+                {d.name}
+              </Link>
             )),
           )}
         </div>
@@ -205,7 +204,7 @@ export default function HomePage() {
 
       {/* CTA */}
       <section className="relative flex min-h-[360px] items-center justify-center overflow-hidden py-16 text-center md:min-h-[414px]">
-        <Image src="/wp-content/uploads/2026/11/dubai-skyline-view.webp" alt="" fill sizes="100vw" className="object-cover" />
+        <Media src="/wp-content/uploads/2019/05/mbr-city-dubai.jpg" alt="" fill tone="ink" sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-black/45" />
         <div className="relative z-10 max-w-[600px] px-5">
           <h2 className="text-[26px] font-medium capitalize leading-[1.25] tracking-[-0.01em] text-white md:text-[30px]">Connect with our sales experts</h2>

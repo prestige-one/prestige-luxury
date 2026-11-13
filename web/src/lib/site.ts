@@ -5,8 +5,11 @@ export const site = {
   tagline: "Personal and Exclusive",
   description: "Buy, Rent, Sell and Property Management",
   url: "https://prestigeluxury.ae",
-  phone: "+971(0) 4 446 8302",
-  phoneHref: "tel:+97144468302",
+  phone: "+971 52 370 2269",
+  phoneHref: "tel:+971523702269",
+  // Same number on WhatsApp — digits only, as wa.me requires.
+  whatsapp: "971523702269",
+  whatsappHref: "https://wa.me/971523702269",
   email: "info@prestigeluxury.ae",
   address: "Office No. 1603, 16th Floor, Marina Plaza, Dubai Marina – UAE",
   about:
@@ -14,34 +17,248 @@ export const site = {
   logoWhite: "/wp-content/uploads/2022/11/logo-prestige-luxury-white-2x.png",
   logoBlack: "/wp-content/uploads/2020/06/logo-prestige-black-1x.png",
   heroVideoId: "viL_Gac5rt0",
+  // Taken from the original contact page, which is the set the owner confirmed.
+  // (An older footer pointed at different Facebook/Instagram/YouTube handles.)
   socials: [
-    { name: "Facebook", href: "https://www.facebook.com/prestigeluxuryrealestatedubai/" },
+    { name: "Facebook", href: "https://www.facebook.com/prestigerealestatemarina/" },
+    { name: "Instagram", href: "https://www.instagram.com/prestigerealestatedubai/" },
     { name: "LinkedIn", href: "https://www.linkedin.com/company/prestige-real-estate-mena" },
-    { name: "Instagram", href: "https://www.instagram.com/prestigeluxuryrealestate/" },
-    { name: "YouTube", href: "https://www.youtube.com/@PrestigeLuxuryRealEstate" },
+    { name: "YouTube", href: "https://www.youtube.com/channel/UCZdH5kEzkbcdUlc0OrCLHjA" },
+    { name: "X", href: "https://twitter.com/DubaiPrestigeRE" },
   ],
 } as const;
 
-export type NavItem = { label: string; href: string; children?: NavItem[] };
+// ---- Navigation -----------------------------------------------------------------------------
+// Pure data only: this file is imported by the client Header, so it must never pull in
+// lib/properties, lib/listing-views or any JSON content.
 
-export const mainNav: NavItem[] = [
-  { label: "Home", href: "/" },
+/** Keys understood by `NavIcon` in components/icons.tsx. */
+export type IconName = "apartment" | "villa" | "townhouse" | "studio" | "commercial" | "office" | "grid";
+
+export type NavLink = { label: string; href: string; icon?: IconName };
+export type NavGroup = { title?: string; links: NavLink[] };
+export type NavPromo = { title: string; subtitle?: string; href: string; image: string; cta: string };
+export type NavMega = { heading: string; groups: NavGroup[]; promo?: NavPromo };
+export type NavItem = { label: string; href: string; children?: NavLink[]; mega?: NavMega };
+
+/** Flattens a mega panel's groups into the plain `children` list other consumers expect. */
+const childrenOf = (mega: NavMega): NavLink[] => mega.groups.flatMap((g) => g.links);
+
+/** Gives every mega item a derived `children` list, so `isActive` and any other consumer still work. */
+const withChildren = (items: NavItem[]): NavItem[] =>
+  items.map((item) => (item.mega && !item.children ? { ...item, children: childrenOf(item.mega) } : item));
+
+const buyMega: NavMega = {
+  heading: "Properties for Sale in Dubai",
+  groups: [
+    {
+      title: "Properties by type",
+      links: [
+        { label: "Apartments", href: "/property-type/apartment/", icon: "apartment" },
+        { label: "Villas", href: "/property-type/villa/", icon: "villa" },
+        { label: "Townhouses", href: "/property-type/townhouse/", icon: "townhouse" },
+        { label: "Studios", href: "/property-type/studio/", icon: "studio" },
+        { label: "Commercial", href: "/property-type/other-commercial/", icon: "commercial" },
+        { label: "See All Properties", href: "/status/for-sale/", icon: "grid" },
+      ],
+    },
+    {
+      title: "Buyer resources",
+      links: [
+        { label: "Market Appraisal", href: "/services/market-appraisal/" },
+        { label: "Browse Developers", href: "/developers/" },
+        { label: "FAQs", href: "/frequently-asked-questions/" },
+      ],
+    },
+  ],
+  promo: {
+    title: "Signature Living",
+    href: "/signature-living/",
+    cta: "Explore Signature",
+    image:
+      "/wp-content/uploads/2024/04/Address-Downtown-Downtown-Dubai-Downtown-Dubai-ADM240062-Prestige-Luxury-Real-Estate-30-1170x785.jpg",
+  },
+};
+
+const rentMega: NavMega = {
+  heading: "Properties for Rent in Dubai",
+  groups: [
+    {
+      title: "Properties by type",
+      links: [
+        { label: "Apartments", href: "/property-type/apartment/", icon: "apartment" },
+        { label: "Villas", href: "/property-type/villa/", icon: "villa" },
+        { label: "Townhouses", href: "/property-type/townhouse/", icon: "townhouse" },
+        { label: "Studios", href: "/property-type/studio/", icon: "studio" },
+        { label: "Offices", href: "/property-type/office/", icon: "office" },
+        { label: "See All Properties", href: "/status/for-rent/", icon: "grid" },
+      ],
+    },
+    {
+      title: "Tenant resources",
+      links: [
+        { label: "Property Management", href: "/services/property-management/" },
+        { label: "FAQs", href: "/frequently-asked-questions/" },
+        { label: "Speak to a Leasing Agent", href: "/contact-us/" },
+      ],
+    },
+  ],
+  promo: {
+    title: "Hot Properties",
+    subtitle: "in Dubai Marina",
+    href: "/area/dubai-marina/",
+    cta: "Explore Now",
+    image:
+      "/wp-content/uploads/2024/03/Princess-Tower-Dubai-Marina-Dubai-Marina-SAL240055-Prestige-Luxury-Real-Estate-1170x785.jpg",
+  },
+};
+
+const offPlanMega: NavMega = {
+  heading: "New Projects in Dubai",
+  groups: [
+    {
+      title: "Featured projects",
+      links: [
+        { label: "Prestige Embankment", href: "/prestige-embankment/" },
+        { label: "Orra Embankment", href: "/orra-embankment/" },
+        { label: "Vista by Prestige One", href: "/vista-by-prestige-one/" },
+        { label: "The Residence by Prestige One", href: "/the-residence-by-prestige-one/" },
+        { label: "All New Projects", href: "/projects-for-sale/" },
+      ],
+    },
+    {
+      title: "Off-plan resources",
+      links: [
+        { label: "Off-Plan Listings", href: "/status/off-plan/" },
+        { label: "Browse Developers", href: "/developers/" },
+      ],
+    },
+  ],
+  promo: {
+    title: "Prestige One Developments",
+    href: "/developers/prestige-one-developments/",
+    cta: "View Developer",
+    image: "/wp-content/uploads/2023/05/embankment-buildingoutside-view.jpg",
+  },
+};
+
+const developersMega: NavMega = {
+  heading: "Real Estate Developers in Dubai",
+  groups: [
+    {
+      title: "Featured developers",
+      links: [
+        { label: "Emaar Properties", href: "/developers/emaar-properties/" },
+        { label: "DAMAC Properties", href: "/developers/damac-properties/" },
+        { label: "Nakheel", href: "/developers/nakheel/" },
+        { label: "Sobha Realty", href: "/developers/sobha-realty/" },
+        { label: "Binghatti Developers", href: "/developers/binghatti-developers/" },
+        { label: "Meraas", href: "/developers/meraas/" },
+        { label: "Omniyat", href: "/developers/omniyat/" },
+        { label: "Prestige One Developments", href: "/developers/prestige-one-developments/" },
+      ],
+    },
+    { title: "Browse", links: [{ label: "All Developers", href: "/developers/" }] },
+  ],
+  promo: {
+    title: "37 Registered Developers",
+    subtitle: "One directory",
+    href: "/developers/",
+    cta: "View Directory",
+    image: "/wp-content/uploads/2019/06/emaar-downtown-1536x864.jpg",
+  },
+};
+
+// The ten communities with the most listings in content/properties.json (slugs from
+// lib/properties.ts's `slugify`, all resolved by the /area/[area]/ route).
+const areasMega: NavMega = {
+  heading: "Dubai Communities",
+  groups: [
+    {
+      title: "Popular communities",
+      links: [
+        { label: "Dubai Sports City", href: "/area/dubai-sports-city/" },
+        { label: "Dubai Marina", href: "/area/dubai-marina/" },
+        { label: "Jumeirah Village Circle", href: "/area/jumeirah-village-circle/" },
+        { label: "Business Bay", href: "/area/business-bay/" },
+        { label: "Downtown Dubai", href: "/area/downtown-dubai/" },
+        { label: "DIFC", href: "/area/difc/" },
+        { label: "Jumeirah Beach Residence", href: "/area/jumeirah-beach-residence/" },
+        { label: "Jumeirah Lake Towers", href: "/area/jumeirah-lake-towers/" },
+        { label: "Dubai Islands", href: "/area/dubai-islands/" },
+        { label: "Palm Jumeirah", href: "/area/palm-jumeirah/" },
+      ],
+    },
+    {
+      title: "Browse",
+      links: [
+        { label: "All Areas", href: "/areas/" },
+        { label: "Dubai Neighbourhoods", href: "/dubai-neighbourhoods/" },
+      ],
+    },
+  ],
+  promo: {
+    title: "Area Guides",
+    href: "/areas/",
+    cta: "Explore Areas",
+    image: "/wp-content/uploads/2019/07/jbr-beach-2048x1271.jpg",
+  },
+};
+
+const servicesMega: NavMega = {
+  heading: "Our Services",
+  groups: [
+    {
+      title: "What we do",
+      links: [
+        { label: "Sell Your Property", href: "/sell/" },
+        { label: "Property Management", href: "/services/property-management/" },
+        { label: "Market Appraisal", href: "/services/market-appraisal/" },
+        { label: "List With Us", href: "/sell/" },
+      ],
+    },
+    {
+      title: "Company",
+      links: [
+        { label: "Our Story", href: "/about/" },
+        { label: "Meet the Team", href: "/meet-the-team/" },
+        { label: "Careers", href: "/careers/" },
+        { label: "Testimonials", href: "/testimonials/" },
+      ],
+    },
+  ],
+  promo: {
+    title: "List Your Property",
+    subtitle: "Free market appraisal",
+    href: "/sell/",
+    cta: "Get a Valuation",
+    image: "/wp-content/uploads/2021/04/aerial-view-of-dubai-palm-jumeirah-island-1170x785.jpg",
+  },
+};
+
+export const mainNav: NavItem[] = withChildren([
+  { label: "Buy", href: "/status/for-sale/", mega: buyMega },
+  { label: "Rent", href: "/status/for-rent/", mega: rentMega },
+  { label: "Off-Plan", href: "/status/off-plan/", mega: offPlanMega },
+  { label: "Developers", href: "/developers/", mega: developersMega },
+  { label: "Areas", href: "/areas/", mega: areasMega },
+  { label: "Services", href: "/services/", mega: servicesMega },
   {
-    label: "Properties",
-    href: "/properties/",
+    label: "More",
+    href: "/contact-us/",
     children: [
-      { label: "Buy", href: "/status/for-sale/" },
-      { label: "Rent", href: "/status/for-rent/" },
-      { label: "Off-Plan", href: "/status/off-plan/" },
-      { label: "New Projects", href: "/projects-for-sale/" },
-      { label: "Commercial", href: "/property-type/other-commercial/" },
+      { label: "Our Story", href: "/about/" },
+      { label: "Meet the Team", href: "/meet-the-team/" },
+      { label: "Careers", href: "/careers/" },
+      { label: "Testimonials", href: "/testimonials/" },
+      { label: "FAQs", href: "/frequently-asked-questions/" },
+      { label: "Contact Us", href: "/contact-us/" },
     ],
   },
-  { label: "List With Us", href: "/sell/" },
-  { label: "Our Story", href: "/about/" },
-  { label: "Careers", href: "/careers/" },
-  { label: "Contact Us", href: "/contact-us/" },
-];
+]);
+
+/** The header's primary call to action, shown as a button beside the menu. */
+export const navCta = { label: "List Your Property", href: "/sell/" };
 
 export const footerColumns: { title: string; links: { label: string; href: string }[] }[] = [
   {
@@ -50,7 +267,7 @@ export const footerColumns: { title: string; links: { label: string; href: strin
       { label: "Properties for Sale", href: "/status/for-sale/" },
       { label: "Luxury Apartments", href: "/property-type/apartment/" },
       { label: "Villas & Penthouses", href: "/property-type/villa/" },
-      { label: "Buyer’s Guide", href: "/blog/" },
+      { label: "Market Insights", href: "/blog/" },
     ],
   },
   {
@@ -59,15 +276,15 @@ export const footerColumns: { title: string; links: { label: string; href: strin
       { label: "Properties for Rent", href: "/status/for-rent/" },
       { label: "Residential Leasing", href: "/status/for-rent/" },
       { label: "Commercial Leasing", href: "/property-type/other-commercial/" },
-      { label: "Tenant’s Guide", href: "/blog/" },
+      { label: "Frequently Asked Questions", href: "/frequently-asked-questions/" },
     ],
   },
   {
     title: "Off-Plan",
     links: [
       { label: "New Developments", href: "/status/off-plan/" },
-      { label: "Developers", href: "/projects-for-sale/" },
-      { label: "Investment Guide", href: "/blog/" },
+      { label: "All Developers", href: "/developers/" },
+      { label: "Prestige One Developments", href: "/developers/prestige-one-developments/" },
       { label: "Featured Projects", href: "/projects-for-sale/" },
     ],
   },

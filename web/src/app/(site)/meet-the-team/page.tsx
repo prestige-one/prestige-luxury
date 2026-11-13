@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Media from "@/components/Media";
 import { Container } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
 
@@ -60,7 +60,7 @@ export default function MeetTheTeamPage() {
               <li key={m.name} className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)]">
                 <article className="group">
                   <div className="relative aspect-[3/4] overflow-hidden bg-mist">
-                    <Image
+                    <Media
                       src={m.image}
                       alt={`${m.name}, ${m.role}`}
                       fill

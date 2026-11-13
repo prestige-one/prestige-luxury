@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect } from "react";
+import { site } from "@/lib/site";
 
 export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
   useEffect(() => {
@@ -14,8 +15,8 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
         <h1 className="font-heading text-[26px] text-ink md:text-[32px]">Something went wrong</h1>
         <p className="mt-3 text-[15px] text-muted">
           Sorry — this page could not be displayed. Please try again, or contact us on{" "}
-          <a href="tel:+97144468302" className="underline underline-offset-4 hover:text-accent">
-            +971 (0) 4 446 8302
+          <a href={site.phoneHref} className="underline underline-offset-4 hover:text-accent">
+            {site.phone}
           </a>
           .
         </p>

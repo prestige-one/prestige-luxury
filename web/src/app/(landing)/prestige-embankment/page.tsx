@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Media from "@/components/Media";
 import LeadForm from "@/components/LeadForm";
 import Gallery from "@/components/landing/Gallery";
 import LeadModal from "@/components/landing/LeadModal";
@@ -77,10 +77,10 @@ export default function PrestigeEmbankmentPage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden px-5 pb-20 pt-8 md:px-[100px] md:pb-[100px]">
-        <Image src={up("head1.png")} alt="" fill priority sizes="100vw" className="object-cover" />
+        <Media src={up("head1.png")} alt="" fill priority tone="ink" sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-[linear-gradient(0deg,#000000_3%,#02071200_77%)] opacity-[0.97]" />
         <div className="relative">
-          <Image src={LOGO_WHITE.src} alt="Prestige Luxury Real Estate" width={LOGO_WHITE.width} height={LOGO_WHITE.height} priority className="h-auto w-[150px] md:w-[199px]" />
+          <Media src={LOGO_WHITE.src} alt="Prestige Luxury Real Estate" tone="ink" width={LOGO_WHITE.width} height={LOGO_WHITE.height} priority className="h-auto w-[150px] md:w-[199px]" />
           <LpHeading as="h1" className="mx-auto mt-12 max-w-[1300px] md:mt-[50px]">
             Experience a Premium Luxury Lifestyle at ORRA The Embankment
           </LpHeading>
@@ -116,7 +116,7 @@ export default function PrestigeEmbankmentPage() {
           ].map((a) => (
             <div key={a.title} className="text-center">
               <h3 className="text-[30px] font-extrabold leading-tight md:text-[48px] md:leading-[60px]">{a.title}</h3>
-              <Image src={up(a.img)} alt={`The Embankment ${a.title}`} width={916} height={549} sizes="(min-width: 768px) 50vw, 100vw" className="mt-6 h-auto w-full" />
+              <Media src={up(a.img)} alt={`The Embankment ${a.title}`} width={916} height={549} sizes="(min-width: 768px) 50vw, 100vw" className="mt-6 h-auto w-full" />
               {modal("Take a 3D Tour", "mt-4 px-4 py-3 text-[24px] text-white underline-offset-8 hover:underline md:text-[32px]", `3D Tour – ${a.title}`)}
             </div>
           ))}
@@ -132,7 +132,7 @@ export default function PrestigeEmbankmentPage() {
           {amenities.map(([icon, label]) => (
             <li key={label} className="flex flex-col items-center text-center">
               <span className="flex h-[92px] w-[92px] items-center justify-center rounded-[50px] border border-black p-[10px]">
-                <Image src={up(icon)} alt="" width={71} height={71} className="h-[60px] w-[60px] object-contain" />
+                <Media src={up(icon)} alt="" width={71} height={71} className="h-[60px] w-[60px] object-contain" />
               </span>
               <span className="mt-3 text-[16px] leading-[1.6] md:text-[20px] md:leading-[33px]">{label}</span>
             </li>
@@ -152,7 +152,7 @@ export default function PrestigeEmbankmentPage() {
             ))}
             <div className="mt-10">{modal("Book a Free Consultation", `${btn.black} px-8 py-3 md:text-[32px]`, "Book a Free Consultation")}</div>
           </div>
-          <Image src={up("21.jpg")} alt="The Embankment by ORRA" width={545} height={932} sizes="(min-width: 1024px) 50vw, 100vw" className="mx-auto h-auto w-full max-w-[545px]" />
+          <Media src={up("21.jpg")} alt="The Embankment by ORRA" width={545} height={932} sizes="(min-width: 1024px) 50vw, 100vw" className="mx-auto h-auto w-full max-w-[545px]" />
         </div>
       </section>
 
@@ -161,11 +161,11 @@ export default function PrestigeEmbankmentPage() {
         <LpHeading dark className="pt-12 md:pt-[50px]">
           The Embankment Location
         </LpHeading>
-        <Image src={up("Rectangle-145.png")} alt="Map of The Embankment location" width={1916} height={746} sizes="100vw" className="mt-12 h-auto w-full" />
+        <Media src={up("Rectangle-145.png")} alt="Map of The Embankment location" width={1916} height={746} sizes="100vw" className="mt-12 h-auto w-full" />
         <ul className="mx-auto mt-14 grid max-w-[1300px] gap-10 sm:grid-cols-3">
           {distances.map((d) => (
             <li key={d.place} className="flex flex-col items-center text-center">
-              <Image src={up(d.icon)} alt="" width={d.w} height={d.h} className="h-[90px] w-auto" />
+              <Media src={up(d.icon)} alt="" width={d.w} height={d.h} className="h-[90px] w-auto" />
               <span className="mt-4 text-[30px] font-bold leading-[40px] md:text-[36px]">{d.time}</span>
               <span className="text-[20px] leading-[40px] md:text-[24px]">{d.place}</span>
             </li>

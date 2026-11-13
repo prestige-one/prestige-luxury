@@ -1,14 +1,19 @@
 // Building blocks shared by the standalone project landing pages (black Elementor "canvas" design).
-import Image from "next/image";
+import Media from "@/components/Media";
 import Link from "next/link";
 import type { LeadField } from "@/components/LeadForm";
+import { site } from "@/lib/site";
 import { countries } from "./countries";
 
-/** Contact details used on the landing pages (they differ from the main site: leads@ / 446 8300) */
+/**
+ * Contact details used on the landing pages. The campaign email is still separate (leads@),
+ * but the phone number is the agency's single published one — the owner asked for that number
+ * everywhere, so the old 446 8300 campaign line is gone.
+ */
 export const landingContact = {
   email: "leads@prestigeluxury.ae",
-  phoneHref: "tel:+97144468300",
-  whatsapp: "https://wa.me/971523702269",
+  phoneHref: site.phoneHref,
+  whatsapp: site.whatsappHref,
 };
 
 export const LOGO_WHITE = { src: "/wp-content/uploads/2022/11/Prestige-Luxury-Logo-30-px-white.png", width: 199, height: 63 };
@@ -52,7 +57,7 @@ export function LogoBar({ action }: { action?: React.ReactNode }) {
   return (
     <header className="border-b-2 border-white bg-black py-[15px]">
       <div className="flex items-center justify-between px-5 md:px-[100px]">
-        <Image src={LOGO_WHITE.src} alt="Prestige Luxury Real Estate" width={LOGO_WHITE.width} height={LOGO_WHITE.height} priority className="h-auto w-[150px] md:w-[199px]" />
+        <Media src={LOGO_WHITE.src} alt="Prestige Luxury Real Estate" tone="ink" width={LOGO_WHITE.width} height={LOGO_WHITE.height} priority className="h-auto w-[150px] md:w-[199px]" />
         {action}
       </div>
     </header>
@@ -100,7 +105,7 @@ export function IconBox({
 }) {
   const body = (
     <>
-      <Image src={icon.src} alt="" width={icon.width} height={icon.height} className={`h-auto shrink-0 ${iconClass}`} />
+      <Media src={icon.src} alt="" width={icon.width} height={icon.height} className={`h-auto shrink-0 ${iconClass}`} />
       <span className={stacked ? "mt-3 block" : "block"}>
         <span className="block">{title}</span>
         {text && <span className="block">{text}</span>}
@@ -150,7 +155,7 @@ function Copyright({ year = true }: { year?: boolean }) {
 export function SimpleFooter({ privacy = true }: { privacy?: boolean }) {
   return (
     <footer className="border-t-[3px] border-white px-5 pb-10 pt-10 md:px-[100px]">
-      <Image src={LOGO_WHITE.src} alt="Prestige Luxury Real Estate" width={LOGO_WHITE.width} height={LOGO_WHITE.height} className="mx-auto h-auto w-[199px]" />
+      <Media src={LOGO_WHITE.src} alt="Prestige Luxury Real Estate" tone="ink" width={LOGO_WHITE.width} height={LOGO_WHITE.height} className="mx-auto h-auto w-[199px]" />
       <div className="mt-6">
         <Copyright />
       </div>
@@ -170,7 +175,7 @@ export function SimpleFooter({ privacy = true }: { privacy?: boolean }) {
 export function MiniFooter() {
   return (
     <footer className="px-5 pb-10 md:px-[100px]">
-      <Image src={LOGO_WHITE.src} alt="Prestige Luxury Real Estate" width={LOGO_WHITE.width} height={LOGO_WHITE.height} className="mx-auto h-auto w-[199px]" />
+      <Media src={LOGO_WHITE.src} alt="Prestige Luxury Real Estate" tone="ink" width={LOGO_WHITE.width} height={LOGO_WHITE.height} className="mx-auto h-auto w-[199px]" />
       <div className="mt-6">
         <Copyright />
       </div>
@@ -206,7 +211,7 @@ export function LinksFooter({ links, lang = "en", year = true }: { links: QuickL
           <ContactLinks lang={lang} className="mt-2" />
         </div>
       </div>
-      <Image src={LOGO_WHITE.src} alt="Prestige Luxury Real Estate" width={LOGO_WHITE.width} height={LOGO_WHITE.height} className="mx-auto mt-12 h-auto w-[199px]" />
+      <Media src={LOGO_WHITE.src} alt="Prestige Luxury Real Estate" tone="ink" width={LOGO_WHITE.width} height={LOGO_WHITE.height} className="mx-auto mt-12 h-auto w-[199px]" />
       <div className="mt-6">
         <Copyright year={year} />
       </div>
@@ -231,7 +236,7 @@ export function Reviews({ title, reviews, id }: { title: string; reviews: Review
   const quote = "/wp-content/uploads/2023/04/unnamed-file.png";
   return (
     <section id={id} className="bg-white px-5 pb-20 pt-16 text-black md:px-[100px] md:pb-[100px]">
-      <Image src={quote} alt="" width={144} height={116} className="mx-auto h-auto w-[72px]" />
+      <Media src={quote} alt="" width={144} height={116} className="mx-auto h-auto w-[72px]" />
       <LpHeading dark className="mt-6">
         {title}
       </LpHeading>
@@ -268,7 +273,7 @@ export function BenefitRow({
     <ul className={`mx-auto grid max-w-[1400px] grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4 ${className}`}>
       {labels.map((label, i) => (
         <li key={label} className="flex min-w-0 items-center gap-3 sm:gap-4">
-          <Image src={benefitIcons[i].src} alt="" width={benefitIcons[i].width} height={benefitIcons[i].height} className="h-[60px] w-[56px] shrink-0 object-contain md:h-[90px] md:w-[80px]" />
+          <Media src={benefitIcons[i].src} alt="" width={benefitIcons[i].width} height={benefitIcons[i].height} className="h-[60px] w-[56px] shrink-0 object-contain md:h-[90px] md:w-[80px]" />
           <span className={`min-w-0 break-words font-medium leading-tight ${big ? "text-[17px] sm:text-[20px] md:text-[28px] xl:text-[32px]" : "text-[17px] sm:text-[18px] md:text-[24px]"}`}>{label}</span>
         </li>
       ))}
@@ -277,16 +282,6 @@ export function BenefitRow({
 }
 
 /** Floating WhatsApp button (projects pages) */
-export function WhatsAppFloat() {
-  return (
-    <a
-      href={landingContact.whatsapp}
-      target="_blank"
-      rel="noopener"
-      aria-label="Chat with us on WhatsApp"
-      className="fixed bottom-5 right-5 z-50 transition-transform hover:scale-110"
-    >
-      <Image src="/wp-content/uploads/2023/05/whatsApp-widget.png" alt="" width={86} height={86} className="h-16 w-16 md:h-[86px] md:w-[86px]" />
-    </a>
-  );
-}
+// The landing pages used to carry their own image-based WhatsApp float. There is now a single
+// global <WhatsAppButton /> in the root layout covering every page, so this one was removed
+// rather than left to sit on top of it.

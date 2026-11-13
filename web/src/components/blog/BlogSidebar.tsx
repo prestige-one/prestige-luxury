@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Media from "@/components/Media";
 import Link from "next/link";
 import { posts } from "@/lib/content";
 import { ImagePlaceholder } from "./PostCard";
@@ -45,7 +45,7 @@ export default function BlogSidebar({ currentPath }: { currentPath?: string }) {
                 <Link href={p.path} className="group flex gap-3">
                   <span className="relative block h-[60px] w-[80px] shrink-0 overflow-hidden">
                     {img ? (
-                      <Image src={img} alt="" fill sizes="80px" className="object-cover" />
+                      <Media src={img} alt="" fill sizes="80px" className="object-cover" />
                     ) : (
                       <ImagePlaceholder className="absolute inset-0 [&_svg]:h-6 [&_svg]:w-6" />
                     )}

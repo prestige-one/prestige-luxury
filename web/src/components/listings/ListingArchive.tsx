@@ -86,7 +86,7 @@ export default function ListingArchive({
               <ResultsGrid>
                 {shown.map((p, i) => (
                   <div key={p.id}>
-                    <PropertyCard property={p} priority={i < 2} />
+                    <PropertyCard property={p} priority={i < 3} />
                   </div>
                 ))}
               </ResultsGrid>
