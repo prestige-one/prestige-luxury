@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { categories, pages, posts } from "@/lib/content";
-import { properties, slugify } from "@/lib/properties";
+import { statuses } from "@/lib/listing-format";
+import { allAreas, typeRoutes } from "@/lib/listing-views";
+import { properties } from "@/lib/properties";
 import { site } from "@/lib/site";
 
 // Pages that exist only for WordPress features we dropped, or that shouldn't be indexed.
@@ -22,10 +24,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const p of posts) entries.push({ url: url(p.path), lastModified: p.modified, priority: 0.5 });
   for (const c of categories) if (c.count > 0) entries.push({ url: url(c.path), priority: 0.3 });
 
+  // Listing routes come from the same lists the routes themselves are generated from
+  // (lib/listing-format, lib/listing-views), so the sitemap can't drift away from them —
+  // that is how the /property-type/ pages and the listing-less area pages went missing.
   entries.push({ url: url("/properties/"), priority: 0.9 });
-  for (const s of ["for-rent", "for-sale", "off-plan"]) entries.push({ url: url(`/status/${s}/`), priority: 0.8 });
+  for (const s of statuses) entries.push({ url: url(`/status/${s.slug}/`), priority: 0.8 });
+  for (const t of typeRoutes) entries.push({ url: url(`/property-type/${t.slug}/`), priority: 0.6 });
   for (const p of properties) entries.push({ url: url(`/property/${p.slug}/`), lastModified: p.updatedAt, priority: 0.8 });
-  for (const c of new Set(properties.map((p) => slugify(p.community)))) entries.push({ url: url(`/area/${c}/`), priority: 0.6 });
+  for (const a of allAreas()) entries.push({ url: url(`/area/${a.slug}/`), priority: 0.6 });
 
   return entries;
 }

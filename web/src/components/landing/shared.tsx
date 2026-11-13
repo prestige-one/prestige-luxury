@@ -141,7 +141,7 @@ export function ContactLinks({ lang = "en", className = "" }: { lang?: "en" | "a
 function Copyright({ year = true }: { year?: boolean }) {
   return (
     <p className="text-center text-[16px] font-medium md:text-[24px]" dir="ltr">
-      © Prestige Luxury Real Estate – {year ? "2023 – " : ""}All rights reserved
+      © Prestige Luxury Real Estate – {year ? `${new Date().getFullYear()} – ` : ""}All rights reserved
     </p>
   );
 }

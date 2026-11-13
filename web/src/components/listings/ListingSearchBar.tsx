@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { budgetOptions } from "@/lib/listing-format";
 
 export type SearchBarValues = {
   q?: string;
@@ -18,7 +19,6 @@ const statusOptions = [
   { value: "for-sale", label: "For Sale" },
   { value: "off-plan", label: "Off-Plan" },
 ];
-const prices = [50000, 100000, 200000, 500000, 1000000, 2000000, 3000000, 5000000, 10000000, 20000000, 50000000];
 const fmt = (n: number) => `AED ${new Intl.NumberFormat("en-AE").format(n)}`;
 
 /** Houzez half-map/archive search row: keyword, city, area, "Advanced" panel, Search. Sends to /search-results/. */
@@ -35,6 +35,9 @@ export default function ListingSearchBar({
 }) {
   const router = useRouter();
   const [advanced, setAdvanced] = useState(Boolean(initial.status || initial.type || initial.beds || initial.maxPrice));
+  // Buying and renting are quoted on different scales, so the budget ladder follows the status.
+  const [status, setStatus] = useState(initial.status ?? "");
+  const [maxPrice, setMaxPrice] = useState(initial.maxPrice ?? "");
 
   function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -98,7 +101,15 @@ export default function ListingSearchBar({
         <div id="advanced-search" hidden={!advanced} className="mt-2.5 grid gap-2.5 sm:grid-cols-2 md:grid-cols-4">
           <label>
             <span className="sr-only">Status</span>
-            <select name="status" defaultValue={initial.status ?? ""} className={field}>
+            <select
+              name="status"
+              value={status}
+              onChange={(e) => {
+                setStatus(e.target.value);
+                setMaxPrice("");
+              }}
+              className={field}
+            >
               <option value="">All Status</option>
               {statusOptions.map((s) => (
                 <option key={s.value} value={s.value}>
@@ -131,11 +142,11 @@ export default function ListingSearchBar({
           </label>
           <label>
             <span className="sr-only">Maximum price</span>
-            <select name="maxPrice" defaultValue={initial.maxPrice ?? ""} className={field}>
-              <option value="">Max. Price</option>
-              {prices.map((p) => (
+            <select name="maxPrice" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} className={field}>
+              <option value="">{status === "for-rent" ? "Max. Rent / year" : "Max. Price"}</option>
+              {budgetOptions(status).map((p) => (
                 <option key={p} value={p}>
-                  {fmt(p)}
+                  {`${fmt(p)}${status === "for-rent" ? " / year" : ""}`}
                 </option>
               ))}
             </select>

@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function AdvancedSearchResultsPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
-  return <SearchResults searchParams={searchParams} title="Advanced Search Results" />;
+  return <SearchResults searchParams={searchParams} title="Advanced Search Results" path="/advanced-search-results/" />;
 }

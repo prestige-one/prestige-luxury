@@ -8,8 +8,8 @@ import PropertyGallery from "@/components/listings/PropertyGallery";
 import { TrackView } from "@/components/listings/RecentlyViewed";
 import { AreaIcon, BathIcon, BedIcon, CheckIcon, HomeIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "@/components/listings/icons";
 import { Breadcrumb, Container } from "@/components/ui";
-import { addressLine, bedsLabel, isUnoptimized, paragraphs, propertyStatus, sqft } from "@/lib/listing-format";
-import { similarListings } from "@/lib/listing-views";
+import { addressLine, bedsLabel, isUnoptimized, plainText, propertyStatus, richParagraphs, sqft } from "@/lib/listing-format";
+import { listingDescription, listingTitle, similarListings } from "@/lib/listing-views";
 import { formatPrice, getProperty, properties, type Property } from "@/lib/properties";
 import { site } from "@/lib/site";
 
@@ -22,8 +22,9 @@ export function generateStaticParams() {
 
 type Props = { params: Promise<{ slug: string }> };
 
+/** Markdown out, whitespace collapsed, cut on a word boundary. */
 const excerpt = (text: string, max = 158) => {
-  const t = text.replace(/\s+/g, " ").trim();
+  const t = plainText(text);
   return t.length > max ? `${t.slice(0, max - 1).replace(/\s+\S*$/, "")}…` : t;
 };
 
@@ -31,8 +32,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const p = getProperty(slug);
   if (!p) return {};
-  const title = `${p.title} | ${site.name}`;
-  const description = excerpt(p.description) || `${p.type} ${propertyStatus(p).label.toLowerCase()} in ${p.community}, ${p.city}.`;
+  // Feed titles repeat across listings and feed descriptions are shared bullet dumps, so both
+  // are composed from the listing's own facts (lib/listing-views).
+  const title = `${listingTitle(p)} | ${site.name}`;
+  const description = listingDescription(p);
   const path = `/property/${p.slug}/`;
   return {
     title: { absolute: title },
@@ -180,9 +183,18 @@ export default async function PropertyPage({ params }: Props) {
             {p.description && (
               <Section title="Description">
                 <div className="space-y-4 text-[15px] leading-[1.8] text-body">
-                  {paragraphs(p.description).map((t, i) => (
+                  {/* Agents type their descriptions with markdown (`**bold**`, `* bullets`) — render it. */}
+                  {richParagraphs(p.description).map((segments, i) => (
                     <p key={i} className="whitespace-pre-line">
-                      {t}
+                      {segments.map((s, j) =>
+                        s.bold ? (
+                          <strong key={j} className="font-medium text-ink">
+                            {s.text}
+                          </strong>
+                        ) : (
+                          <span key={j}>{s.text}</span>
+                        ),
+                      )}
                     </p>
                   ))}
                 </div>

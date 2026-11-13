@@ -25,9 +25,11 @@ const listings = snap.listings
     const community = tree[1] || r.loc?.name || city;
     const location = [...tree].reverse(); // most specific first
     const beds = num(r.beds);
-    const type = typeName(r.type);
+    // Property Finder lists studios as "Apartment" with 0 bedrooms; the website has its own
+    // Studio category, so give those listings that type.
+    const type = beds === 0 && typeName(r.type) === "Apartment" ? "Studio" : typeName(r.type);
     const purpose = r.price.period === 'sell' ? 'sale' : 'rent';
-    const slugBase = [type, beds === 0 ? 'studio' : beds ? `${beds} bed` : '', purpose === 'sale' ? 'for sale' : 'for rent', tree[tree.length - 1] || community].filter(Boolean).join(' ');
+    const slugBase = [type, beds ? `${beds} bed` : '', purpose === 'sale' ? 'for sale' : 'for rent', tree[tree.length - 1] || community].filter(Boolean).join(' ');
     return {
       id: `pf-${r.id}`,
       slug: `${slugify(slugBase)}-${r.id}`.toLowerCase(),

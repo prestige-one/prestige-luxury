@@ -3,7 +3,8 @@ import PropertyCard from "@/components/listings/PropertyCard";
 import { getPage, seoMetadata } from "@/lib/content";
 import { properties } from "@/lib/properties";
 
-export const metadata = seoMetadata(getPage("/featured-display-screen/")!);
+// A kiosk board for the office screen: no indexable content of its own.
+export const metadata = { ...seoMetadata(getPage("/featured-display-screen/")!), robots: { index: false, follow: true } };
 
 // Office display screen: logo + the latest properties for sale (Houzez "properties carousel" on the original)
 export default function FeaturedDisplayScreenPage() {

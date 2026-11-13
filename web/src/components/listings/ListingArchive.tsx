@@ -1,15 +1,37 @@
 import { Breadcrumb, Container } from "@/components/ui";
-import { propertyTypes, type Property } from "@/lib/properties";
-import type { SortKey } from "@/lib/listing-format";
-import { areaOptions, cityOptions } from "@/lib/listing-views";
-import ListingResults, { ListingViewProvider, ViewToggle } from "./ListingResults";
+import { type Property } from "@/lib/properties";
+import { countLabel, PAGE_SIZE, pageCount, parsePage, parseSort, sortOptions, sortProperties, type SortKey } from "@/lib/listing-format";
+import { areaOptions, cityOptions, searchTypeOptions } from "@/lib/listing-views";
+import { ResultsGrid, SortSelect, ViewToggle } from "./ListingResults";
 import ListingSearchBar, { type SearchBarValues } from "./ListingSearchBar";
 import ListingSidebar from "./ListingSidebar";
+import Pagination from "./Pagination";
 import PropertyCard from "./PropertyCard";
+
+export type RawParams = Record<string, string | string[] | undefined>;
+
+const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
+
+/** Keeps the page's own filters in the URL and replaces only `sort`/`page`. */
+function buildHref(path: string, params: RawParams, next: { sort?: SortKey; page?: number }) {
+  const q = new URLSearchParams();
+  for (const [k, v] of Object.entries(params)) {
+    const s = one(v);
+    if (s && k !== "sort" && k !== "page") q.set(k, s);
+  }
+  if (next.sort && next.sort !== "default") q.set("sort", next.sort);
+  if (next.page && next.page > 1) q.set("page", String(next.page));
+  const query = q.toString();
+  return query ? `${path}?${query}` : path;
+}
 
 /**
  * The Houzez listing archive: search row, breadcrumb, title, count + sort, list/grid toggle,
  * results on the left and the sidebar on the right.
+ *
+ * Sorting and paging live in the query string (`?sort=`, `?page=`) and are applied here, on
+ * the server, so a result can be shared and only the twelve cards of the current page are
+ * ever rendered into the HTML.
  */
 export default function ListingArchive({
   title,
@@ -17,44 +39,64 @@ export default function ListingArchive({
   listings,
   intro,
   search,
-  initialSort,
-  syncUrl = false,
+  path,
+  searchParams = {},
 }: {
   title: string;
   crumbs?: { label: string; href?: string }[];
   listings: Property[];
   intro?: React.ReactNode;
   search?: SearchBarValues;
-  initialSort?: SortKey;
-  syncUrl?: boolean;
+  /** This archive's own URL, e.g. "/status/for-rent/" — sort and page links are built from it. */
+  path: string;
+  searchParams?: RawParams;
 }) {
-  const items = listings.map((p, i) => ({
-    id: p.id,
-    price: p.price,
-    listedAt: p.listedAt,
-    updatedAt: p.updatedAt,
-    card: <PropertyCard property={p} priority={i < 2} />,
-  }));
-  // Reset sort/page/search fields when the filters change (navigating between searches)
-  const stateKey = JSON.stringify([search ?? {}, initialSort ?? "default"]);
+  const sort = parseSort(one(searchParams.sort));
+  const page = parsePage(one(searchParams.page), listings.length);
+  const pages = pageCount(listings.length);
+  const shown = sortProperties(listings, sort).slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+
+  const href = (next: { sort?: SortKey; page?: number }) => buildHref(path, searchParams, next);
+  const sortHrefs = Object.fromEntries(sortOptions.map((o) => [o.value, href({ sort: o.value })])) as Record<SortKey, string>;
 
   return (
     <>
-      <ListingSearchBar key={stateKey} cities={cityOptions()} areas={areaOptions()} types={propertyTypes} initial={search} />
-      <ListingViewProvider>
-        <Container className="pb-[90px] pt-8">
-          <Breadcrumb items={crumbs ?? [{ label: title }]} />
-          <div className="mt-3 mb-8 flex items-end justify-between gap-4">
-            <h1 className="text-[30px] font-medium leading-tight text-ink md:text-[36px]">{title}</h1>
-            <ViewToggle />
+      {/* Remount the search row when the page's own filters change, but not when only sort/page do. */}
+      <ListingSearchBar key={JSON.stringify(search ?? {})} cities={cityOptions()} areas={areaOptions()} types={searchTypeOptions()} initial={search} />
+      <Container className="pb-[90px] pt-8">
+        <Breadcrumb items={crumbs ?? [{ label: title }]} />
+        <div className="mt-3 mb-8 flex items-end justify-between gap-4">
+          <h1 className="text-[30px] font-medium leading-tight text-ink md:text-[36px]">{title}</h1>
+          <ViewToggle />
+        </div>
+        {intro}
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_330px]">
+          <div>
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+              <p className="text-[15px] font-medium text-ink">
+                {countLabel(listings.length)}
+                {pages > 1 && <span className="font-normal text-muted"> · Page {page} of {pages}</span>}
+              </p>
+              <SortSelect sort={sort} hrefs={sortHrefs} />
+            </div>
+
+            {shown.length === 0 ? (
+              <p className="border border-line bg-mist px-6 py-16 text-center text-[16px] text-muted">No listing found.</p>
+            ) : (
+              <ResultsGrid>
+                {shown.map((p, i) => (
+                  <div key={p.id}>
+                    <PropertyCard property={p} priority={i < 2} />
+                  </div>
+                ))}
+              </ResultsGrid>
+            )}
+
+            <Pagination page={page} pages={pages} href={(n) => href({ sort, page: n })} />
           </div>
-          {intro}
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_330px]">
-            <ListingResults key={stateKey} items={items} initialSort={initialSort} syncUrl={syncUrl} />
-            <ListingSidebar />
-          </div>
-        </Container>
-      </ListingViewProvider>
+          <ListingSidebar />
+        </div>
+      </Container>
     </>
   );
 }

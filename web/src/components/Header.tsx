@@ -35,16 +35,52 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Mobile menu: lock page scroll and close on Escape while it is open
+  // Mobile menu: lock page scroll and close on Escape while it is open.
+  // `overflow: hidden` alone is not enough (the body keeps scrolling on iOS and behind the
+  // overlay in some browsers), so the body is pinned in place and the scroll position restored.
   useEffect(() => {
     if (!open) return;
     const root = document.documentElement;
-    const prev = root.style.overflow;
+    const body = document.body;
+    const y = window.scrollY;
+    const scrollbar = window.innerWidth - root.clientWidth; // 0 on touch devices
+    const prev = {
+      rootOverflow: root.style.overflow,
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+      paddingRight: body.style.paddingRight,
+    };
     root.style.overflow = "hidden";
+    body.style.position = "fixed";
+    body.style.top = `-${y}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+    if (scrollbar > 0) body.style.paddingRight = `${scrollbar}px`; // no sideways jump on desktop
+
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpenOn(null);
     window.addEventListener("keydown", onKey);
+    // the drawer is mobile-only: closing it on the way to desktop avoids a locked page with no menu
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const onDesktop = () => desktop.matches && setOpenOn(null);
+    desktop.addEventListener("change", onDesktop);
     return () => {
-      root.style.overflow = prev;
+      desktop.removeEventListener("change", onDesktop);
+      root.style.overflow = prev.rootOverflow;
+      body.style.position = prev.position;
+      body.style.top = prev.top;
+      body.style.left = prev.left;
+      body.style.right = prev.right;
+      body.style.width = prev.width;
+      body.style.paddingRight = prev.paddingRight;
+      // jump straight back to where the page was (html has `scroll-behavior: smooth`)
+      const prevBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
+      window.scrollTo(0, y);
+      root.style.scrollBehavior = prevBehavior;
       window.removeEventListener("keydown", onKey);
     };
   }, [open]);

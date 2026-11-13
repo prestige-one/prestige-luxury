@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useId, useState } from "react";
 
 export type LeadField = {
   name: string; // sent as the field key, e.g. "name", "email", "phone", "message"
@@ -41,13 +41,37 @@ export default function LeadForm({
   dark?: boolean;
 }) {
   const router = useRouter();
+  const uid = useId();
   const [state, setState] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState("");
+  // Per-field validation messages, shown under the field and linked to it with aria-describedby.
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+
+  const fieldId = (name: string) => `${uid}-${name}`;
+  const errorId = (name: string) => `${uid}-${name}-error`;
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const formEl = e.currentTarget;
+
+    // Validation runs here (the form is `noValidate`) so every message can be shown in the page
+    // and tied to its field, instead of only in a native bubble.
+    const controls = Array.from(formEl.elements).filter(
+      (el): el is HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement =>
+        (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement || el instanceof HTMLSelectElement) &&
+        Boolean(el.name) &&
+        el.name !== "company_website",
+    );
+    const invalid = controls.filter((el) => !el.checkValidity());
+    if (invalid.length) {
+      setFieldErrors(Object.fromEntries(invalid.map((el) => [el.name, el.validationMessage])));
+      invalid[0].focus();
+      return;
+    }
+    setFieldErrors({});
+
     setState("sending");
-    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+    const data = Object.fromEntries(new FormData(formEl).entries());
     const res = await fetch("/api/lead", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -57,7 +81,7 @@ export default function LeadForm({
     if (res?.ok && json.ok) {
       if (redirectTo) return router.push(redirectTo);
       setState("sent");
-      e.currentTarget?.reset();
+      formEl.reset();
     } else {
       setState("error");
       setError(json.error || "Sorry, something went wrong. Please try again.");
@@ -69,6 +93,7 @@ export default function LeadForm({
       ? "border-white/30 bg-white/10 text-white placeholder:text-white/65 hover:border-white/50 focus:border-white focus:bg-white/[0.14] focus:shadow-[0_0_0_3px_rgba(255,255,255,0.15)] [&>option]:text-ink"
       : "border-line bg-white text-ink placeholder:text-[#8a8a8a] hover:border-[#cfcfcf] focus:border-accent focus:shadow-[0_0_0_3px_rgba(131,90,90,0.14)]"
   }`;
+  const errorRing = dark ? " !border-red-300" : " !border-red-600";
 
   if (state === "sent") {
     return (
@@ -91,26 +116,62 @@ export default function LeadForm({
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid grid-cols-2 gap-4">
-      {fields.map((f) => (
-        <label key={f.name} className={f.half ? "col-span-2 sm:col-span-1" : "col-span-2"}>
-          <span className="sr-only">{f.label}</span>
-          {f.type === "textarea" ? (
-            <textarea name={f.name} placeholder={f.label} required={f.required} rows={5} className={input} />
-          ) : f.type === "select" ? (
-            <select name={f.name} required={f.required} className={input} defaultValue="">
-              <option value="" disabled>
-                {f.label}
-              </option>
-              {f.options?.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
-            </select>
-          ) : (
-            <input name={f.name} type={f.type ?? "text"} placeholder={f.label} required={f.required} className={input} />
-          )}
-        </label>
-      ))}
+    <form onSubmit={onSubmit} noValidate className="grid grid-cols-2 gap-4">
+      {fields.map((f) => {
+        const fieldError = fieldErrors[f.name];
+        // A phone number is typed left-to-right even in an RTL page, but its placeholder/value
+        // stay aligned with the other fields.
+        const tel = f.type === "tel";
+        const common = {
+          id: fieldId(f.name),
+          name: f.name,
+          required: f.required,
+          "aria-invalid": fieldError ? (true as const) : undefined,
+          "aria-describedby": fieldError ? errorId(f.name) : undefined,
+          onInput: () =>
+            setFieldErrors((prev) => {
+              if (!prev[f.name]) return prev;
+              const next = { ...prev };
+              delete next[f.name];
+              return next;
+            }),
+          className: `${input}${fieldError ? errorRing : ""}`,
+        };
+        return (
+          <div key={f.name} className={f.half ? "col-span-2 sm:col-span-1" : "col-span-2"}>
+            {/* visually hidden: the placeholder carries the design, the label the accessible name.
+                Required fields are announced from the `required` attribute (in the reader's own language). */}
+            <label htmlFor={fieldId(f.name)} className="sr-only">
+              {f.label}
+            </label>
+            {f.type === "textarea" ? (
+              <textarea {...common} placeholder={f.label} rows={5} />
+            ) : f.type === "select" ? (
+              <select {...common} defaultValue="">
+                <option value="" disabled>
+                  {f.label}
+                </option>
+                {f.options?.map((o) => (
+                  <option key={o}>{o}</option>
+                ))}
+              </select>
+            ) : (
+              <input
+                {...common}
+                type={f.type ?? "text"}
+                placeholder={f.label}
+                dir={tel ? "ltr" : undefined}
+                className={`${common.className}${tel ? " rtl:text-right" : ""}`}
+              />
+            )}
+            {fieldError && (
+              <p id={errorId(f.name)} className={`mt-1.5 text-[12.5px] ${dark ? "text-red-200" : "text-red-700"}`}>
+                {fieldError}
+              </p>
+            )}
+          </div>
+        );
+      })}
       {/* honeypot */}
       <input type="text" name="company_website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
       <div className="col-span-2">

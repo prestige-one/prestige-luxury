@@ -1,7 +1,19 @@
 // Data helpers for the property listing pages (archives, search results, detail page). Server-side only:
 // this imports the listings JSON — client components must use lib/listing-format.ts instead.
-import { communities, properties, searchProperties, slugify, type Property, type SearchFilters } from "./properties";
-import { parseSort, sortProperties, statuses, type SortKey, type StatusSlug } from "./listing-format";
+import { communities, formatPrice, properties, propertyTypes, searchProperties, slugify, type Property, type SearchFilters } from "./properties";
+import {
+  bedsLabel,
+  budgetCaps,
+  parseSort,
+  propertyStatus,
+  sortProperties,
+  sqft,
+  statuses,
+  yearlyPrice,
+  type SortKey,
+  type StatusSlug,
+} from "./listing-format";
+import { site } from "./site";
 
 // ---- Property types -------------------------------------------------------------------------
 
@@ -23,9 +35,25 @@ const commercialPattern =
 
 export const isCommercialType = (type: string) => commercialPattern.test(type);
 
+/**
+ * Studios are listed by the portals either with `type: "Studio"` or as an apartment with
+ * no bedroom, so both count — otherwise /property-type/studio/ sits empty next to 23 studios.
+ */
+export const isStudio = (p: Pick<Property, "type" | "bedrooms">) => slugify(p.type) === "studio" || p.bedrooms === 0;
+
 export function propertiesOfType(slug: string, list: Property[] = properties) {
   if (slug === "other-commercial") return list.filter((p) => isCommercialType(p.type));
+  if (slug === "studio") return list.filter(isStudio);
   return list.filter((p) => slugify(p.type) === slug);
+}
+
+/**
+ * Options for the "Property type" select on the archives: the canonical list, minus the types
+ * no listing has (an always-empty option is just noise). Derived from the data, so a type comes
+ * back by itself as soon as the feed has one.
+ */
+export function searchTypeOptions(list: Property[] = properties) {
+  return propertyTypes.filter((label) => propertiesOfType(slugify(label), list).length > 0);
 }
 
 // ---- Areas ----------------------------------------------------------------------------------
@@ -142,13 +170,84 @@ export function parseFilters(sp: RawParams): ListingFilters {
 
 export function filterListings(f: ListingFilters, list: Property[] = properties) {
   let out = list;
-  // "Other Commercial" in the type select means every commercial type
-  if (f.type && slugify(f.type) === "other-commercial") {
-    out = propertiesOfType("other-commercial", out);
+  // "Other Commercial" / "Studio" in the type select cover more than one feed type
+  const typeSlug = f.type && slugify(f.type);
+  if (typeSlug === "other-commercial" || typeSlug === "studio") {
+    out = propertiesOfType(typeSlug, out);
     f = { ...f, type: undefined };
   }
   if (f.city) out = out.filter((p) => p.city.toLowerCase() === f.city!.toLowerCase());
+  // The budget is handled here, not in searchProperties, so that each listing is measured
+  // against the cap for its own purpose (yearly rent vs sale price).
+  if (f.maxPrice) {
+    const caps = budgetCaps(Number(f.maxPrice), f.status);
+    out = out.filter((p) => yearlyPrice(p) <= (p.purpose === "rent" ? caps.rent : caps.sale));
+    f = { ...f, maxPrice: undefined };
+  }
   return searchProperties(f, out);
+}
+
+// ---- Listing SEO ----------------------------------------------------------------------------
+
+/** "Marina Gate 1, Dubai Marina" — building and community, without the rest of the address. */
+const listingPlace = (p: Property) =>
+  [...new Set([p.location[0], p.community, p.city].filter(Boolean))].slice(0, 2).join(", ");
+
+/** "<beds> <type> in <community>" — the readable part of a listing title. */
+const listingSummary = (p: Property) => [bedsLabel(p.bedrooms), p.type, "in", p.community || p.city].filter(Boolean).join(" ");
+
+/**
+ * Feed titles are marketing lines ("Agent on Site | Modern | Brand New 1BR") and a dozen
+ * listings share one, so the `<title>` adds what the listing actually is. Where even that
+ * repeats — same feed title, beds, type and community — the agency reference settles it.
+ */
+const ambiguousTitles = (() => {
+  const seen = new Map<string, number>();
+  for (const p of properties) {
+    const key = `${p.title} — ${listingSummary(p)}`;
+    seen.set(key, (seen.get(key) ?? 0) + 1);
+  }
+  return new Set([...seen].filter(([, n]) => n > 1).map(([key]) => key));
+})();
+
+/** References look like "prestigedubai-133632001748C"; the agency number alone is enough. */
+const shortRef = (p: Property) => p.reference.split("-").pop() || p.reference;
+
+export function listingTitle(p: Property) {
+  const base = `${p.title} — ${listingSummary(p)}`;
+  return ambiguousTitles.has(base) ? `${base} (Ref ${shortRef(p)})` : base;
+}
+
+/**
+ * Meta description built from the listing's own facts. The raw feed description is a bullet
+ * dump ("Property Highlights: • Brand New and Modern • …") that several listings share word
+ * for word, which made 7 pages compete with one snippet.
+ */
+const MAX_DESCRIPTION = 160;
+
+export function listingDescription(p: Property) {
+  const kind = p.bedrooms === null ? p.type : p.bedrooms === 0 ? "Studio" : `${bedsLabel(p.bedrooms)} ${p.type}`;
+  const tail = `Ref ${shortRef(p)}, ${site.name}.`;
+  const facts = [
+    p.bathrooms !== null && `${p.bathrooms} ${p.bathrooms === 1 ? "bathroom" : "bathrooms"}`,
+    p.sizeSqft !== null && sqft(p.sizeSqft).toLowerCase(),
+    p.furnished === true ? "furnished" : p.furnished === false ? "unfurnished" : null,
+    p.completion === "off-plan" ? "off-plan handover" : null,
+  ].filter(Boolean) as string[];
+
+  // Shorten the address, then drop the least important facts, until the snippet fits in what
+  // a search result actually shows. The reference always stays — it keeps every page distinct.
+  const places = [...new Set([listingPlace(p), p.community || p.city])];
+  let shortest = "";
+  for (const place of places) {
+    const lead = `${kind} ${propertyStatus(p).label.toLowerCase()} in ${place} — ${formatPrice(p)}.`;
+    for (let n = facts.length; n >= 0; n--) {
+      const line = n ? `${lead} ${facts.slice(0, n).join(", ").replace(/^./, (c) => c.toUpperCase())}. ${tail}` : `${lead} ${tail}`;
+      if (line.length <= MAX_DESCRIPTION) return line;
+      shortest = line;
+    }
+  }
+  return shortest;
 }
 
 // ---- Widgets --------------------------------------------------------------------------------

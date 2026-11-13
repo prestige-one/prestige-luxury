@@ -93,11 +93,28 @@ export function adjacentPosts(post: Post) {
 /**
  * Tidy the WordPress post HTML: drop empty paragraphs, images whose files were not downloaded,
  * srcset lists (they reference resized copies), WP font-size inline styles and absolute links to the old domain.
+ * It also fixes accessibility/validity problems in the pasted editor markup: in-body `<h1>`s are
+ * demoted (the page title is the only h1), images without an `alt` attribute get an empty one,
+ * and schemeless hrefs like `prestigeluxury.ae` are made absolute instead of resolving against the post URL.
  */
 export function cleanPostHtml(html: string) {
   let out = html
     .replace(/https?:\/\/(www\.)?prestigeluxury\.ae(?=\/)/g, "")
     .replace(/\s(srcset|sizes)="[^"]*"/g, "")
+    // in-body headings: the post title is the page's only <h1>
+    .replace(/<(\/?)h1\b/gi, "<$1h2")
+    // every image needs an alt attribute; decorative ones get an empty one
+    .replace(/<img\b([^>]*?)(\/?)>/gi, (tag, attrs: string, slash: string) =>
+      /\salt\s*=/i.test(attrs) ? tag : `<img${attrs} alt=""${slash ? " /" : ""}>`,
+    )
+    .replace(/href="([^"]*)"/gi, (attr, href: string) => {
+      // bare-domain links ("prestigeluxury.ae") would otherwise resolve relative to the post URL
+      if (/^(https?:|mailto:|tel:|#|\/|\?)/i.test(href)) return attr;
+      const bareDomain = /^(www\.)?[\w-]+(\.[a-z]{2,24})+(?=[/?#]|$)/i.test(href) && !/\.(pdf|jpe?g|png|webp|gif|svg|docx?|xlsx?|zip|mp4)(?=[?#]|$)/i.test(href);
+      if (!bareDomain) return attr;
+      const onOurSite = href.replace(/^(www\.)?prestigeluxury\.ae/i, "");
+      return onOurSite !== href ? `href="${onOurSite || "/"}"` : `href="https://${href}"`;
+    })
     .replace(/<img\b[^>]*\bsrc="([^"]+)"[^>]*>/g, (tag, src: string) => (src.startsWith("/") && !localFileExists(src) ? "" : tag))
     .replace(/\sstyle="([^"]*)"/g, (_, css: string) => {
       const kept = css

@@ -9,13 +9,14 @@ import { site } from "@/lib/site";
 const home = getPage("/")!;
 export const metadata: Metadata = { ...seoMetadata({ ...home, path: "/" }), title: { absolute: `${site.name} • ${site.tagline}` } };
 
+// Developers we work with (alt text read off each logo file)
 const developerLogos = [
-  "/wp-content/uploads/2026/11/gs-logo3.webp",
-  "/wp-content/uploads/2026/11/gs-logo5.webp",
-  "/wp-content/uploads/2026/11/gs-logo-5-1.webp",
-  "/wp-content/uploads/2026/11/gs-logo-1.webp",
-  "/wp-content/uploads/2026/11/gs-logo-5.webp",
-  "/wp-content/uploads/2026/11/gs-logo2.webp",
+  { src: "/wp-content/uploads/2026/11/gs-logo3.webp", name: "Emaar" },
+  { src: "/wp-content/uploads/2026/11/gs-logo5.webp", name: "Nakheel" },
+  { src: "/wp-content/uploads/2026/11/gs-logo-5-1.webp", name: "Prestige One Developments" },
+  { src: "/wp-content/uploads/2026/11/gs-logo-1.webp", name: "Deyaar" },
+  { src: "/wp-content/uploads/2026/11/gs-logo-5.webp", name: "Omniyat" },
+  { src: "/wp-content/uploads/2026/11/gs-logo2.webp", name: "Ellington Properties" },
 ];
 
 const services = [
@@ -130,10 +131,21 @@ export default function HomePage() {
 
       {/* Developer logos */}
       <section className="overflow-hidden bg-cream py-8">
-        <div className="flex w-max animate-marquee items-center gap-16">
-          {[...developerLogos, ...developerLogos, ...developerLogos, ...developerLogos].map((src, i) => (
-            <Image key={i} src={src} alt="" width={180} height={80} className="h-[70px] w-auto object-contain" />
-          ))}
+        <div className="flex w-max animate-marquee items-center gap-16" aria-label="Developers we work with" role="group">
+          {[0, 1, 2, 3].flatMap((copy) =>
+            developerLogos.map((logo) => (
+              <Image
+                key={`${copy}-${logo.src}`}
+                src={logo.src}
+                // the marquee repeats the row to loop seamlessly: only the first copy is announced
+                alt={copy === 0 ? logo.name : ""}
+                aria-hidden={copy === 0 ? undefined : true}
+                width={180}
+                height={80}
+                className="h-[70px] w-auto object-contain"
+              />
+            )),
+          )}
         </div>
       </section>
 

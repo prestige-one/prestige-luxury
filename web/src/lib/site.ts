@@ -30,9 +30,10 @@ export const mainNav: NavItem[] = [
     label: "Properties",
     href: "/properties/",
     children: [
-      { label: "Buy", href: "/projects-for-sale/" },
+      { label: "Buy", href: "/status/for-sale/" },
       { label: "Rent", href: "/status/for-rent/" },
       { label: "Off-Plan", href: "/status/off-plan/" },
+      { label: "New Projects", href: "/projects-for-sale/" },
       { label: "Commercial", href: "/property-type/other-commercial/" },
     ],
   },
@@ -46,7 +47,7 @@ export const footerColumns: { title: string; links: { label: string; href: strin
   {
     title: "Buy",
     links: [
-      { label: "Properties for Sale", href: "/projects-for-sale/" },
+      { label: "Properties for Sale", href: "/status/for-sale/" },
       { label: "Luxury Apartments", href: "/property-type/apartment/" },
       { label: "Villas & Penthouses", href: "/property-type/villa/" },
       { label: "Buyer’s Guide", href: "/blog/" },
@@ -64,7 +65,7 @@ export const footerColumns: { title: string; links: { label: string; href: strin
   {
     title: "Off-Plan",
     links: [
-      { label: "New Developments", href: "/projects-for-sale/" },
+      { label: "New Developments", href: "/status/off-plan/" },
       { label: "Developers", href: "/projects-for-sale/" },
       { label: "Investment Guide", href: "/blog/" },
       { label: "Featured Projects", href: "/projects-for-sale/" },

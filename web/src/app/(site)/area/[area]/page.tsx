@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import ListingArchive from "@/components/listings/ListingArchive";
+import ListingArchive, { type RawParams } from "@/components/listings/ListingArchive";
 import { allAreas, propertiesInArea } from "@/lib/listing-views";
 import { site } from "@/lib/site";
 
@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 export const dynamicParams = false;
 export const generateStaticParams = () => allAreas().map((a) => ({ area: a.slug }));
 
-type Props = { params: Promise<{ area: string }> };
+type Props = { params: Promise<{ area: string }>; searchParams: Promise<RawParams> };
 
 const findArea = (slug: string) => allAreas().find((a) => a.slug === slug);
 
@@ -26,9 +26,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function AreaPage({ params }: Props) {
+export default async function AreaPage({ params, searchParams }: Props) {
   const { area } = await params;
   const a = findArea(area);
   if (!a) notFound();
-  return <ListingArchive title={a.name} listings={propertiesInArea(a.slug)} search={{ location: a.name }} />;
+  return (
+    <ListingArchive
+      title={a.name}
+      path={`/area/${a.slug}/`}
+      listings={propertiesInArea(a.slug)}
+      search={{ location: a.name }}
+      searchParams={await searchParams}
+    />
+  );
 }

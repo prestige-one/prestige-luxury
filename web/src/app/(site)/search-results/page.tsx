@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function SearchResultsPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
-  return <SearchResults searchParams={searchParams} title="Search Results" />;
+  return <SearchResults searchParams={searchParams} title="Search Results" path="/search-results/" />;
 }
