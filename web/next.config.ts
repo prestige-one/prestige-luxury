@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/home/", destination: "/", permanent: true },
+      { source: "/sitemap_index.xml", destination: "/sitemap.xml", permanent: true },
       { source: "/wakanda/", destination: "/", permanent: false },
       { source: "/wp-admin/:path*", destination: "/", permanent: false },
       { source: "/our-story/", destination: "/about/", permanent: true },

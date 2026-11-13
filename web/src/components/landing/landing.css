@@ -1,0 +1,22 @@
+/* Styles shared by the standalone project landing pages (app/(landing)) */
+.landing {
+  min-height: 100vh;
+  background: #000;
+  color: #fff;
+  font-family: var(--font-mulish), var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+}
+.landing .font-raleway {
+  font-family: var(--font-raleway), var(--font-mulish), ui-sans-serif, sans-serif;
+}
+.landing [lang="ar"],
+.landing .font-cairo {
+  font-family: var(--font-cairo), var(--font-mulish), ui-sans-serif, sans-serif;
+}
+
+/* Hide the scrollbar of scroll-snap galleries (arrows + swipe are used instead) */
+.lp-snap {
+  scrollbar-width: none;
+}
+.lp-snap::-webkit-scrollbar {
+  display: none;
+}
