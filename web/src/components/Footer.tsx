@@ -10,10 +10,10 @@ export default function Footer() {
       <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-x-6 gap-y-10 px-5 py-16 md:grid-cols-2 md:gap-x-8 md:py-20 lg:grid-cols-[1fr_1fr_1fr_1fr]">
         <div className="col-span-2 md:col-span-2 lg:col-span-1 lg:row-span-2">
           <Media
-            src="/wp-content/uploads/2020/06/logo-prestige-black-1x.png"
+            src={site.logoBlack}
             alt={site.name}
-            width={234}
-            height={44}
+            width={438}
+            height={82}
             className="mb-5 h-auto w-[200px] md:ml-12"
           />
           <p className="max-w-[420px] text-[14px] leading-[1.7] text-body">{site.about}</p>

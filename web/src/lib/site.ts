@@ -15,16 +15,23 @@ export const site = {
   about:
     "As an established real estate agency in Dubai, we bring together ambitious professionals, market expertise and a shared commitment to delivering exceptional client experiences.",
   logoWhite: "/wp-content/uploads/2022/11/logo-prestige-luxury-white-2x.png",
-  logoBlack: "/wp-content/uploads/2020/06/logo-prestige-black-1x.png",
+  // 438x82, re-coloured from the white mark by crawl/make-black-logo.mjs. The only black file
+  // in the media library is 234x44, which looked soft at the header's new size.
+  logoBlack: "/wp-content/uploads/2022/11/logo-prestige-luxury-black-2x.png",
   heroVideoId: "viL_Gac5rt0",
-  // Taken from the original contact page, which is the set the owner confirmed.
-  // (An older footer pointed at different Facebook/Instagram/YouTube handles.)
+  /**
+   * Checked live on 13 Nov 2026, because the old contact page and the old footer disagreed.
+   * The contact page's Facebook (prestigerealestatemarina) and Instagram
+   * (prestigerealestatedubai) are both dead — Facebook says the content isn't available and
+   * Instagram says the profile isn't available — so the footer's handles are the real ones.
+   * The two YouTube URLs resolve to the same channel; the @handle is used as it reads better.
+   */
   socials: [
-    { name: "Facebook", href: "https://www.facebook.com/prestigerealestatemarina/" },
-    { name: "Instagram", href: "https://www.instagram.com/prestigerealestatedubai/" },
+    { name: "Facebook", href: "https://www.facebook.com/prestigeluxuryrealestatedubai/" }, // 39K followers
+    { name: "Instagram", href: "https://www.instagram.com/prestigeluxuryrealestate/" }, // 9.7K followers
     { name: "LinkedIn", href: "https://www.linkedin.com/company/prestige-real-estate-mena" },
-    { name: "YouTube", href: "https://www.youtube.com/channel/UCZdH5kEzkbcdUlc0OrCLHjA" },
-    { name: "X", href: "https://twitter.com/DubaiPrestigeRE" },
+    { name: "YouTube", href: "https://www.youtube.com/@PrestigeLuxuryRealEstate" },
+    { name: "X", href: "https://x.com/DubaiPrestigeRE" }, // 7,910 posts, active since 2010
   ],
 } as const;
 
@@ -228,6 +235,7 @@ const servicesMega: NavMega = {
         { label: "Meet the Team", href: "/meet-the-team/" },
         { label: "Careers", href: "/careers/" },
         { label: "Testimonials", href: "/testimonials/" },
+        { label: "Sustainable Living", href: "/signature-living/" },
       ],
     },
   ],

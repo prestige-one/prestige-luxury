@@ -130,8 +130,9 @@ export default function Header() {
             <Image
               src={light ? site.logoBlack : site.logoWhite}
               alt={site.name}
-              width={190}
-              height={36}
+              // the files' true intrinsic size, so Next derives the right aspect ratio
+              width={438}
+              height={82}
               priority
               className={`h-auto transition-[width] duration-300 ease-out motion-reduce:transition-none ${
                 scrolled ? "w-[124px] lg:w-[150px]" : "w-[140px] lg:w-[172px] xl:w-[186px]"
@@ -223,7 +224,7 @@ export default function Header() {
           }`}
         >
           <div className="flex h-[80px] shrink-0 items-center justify-between border-b border-white/10 px-6">
-            <Image src={site.logoWhite} alt={site.name} width={190} height={36} className="h-auto w-[140px]" />
+            <Image src={site.logoWhite} alt={site.name} width={438} height={82} className="h-auto w-[140px]" />
             <button
               type="button"
               className="-mr-2 grid h-11 w-11 place-items-center text-white"
