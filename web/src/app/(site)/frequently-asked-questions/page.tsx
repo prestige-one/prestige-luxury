@@ -2,8 +2,12 @@ import type { Metadata } from "next";
 import { Accordion } from "@/components/info/blocks";
 import { Container, PageBanner } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
+import { featurePhoto } from "@/lib/imagery";
 
 export const metadata: Metadata = seoMetadata(getPage("/frequently-asked-questions/")!);
+
+// A photograph from the agency's current listings, so the banner is never an empty black band.
+const faqImage = featurePhoto("Frequently Asked Questions", "full") ?? "/wp-content/uploads/2019/06/emaar-downtown-1536x864.jpg";
 
 const groups = [
   {
@@ -47,7 +51,11 @@ const groups = [
 export default function FaqPage() {
   return (
     <>
-      <PageBanner title="Frequently Asked Questions" />
+      <PageBanner
+        title="Frequently Asked Questions"
+        subtitle="Buying, selling, renting and managing property in Dubai — the questions our clients ask most."
+        image={faqImage}
+      />
       <section className="py-16 md:py-[100px]">
         <Container className="max-w-[960px] space-y-14">
           {groups.map((g) => (

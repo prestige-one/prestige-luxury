@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { QuoteCard, SnapRow } from "@/components/info/blocks";
+import { CtaBanner, QuoteCard } from "@/components/info/blocks";
 import { Container } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
+import { featurePhoto } from "@/lib/imagery";
 
 export const metadata: Metadata = seoMetadata(getPage("/testimonials/")!);
 
 // The original page shows live Google/Facebook reviews through an Elfsight widget (id below).
 // The quotes underneath are the client testimonials published elsewhere on the original site.
 const ELFSIGHT_APP = "elfsight-app-6f176c59-949e-42ee-818b-d9af5d8c35d5";
+
+const ctaImage = featurePhoto("Testimonials call to action", "full") ?? "/wp-content/uploads/2021/04/aerial-view-of-dubai-palm-jumeirah-island-1170x785.jpg";
 
 const quotes = [
   {
@@ -48,16 +51,28 @@ export default function TestimonialsPage() {
           <div className={ELFSIGHT_APP} data-elfsight-app-lazy />
           <Script src="https://apps.elfsight.com/p/platform.js" strategy="lazyOnload" />
 
-          <h2 className="mb-8 mt-14 text-center font-heading text-[28px] text-ink md:text-[34px]">What our clients say</h2>
-          <SnapRow>
+          <h2 className="mb-2 mt-14 text-center font-heading text-[28px] text-ink md:text-[34px]">What our clients say</h2>
+          <p className="mx-auto mb-10 max-w-[560px] text-center text-[15px] leading-[1.7] text-muted">
+            Buyers, sellers, landlords and tenants on working with our sales and property management teams.
+          </p>
+          {/* A plain grid rather than a scroll row: three cards fit on one line, so a carousel
+              only hid the second and third behind a swipe. */}
+          <ul className="grid gap-6 md:grid-cols-3">
             {quotes.map((q) => (
-              <div key={q.name} className="w-[85%] shrink-0 snap-start sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]">
+              <li key={q.name}>
                 <QuoteCard {...q} />
-              </div>
+              </li>
             ))}
-          </SnapRow>
+          </ul>
         </Container>
       </section>
+
+      <CtaBanner
+        image={ctaImage}
+        title="Thinking of buying, selling or letting in Dubai?"
+        lines={["Speak to an advisor who works your community every day."]}
+        cta={{ label: "Speak to an Advisor", href: "/contact-us/" }}
+      />
     </>
   );
 }

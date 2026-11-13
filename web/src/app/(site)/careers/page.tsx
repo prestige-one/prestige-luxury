@@ -27,7 +27,11 @@ const fields: LeadField[] = [
 export default function CareersPage() {
   return (
     <>
-      <PageBanner title="Careers" />
+      <PageBanner
+        title="Careers"
+        subtitle="Build your career with an established Dubai agency, from our Marina Plaza offices."
+        image="/wp-content/uploads/2019/01/Spread-group-photo-PRESTIGE-REAL-ESTATE.jpg"
+      />
 
       <section className="py-16 md:py-[100px]">
         <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16">
