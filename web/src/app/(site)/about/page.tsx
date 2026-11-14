@@ -71,11 +71,12 @@ const services = [
 export default function AboutPage() {
   return (
     <>
-      {/* Intro: title | text | photo */}
+      {/* Intro: two columns — heading above the copy on the left, photograph on the right */}
       <section className="bg-[#fcfcfc] py-16 md:py-[100px]">
-        <div className="mx-auto grid max-w-[1400px] gap-10 px-5 md:grid-cols-2 lg:grid-cols-[35%_38%_27%] lg:gap-0">
-          <Eyebrow as="h1" label="About Us" title="Prestige Luxury Real Estate" className="md:col-span-2 lg:col-span-1 lg:pl-[12%] lg:pr-12" />
-          <div className="space-y-5 text-[14px] font-light leading-[2] text-body lg:pr-[15%] lg:pt-[50px]">
+        <div className="mx-auto grid max-w-[1280px] items-start gap-10 px-5 lg:grid-cols-[1fr_minmax(0,440px)] lg:gap-16">
+          <div>
+            <Eyebrow as="h1" label="About Us" title="Prestige Luxury Real Estate" className="mb-8" />
+            <div className="space-y-5 text-[14px] font-light leading-[2] text-body">
             <p>
               Established in 2007, <b className="font-semibold">Prestige Luxury Real Estate</b> is a leading luxury real estate agency in
               Dubai, specialising in residential and commercial property sales, leasing, property management and real estate investment
@@ -97,13 +98,14 @@ export default function AboutPage() {
               At Prestige Luxury, we believe every property decision deserves the right expertise. Our commitment to integrity,
               transparency and lasting client relationships has shaped our reputation as a trusted real estate company in Dubai.
             </p>
+            </div>
           </div>
-          <div className="relative min-h-[420px] overflow-hidden">
+          <div className="relative min-h-[320px] overflow-hidden lg:sticky lg:top-[100px] lg:min-h-[560px]">
             <Media
               src="/wp-content/uploads/elementor/thumbs/12356844_499481870212421_8140513907742737406_o-7pkuhn1f49ey4j4ja02ar0ifi6t4xzgyfrid2kaz1n4.jpg"
               alt="Prestige Luxury Real Estate office in Dubai Marina"
               fill
-              sizes="(min-width: 1024px) 380px, (min-width: 768px) 50vw, 100vw"
+              sizes="(min-width: 1024px) 440px, 100vw"
               className="object-cover"
             />
           </div>
@@ -149,7 +151,7 @@ export default function AboutPage() {
       <CtaBanner
         image="/wp-content/uploads/2019/06/emaar-downtown-1536x864.jpg"
         title="Exceptional Properties. Expert Advisory. Trusted Relationships."
-        cta={{ label: "Speak to Sales Person", href: "/contact-us/" }}
+        cta={{ label: "Speak to a Property Specialist", href: "/contact-us/" }}
       />
     </>
   );

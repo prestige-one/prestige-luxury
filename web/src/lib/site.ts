@@ -273,13 +273,17 @@ export const mainNav: NavItem[] = withChildren([
 export const navCta = { label: "List Your Property", href: "/sell/" };
 
 export const footerColumns: { title: string; links: { label: string; href: string }[] }[] = [
+  // Column lists set by the owner (2026-11-14). Two substitutions, both because the page the
+  // label implies does not exist: "Villas & Penthouses" became "Properties for Sale" (there are
+  // no penthouse listings, so /property-type/penthouse/ is not generated), and the three
+  // "…Guide" links point at the closest page we actually have until the guides are written.
   {
     title: "Buy",
     links: [
-      { label: "Properties for Sale", href: "/status/for-sale/" },
       { label: "Luxury Apartments", href: "/property-type/apartment/" },
-      { label: "Villas & Penthouses", href: "/property-type/villa/" },
-      { label: "Market Insights", href: "/blog/" },
+      { label: "Luxury Villas", href: "/property-type/villa/" },
+      { label: "Properties for Sale", href: "/status/for-sale/" },
+      { label: "Buyer's Guide", href: "/frequently-asked-questions/" },
     ],
   },
   {
@@ -287,16 +291,16 @@ export const footerColumns: { title: string; links: { label: string; href: strin
     links: [
       { label: "Properties for Rent", href: "/status/for-rent/" },
       { label: "Residential Leasing", href: "/status/for-rent/" },
-      { label: "Commercial Leasing", href: "/property-type/other-commercial/" },
-      { label: "Frequently Asked Questions", href: "/frequently-asked-questions/" },
+      { label: "Commercial Leasing", href: "/property-type/office/" },
+      { label: "Tenant's Guide", href: "/frequently-asked-questions/" },
     ],
   },
   {
     title: "Off-Plan",
     links: [
       { label: "New Developments", href: "/status/off-plan/" },
-      { label: "All Developers", href: "/developers/" },
-      { label: "Prestige One Developments", href: "/developers/prestige-one-developments/" },
+      { label: "Developers", href: "/developers/" },
+      { label: "Investment Guide", href: "/blog/" },
       { label: "Featured Projects", href: "/projects-for-sale/" },
     ],
   },

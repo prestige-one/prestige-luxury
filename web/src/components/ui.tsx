@@ -34,9 +34,12 @@ export function SectionTitle({
 
 type ButtonProps = { href: string; children: React.ReactNode; variant?: "dark" | "light" | "outline"; className?: string };
 export function Button({ href, children, variant = "dark", className = "" }: ButtonProps) {
+  // Buttons are black-and-white only (owner's instruction, 2026-11-14): no mauve fills. Both
+  // filled variants simply invert on hover, and `light` keeps a hairline so a white button still
+  // reads as a button on a pale background.
   const styles = {
-    dark: "bg-black text-white hover:bg-accent",
-    light: "bg-white text-ink hover:bg-accent hover:text-white",
+    dark: "bg-black text-white hover:bg-white hover:text-ink ring-1 ring-inset ring-black",
+    light: "bg-white text-ink ring-1 ring-inset ring-black/15 hover:bg-black hover:text-white hover:ring-black",
     outline: "border border-ink text-ink hover:bg-ink hover:text-white",
   }[variant];
   const isExternal = /^(https?:|mailto:|tel:)/.test(href);

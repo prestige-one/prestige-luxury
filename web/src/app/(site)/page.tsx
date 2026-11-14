@@ -5,18 +5,21 @@ import HeroSearch from "@/components/HeroSearch";
 import { Button, Container, ImageCard, SectionTitle } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
 import { featuredDevelopers } from "@/lib/developers";
-import { communities, propertyTypes } from "@/lib/properties";
+import { developerLogo } from "@/lib/developer-logos";
+import { communities, properties, propertyTypes } from "@/lib/properties";
+import { communityPhoto } from "@/lib/imagery";
 import { site } from "@/lib/site";
 
 const home = getPage("/")!;
 export const metadata: Metadata = { ...seoMetadata({ ...home, path: "/" }), title: { absolute: `${site.name} • ${site.tagline}` } };
 
 /**
- * Developers we are registered with, set as names rather than logos.
- * Drawn from the registered-developer list, so the strip can never advertise a developer the
- * agency is not registered with — which is what the previous hard-coded logo row did.
+ * Developers we are registered with. Drawn from the registered-developer list, so the strip can
+ * never advertise a developer the agency is not registered with — which is what the previous
+ * hard-coded logo row did. Each one shows its own logo where we hold the file (see
+ * `lib/developer-logos.ts`) and its name where we do not, so the row is never half-empty.
  */
-const marqueeDevelopers = featuredDevelopers();
+const marqueeDevelopers = featuredDevelopers().map((d) => ({ ...d, logo: developerLogo(d.slug) }));
 
 const services = [
   {
@@ -24,8 +27,15 @@ const services = [
     text: "Personalised guidance from experienced advisors who understand Dubai's real estate market.",
     cta: "Explore Our Expertise",
     href: "/contact-us/",
+    // headset — an adviser on the line
     icon: (
-      <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6Z" />
+      <>
+        <path d="M4.5 14v-2.5a7.5 7.5 0 0 1 15 0V14" />
+        <rect x="2" y="13" width="4.6" height="6.2" rx="2.3" />
+        <rect x="17.4" y="13" width="4.6" height="6.2" rx="2.3" />
+        <path d="M19.2 19.2v.6a2.3 2.3 0 0 1-2.3 2.3h-3.1" />
+        <circle cx="12.4" cy="22.1" r="0.9" />
+      </>
     ),
   },
   {
@@ -33,11 +43,15 @@ const services = [
     text: "Position your property for success with strategic marketing, market insights and dedicated sales expertise.",
     cta: "List With Prestige",
     href: "/sell/",
+    // a listing sheet — folded corner, bulleted lines
     icon: (
       <>
-        <circle cx="7" cy="8" r="3" />
-        <circle cx="17" cy="8" r="3" />
-        <path d="M10 8h4M3 14h18l-3 5H5z" />
+        <path d="M6.5 2.5h8L19 7v14.5H6.5z" />
+        <path d="M14.5 2.5V7H19" />
+        <circle cx="9.4" cy="11" r="0.75" />
+        <circle cx="9.4" cy="14.5" r="0.75" />
+        <circle cx="9.4" cy="18" r="0.75" />
+        <path d="M11.6 11h4.9M11.6 14.5h4.9M11.6 18h4.9" />
       </>
     ),
   },
@@ -49,6 +63,11 @@ const services = [
     icon: <path d="M4 3v18h17M7 15l4-4 3 3 6-7" />,
   },
 ];
+
+/** Best-photographed office listing on the books, used for the Commercial card. */
+const officePhoto = properties
+  .filter((p) => p.type === "Office" && p.images.length > 0)
+  .sort((a, b) => b.images.length - a.images.length)[0]?.images[0];
 
 const residential = [
   {
@@ -64,37 +83,46 @@ const residential = [
     href: "/property-type/villa/",
   },
   {
-    title: "Studio",
-    text: "Discover thoughtfully designed studios that bring comfort and convenience to everyday living.",
-    image: "/wp-content/uploads/2024/03/Princess-Tower-Dubai-Marina-Dubai-Marina-SAL240055-Prestige-Luxury-Real-Estate-1170x785.jpg",
-    href: "/property-type/studio/",
+    title: "Commercial",
+    text: "Explore commercial spaces designed to help your business thrive.",
+    // the agency's own office listing photography, not a stock interior
+    image: officePhoto ?? "/wp-content/uploads/2024/03/Princess-Tower-Dubai-Marina-Dubai-Marina-SAL240055-Prestige-Luxury-Real-Estate-1170x785.jpg",
+    href: "/property-type/office/",
   },
 ];
 
+/**
+ * The four investment destinations the owner asked for (2026-11-14), with their copy.
+ *
+ * Photography is the agency's own throughout: Dubai Islands and DLRC take the best shot from a
+ * live listing in that community, and the other two use library photographs of the district
+ * itself. Meydan Horizon and Dubai Maritime City have no listings on the books yet, so there is
+ * no `/area/` page to send people to — both point at New Developments until there is one.
+ */
 const areas = [
   {
-    title: "Dubai Marina",
-    text: "Captivating views and a luxury lifestyle, experience the “Big City Life” in Dubai Marina!",
-    image: "/wp-content/uploads/2020/07/Dubai-Marina-2.jpg",
-    href: "/area/dubai-marina/",
+    title: "Dubai Islands",
+    text: "An emerging waterfront investment destination offering luxury beachfront properties, strong capital appreciation potential and long-term growth opportunities.",
+    image: communityPhoto("Dubai Islands", { size: "full" }) ?? "/wp-content/uploads/2020/02/waterfront-properties-dubai.jpg",
+    href: "/area/dubai-islands/",
   },
   {
-    title: "Downtown Dubai",
-    text: "A district that offers the perfect blend of cutting-edge architecture, world-class...",
-    image: "/wp-content/uploads/2024/04/Address-Downtown-Downtown-Dubai-Downtown-Dubai-ADM240062-Prestige-Luxury-Real-Estate-30-1170x785.jpg",
-    href: "/area/downtown-dubai/",
+    title: "Meydan Horizon",
+    text: "A prestigious residential destination attracting investors with luxury developments, rental demand and long-term property value appreciation.",
+    image: "/wp-content/uploads/2019/05/mbr-city-dubai.jpg",
+    href: "/status/off-plan/",
   },
   {
-    title: "Palm Jumeirah",
-    text: "When you talk about Dubai, it is synonymous with Jumeirah. It is one of the most coveted places...",
-    image: "/wp-content/uploads/2021/04/aerial-view-of-dubai-palm-jumeirah-island-1170x785.jpg",
-    href: "/area/palm-jumeirah/",
+    title: "Dubai Maritime City",
+    text: "A growing waterfront location offering premium residences, limited waterfront supply and potential for rental returns and capital appreciation.",
+    image: "/wp-content/uploads/2020/02/waterfront-properties-dubai.jpg",
+    href: "/status/off-plan/",
   },
   {
-    title: "Business Bay",
-    text: "modern landscape comprising commercial, residential, and recreational spaces...",
-    image: "/wp-content/uploads/2019/07/jbr-beach-2048x1271.jpg",
-    href: "/area/business-bay/",
+    title: "Dubai Land Residence Complex (DLRC)",
+    text: "An emerging investment hotspot offering competitively priced apartments, attractive rental yield potential and opportunities for capital growth.",
+    image: communityPhoto("Dubai Land Residence Complex", { size: "full" }) ?? "/wp-content/uploads/2019/05/jumeirah-village-circle.jpg",
+    href: "/area/dubai-land-residence-complex/",
   },
 ];
 
@@ -139,9 +167,27 @@ export default function HomePage() {
                 // the marquee repeats the row to loop seamlessly: only the first copy is announced
                 aria-hidden={copy === 0 ? undefined : true}
                 tabIndex={copy === 0 ? undefined : -1}
-                className="shrink-0 whitespace-nowrap font-heading text-[17px] font-medium uppercase tracking-[0.14em] text-ink/55 transition-colors duration-200 hover:text-accent md:text-[19px]"
+                className={
+                  d.logo
+                    ? "flex h-[46px] w-[150px] shrink-0 items-center justify-center opacity-65 grayscale transition-[opacity,filter] duration-300 hover:opacity-100 hover:grayscale-0 md:h-[54px] md:w-[180px]"
+                    : "shrink-0 whitespace-nowrap font-heading text-[17px] font-medium uppercase tracking-[0.14em] text-ink/55 transition-colors duration-200 hover:text-ink md:text-[19px]"
+                }
               >
-                {d.name}
+                {d.logo ? (
+                  <Media
+                    src={d.logo}
+                    alt={d.name}
+                    width={180}
+                    height={54}
+                    tone="mist"
+                    // served as-is: the optimiser refuses SVG without `dangerouslyAllowSVG`,
+                    // and these files are already a few kB each
+                    unoptimized
+                    className="h-full w-full object-contain"
+                  />
+                ) : (
+                  d.name
+                )}
               </Link>
             )),
           )}
@@ -178,7 +224,7 @@ export default function HomePage() {
       {/* Residential properties */}
       <section className="pb-16 md:pb-[100px]">
         <Container>
-          <SectionTitle title="Residential Properties" subtitle="Browse through our beautiful collection of residential properties" />
+          <SectionTitle title="Explore Properties" subtitle="Browse through our beautiful collection of residential properties" />
           <div className="grid gap-[30px] md:grid-cols-3">
             {residential.map((r) => (
               <ImageCard key={r.title} {...r} />
@@ -204,7 +250,8 @@ export default function HomePage() {
 
       {/* CTA */}
       <section className="relative flex min-h-[360px] items-center justify-center overflow-hidden py-16 text-center md:min-h-[414px]">
-        <Media src="/wp-content/uploads/2019/05/mbr-city-dubai.jpg" alt="" fill tone="ink" sizes="100vw" className="object-cover" />
+        {/* Downtown skyline — the MBR City shot now carries the Meydan Horizon card above */}
+        <Media src="/wp-content/uploads/2019/06/emaar-downtown-1536x864.jpg" alt="" fill tone="ink" sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-black/45" />
         <div className="relative z-10 max-w-[600px] px-5">
           <h2 className="text-[26px] font-medium capitalize leading-[1.25] tracking-[-0.01em] text-white md:text-[30px]">Connect with our sales experts</h2>

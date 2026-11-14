@@ -3,8 +3,9 @@ import { navCta } from "@/lib/site";
 
 /**
  * "List Your Property" — the header's primary action. Same shape as `Button` in components/ui.tsx
- * (2px corners, medium weight, the same transition), in accent rather than black, and slimmer in
- * the bar so the seven menu items still fit on one line at 1024px.
+ * (2px corners, medium weight, the same transition), and slimmer in the bar so the seven menu
+ * items still fit on one line at 1024px. White with black text, inverting on hover, to match the
+ * rest of the site's buttons (owner's instruction, 2026-11-14).
  */
 export default function HeaderCta({ variant = "bar" }: { variant?: "bar" | "drawer" }) {
   const size =
@@ -14,7 +15,7 @@ export default function HeaderCta({ variant = "bar" }: { variant?: "bar" | "draw
   return (
     <Link
       href={navCta.href}
-      className={`inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-[2px] bg-accent text-center font-medium tracking-[0.02em] text-white transition-[background-color,box-shadow,translate] duration-300 ease-out hover:bg-accent-dark hover:shadow-[0_6px_18px_rgba(0,0,0,0.18)] active:translate-y-px motion-reduce:transition-none ${size}`}
+      className={`inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-[2px] bg-white text-center font-medium tracking-[0.02em] text-ink ring-1 ring-inset ring-black/15 transition-[background-color,color,box-shadow,translate] duration-300 ease-out hover:bg-black hover:text-white hover:shadow-[0_6px_18px_rgba(0,0,0,0.18)] hover:ring-black active:translate-y-px motion-reduce:transition-none ${size}`}
     >
       {navCta.label}
     </Link>

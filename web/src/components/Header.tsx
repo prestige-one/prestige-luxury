@@ -33,6 +33,11 @@ export default function Header() {
   const open = openOn === pathname;
   // Which mobile accordion is unfolded (one at a time, reset whenever the drawer closes).
   const [expanded, setExpanded] = useState<string | null>(null);
+  // The desktop mega panel opens purely from CSS :hover / :focus-within. After clicking a link
+  // inside it the navigation is client-side, so the pointer is still inside the item's subtree
+  // and the panel stayed open over the new page. Unmounting the panel for that one item closes
+  // it; moving the pointer off the menu item clears the flag and hover works again.
+  const [dismissed, setDismissed] = useState<string | null>(null);
   const setOpen = (v: boolean) => {
     setOpenOn(v ? pathname : null);
     if (!v) setExpanded(null); // the drawer always reopens with every section folded
@@ -135,7 +140,7 @@ export default function Header() {
               height={82}
               priority
               className={`h-auto transition-[width] duration-300 ease-out motion-reduce:transition-none ${
-                scrolled ? "w-[124px] lg:w-[150px]" : "w-[140px] lg:w-[172px] xl:w-[186px]"
+                scrolled ? "w-[160px] lg:w-[200px]" : "w-[172px] lg:w-[220px] xl:w-[240px]"
               }`}
             />
           </Link>
@@ -147,7 +152,11 @@ export default function Header() {
               {mainNav.map((item) => {
                 const active = isActive(item, pathname);
                 return (
-                  <li key={item.label} className="group relative flex h-full items-center">
+                  <li
+                    key={item.label}
+                    className="group relative flex h-full items-center"
+                    onMouseLeave={() => setDismissed((d) => (d === item.label ? null : d))}
+                  >
                     <Link
                       href={item.href}
                       aria-current={pathname === item.href ? "page" : undefined}
@@ -157,22 +166,33 @@ export default function Header() {
                       {item.children && (
                         <Chevron className="transition-transform duration-300 group-hover:rotate-180 group-focus-within:rotate-180 motion-reduce:transition-none" />
                       )}
-                      {/* active-page / hover indicator */}
+                      {/* active-page / hover indicator — takes the opposite colour to the bar
+                          (white on the black header, black on the white one) rather than mauve */}
                       <span
                         aria-hidden
-                        className={`absolute inset-x-0 top-[calc(50%+13px)] h-[2px] origin-left bg-accent transition-transform duration-300 ease-out ${
+                        className={`absolute inset-x-0 top-[calc(50%+13px)] h-[2px] origin-left ${light ? "bg-ink" : "bg-white"} transition-transform duration-300 ease-out ${
                           active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                         }`}
                       />
                     </Link>
-                    {item.mega && <MegaPanel mega={item.mega} barHeight={scrolled ? 66 : 80} />}
+                    {item.mega && dismissed !== item.label && (
+                      <MegaPanel
+                        mega={item.mega}
+                        barHeight={scrolled ? 66 : 80}
+                        onNavigate={() => setDismissed(item.label)}
+                      />
+                    )}
                     {/* "More" is the last item in the bar, so its plain dropdown hangs from the right edge */}
-                    {!item.mega && item.children && (
+                    {!item.mega && item.children && dismissed !== item.label && (
                       <ul className="invisible absolute right-[-20px] top-full min-w-[220px] translate-y-2 rounded-[2px] border-t-2 border-accent bg-white py-2.5 opacity-0 shadow-[0_14px_40px_rgba(0,0,0,0.12)] transition-[opacity,translate,visibility] duration-300 ease-out group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 motion-reduce:translate-y-0 motion-reduce:transition-none">
                         {item.children.map((c) => (
                           <li key={c.label}>
                             <Link
                               href={c.href}
+                              onClick={() => {
+                                (document.activeElement as HTMLElement | null)?.blur();
+                                setDismissed(item.label);
+                              }}
                               className={`block px-5 py-2.5 text-[13px] transition-[color,background-color,padding] duration-200 hover:bg-mist hover:pl-6 hover:text-accent ${
                                 pathname.startsWith(c.href) ? "text-accent" : "text-ink"
                               }`}

@@ -165,7 +165,7 @@ export default function AreasPage() {
         <div className="relative z-10">
           <h2 className="text-[23px] font-medium text-white">Exceptional Properties. Expert Advisory. Trusted Relationships.</h2>
           <Button href="/contact-us/" variant="light" className="mt-6 rounded-[3px] border border-black">
-            Speak to Sales Person
+            Speak to a Property Specialist
           </Button>
         </div>
       </section>

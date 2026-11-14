@@ -2,8 +2,11 @@
 
 /* Design tokens taken from the original prestigeluxury.ae (Houzez + Elementor) */
 @theme {
+  /* One family across the whole site, by the owner's instruction (2026-11-14): Poppins for body
+     and headings alike. `font-heading` is kept as a token so the many `font-heading` classes
+     around the codebase keep working — it simply resolves to Poppins now. */
   --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
-  --font-heading: var(--font-roboto), var(--font-poppins), ui-sans-serif, sans-serif;
+  --font-heading: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
 
   --color-ink: #000000;
   --color-body: #222222;

@@ -1,85 +1,82 @@
 import type { Metadata } from "next";
 import Media from "@/components/Media";
+import { CtaBanner } from "@/components/info/blocks";
 import { Container } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
 
 export const metadata: Metadata = seoMetadata(getPage("/meet-the-team/")!);
 
+/**
+ * The team as the owner published it on prestigeluxury.ae/meet-the-team/ (read 2026-11-14):
+ * heading, both intro lines, two people, their titles and their biographies, all verbatim.
+ * The portraits are the owner's own uploads, copied across from the live media library.
+ *
+ * The live page also carries a "Read full biography" link on each card, but it points at "#" —
+ * there is no longer biography to open — so it is left out here rather than published as a
+ * link that does nothing. Add it back the moment the full biographies exist.
+ */
 const team = [
   {
-    name: "Shaun Cullen",
-    role: "Managing Director",
-    image: "/wp-content/uploads/2024/03/Shaun.jpg",
-    text: "Meet Shaun, our Managing Director from Liverpool, UK. With 8 years of Dubai Real Estate experience, Shaun has grown within Prestige Luxury. Starting as a Property Consultant, he quickly became the Sales Director and now spearheads our operations as Managing Director.",
+    name: "Chris Valentine",
+    role: "Real Estate Sales & Leadership | Dubai",
+    image: "/wp-content/uploads/2026/11/Chris-Valentine-1.webp",
+    text: "With more than 24 years of real estate experience and a Master’s degree in Business Management, Chris Valentine combines extensive industry knowledge with commercial insight and a personal approach to client service.",
   },
   {
-    name: "Pantea Rokni",
-    role: "Team Director",
-    image: "/wp-content/uploads/2024/03/Pantea.jpg",
-    text: "Pantea Rokni, the epitome of luxury in real estate, is the director of the LUX team at Prestige. With over 15 years of experience and a 2021 Bayut Best Agent Award, she embodies the prestige spirit that elevates customer service to surpass expectations.",
-  },
-  {
-    name: "Elena Komarnytska",
-    role: "Area Director",
-    image: "/wp-content/uploads/2024/03/Elena.jpg",
-    text: "Originally from Ukraine, Elena came to Dubai 21 years ago. She built a strong foundation of satisfied and loyal real estate clientele. Her team focuses on luxury projects like Nad Al Sheba Gardens, Jumeirah Golf Estate, Polo Homes, and other villa communities...",
-  },
-  {
-    name: "Bipin Pattni",
-    role: "Area Director",
-    image: "/wp-content/uploads/2024/03/Bipin.jpg",
-    text: "Bipin is a real estate professional with over 17 years of experience in sales. He has a track record of delivering and sustaining revenue and profit gains in highly competitive real estate markets for ready-to-move...",
-  },
-  {
-    name: "Anusha Bhowan",
-    role: "Area Director",
-    image: "/wp-content/uploads/2024/03/Anusha.jpg",
-    text: "With her extended expertise and deep understanding of the Dubai Real Estate market, Anusha stands out from the crowd. She excels at building trustful and lasting professional relationships with her clients. Most especially, Anusha goes out of her way to make client satisfaction as her top priority.",
-  },
-  {
-    name: "Katie-Jo Reid",
-    role: "Head of Recruitment",
-    image: "/wp-content/uploads/2024/03/Katie.jpg",
-    text: "Katie, our esteemed Head of Recruitment, is your gateway to an exciting career in the UAE's dynamic property market. She is an expert in transitioning professionals from the UK to the UAE with full support and insights.",
-  },
-  {
-    name: "Samuel Hartley",
-    role: "HR Manager",
-    image: "/wp-content/uploads/2024/03/Sam.jpg",
-    text: "Sam is the cornerstone of our Human Resources and Development team. With his experience, he brings a wealth of knowledge from his tenure in education management and talent management HR.",
+    name: "Michael Cullen",
+    role: "Real Estate Sales & Leadership | Dubai",
+    image: "/wp-content/uploads/2026/11/michael-cullen1.webp",
+    text: "With more than two decades of experience in real estate, Michael Cullen has built his career around two key strengths: delivering results through his own property sales and building, developing and leading successful sales teams.",
   },
 ];
 
 export default function MeetTheTeamPage() {
   return (
-    <section className="py-16 md:py-[100px]">
+    <>
+      <section className="py-16 md:py-[100px]">
         <Container>
-          <h1 className="mb-12 text-center font-heading text-[30px] font-normal capitalize text-ink md:text-[34px]">Meet our Team</h1>
-          <ul className="flex flex-wrap justify-center gap-x-6 gap-y-10">
+          <div className="mx-auto mb-12 max-w-[760px] text-center md:mb-16">
+            <h1 className="font-heading text-[30px] font-medium leading-[1.2] text-ink md:text-[42px]">The People Behind Prestige Luxury</h1>
+            <p className="mt-4 text-[17px] font-light text-ink md:text-[19px]">Exceptional real estate experiences begin with exceptional people.</p>
+            <p className="mt-4 text-[15px] leading-[1.75] text-muted">
+              Meet the dedicated professionals behind Prestige Luxury Real Estate, bringing together local &amp; International market
+              knowledge, industry experience and personalised expertise to help clients buy, sell, rent and invest in Dubai with confidence.
+            </p>
+          </div>
+
+          <ul className="mx-auto grid max-w-[980px] gap-8 md:grid-cols-2 md:gap-10">
             {team.map((m) => (
-              <li key={m.name} className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)]">
-                <article className="group">
-                  <div className="relative aspect-[3/4] overflow-hidden bg-mist">
+              <li key={m.name}>
+                <article className="group h-full overflow-hidden rounded-[4px] border border-line bg-white transition-[translate,box-shadow,border-color] duration-500 ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-[0_18px_40px_rgba(0,0,0,0.09)]">
+                  {/* the portraits are 800x500, so the frame is landscape rather than 3:4 */}
+                  <div className="relative aspect-[8/5] overflow-hidden bg-mist">
                     <Media
                       src={m.image}
                       alt={`${m.name}, ${m.role}`}
-                      fill
-                      sizes="(min-width: 1024px) 270px, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                      width={800}
+                      height={500}
+                      sizes="(min-width: 768px) 470px, 100vw"
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                     />
-                    {/* Houzez team widget: description slides over the photo on hover (desktop) */}
-                    <div aria-hidden className="absolute inset-0 hidden flex-col justify-end bg-black/80 p-5 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 lg:flex">
-                      <p className="text-[13px] leading-[1.6]">{m.text}</p>
-                    </div>
                   </div>
-                  <h2 className="mt-4 text-[17px] font-semibold text-ink">{m.name}</h2>
-                  <p className="text-[13px] uppercase tracking-wide text-muted">{m.role}</p>
-                  <p className="mt-3 text-[13.5px] leading-[1.6] text-body lg:sr-only">{m.text}</p>
+                  <div className="px-7 pb-8 pt-6">
+                    <h2 className="text-[21px] font-medium text-ink">{m.name}</h2>
+                    <p className="mt-1 text-[13px] uppercase tracking-[0.08em] text-muted">{m.role}</p>
+                    <span className="mt-4 block h-[2px] w-12 bg-ink" aria-hidden />
+                    <p className="mt-4 text-[14.5px] leading-[1.8] font-light text-body">{m.text}</p>
+                  </div>
                 </article>
               </li>
             ))}
           </ul>
-      </Container>
-    </section>
+        </Container>
+      </section>
+
+      <CtaBanner
+        image="/wp-content/uploads/2019/06/emaar-downtown-1536x864.jpg"
+        title="Exceptional Properties. Expert Advisory. Trusted Relationships."
+        cta={{ label: "Speak to a Property Specialist", href: "/contact-us/" }}
+      />
+    </>
   );
 }

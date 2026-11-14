@@ -8,12 +8,29 @@ import { NavIcon } from "./NavIcon";
  * focused. It is rendered inside the item's `<li class="group">`, so it opens and closes purely
  * from CSS (`group-hover` / `group-focus-within`) — no JS state, and keyboard users get it too.
  *
+ * `onNavigate` is the one exception: clicking a link navigates client-side without moving the
+ * pointer, which would leave the panel hovered — and so open — over the page just loaded. The
+ * header responds by unmounting this panel until the pointer leaves the menu item.
+ *
  * Positioning is `fixed` and centred on the viewport rather than on the menu item: the panel is
  * wider than any single item, and centring on the item would push the edge ones off screen at
  * 1024px. The wrapper's top padding doubles as the invisible bridge the pointer travels across
  * on its way from the menu item down to the card.
  */
-export default function MegaPanel({ mega, barHeight }: { mega: NavMega; barHeight: number }) {
+export default function MegaPanel({
+  mega,
+  barHeight,
+  onNavigate,
+}: {
+  mega: NavMega;
+  barHeight: number;
+  onNavigate: () => void;
+}) {
+  // Blur as well as unmount: a keyboard user's focus would otherwise stay on the removed link.
+  const close = () => {
+    (document.activeElement as HTMLElement | null)?.blur();
+    onNavigate();
+  };
   return (
     <div
       className="invisible pointer-events-none fixed inset-x-5 z-40 flex translate-y-2 justify-center opacity-0 transition-[opacity,translate,visibility] duration-[250ms] ease-out group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 motion-reduce:translate-y-0 motion-reduce:transition-none"
@@ -40,6 +57,7 @@ export default function MegaPanel({ mega, barHeight }: { mega: NavMega; barHeigh
                       <li key={link.label + link.href}>
                         <Link
                           href={link.href}
+                          onClick={close}
                           className="group/link flex items-center gap-2.5 text-[14px] leading-snug text-ink transition-colors duration-200 hover:text-accent"
                         >
                           {link.icon && (
@@ -62,6 +80,7 @@ export default function MegaPanel({ mega, barHeight }: { mega: NavMega; barHeigh
             <div className="w-[420px] shrink-0 border-l border-ink/10 pl-10">
               <Link
                 href={mega.promo.href}
+                onClick={close}
                 className="group/promo relative block aspect-[16/11] overflow-hidden rounded-[8px]"
               >
                 <Media
