@@ -62,7 +62,7 @@ export default function CurrencySelect({ variant = "bar", light = false, classNa
         aria-label={`Currency: ${code}. Change currency`}
         onClick={() => setOpen((v) => !v)}
         className={`flex items-center gap-1.5 rounded-[2px] border font-medium uppercase tracking-[0.08em] transition-colors duration-200 ${tone} ${edge} ${
-          drawer ? "min-h-[48px] w-full justify-between px-4 text-[14px]" : "h-[34px] px-2.5 text-[12px] xl:px-3 xl:text-[13px]"
+          drawer ? "min-h-[48px] w-full justify-between px-4 text-[14px]" : "h-[36px] px-2.5 text-[12px] 2xl:h-[38px] 2xl:px-3 2xl:text-[13px]"
         }`}
       >
         {drawer && <span className="normal-case tracking-normal text-white/75">Currency</span>}

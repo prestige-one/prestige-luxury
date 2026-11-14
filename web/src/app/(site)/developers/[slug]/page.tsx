@@ -3,14 +3,15 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import LeadForm, { type LeadField } from "@/components/LeadForm";
 import PropertyCard from "@/components/listings/PropertyCard";
-import { developerStatusLabels, monogram, StatusPill } from "@/components/developers/shared";
-import { Breadcrumb, Button, Container } from "@/components/ui";
+import Media from "@/components/Media";
+import { Button, Container } from "@/components/ui";
 import { developerProperties, developers, getDeveloper, type Developer } from "@/lib/developers";
 import { allAreas } from "@/lib/listing-views";
 import { slugify } from "@/lib/properties";
 import { site } from "@/lib/site";
+import { developerLogo, developerLogoClass } from "@/lib/developer-logos";
 
-// The 37 developers in content/developers.json are the only valid URLs.
+// Developer URLs are generated from the shared directory data.
 export const dynamicParams = false;
 export const generateStaticParams = () => developers.map((d) => ({ slug: d.slug }));
 
@@ -75,13 +76,17 @@ const enquiryFields: LeadField[] = [
   { name: "message", label: "Message", type: "textarea" },
 ];
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({ title, children, id, muted = false }: { title: string; children: React.ReactNode; id?: string; muted?: boolean }) {
   return (
-    <section className="mt-12 md:mt-16">
-      <h2 className="mb-6 border-b border-line pb-3 font-heading text-[22px] font-normal leading-[1.25] text-ink md:text-[26px]">{title}</h2>
+    <section id={id} aria-label={title} className={`mt-12 scroll-mt-28 md:mt-16 ${muted ? "rounded-[8px] bg-mist p-5 sm:p-8" : ""}`}>
+      <h2 className="mb-6 font-medium leading-[1.25] tracking-[-0.02em] text-ink text-section">{title}</h2>
       {children}
     </section>
   );
+}
+
+function LocationPin() {
+  return <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" className="mt-0.5 shrink-0"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z" /><circle cx="12" cy="10" r="2" /></svg>;
 }
 
 export default async function DeveloperPage({ params }: Props) {
@@ -89,9 +94,9 @@ export default async function DeveloperPage({ params }: Props) {
   const d = getDeveloper(slug);
   if (!d) notFound();
 
-  const showLegalName = Boolean(d.legalName) && d.legalName.toLowerCase() !== d.name.toLowerCase();
+  const logo = developerLogo(d.slug);
 
-  // Key facts: anything we don't know yet is simply left out. The registration status is always known.
+  // Only publish known company facts; registration workflow belongs outside the detail page.
   const facts: { label: string; value: React.ReactNode }[] = [
     ...(d.founded ? [{ label: "Founded", value: String(d.founded) }] : []),
     ...(d.headquarters ? [{ label: "Headquarters", value: d.headquarters }] : []),
@@ -113,7 +118,6 @@ export default async function DeveloperPage({ params }: Props) {
           },
         ]
       : []),
-    { label: "Registration status", value: developerStatusLabels[d.status] },
   ];
 
   // Communities only link out when an /area/ page actually exists for them.
@@ -133,28 +137,34 @@ export default async function DeveloperPage({ params }: Props) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(d) }} />
 
-      <Container className="pb-[90px] pt-8">
-        <Breadcrumb items={[{ label: "Developers", href: "/developers/" }, { label: d.name }]} />
-
-        <header className="relative mt-4 overflow-hidden rounded-[2px] bg-gradient-to-br from-ink via-[#141010] to-[#2b2222] px-6 py-10 md:px-12 md:py-14">
-          <span
-            aria-hidden
-            className="pointer-events-none absolute -top-6 right-2 select-none font-heading text-[120px] leading-none text-white/[0.07] md:text-[180px]"
-          >
-            {monogram(d.name)}
-          </span>
-          <div className="relative max-w-[760px]">
-            <StatusPill status={d.status} className="!border-white/25 !bg-white/10 !text-white/85" />
-            <h1 className="mt-4 font-heading text-[28px] font-normal leading-[1.15] tracking-[-0.01em] text-white sm:text-[34px] md:text-[44px]">
+      <header className="bg-black py-12 text-white md:py-16">
+        <Container className="grid items-center gap-9 md:grid-cols-[minmax(0,1fr)_300px] lg:gap-16">
+          <div>
+            <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-white/65">Developer Collection</p>
+            <h1 className="mt-4 text-[32px] font-medium leading-[1.15] tracking-[-0.02em] text-white md:text-[44px]">
               {d.name}
             </h1>
             {d.tagline && <p className="mt-4 text-[15px] leading-[1.7] text-white/85 md:text-[17px]">{d.tagline}</p>}
-            {showLegalName && <p className="mt-4 text-[12.5px] uppercase tracking-[0.08em] text-white/55">Registered as {d.legalName}</p>}
+            <a href="#developer-enquiry" className="mt-6 inline-flex min-h-11 items-center gap-3 border-b border-white/60 text-[14px] font-medium focus-visible:outline-white">Speak to a Property Specialist <span aria-hidden="true">↗</span></a>
           </div>
-        </header>
+          <div className="flex min-h-[170px] w-full max-w-[340px] items-center justify-center rounded-[8px] bg-white p-8 md:max-w-none">
+            {logo ? <Media src={logo} alt={`${d.name} logo`} width={260} height={100} priority unoptimized className={`h-[100px] w-full object-contain ${developerLogoClass(d.slug)}`} /> : <p className="text-center text-[24px] font-medium leading-snug text-black">{d.name}</p>}
+          </div>
+        </Container>
+      </header>
+      <nav aria-label="Developer sections" className="border-b border-line bg-white">
+        <Container className="flex flex-wrap gap-x-7 gap-y-1 py-3 text-[13px] font-medium text-ink">
+          {d.description.length > 0 && <a href="#developer-about" className="inline-flex min-h-11 items-center hover:underline underline-offset-4">Overview</a>}
+          {d.projects.length > 0 && <a href="#developer-projects" className="inline-flex min-h-11 items-center hover:underline underline-offset-4">Signature Projects</a>}
+          {communities.length > 0 && <a href="#developer-communities" className="inline-flex min-h-11 items-center hover:underline underline-offset-4">Communities</a>}
+          {listings.length > 0 && <a href="#developer-properties" className="inline-flex min-h-11 items-center hover:underline underline-offset-4">Available Properties</a>}
+          <a href="#developer-enquiry" className="inline-flex min-h-11 items-center hover:underline underline-offset-4">Enquire</a>
+        </Container>
+      </nav>
+      <Container className="pb-16 md:pb-20">
 
         {d.description.length > 0 && (
-          <Section title={`About ${d.name}`}>
+          <Section id="developer-about" title={`About ${d.name}`}>
             <div className="max-w-[840px] space-y-4 text-[15px] leading-[1.85] text-body">
               {d.description.map((p, i) => (
                 <p key={i}>{p}</p>
@@ -165,7 +175,7 @@ export default async function DeveloperPage({ params }: Props) {
 
         {facts.length > 0 && (
           <Section title="Key Facts">
-            <dl className="grid gap-x-8 gap-y-6 border border-line bg-mist p-6 sm:grid-cols-2 md:p-8 lg:grid-cols-4">
+            <dl className="grid gap-6 rounded-[8px] border border-line bg-mist p-6 sm:grid-cols-2 md:p-8 lg:grid-cols-4">
               {facts.map((f) => (
                 <div key={f.label}>
                   <dt className="text-[12px] uppercase tracking-[0.08em] text-muted">{f.label}</dt>
@@ -178,10 +188,11 @@ export default async function DeveloperPage({ params }: Props) {
 
         {d.specialities.length > 0 && (
           <Section title="Specialities">
-            <ul className="flex flex-wrap gap-2.5">
+            <ul className="grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
               {d.specialities.map((s) => (
-                <li key={s} className="rounded-[2px] border border-line bg-white px-3.5 py-2 text-[13px] text-body">
-                  {s}
+                <li key={s} className="flex items-start gap-3 border-b border-line py-3 text-[14px] leading-relaxed text-body">
+                  <span aria-hidden="true" className="text-ink">•</span>
+                  <span>{s}</span>
                 </li>
               ))}
             </ul>
@@ -189,12 +200,12 @@ export default async function DeveloperPage({ params }: Props) {
         )}
 
         {d.projects.length > 0 && (
-          <Section title="Signature Projects">
-            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <Section id="developer-projects" title="Signature Projects">
+            <ul className="grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
               {d.projects.map((p) => (
-                <li key={p.name} className="rounded-[2px] border border-line bg-white px-5 py-4">
-                  <p className="text-[15px] font-medium leading-snug text-ink">{p.name}</p>
-                  {p.community && <p className="mt-1 text-[13px] text-muted">{p.community}</p>}
+                <li key={p.name} className="border-b border-line py-3">
+                  <h3 className="text-[15px] font-medium leading-snug text-ink">{p.name}</h3>
+                  {p.community && <p className="mt-1 text-[13px] leading-relaxed text-muted">{p.community}</p>}
                 </li>
               ))}
             </ul>
@@ -202,21 +213,21 @@ export default async function DeveloperPage({ params }: Props) {
         )}
 
         {communities.length > 0 && (
-          <Section title="Communities">
-            <ul className="flex flex-wrap gap-2.5">
+          <Section id="developer-communities" title="Communities">
+            <ul className="grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
               {communities.map((c) =>
                 c.href ? (
                   <li key={c.name}>
                     <Link
                       href={c.href}
-                      className="inline-flex min-h-[44px] items-center rounded-[2px] border border-line bg-white px-4 text-[13.5px] text-ink transition-colors duration-300 hover:border-accent hover:text-accent"
+                      className="group flex min-h-11 items-center gap-3 border-b border-line py-3 text-[14px] text-ink transition-colors hover:border-black motion-reduce:transition-none"
                     >
-                      {c.name}
+                      <LocationPin /><span className="flex-1">{c.name}</span><span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none">↗</span>
                     </Link>
                   </li>
                 ) : (
-                  <li key={c.name} className="inline-flex min-h-[44px] items-center rounded-[2px] border border-line bg-mist px-4 text-[13.5px] text-body">
-                    {c.name}
+                  <li key={c.name} className="flex min-h-11 items-center gap-3 border-b border-line py-3 text-[14px] text-body">
+                    <LocationPin />{c.name}
                   </li>
                 ),
               )}
@@ -225,7 +236,7 @@ export default async function DeveloperPage({ params }: Props) {
         )}
 
         {listings.length > 0 && (
-          <Section title={`Available Properties${matched.length > listings.length ? ` (${listings.length} of ${matched.length})` : ""}`}>
+          <Section id="developer-properties" title={`Available Properties${matched.length > listings.length ? ` (${listings.length} of ${matched.length})` : ""}`}>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {listings.map((p) => (
                 <PropertyCard key={p.id} property={p} />
@@ -241,7 +252,7 @@ export default async function DeveloperPage({ params }: Props) {
           </Section>
         )}
 
-        <Section title={`Enquire about ${d.name}`}>
+        <Section id="developer-enquiry" title={`Enquire about ${d.name}`} muted>
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-12">
             <div className="text-[15px] leading-[1.85] text-body">
               <p>
@@ -255,7 +266,7 @@ export default async function DeveloperPage({ params }: Props) {
                 </a>
               </p>
             </div>
-            <div className="border border-line bg-white p-6 sm:p-8">
+            <div className="rounded-[8px] border border-line bg-white p-6 sm:p-8">
               <LeadForm
                 form={`Developer enquiry — ${d.name}`}
                 fields={enquiryFields}

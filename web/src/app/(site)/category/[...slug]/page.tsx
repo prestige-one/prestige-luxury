@@ -3,7 +3,6 @@
 import type { Metadata } from "next";
 import BlogArchive, { archivePageHref } from "@/components/blog/BlogArchive";
 import { activeCategories, pageCount, postsInCategory } from "@/components/blog/blog";
-import { categories } from "@/lib/content";
 import { notFound } from "next/navigation";
 
 type Props = { params: Promise<{ slug: string[] }> };
@@ -38,11 +37,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CategoryArchive({ params }: Props) {
   const { category, page } = resolve((await params).slug);
   if (!category || !Number.isInteger(page) || page < 1 || page > pageCount(postsInCategory(category).length)) notFound();
-  const parent = categories.find((c) => c.id === category.parent);
-  const crumbs = [
-    { label: "Blog", href: "/blog/" },
-    ...(parent ? [{ label: parent.name, href: parent.path }] : []),
-    { label: category.name },
-  ];
-  return <BlogArchive title={category.name} crumbs={crumbs} base={category.path} list={postsInCategory(category)} page={page} />;
+  return <BlogArchive title={category.name} base={category.path} list={postsInCategory(category)} page={page} />;
 }

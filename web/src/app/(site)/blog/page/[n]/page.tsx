@@ -22,5 +22,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogPaged({ params }: Props) {
   const { n } = await params;
   if (!/^\d+$/.test(n) || Number(n) < 2 || Number(n) > pageCount(posts.length)) notFound();
-  return <BlogArchive title="Blog" crumbs={[{ label: "Blog" }]} base="/blog/" list={posts} page={Number(n)} />;
+  return <BlogArchive title="Blog" base="/blog/" list={posts} page={Number(n)} />;
 }

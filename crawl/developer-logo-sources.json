@@ -1,0 +1,129 @@
+{
+  "checkedOn": "2026-11-14",
+  "note": "Original developer-owned artwork downloaded from the official pages/assets listed. Light wordmarks use a CSS monochrome ink treatment on white; source images remain intact. Earlier logo sources are documented in existing repository history.",
+  "logos": [
+    {
+      "slug": "irth-group",
+      "url": "https://irth.ae/wp-content/themes/irth/images/irth_logo_dark.webp"
+    },
+    {
+      "slug": "eagle-hills",
+      "url": "https://eaglehills.com/wp-content/uploads/2026/04/cropped-EH-logo-1.png"
+    },
+    {
+      "slug": "casagrand-developers",
+      "url": "https://casagrand-prod.s3.ap-south-1.amazonaws.com/wp-content/uploads/2021/07/Casagrand-Logo1.png?ver=1.213"
+    },
+    {
+      "slug": "octa-properties",
+      "url": "https://www.octa.ae/assets/logo-ink.png"
+    },
+    {
+      "slug": "ade-properties",
+      "url": "https://adeproperties.ae/wp-content/uploads/2025/06/ADE-New-logo.png"
+    },
+    {
+      "slug": "stamn-real-estate-development",
+      "url": "https://stamndevelopment.com/uploads/images/logo-m.png"
+    },
+    {
+      "slug": "devmark",
+      "url": "https://www.devmark.com/application/themes/devmark/dist/images/Logo.svg"
+    },
+    {
+      "slug": "leos-developments",
+      "url": "https://cdn-ilbaiih.nitrocdn.com/MrfrmqhdbmXLxPVbJJbCZoUaLnFyeTeu/assets/images/optimized/rev-83950ba/leosdevelopments.com/wp-content/uploads/2022/11/leos-logo-gold.png"
+    },
+    {
+      "slug": "the-heart-of-europe",
+      "url": "https://thoe.com/wp-content/themes/heartofeurope/assets/svg/logo.svg"
+    },
+    {
+      "slug": "object-1",
+      "url": "https://object-1.com/wp-content/themes/mytheme/svg/logo.svg"
+    },
+    {
+      "slug": "jad-global",
+      "url": "https://jadglobal.ae/images/icons/jad-global-wellness-real-estate-logo.svg"
+    },
+    {
+      "slug": "wadan-development",
+      "url": "https://www.wadan.ae/assets/images/logo2.svg"
+    },
+    {
+      "slug": "townx-development",
+      "url": "https://townx.com/wp-content/themes/hello-elementor-child/assets/logo.webp"
+    },
+    {
+      "slug": "gfs-real-estate",
+      "url": "https://www.gfsdevelopments.ae/public_assets/gfsLogo.webp"
+    },
+    {
+      "slug": "ays-developers",
+      "url": "https://aysdevelopers.ae/Logo-White.png"
+    },
+    {
+      "slug": "deca-properties",
+      "url": "https://deca-properties.com/wp-content/uploads/2025/05/deca-logo-new.png"
+    },
+    {
+      "slug": "ag-properties",
+      "url": "https://agproperty.ae/wp-content/uploads/2025/09/agProperties_logo-copy.png"
+    },
+    {
+      "slug": "symbolic-real-estate-development",
+      "url": "https://www.symbolic.ae/logo-s.png"
+    },
+    {
+      "slug": "nexus-developers",
+      "url": "https://nexusdeveloper.com/wp-content/uploads/2023/12/Nexus-developer-logo-png-2.png"
+    },
+    {
+      "slug": "meraas",
+      "url": "https://www.meraas.com/",
+      "source": "inline header SVG"
+    },
+    {
+      "slug": "taraf-development",
+      "url": "https://www.tarafholding.com/",
+      "source": "inline header SVG"
+    },
+    {
+      "slug": "citi-developers",
+      "url": "https://citideveloper.com/images/shared/logo-google.png"
+    },
+    {
+      "slug": "peace-homes-development",
+      "url": "https://peacehomesdevelopment.com/frontend/assets/images/resources/logo.png"
+    },
+    {
+      "slug": "mashriq-elite",
+      "url": "https://mashriqelite.com/assets/img/me-mark-black.png"
+    },
+    {
+      "slug": "forum-real-estate-development",
+      "url": "https://forum-gd.com/",
+      "source": "inline header SVG #svg993472865_3685"
+    },
+    {
+      "slug": "one-broker-group",
+      "url": "https://obg.ae/",
+      "source": "official website brand image",
+      "assetUrl": "https://media.base44.com/images/public/6a06bbb50f0a8412844dd1e2/59a5ba589_Screenshot2026-05-15at111156AM.png/v1/fit/w_180,h_180/59a5ba589_Screenshot2026-05-15at111156AM.png"
+    }
+  ],
+  "unavailable": [
+    {
+      "slug": "meydan",
+      "name": "Meydan"
+    },
+    {
+      "slug": "mana-comco-real-estate",
+      "name": "Mana Comco Real Estate"
+    },
+    {
+      "slug": "al-yakka-developers",
+      "name": "Al Yakka Developers"
+    }
+  ]
+}

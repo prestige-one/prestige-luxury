@@ -36,24 +36,24 @@ const quotes = [
 export default function TestimonialsPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-cream py-[90px] text-center md:py-[120px]">
+      <section className="relative overflow-hidden bg-black py-16 text-center text-white md:py-20">
         <p
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 select-none text-[64px] font-black uppercase leading-none tracking-[6px] text-[#ece7d0] md:text-[180px] md:tracking-[30px] lg:text-[240px]"
+          className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 select-none text-[64px] font-black uppercase leading-none tracking-[6px] text-white/5 md:text-[140px] md:tracking-[20px]"
         >
           Reviews
         </p>
-        <h1 className="relative text-[40px] font-bold uppercase tracking-[3px] text-ink md:text-[68px] md:tracking-[10px]">Testimonials</h1>
+        <h1 className="relative text-[30px] font-medium tracking-[0.02em] text-white md:text-[42px]">Testimonials</h1>
       </section>
 
       <section className="py-[70px] md:py-[90px]">
         <Container>
-          <div className={ELFSIGHT_APP} data-elfsight-app-lazy />
+          <div className={`pl-live-reviews ${ELFSIGHT_APP}`} data-elfsight-app-lazy />
           {/* The live reviews are this page's main content, so they load as soon as the page is
               interactive rather than last — on lazyOnload they took about five seconds to appear. */}
           <Script src="https://apps.elfsight.com/p/platform.js" strategy="afterInteractive" />
 
-          <h2 className="mb-2 mt-14 text-center font-heading text-[28px] text-ink md:text-[34px]">What our clients say</h2>
+          <h2 className="mb-2 mt-14 text-center font-heading text-ink text-section">What our clients say</h2>
           <p className="mx-auto mb-10 max-w-[560px] text-center text-[15px] leading-[1.7] text-muted">
             Buyers, sellers, landlords and tenants on working with our sales and property management teams.
           </p>

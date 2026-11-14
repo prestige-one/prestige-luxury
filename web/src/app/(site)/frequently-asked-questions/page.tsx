@@ -58,10 +58,10 @@ export default function FaqPage() {
       />
       <section className="py-16 md:py-[100px]">
         <Container className="max-w-[960px] space-y-14">
-          {groups.map((g) => (
+          {groups.map((g, index) => (
             <div key={g.title}>
-              <h2 className="mb-6 text-[24px] font-medium text-ink">{g.title}</h2>
-              <Accordion items={g.items} />
+              <h2 className="mb-6 font-medium text-ink text-section">{g.title}</h2>
+              <Accordion items={g.items} defaultOpenFirst={index === 0} />
             </div>
           ))}
         </Container>

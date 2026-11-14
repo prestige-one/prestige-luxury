@@ -2,15 +2,15 @@ import Link from "next/link";
 import { navCta } from "@/lib/site";
 
 /**
- * "List Your Property" — the header's primary action. Same shape as `Button` in components/ui.tsx
+ * Property valuation — the header's primary action. Same shape as `Button` in components/ui.tsx
  * (2px corners, medium weight, the same transition), and slimmer in the bar so the seven menu
- * items still fit on one line at 1024px. The button inverts with the header background.
+ * items still fit on one line on laptop screens. The button inverts with the header background.
  */
 export default function HeaderCta({ variant = "bar", light = false }: { variant?: "bar" | "drawer"; light?: boolean }) {
   const size =
     variant === "drawer"
       ? "min-h-[48px] w-full px-7 py-3 text-[14px]"
-      : "h-[36px] px-3.5 text-[12px] xl:h-[38px] xl:px-5 xl:text-[13px]";
+      : "h-[36px] px-3.5 text-[12px] 2xl:h-[38px] 2xl:px-5 2xl:text-[13px]";
   return (
     <Link
       href={navCta.href}

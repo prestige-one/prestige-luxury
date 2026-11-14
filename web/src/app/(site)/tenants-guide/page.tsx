@@ -23,7 +23,6 @@ const guide: Guide = {
   title: "Tenant's Guide",
   subtitle: "Renting a home in Dubai, step by step — your rights, the paperwork, and the costs to plan for.",
   image: communityPhoto("Dubai Marina", { size: "full" }) ?? "/wp-content/uploads/2020/07/Dubai-Marina-2.jpg",
-  crumb: "Tenant's Guide",
   intro: [
     "Renting in Dubai is well regulated. Every residential tenancy is registered with the government through Ejari, deposits are capped, rent increases are tied to an official index, and tenants have clear protections on notice and eviction under the Dubai tenancy law administered by RERA.",
     "This guide takes you through a typical rental from first viewing to moving in, sets out what you will pay upfront, and explains the rules that matter most once you are living there. Your Prestige Luxury leasing agent will handle the detail of your own tenancy with you.",

@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@layer base {
+  :where(a[href], button, select, summary, [role="button"], [role="link"], input[type="submit"], input[type="button"], input[type="reset"], input[type="checkbox"], input[type="radio"], input[type="file"], label[for]):not(:disabled):not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+}
+
 /* Design tokens taken from the original prestigeluxury.ae (Houzez + Elementor) */
 @theme {
   /* One family across the whole site, by the owner's instruction (2026-11-14): Poppins for body
@@ -19,6 +25,9 @@
   --color-accent-dark: #222222;
 
   --container-site: 1170px;
+  --text-section: 26px;
+  --text-section--line-height: 1.3;
+  --text-section--font-weight: 500;
 }
 
 html {
@@ -70,6 +79,36 @@ p {
 .no-scrollbar { scrollbar-width: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 
+/* Elfsight's saved dark theme supplies white text; keep live reviews legible on this white page.
+   Scope overrides to its public text classes so avatars, source logos and rating stars retain their colors. */
+.pl-live-reviews {
+  color: #000;
+}
+.pl-live-reviews :is(
+  .es-tab-title,
+  .es-widget-title,
+  .es-header-rating-value,
+  .es-header-rating-reviews-count,
+  .es-review-author-name,
+  .es-review-info-date,
+  .es-text-shortener,
+  .es-text-shortener-control,
+  .es-review-source-review-info,
+  .es-review-source-source-name
+) {
+  color: #000 !important;
+}
+.pl-live-reviews .es-button-base-container {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+.pl-live-reviews .es-button-base-ellipsis {
+  color: #fff !important;
+}
+.pl-live-reviews :is(.es-tab-container, .es-text-shortener-control) {
+  cursor: pointer;
+}
+
 /* Rich text copied from WordPress (blog posts, policies, etc.) */
 .wp-content {
   font-size: 15px;
@@ -86,7 +125,7 @@ p {
   margin: 1.6em 0 0.6em;
 }
 .wp-content h1 { font-size: 2rem; }
-.wp-content h2 { font-size: 1.6rem; }
+.wp-content h2 { font-size: var(--text-section); }
 .wp-content h3 { font-size: 1.3rem; }
 .wp-content h4 { font-size: 1.1rem; }
 .wp-content p { margin: 0 0 1.1em; }
@@ -104,7 +143,7 @@ p {
 .wp-content a:hover { color: var(--color-accent-dark); }
 .wp-content strong, .wp-content b { color: var(--color-ink); font-weight: 600; }
 .pl-blog-content { font-size: 16px; line-height: 1.85; overflow-wrap: anywhere; }
-.pl-blog-content h2 { margin-top: 2em; font-size: 25px; line-height: 1.35; }
+.pl-blog-content h2 { margin-top: 2em; font-size: var(--text-section); line-height: 1.35; }
 .pl-blog-content h3 { font-size: 20px; line-height: 1.4; }
 .pl-blog-content img { display: block; height: auto; margin: 1.75em auto; }
 .pl-blog-content blockquote { margin: 2em 0; padding: 1em 1.5em; background: var(--color-mist); }
@@ -117,7 +156,7 @@ p {
   /* wide WordPress tables scroll inside themselves instead of widening the page */
   .wp-content table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .wp-content h1 { font-size: 1.65rem; }
-  .wp-content h2 { font-size: 1.4rem; }
+  .wp-content h2 { font-size: var(--text-section); }
   .wp-content h3 { font-size: 1.2rem; }
 }
 

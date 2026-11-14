@@ -78,7 +78,7 @@ export default function Header() {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && close();
     window.addEventListener("keydown", onKey);
     // the drawer is mobile-only: closing it on the way to desktop avoids a locked page with no menu
-    const desktop = window.matchMedia("(min-width: 1024px)");
+    const desktop = window.matchMedia("(min-width: 1200px)");
     const onDesktop = () => desktop.matches && close();
     desktop.addEventListener("change", onDesktop);
     return () => {
@@ -120,7 +120,7 @@ export default function Header() {
           <div className="pointer-events-none absolute inset-x-0 top-0 h-[120px] bg-gradient-to-b from-black/45 to-transparent" aria-hidden />
         )}
         <div
-          className={`relative mx-auto flex max-w-[1440px] items-center justify-between gap-4 px-5 transition-[height] duration-300 ease-out lg:px-6 xl:px-[60px] ${
+          className={`relative mx-auto flex max-w-[1440px] items-center justify-between gap-3 px-5 transition-[height] duration-300 ease-out lg:px-6 2xl:px-[60px] ${
             scrolled ? "h-[66px]" : "h-[80px]"
           }`}
         >
@@ -133,15 +133,14 @@ export default function Header() {
               height={82}
               priority
               className={`h-auto transition-[width] duration-300 ease-out motion-reduce:transition-none ${
-                scrolled ? "w-[160px] lg:w-[200px]" : "w-[172px] lg:w-[220px] xl:w-[240px]"
+                scrolled ? "w-[160px] 2xl:w-[200px]" : "w-[172px] min-[1200px]:w-[200px] 2xl:w-[240px]"
               }`}
             />
           </Link>
 
-          <nav className="hidden h-full min-w-0 lg:block" aria-label="Main">
-            {/* 7 items + the currency pill + the CTA have to fit at 1024px, so the gap and the
-                type are tight at lg and open up at xl */}
-            <ul className="flex h-full items-center gap-[11px] xl:gap-[26px]">
+          <nav className="ml-auto hidden h-full min-w-0 min-[1200px]:block" aria-label="Main">
+            {/* Keep laptop navigation compact; wider screens have room for more spacing. */}
+            <ul className="flex h-full items-center gap-[14px] 2xl:gap-[26px]">
               {mainNav.map((item) => {
                 const active = item.href === currentNavHref;
                 return (
@@ -157,7 +156,7 @@ export default function Header() {
                         setDismissed(item.label);
                       }}
                       aria-current={active ? (pathname === item.href ? "page" : "location") : undefined}
-                      className={`relative flex h-full items-center gap-1 whitespace-nowrap text-[12px] font-medium uppercase tracking-[0.05em] xl:gap-1.5 xl:text-[13px] xl:tracking-[0.08em] ${text} transition-opacity duration-200 hover:opacity-75`}
+                      className={`relative flex h-full items-center gap-1 whitespace-nowrap text-[12px] font-medium uppercase tracking-[0.05em] 2xl:gap-1.5 2xl:text-[13px] 2xl:tracking-[0.08em] ${text} transition-opacity duration-200 hover:opacity-75`}
                     >
                       {item.label}
                       {item.children && (
@@ -206,14 +205,14 @@ export default function Header() {
           </nav>
 
           {/* Right-hand actions, desktop only: currency first, then the primary call to action */}
-          <div className="hidden shrink-0 items-center gap-2.5 lg:flex xl:gap-4">
+          <div className="hidden shrink-0 items-center gap-2 min-[1200px]:flex">
             <CurrencySelect light={light} />
             <HeaderCta light={light} />
           </div>
 
           <button
             type="button"
-            className={`-mr-2 grid h-11 w-11 place-items-center lg:hidden ${text}`}
+            className={`-mr-2 grid h-11 w-11 place-items-center min-[1200px]:hidden ${text}`}
             aria-label="Open menu"
             aria-expanded={open}
             aria-controls="mobile-menu"
@@ -227,7 +226,7 @@ export default function Header() {
       </header>
 
       {/* Mobile menu: full-height panel sliding in from the right */}
-      <div className={`fixed inset-0 z-[60] overflow-hidden lg:hidden ${open ? "" : "pointer-events-none"}`} aria-hidden={!open} inert={!open}>
+      <div className={`fixed inset-0 z-[60] overflow-hidden min-[1200px]:hidden ${open ? "" : "pointer-events-none"}`} aria-hidden={!open} inert={!open}>
         <div
           className={`absolute inset-0 bg-black/50 transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0"}`}
           onClick={() => setOpen(false)}

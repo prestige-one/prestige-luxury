@@ -102,7 +102,7 @@ export default function OffPlanProject({ c }: { c: OffPlanConfig }) {
 
       {/* Enquiry */}
       <section id="contact" className="pl-lp-shell scroll-mt-4 px-5 pb-16 pt-12 md:pb-20">
-        <h2 className="mx-auto max-w-[1200px] text-center text-[28px] uppercase leading-[1.4] tracking-[3.7px] md:text-[44px] xl:text-[50px]">
+        <h2 className="mx-auto max-w-[1200px] text-center uppercase leading-[1.4] tracking-[3.7px] text-section">
           {c.contactTitle}
         </h2>
         <FormBox title="Get in Touch" className="mt-8">
@@ -121,7 +121,7 @@ function TextBlock({ title, subtitle, text, action }: { title: string; subtitle:
     <section className="pl-lp-text-block pl-lp-shell px-5 py-12 md:py-16">
       <div className="h-px w-16 bg-white/40" aria-hidden />
       <div className="mt-7 grid gap-x-12 gap-y-5 md:grid-cols-[0.8fr_1.2fr]">
-        <h2 className="text-[25px] uppercase leading-[1.1] tracking-[3.7px] md:text-[60px] xl:text-[80px]">
+        <h2 className="uppercase leading-[1.1] tracking-[3.7px] text-section">
           {title}
           <span className="font-raleway mt-2 block text-[20px] md:text-[55px] xl:text-[75px]">{subtitle}</span>
         </h2>

@@ -40,7 +40,6 @@ export default function ListingArchive({
   searchParams = {},
 }: {
   title: string;
-  crumbs?: { label: string; href?: string }[];
   listings: Property[];
   intro?: React.ReactNode;
   search?: SearchBarValues;

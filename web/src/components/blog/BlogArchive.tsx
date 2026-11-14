@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Post } from "@/lib/content";
-import { Breadcrumb, Container } from "@/components/ui";
+import { Container } from "@/components/ui";
 import CategoryLinks from "./CategoryLinks";
 import PostCard from "./PostCard";
 import { activeCategories, pageCount, pageSlice } from "./blog";
@@ -50,14 +50,12 @@ function Pagination({ base, page, total }: { base: string; page: number; total: 
 export default function BlogArchive({
   title,
   intro,
-  crumbs,
   base,
   list,
   page,
 }: {
   title: string;
   intro?: string;
-  crumbs: { label: string; href?: string }[];
   base: string;
   list: Post[];
   page: number;
@@ -68,8 +66,7 @@ export default function BlogArchive({
     <>
       <section className="pl-blog-archive bg-black py-12 text-white md:py-16">
         <Container>
-          <Breadcrumb light items={page > 1 ? [...crumbs.slice(0, -1), { ...crumbs[crumbs.length - 1], href: base }, { label: `Page ${page}` }] : crumbs} />
-          <p className="mt-7 text-[12px] font-medium uppercase tracking-[0.18em] text-white/70">The Prestige Journal</p>
+          <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-white/70">The Prestige Journal</p>
           <h1 className="mt-3 text-[30px] font-medium text-white md:text-[36px]">
             {title}
             {page > 1 && <span className="ml-2 text-[18px] font-normal text-white/70">— Page {page}</span>}

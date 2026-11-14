@@ -83,7 +83,7 @@ export default function ServicesPage() {
                 <Media src={s.image} alt={s.title} fill sizes="(min-width: 768px) 570px, 100vw" className="object-cover" />
               </div>
               <div className="flex flex-col justify-center bg-black px-8 py-12 text-white md:px-14">
-                <h2 className="text-[28px] font-medium md:text-[32px]">{s.title}</h2>
+                <h2 className="font-medium text-section">{s.title}</h2>
                 <p className="mt-5 text-[14.5px] leading-[1.8] text-white/85">{s.text}</p>
                 <div className="mt-8">
                   <Button href={isPagePublished(s.href) ? s.href : "/contact-us/"} variant="light">

@@ -1,4 +1,4 @@
-import { Container, SectionTitle } from "@/components/ui";
+import { Button, Container, SectionTitle } from "@/components/ui";
 import PropertyCard from "@/components/listings/PropertyCard";
 import { properties } from "@/lib/properties";
 import { randomSample } from "@/lib/random-sample";
@@ -17,6 +17,9 @@ export default function CuratedProperties() {
         <SectionTitle title="A Curated Collection of Dubai Properties" />
         <div className="pl-curated-grid grid gap-6 md:grid-cols-3">
           {selection.map((property) => <PropertyCard key={property.id} property={property} />)}
+        </div>
+        <div className="mt-9 text-center">
+          <Button href="/properties/">Explore More</Button>
         </div>
       </Container>
     </section>

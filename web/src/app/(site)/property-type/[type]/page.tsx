@@ -32,7 +32,7 @@ export default async function PropertyTypePage({ params, searchParams }: Props) 
       title={t.label}
       path={`/property-type/${t.slug}/`}
       listings={propertiesOfType(t.slug)}
-      search={{ type: t.label }}
+      search={{ type: t.slug === "apartments" ? "Apartment" : t.label }}
       searchParams={await searchParams}
     />
   );

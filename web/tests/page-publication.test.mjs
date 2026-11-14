@@ -8,7 +8,7 @@ test('draft routes remain unpublished with query strings, anchors, and canonical
     assert.equal(isPagePublished(`https://another-site.example${path}`), true);
   }
   assert.equal(isPagePublished('/property-management/'), false);
-  assert.equal(isPagePublished('/prestige-embankment/'), true);
+  assert.equal(isPagePublished('/prestige-embankment/'), false);
   assert.equal(isPagePublished('/developers/prestige-one-developments/'), true);
 });
 

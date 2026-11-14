@@ -6,5 +6,5 @@ const blogPage = getPage("/blog/")!;
 export const metadata: Metadata = seoMetadata(blogPage);
 
 export default function BlogIndex() {
-  return <BlogArchive title="Blog" crumbs={[{ label: "Blog" }]} base="/blog/" list={posts} page={1} />;
+  return <BlogArchive title="Blog" base="/blog/" list={posts} page={1} />;
 }

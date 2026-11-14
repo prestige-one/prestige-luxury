@@ -3,7 +3,7 @@ import LeadForm, { type LeadField } from "@/components/LeadForm";
 import Media from "@/components/Media";
 import { Accordion } from "@/components/info/blocks";
 import { areaOptions, propertyTypeOptions } from "@/components/info/options";
-import { Breadcrumb, Container, ImageCard, PageBanner } from "@/components/ui";
+import { Container, ImageCard, PageBanner } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
 import { communityPhoto, featurePhoto } from "@/lib/imagery";
 
@@ -100,15 +100,12 @@ export default function SellPage() {
         subtitle="A free, evidence-based valuation from brokers who work your community every day."
         image={heroImage}
       />
-      <Container className="pt-6">
-        <Breadcrumb items={[{ label: "List With Us" }]} />
-      </Container>
 
       {/* Selling process + valuation form */}
       <section className="py-14 md:py-[90px]">
         <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <h2 className="mb-8 text-[26px] font-semibold uppercase tracking-wide text-ink md:text-[30px]">Property Selling Process</h2>
+            <h2 className="mb-8 font-medium uppercase tracking-wide text-ink text-section">Property Selling Process</h2>
             <ol className="space-y-7">
               {steps.map((s, i) => (
                 <li key={s.title} className="flex gap-4">
@@ -128,7 +125,7 @@ export default function SellPage() {
             </ol>
           </div>
           <div id="valuation" className="h-fit scroll-mt-24 border border-line bg-white p-6 shadow-[0_0_30px_rgba(0,0,0,0.06)] sm:p-10">
-            <h2 className="mb-6 text-[22px] font-semibold uppercase tracking-wide text-ink">Book a Free Valuation</h2>
+            <h2 className="mb-6 font-medium uppercase tracking-wide text-ink text-section">Book a Free Valuation</h2>
             <LeadForm form="Sell" fields={fields} />
           </div>
         </Container>
@@ -137,7 +134,7 @@ export default function SellPage() {
       {/* Why sell with us */}
       <section className="bg-mist py-16 md:py-[100px]">
         <Container>
-          <h2 className="mx-auto mb-10 max-w-[760px] text-center font-heading text-[28px] text-ink md:text-[34px]">
+          <h2 className="mx-auto mb-10 max-w-[760px] text-center font-heading text-ink text-section">
             Why Sell Your Property in Dubai with Prestige Luxury?
           </h2>
           <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
@@ -197,7 +194,7 @@ export default function SellPage() {
       <section className="py-16 md:py-[100px]">
         <Container>
           <div className="text-center">
-            <h2 className="font-heading text-[28px] text-ink md:text-[34px]">Our Properties</h2>
+            <h2 className="font-heading text-ink text-section">Our Properties</h2>
             <h3 className="mt-5 text-[17px] font-medium text-ink">
               We cover residential and commercial properties in over 50 communities in Dubai.
             </h3>
@@ -227,7 +224,7 @@ export default function SellPage() {
       {/* FAQ */}
       <section className="pb-16 md:pb-[100px]">
         <Container className="max-w-[960px]">
-          <h2 className="mb-8 text-[24px] font-medium text-ink">Questions about selling</h2>
+          <h2 className="mb-8 font-medium text-ink text-section">Questions about selling</h2>
           <Accordion items={faqs} />
         </Container>
       </section>

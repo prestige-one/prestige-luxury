@@ -121,7 +121,7 @@ export default function ProjectsForSalePage() {
       />
 
       <section id="projects" className="scroll-mt-4 px-5 pt-12 md:px-[100px]">
-        <LpHeading className="mx-auto max-w-[1100px] text-[30px] md:text-[40px] lg:text-[48px] lg:leading-[80px]">
+        <LpHeading className="mx-auto max-w-[1100px] ">
           Choose From Many Prestigious Properties and Enjoy a Luxurious Lifestyle
         </LpHeading>
       </section>
@@ -203,7 +203,7 @@ export default function ProjectsForSalePage() {
       <section id="contact" className="scroll-mt-4 px-5 pb-20 pt-16 md:px-[100px] md:pb-[100px]">
         <LpHeading className="mx-auto max-w-[1100px]">Invest in a Lifestyle of Prestige and Luxury</LpHeading>
         <div className="mx-auto mt-12 w-full max-w-[640px] rounded-[15px] border-[3px] border-white bg-black p-6 sm:p-[50px]">
-          <h2 className="mb-6 text-center text-[32px] font-extrabold leading-tight md:text-[48px]">Get in Touch</h2>
+          <h2 className="mb-6 text-center font-medium leading-tight text-section">Get in Touch</h2>
           <LeadForm form={FORM} fields={contactFields} redirectTo={REDIRECT} dark />
         </div>
       </section>

@@ -2,6 +2,9 @@
 
 import { useRouter } from "next/navigation";
 import { useId, useState } from "react";
+import { isSupportedCountry, type CountryCode } from "libphonenumber-js/min";
+import { normalizePhone } from "@/lib/phone";
+import PhoneField from "./PhoneField";
 
 export type LeadField = {
   name: string; // sent as the field key, e.g. "name", "email", "phone", "message"
@@ -32,6 +35,7 @@ export default function LeadForm({
   redirectTo,
   extra,
   dark = false,
+  whiteInputs = false,
   showLabels = false,
 }: {
   form: string;
@@ -40,6 +44,7 @@ export default function LeadForm({
   redirectTo?: string;
   extra?: Record<string, string>; // hidden values, e.g. { property: "REF-123" }
   dark?: boolean;
+  whiteInputs?: boolean;
   showLabels?: boolean;
 }) {
   const router = useRouter();
@@ -74,6 +79,10 @@ export default function LeadForm({
 
     setState("sending");
     const data = Object.fromEntries(new FormData(formEl).entries());
+    for (const field of fields.filter((item) => item.type === "tel")) {
+      const country = String(data[`${field.name}_country`] || "AE");
+      data[field.name] = normalizePhone(String(data[field.name] || ""), isSupportedCountry(country) ? country as CountryCode : "AE") || "";
+    }
     const res = await fetch("/api/lead", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -91,11 +100,13 @@ export default function LeadForm({
   }
 
   const input = `w-full min-h-[48px] rounded-[2px] border px-4 py-3 text-[14px] outline-none transition-[border-color,box-shadow,background-color] duration-200 focus-visible:outline-none ${
-    dark
+    whiteInputs
+      ? "border-white bg-white text-black placeholder:text-[#666] hover:border-[#ccc] focus:border-white focus:shadow-[0_0_0_3px_rgba(255,255,255,0.45)] [&>option]:text-black"
+      : dark
       ? "border-white/30 bg-white/10 text-white placeholder:text-white/65 hover:border-white/50 focus:border-white focus:bg-white/[0.14] focus:shadow-[0_0_0_3px_rgba(255,255,255,0.15)] [&>option]:text-ink"
       : "border-line bg-white text-ink placeholder:text-[#8a8a8a] hover:border-[#cfcfcf] focus:border-accent focus:shadow-[0_0_0_3px_rgba(0,0,0,0.14)]"
   }`;
-  const errorRing = dark ? " !border-red-300" : " !border-red-600";
+  const errorRing = dark && !whiteInputs ? " !border-red-300" : " !border-red-600";
 
   if (state === "sent") {
     return (
@@ -123,7 +134,6 @@ export default function LeadForm({
         const fieldError = fieldErrors[f.name];
         // A phone number is typed left-to-right even in an RTL page, but its placeholder/value
         // stay aligned with the other fields.
-        const tel = f.type === "tel";
         const common = {
           id: fieldId(f.name),
           name: f.name,
@@ -155,13 +165,13 @@ export default function LeadForm({
                   <option key={o}>{o}</option>
                 ))}
               </select>
+            ) : f.type === "tel" ? (
+              <PhoneField {...common} dark={dark} whiteInputs={whiteInputs} placeholder={showLabels ? undefined : f.label} />
             ) : (
               <input
                 {...common}
                 type={f.type ?? "text"}
                 placeholder={showLabels ? undefined : f.label}
-                dir={tel ? "ltr" : undefined}
-                className={`${common.className}${tel ? " rtl:text-right" : ""}`}
               />
             )}
             {fieldError && (
@@ -179,7 +189,11 @@ export default function LeadForm({
           type="submit"
           disabled={state === "sending"}
           className={`inline-flex min-h-[48px] items-center justify-center gap-2 rounded-[2px] px-8 py-3 text-[14px] font-medium tracking-[0.02em] transition-colors duration-300 active:translate-y-px disabled:cursor-wait disabled:opacity-60 max-sm:w-full ${
-            dark ? "bg-white text-ink hover:bg-accent hover:text-white" : "bg-black text-white hover:bg-accent"
+            dark
+              ? whiteInputs
+                ? "bg-white text-ink ring-1 ring-white hover:bg-[#e6e6e6] focus-visible:outline-white"
+                : "bg-white text-ink hover:bg-accent hover:text-white"
+              : "bg-black text-white hover:bg-accent"
           }`}
         >
           {state === "sending" && (

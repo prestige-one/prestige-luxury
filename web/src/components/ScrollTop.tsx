@@ -10,9 +10,7 @@ export default function ScrollTop() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   if (!show) return null;
-  // Stacked directly above the floating WhatsApp button (56px tall at bottom-5 / md:bottom-6,
-  // see components/WhatsAppButton.tsx), with a 12px gap. The odd `right` values centre this
-  // 44px control on the 56px one below it.
+  // Keep a clear gap above the floating Call Us button.
   return (
     <button
       type="button"

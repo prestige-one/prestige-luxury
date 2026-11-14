@@ -18,8 +18,8 @@ const advantages = [
 
 const fields: LeadField[] = [
   { name: "name", label: "Full Name", required: true },
-  { name: "email", label: "Email", type: "email", required: true, half: true },
-  { name: "phone", label: "Mobile Number", type: "tel", required: true, half: true },
+  { name: "email", label: "Email", type: "email", required: true },
+  { name: "phone", label: "Mobile Number", type: "tel", required: true },
   { name: "position", label: "Position you are applying for" },
   { name: "message", label: "Cover Letter", type: "textarea" },
 ];
@@ -36,7 +36,7 @@ export default function CareersPage() {
       <section className="py-16 md:py-[100px]">
         <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <h2 className="text-[25px] font-semibold leading-snug text-ink">Your Ambition Deserves the Right Address.</h2>
+            <h2 className="font-medium leading-snug text-ink text-section">Your Ambition Deserves the Right Address.</h2>
             <h3 className="mt-3 text-[17px] leading-[22px] text-body">
               Build your career. Expand your potential. Make your mark in Dubai real estate.
             </h3>
@@ -55,7 +55,7 @@ export default function CareersPage() {
           </div>
 
           <div id="apply" className="scroll-mt-28 border border-line bg-white p-6 shadow-[0_0_30px_rgba(0,0,0,0.06)] sm:p-10">
-            <h2 className="mb-6 text-[22px] font-semibold uppercase tracking-wide text-ink">Apply Now</h2>
+            <h2 className="mb-6 font-medium uppercase tracking-wide text-ink text-section">Apply Now</h2>
             <LeadForm form="Careers" fields={fields} submitLabel="Send" />
             <p className="mt-6 border-t border-line pt-5 text-[13px] leading-[1.7] text-muted">
               To complete your application, please email your CV to{" "}

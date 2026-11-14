@@ -102,7 +102,7 @@ export default function SignatureLivingPage() {
       <section id="solar-sustainability" className="scroll-mt-20 bg-white px-[30px] py-[60px]">
         <div className="mx-auto grid max-w-[1140px] items-center gap-10 md:grid-cols-2">
           <div className="text-center md:pl-[20%] md:pr-[5%] md:text-left">
-            <h2 className="text-[38px] leading-[1.05] tracking-[-2px] text-[#282828] md:text-[45px] md:tracking-[-3px]">
+            <h2 className="leading-[1.05] tracking-[-2px] text-[#282828] md:tracking-[-3px] text-section">
               SOLAR
               <br />
               SUSTAINABILITY

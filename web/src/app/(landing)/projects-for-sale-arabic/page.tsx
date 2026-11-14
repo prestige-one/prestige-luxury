@@ -119,7 +119,7 @@ export default function ProjectsForSaleArabicPage() {
       />
 
       <section id="projects" className="scroll-mt-4 px-5 pt-12 md:px-[100px]">
-        <LpHeading className="mx-auto max-w-[1300px] lg:leading-[100px]">اختر ما يلائمك من مجموعة عقارات راقية وتمتع بحياة من الرفاهية</LpHeading>
+        <LpHeading className="mx-auto max-w-[1300px] ">اختر ما يلائمك من مجموعة عقارات راقية وتمتع بحياة من الرفاهية</LpHeading>
       </section>
 
       {projects.map((p, i) => (

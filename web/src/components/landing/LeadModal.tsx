@@ -62,7 +62,7 @@ export default function LeadModal({
               <path d="M6 6l12 12M18 6L6 18" />
             </svg>
           </button>
-          <h2 className="mb-6 pe-8 text-[26px] font-extrabold leading-tight sm:text-[32px]">{title}</h2>
+          <h2 className="mb-6 pe-8 font-medium leading-tight text-section">{title}</h2>
           {opened && <LeadForm form={form} fields={fields} submitLabel={submitLabel} redirectTo={redirectTo} extra={extra} dark />}
         </div>
       </dialog>

@@ -26,4 +26,9 @@ export function developerLogo(slug: string): string | null {
   return bySlug.get(slug) ?? null;
 }
 
+/** Official light wordmarks retain their artwork and use monochrome ink on white surfaces. */
+export function developerLogoClass(slug: string): string {
+  return ["devmark", "eagle-hills", "jad-global", "wadan-development", "ays-developers", "ag-properties", "nexus-developers", "peace-homes-development"].includes(slug) ? "brightness-0" : "";
+}
+
 export const hasDeveloperLogos = bySlug.size > 0;

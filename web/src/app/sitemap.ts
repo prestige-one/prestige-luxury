@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { categories, pages, posts } from "@/lib/content";
 import { developers } from "@/lib/developers";
+import { team } from "@/lib/team";
 import { statuses } from "@/lib/listing-format";
 import { allAreas, typeRoutes } from "@/lib/listing-views";
 import { properties } from "@/lib/properties";
@@ -54,9 +55,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // generated from, so new developers appear here as soon as they are added to the data.
   entries.push({ url: url("/developers/"), priority: 0.7 });
   for (const d of developers) entries.push({ url: url(`/developers/${d.slug}/`), priority: 0.6 });
+  for (const member of team) entries.push({ url: url(`/meet-the-team/${member.slug}/`), priority: 0.6 });
 
   // Guides written for the new site (not in the WordPress import, so listed by hand)
   entries.push({ url: url("/buyers-guide/"), priority: 0.7 });
+  entries.push({ url: url("/property-valuation/"), priority: 0.8 });
   entries.push({ url: url("/tenants-guide/"), priority: 0.7 });
   entries.push({ url: url("/investment-guide/"), priority: 0.7 });
 

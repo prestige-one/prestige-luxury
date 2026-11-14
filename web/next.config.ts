@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 import blogRedirects from "./content/blog-redirects.json";
 
 const nextConfig: NextConfig = {
+  // Keep the development badge from covering the mobile social toggle.
+  devIndicators: false,
   // Keep the same URLs as the old WordPress site (they all end with "/").
   trailingSlash: true,
   images: {
@@ -14,6 +16,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      { source: "/property-type/apartment/", destination: "/property-type/apartments/", permanent: true },
       ...blogRedirects.map((redirect) => ({ ...redirect, permanent: true })),
       { source: "/home/", destination: "/", permanent: true },
       { source: "/sitemap_index.xml", destination: "/sitemap.xml", permanent: true },

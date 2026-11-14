@@ -8,11 +8,12 @@ import PropertyCard from "@/components/listings/PropertyCard";
 import PropertyGallery from "@/components/listings/PropertyGallery";
 import { TrackView } from "@/components/listings/RecentlyViewed";
 import { AreaIcon, BathIcon, BedIcon, CheckIcon, HomeIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "@/components/listings/icons";
-import { Breadcrumb, Container } from "@/components/ui";
+import { Container } from "@/components/ui";
 import { addressLine, bedsLabel, isUnoptimized, plainText, propertyStatus, richParagraphs, sqft } from "@/lib/listing-format";
 import { listingDescription, listingTitle, similarListings } from "@/lib/listing-views";
 import { formatPrice, getProperty, properties, type Property } from "@/lib/properties";
 import { site } from "@/lib/site";
+import { team } from "@/lib/team";
 
 // Only listings present in content/properties.json exist; anything else is a 404.
 // With an empty dataset this returns [] and the build simply prerenders no property pages.
@@ -116,6 +117,8 @@ export default async function PropertyPage({ params }: Props) {
   const beds = bedsLabel(p.bedrooms);
   const similar = similarListings(p, 3);
   const agentName = p.agent?.name || site.name;
+  const teamMember = team.find((member) => member.name.toLowerCase() === agentName.trim().toLowerCase());
+  const agentPhoto = teamMember?.image || p.agent?.photo;
   // Every enquiry goes to the agency's one published number, by the owner's instruction — the
   // listing agent's name is still shown, but their direct line from the portal feed is not
   // republished here. Change these three lines back to `p.agent?.phone` to restore it.
@@ -144,9 +147,8 @@ export default async function PropertyPage({ params }: Props) {
       <TrackView item={{ slug: p.slug, title: p.title, price: formatPrice(p), image: p.images[0] }} />
 
       <Container className="pb-[90px] pt-8">
-        <Breadcrumb items={[{ label: status.label, href: `/status/${status.slug}/` }, { label: p.title }]} />
 
-        <div className="mt-4 mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <div className="mb-3 flex flex-wrap gap-2 text-[11px] font-medium uppercase tracking-wide">
               <Link href={`/status/${status.slug}/`} className="rounded-[2px] bg-black px-2.5 py-1 text-white hover:bg-accent">
@@ -243,9 +245,9 @@ export default async function PropertyPage({ params }: Props) {
           <aside className="lg:sticky lg:top-[100px] lg:self-start">
             <div className="border border-line bg-white p-6">
               <div className="flex items-center gap-4">
-                <span className="relative flex h-[70px] w-[70px] shrink-0 items-center justify-center overflow-hidden rounded-full bg-smoke text-[22px] font-medium text-ink">
-                  {p.agent?.photo ? (
-                    <Media src={p.agent.photo} alt={agentName} fill sizes="70px" unoptimized={isUnoptimized(p.agent.photo)} className="object-cover object-top" />
+                <span className="relative flex h-[100px] w-[100px] shrink-0 items-center justify-center overflow-hidden rounded-full bg-smoke text-[22px] font-medium text-ink">
+                  {agentPhoto ? (
+                    <Media src={agentPhoto} alt={agentName} fill sizes="100px" unoptimized={Boolean(teamMember) || isUnoptimized(agentPhoto)} className="object-cover object-top" />
                   ) : (
                     agentName
                       .split(/\s+/)
@@ -293,7 +295,7 @@ export default async function PropertyPage({ params }: Props) {
 
         {similar.length > 0 && (
           <section className="mt-16">
-            <h2 className="mb-6 text-[24px] font-medium text-ink">Similar Listings</h2>
+            <h2 className="mb-6 font-medium text-ink text-section">Similar Listings</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {similar.map((s) => (
                 <PropertyCard key={s.id} property={s} />

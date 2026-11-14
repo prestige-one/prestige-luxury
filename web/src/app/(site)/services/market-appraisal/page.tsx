@@ -29,13 +29,31 @@ export default function MarketAppraisalPage() {
     <>
       {/* Hero with enquiry form */}
       <section id="contact" className="scroll-mt-20 bg-black py-16 md:py-[100px]">
-        <Container className="grid items-center gap-12 lg:grid-cols-[1fr_480px]">
+        <Container className="grid items-start gap-12 lg:grid-cols-[1fr_480px]">
           <div className="text-white">
             <h1 className="text-[34px] font-medium leading-tight md:text-[46px]">Book your free market appraisal today</h1>
             <p className="mt-4 text-[17px] text-white/80">It’s easy, free, confidential and no obligation!</p>
+            <div className="mt-7 space-y-4 text-[14px] leading-[1.85] text-white/80">
+              <p>Thinking about selling or letting your property in Dubai? Start with a clearer understanding of its current market position. Our community specialists assess your property’s location, layout, condition and comparable market activity to discuss a realistic sale or rental range.</p>
+              <p>We take the time to understand your plans, explain the factors that influence value and outline practical next steps. Whether you are ready to list or simply exploring your options, your appraisal gives you a considered starting point.</p>
+            </div>
+            <h2 className="mt-7 text-[18px] font-medium text-white">What you can expect</h2>
+            <ul className="mt-4 space-y-3 text-[14px] leading-relaxed text-white/85">
+              {[
+                "Local market comparisons and an indicative price range",
+                "Advice on presenting and positioning your property",
+                "A conversation about your timeline and next steps",
+              ].map((item) => (
+                <li key={item} className="flex gap-3">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true" className="mt-0.5 shrink-0"><path d="m5 12 4 4L19 6" /></svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 border-t border-white/20 pt-5 text-[12px] leading-relaxed text-white/65">Share a few details using the form and our team will contact you to arrange your appraisal. There is no obligation to list your property.</p>
           </div>
           <div className="bg-white p-6 sm:p-10">
-            <h2 className="font-heading text-[26px] text-ink">Get In Touch</h2>
+            <h2 className="font-heading text-ink text-section">Get In Touch</h2>
             <p className="mb-6 mt-2 text-[14px] text-muted">Fill out this form and one of our experts will be in touch with you soon.</p>
             <LeadForm form="Market Appraisal" fields={fields} />
             <p className="mt-4 text-[12px] text-muted">
@@ -50,7 +68,7 @@ export default function MarketAppraisalPage() {
         <Container className="grid items-center gap-12 md:grid-cols-2">
           <div>
             <p className="text-[14px] font-semibold uppercase tracking-[2px] text-accent">What’s my house worth? Ask us today.</p>
-            <h2 className="mt-3 text-[28px] font-medium text-ink md:text-[32px]">What Is A Market Appraisal?</h2>
+            <h2 className="mt-3 font-medium text-ink text-section">What Is A Market Appraisal?</h2>
             <p className="mt-4 text-[14.5px] leading-[1.8] text-body">
               <strong className="font-semibold text-ink">We provide a thorough and considered assessment of your property.</strong> You
               will receive a full report based on ACTUAL comparable sales for your home. This will give you a realistic range on which to
@@ -103,7 +121,7 @@ export default function MarketAppraisalPage() {
           </div>
           <div>
             <p className="text-[14px] font-semibold uppercase tracking-[2px] text-accent">Get the right advice upfront</p>
-            <h2 className="mt-3 text-[28px] font-medium text-ink md:text-[32px]">What else can a market appraisal tell me?</h2>
+            <h2 className="mt-3 font-medium text-ink text-section">What else can a market appraisal tell me?</h2>
             <p className="mt-4 text-[14.5px] font-semibold text-ink">We’ll also cover questions like:</p>
             <Bullets
               items={[

@@ -48,6 +48,7 @@ export type DeveloperCardData = {
   featured: boolean;
   summary: string | null;
   logo: string | null;
+  logoClassName?: string;
   image: string;
   imageAlt: string;
 };
@@ -61,7 +62,7 @@ export function DeveloperCard({ developer: d }: { developer: DeveloperCardData }
       className="pl-developer-card" imageClassName="pl-developer-card-heading" showArrow branding={
       <div className="pl-developer-brand absolute bottom-4 left-4 flex h-[68px] w-[158px] max-w-[calc(100%-32px)] items-center justify-center rounded-[4px] bg-white px-4 py-3 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
         {d.logo ? (
-          <Media src={d.logo} alt={`${d.name} logo`} width={150} height={46} unoptimized className="h-full w-full object-contain" />
+          <Media src={d.logo} alt={`${d.name} logo`} width={150} height={46} unoptimized className={`h-full w-full object-contain ${d.logoClassName || ""}`} />
         ) : <span className="line-clamp-3 text-center text-[13px] font-medium leading-[1.3] text-ink">{d.name}</span>}
       </div>
     } />

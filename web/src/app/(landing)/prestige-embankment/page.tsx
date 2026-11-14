@@ -4,6 +4,7 @@ import Gallery from "@/components/landing/Gallery";
 import LeadModal from "@/components/landing/LeadModal";
 import { BenefitRow, FormBox, LinksFooter, LpHeading, LogoBar, btn, projectFields } from "@/components/landing/shared";
 import { getPage, seoMetadata } from "@/lib/content";
+import { requirePublishedPage } from "@/lib/page-publication-guard";
 
 export const metadata = seoMetadata(getPage("/prestige-embankment/")!);
 
@@ -59,6 +60,7 @@ const about = [
 ];
 
 export default function PrestigeEmbankmentPage() {
+  requirePublishedPage("/prestige-embankment/");
   const fields = projectFields();
   const modal = (label: string, className: string, request: string) => (
     <LeadModal

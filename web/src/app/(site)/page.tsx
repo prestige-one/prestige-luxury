@@ -8,6 +8,8 @@ import DeveloperLogoSlider from "@/components/developers/DeveloperLogoSlider";
 import CuratedProperties from "@/components/home/CuratedProperties";
 import PrivateCollection from "@/components/home/PrivateCollection";
 import FeaturedAreas from "@/components/home/FeaturedAreas";
+import WhyPrestige from "@/components/home/WhyPrestige";
+import GoogleTestimonials from "@/components/home/GoogleTestimonials";
 import { collectionIntro } from "@/lib/page-seo";
 import { communities, properties, propertyTypes } from "@/lib/properties";
 import { site } from "@/lib/site";
@@ -68,7 +70,7 @@ const residential = [
     title: "Apartments",
     text: "Find modern apartments that connect comfortable living with the places you love.",
     image: "/wp-content/uploads/2024/05/ADM240338_10.jpg",
-    href: "/property-type/apartment/",
+    href: "/property-type/apartments/",
   },
   {
     title: "Villa",
@@ -102,9 +104,10 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/45" />
         </div>
         <div className="relative z-10 w-full px-5 pt-14 md:pt-20">
-          <h1 className="mx-auto mb-10 max-w-[900px] text-center text-[28px] font-semibold leading-[1.25] tracking-[-0.01em] text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.35)] sm:text-[32px] md:mb-[150px] md:text-[36px]">
-            The Art of Finding Your Perfect Home
+          <h1 className="mx-auto max-w-[900px] text-center text-[30px] font-semibold leading-[1.2] tracking-[-0.02em] text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.35)] sm:text-[36px] md:text-[44px]">
+            Dubai Property. Personal Expertise.
           </h1>
+          <p className="mx-auto mb-10 mt-5 max-w-[660px] text-center text-[15px] leading-relaxed text-white md:mb-20 md:text-[17px] [text-shadow:0_2px_12px_rgba(0,0,0,0.6)]">Buy, rent or sell with community specialists who put your goals first, with personal guidance from the first conversation to the final handover.</p>
           <HeroSearch locations={locations} types={propertyTypes} />
         </div>
       </section>
@@ -113,8 +116,10 @@ export default function HomePage() {
       <CuratedProperties />
       <PrivateCollection />
 
+      <WhyPrestige />
+
       {/* Services */}
-      <section className="py-16 md:py-[100px]">
+      <section className="bg-smoke py-16 md:py-[100px]">
         <Container>
           <SectionTitle
             title="Every Property Decision Deserves the Right Expertise."
@@ -124,7 +129,7 @@ export default function HomePage() {
             {services.map((s) => (
               <div
                 key={s.title}
-                className="flex flex-col items-center rounded-[2px] border border-line bg-smoke px-6 pb-8 pt-10 text-center transition-[translate,box-shadow,border-color] duration-500 ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-[0_14px_34px_rgba(0,0,0,0.08)]"
+                className="flex flex-col items-center rounded-[8px] border border-line bg-white px-6 pb-8 pt-10 text-center transition-[translate,box-shadow,border-color] duration-500 ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-[0_14px_34px_rgba(0,0,0,0.08)]"
               >
                 <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#222" strokeWidth="0.9" aria-hidden>
                   {s.icon}
@@ -141,12 +146,12 @@ export default function HomePage() {
       </section>
 
       {/* Residential properties */}
-      <section className="pb-16 md:pb-[100px]">
+      <section className="bg-white py-16 md:py-[100px]">
         <Container>
           <SectionTitle title={collectionIntro.title} subtitle={collectionIntro.description} />
           <div className="grid gap-[30px] md:grid-cols-3">
             {residential.map((r) => (
-              <ImageCard key={r.title} {...r} tone="smoke" />
+              <ImageCard key={r.title} {...r} tone="smoke" radius={8} />
             ))}
           </div>
         </Container>
@@ -155,12 +160,14 @@ export default function HomePage() {
       {/* Featured areas */}
       <FeaturedAreas />
 
+      <GoogleTestimonials />
+
       {/* CTA */}
       <section className="relative flex min-h-[360px] items-center justify-center overflow-hidden py-16 text-center md:min-h-[414px]">
         <Media src={site.ctaImage} alt="Illustrated luxury Dubai waterfront terrace and skyline at blue hour" fill tone="ink" sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-black/45" />
         <div className="relative z-10 max-w-[600px] px-5">
-          <h2 className="text-[26px] font-medium capitalize leading-[1.25] tracking-[-0.01em] text-white md:text-[30px]">Connect with our sales experts</h2>
+          <h2 className="font-medium capitalize leading-[1.25] tracking-[-0.01em] text-white text-section">Connect with our sales experts</h2>
           <p className="mt-3 text-[15px] capitalize leading-[1.6] text-white/90 md:text-[17px]">
             Connect with our property specialists to discover the right real estate opportunity in Dubai.
           </p>

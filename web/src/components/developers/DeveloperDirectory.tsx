@@ -65,7 +65,7 @@ export default function DeveloperDirectory({ developers }: { developers: Develop
         <>
           {featured.length > 0 && (
             <section className="mt-10 md:mt-12">
-              <h2 className="mb-6 font-heading text-[20px] font-normal text-ink md:text-[24px]">Featured Developers</h2>
+              <h2 className="mb-6 font-heading font-medium text-ink text-section">Featured Developers</h2>
               <div className="pl-developer-grid grid gap-x-7 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-9">
                 {featured.map((d) => (
                   <DeveloperCard key={d.slug} developer={d} />
@@ -76,7 +76,7 @@ export default function DeveloperDirectory({ developers }: { developers: Develop
 
           {rest.length > 0 && (
             <section className="mt-12 md:mt-16">
-              <h2 className="mb-6 font-heading text-[20px] font-normal text-ink md:text-[24px]">
+              <h2 className="mb-6 font-heading font-medium text-ink text-section">
                 {featured.length > 0 ? "All Developers" : "Developers"}
               </h2>
               <div className="pl-developer-grid grid gap-x-7 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-9">

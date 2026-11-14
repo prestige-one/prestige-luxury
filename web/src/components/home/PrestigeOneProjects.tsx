@@ -26,7 +26,7 @@ export default function PrestigeOneProjects() {
       <div className="lg:pt-2">
         <Media src="/brand/developers/prestige-one-developments.webp" alt="Prestige One Developments" width={180} height={72} className="mb-8 h-16 w-[180px] object-contain object-left brightness-0 invert" />
         <p className="mb-4 text-[11px] uppercase tracking-[0.2em] text-white/60">A different perspective on Dubai</p>
-        <h2 className="max-w-[460px] text-[28px] font-normal leading-[1.25] tracking-[-0.02em] md:text-[34px]">Distinctive homes.<br />Considered living.</h2>
+        <h2 className="max-w-[460px] font-medium leading-[1.25] tracking-[-0.02em] text-section">Distinctive homes.<br />Considered living.</h2>
         <p className="mt-5 max-w-[440px] text-[14px] leading-[1.85] text-white/70">Discover Prestige One projects where contemporary architecture, thoughtful amenities and connected communities come together. Find the setting for your next chapter in Dubai.</p>
         <Button href="/developers/prestige-one-developments/" variant="light" className="mt-7">Discover Prestige One</Button>
       </div>

@@ -153,7 +153,7 @@ export default function PropertyManagementPage() {
         <div className="grid md:grid-cols-[40%_60%]">
           <div className="relative flex min-h-[320px] items-center justify-center overflow-hidden px-8 py-16">
             <Media src="/wp-content/uploads/2020/10/Prestige-BG11.jpg" alt="" fill tone="ink" sizes="(min-width: 768px) 40vw, 100vw" className="object-cover opacity-60" />
-            <h2 className="relative z-10 max-w-[360px] text-center text-[28px] font-semibold leading-snug">
+            <h2 className="relative z-10 max-w-[360px] text-center font-medium leading-snug text-section">
               At Prestige Luxury Real Estate, We Care!
             </h2>
           </div>
@@ -173,7 +173,7 @@ export default function PropertyManagementPage() {
                 you can sign up for any package by clicking the option you want and uploading the necessary documents. In turn, we will
                 contact you to finalize the sign up.
               </p>
-              <h2 className="pt-6 text-[30px] font-bold text-white">WHY US?</h2>
+              <h2 className="pt-6 font-medium text-white text-section">WHY US?</h2>
               <ul className="list-disc space-y-2 pl-5 marker:text-white">
                 <li>
                   We are and want to be different from the standard management companies in the market, as we care not just for our
@@ -196,7 +196,7 @@ export default function PropertyManagementPage() {
       <section id="pricing" className="scroll-mt-20 border-t border-white/10 bg-black py-16 md:py-[100px]">
         <Container>
           <div className="mb-12 text-center text-white">
-            <h2 className="text-[30px] font-medium md:text-[36px]">Choose the perfect plan</h2>
+            <h2 className="font-medium text-section">Choose the perfect plan</h2>
             <p className="mt-3 text-[15px] text-white/70">Please checkout all the features each of the plan offers at very affordable prices.</p>
           </div>
           <div className="grid items-start gap-6 lg:grid-cols-3">
@@ -231,7 +231,7 @@ export default function PropertyManagementPage() {
 
       {/* One time services */}
       <section className="bg-black py-12">
-        <h2 className="text-center text-[30px] font-medium text-white md:text-[36px]">One Time Services</h2>
+        <h2 className="text-center font-medium text-white text-section">One Time Services</h2>
       </section>
       <section className="py-[70px] md:py-[90px]">
         <Container>
@@ -252,12 +252,12 @@ export default function PropertyManagementPage() {
       <section className="bg-black py-16 md:py-[100px]">
         <Container className="grid gap-14 lg:grid-cols-2">
           <div>
-            <h2 className="text-[30px] font-medium text-white md:text-[36px]">FAQ</h2>
+            <h2 className="font-medium text-white text-section">FAQ</h2>
             <p className="mb-8 mt-2 text-[15px] text-white/70">Most frequent questions and answers</p>
             <Accordion items={faqs} dark />
           </div>
           <div id="contact" className="scroll-mt-20">
-            <h2 className="text-[30px] font-medium capitalize text-white md:text-[36px]">Get in touch</h2>
+            <h2 className="font-medium capitalize text-white text-section">Get in touch</h2>
             <p className="mb-8 mt-2 text-[15px] text-white/70">Get a call back from our team</p>
             <LeadForm form="Property Management" fields={fields} dark />
           </div>
@@ -267,7 +267,7 @@ export default function PropertyManagementPage() {
       {/* Testimonials */}
       <section className="py-16 md:py-[100px]">
         <Container>
-          <h2 className="mb-10 text-center font-heading text-[30px] text-ink md:text-[34px]">Our clients say</h2>
+          <h2 className="mb-10 text-center font-heading text-ink text-section">Our clients say</h2>
           <div className="grid gap-6 md:grid-cols-2">
             <QuoteCard
               quote="My property had been managed by prestige for 2 years now. Service and communication is always amazing"

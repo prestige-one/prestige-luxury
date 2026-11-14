@@ -36,7 +36,7 @@ export default function PropertyGallery({ images, title }: { images: string[]; t
         <button
           type="button"
           onClick={() => dialog.current?.showModal()}
-          className="group absolute inset-0 block w-full cursor-zoom-in"
+          className="group absolute inset-0 block w-full cursor-pointer"
           aria-label={`Open photo ${index + 1} of ${count} in full screen`}
         >
           <Media

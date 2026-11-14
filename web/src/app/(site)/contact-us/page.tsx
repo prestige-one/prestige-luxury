@@ -16,6 +16,16 @@ const fields: LeadField[] = [
   { name: "message", label: "Message", type: "textarea", required: true },
 ];
 
+const contactSocials = [...site.socials, { name: "WhatsApp", href: site.whatsappHref }];
+const brandHover: Record<string, string> = {
+  Facebook: "hover:bg-[#1877f2] focus-visible:bg-[#1877f2]",
+  Instagram: "hover:bg-[linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)] focus-visible:bg-[linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)]",
+  LinkedIn: "hover:bg-[#0a66c2] focus-visible:bg-[#0a66c2]",
+  YouTube: "hover:bg-[#ff0000] focus-visible:bg-[#ff0000]",
+  X: "hover:bg-white hover:text-black hover:ring-1 hover:ring-black focus-visible:bg-white focus-visible:text-black focus-visible:ring-1 focus-visible:ring-black",
+  WhatsApp: "hover:bg-[#25d366] focus-visible:bg-[#25d366]",
+};
+
 export default function ContactPage() {
   return (
     <>
@@ -50,15 +60,15 @@ export default function ContactPage() {
                 {site.address}
               </address>
             </div>
-            <ul className="flex gap-2">
-              {site.socials.map((s) => (
+            <ul aria-label="Contact social links" className="flex flex-wrap gap-2">
+              {contactSocials.map((s) => (
                 <li key={s.name}>
                   <a
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.name}
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-white transition-colors hover:bg-accent"
+                    className={`flex h-10 w-10 items-center justify-center rounded-full bg-black text-white transition-colors motion-reduce:transition-none ${brandHover[s.name]}`}
                   >
                     <SocialIcon name={s.name} />
                   </a>

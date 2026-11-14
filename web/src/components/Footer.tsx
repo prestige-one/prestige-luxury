@@ -1,4 +1,4 @@
-import Media from "@/components/Media";
+import Image from "next/image";
 import Link from "next/link";
 import { footerColumns, site } from "@/lib/site";
 import { SocialIcon } from "./icons";
@@ -10,12 +10,13 @@ export default function Footer() {
     <footer className="pl-footer border-t border-line bg-white">
       <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-x-6 gap-y-10 px-5 py-16 md:grid-cols-2 md:gap-x-8 md:py-20 lg:grid-cols-[1fr_1fr_1fr_1fr]">
         <div className="col-span-2 md:col-span-2 lg:col-span-1 lg:row-span-2">
-          <Media
-            src={site.logoBlack}
+          <Image
+            src="/images/prestige-logo-footer.png"
             alt={site.name}
-            width={438}
-            height={82}
-            className="mx-auto mb-5 h-auto w-[200px]"
+            width={252}
+            height={78}
+            unoptimized
+            className="mb-5 h-auto w-[168px] max-w-full"
           />
           <p className="max-w-[420px] text-[14px] leading-[1.7] text-body">{site.about}</p>
           <ul className="mt-6 space-y-2.5 text-[14px]">
@@ -53,10 +54,10 @@ export default function Footer() {
       </div>
 
       <div className="bg-smoke">
-        {/* The floating WhatsApp + scroll-top stack sits over the bottom-right of the viewport, so
+        {/* The floating call + scroll-top stack sits over the bottom-right of the viewport, so
             this bar keeps clear of it: extra bottom space while the row is stacked (mobile), and a
             right-hand gutter once the socials move to the right edge (md+). */}
-        <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-3 px-5 pb-36 pt-6 text-[14px] md:flex-row md:pb-6 md:pe-[92px]">
+        <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-3 px-5 pb-36 pt-6 text-[14px] md:flex-row md:pb-6 md:pe-[168px]">
           <p className="text-center text-[13px] text-body md:text-[14px]">© {site.name} - All rights reserved</p>
           {/* Solid dark discs: the old low-opacity outlines were barely visible on the light bar. */}
           <ul className="flex items-center gap-2.5">

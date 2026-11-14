@@ -18,7 +18,7 @@ import { site } from "./site";
 // ---- Property types -------------------------------------------------------------------------
 
 export const typeRoutes = [
-  { slug: "apartment", label: "Apartment" },
+  { slug: "apartments", label: "Apartments" },
   { slug: "villa", label: "Villa" },
   { slug: "studio", label: "Studio" },
   { slug: "townhouse", label: "Townhouse" },
@@ -28,7 +28,7 @@ export const typeRoutes = [
 ] as const;
 
 /** Links in the "Property Type" sidebar widget (same list as the original site). */
-export const sidebarTypes = ["apartment", "studio", "villa", "townhouse", "office"].map((slug) => typeRoutes.find((t) => t.slug === slug)!);
+export const sidebarTypes = ["apartments", "studio", "villa", "townhouse", "office"].map((slug) => typeRoutes.find((t) => t.slug === slug)!);
 
 const commercialPattern =
   /office|shop|retail|warehouse|showroom|commercial|factory|labou?r camp|business cent|land|plot|whole building|bulk|staff accommodation|industrial/i;
@@ -42,6 +42,7 @@ export const isCommercialType = (type: string) => commercialPattern.test(type);
 export const isStudio = (p: Pick<Property, "type" | "bedrooms">) => slugify(p.type) === "studio" || p.bedrooms === 0;
 
 export function propertiesOfType(slug: string, list: Property[] = properties) {
+  if (slug === "apartments") slug = "apartment";
   if (slug === "other-commercial") return list.filter((p) => isCommercialType(p.type));
   if (slug === "studio") return list.filter(isStudio);
   return list.filter((p) => slugify(p.type) === slug);

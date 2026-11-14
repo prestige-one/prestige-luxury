@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
 import { sendLeadEmail, SmtpNotConfiguredError } from "@/lib/lead-mail";
+import { propertyTypeOptions } from "@/components/info/options";
+import { normalizePhone } from "@/lib/phone";
+import { isSupportedCountry, type CountryCode } from "libphonenumber-js/min";
 
 export const runtime = "nodejs";
 
@@ -31,6 +34,26 @@ export async function POST(req: Request) {
   }
   if (fields.email && !/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(fields.email)) {
     return NextResponse.json({ ok: false, error: "Please enter a valid email address." }, { status: 422 });
+  }
+
+  if (fields.phone) {
+    const country = fields.phone_country || "AE";
+    const phone = isSupportedCountry(country) ? normalizePhone(fields.phone, country as CountryCode) : undefined;
+    if (!phone) return NextResponse.json({ ok: false, error: "Please enter a valid phone number for the selected country." }, { status: 422 });
+    fields.phone = phone;
+  }
+
+  if (fields.form === "Property Valuation") {
+    const required = ["name", "email", "phone", "community"];
+    const choices: Record<string, string[]> = {
+      valuation_purpose: ["Selling", "Renting", "Selling and renting"],
+      property_type: propertyTypeOptions,
+      bedrooms: ["Studio", "1", "2", "3", "4", "5", "6+", "Not applicable"],
+      contact_preference: ["Phone call", "WhatsApp", "Email"],
+    };
+    if (required.some((key) => !fields[key]?.trim()) || Object.entries(choices).some(([key, values]) => !values.includes(fields[key]))) {
+      return NextResponse.json({ ok: false, error: "Please complete your contact details, property details and valuation preferences." }, { status: 422 });
+    }
   }
 
   try {

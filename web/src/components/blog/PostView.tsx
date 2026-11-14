@@ -2,7 +2,7 @@ import Media from "@/components/Media";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Breadcrumb, Container, WpContent } from "@/components/ui";
+import { Container, WpContent } from "@/components/ui";
 import { getPost, seoMetadata, type Post } from "@/lib/content";
 import { site } from "@/lib/site";
 import CategoryLinks from "./CategoryLinks";
@@ -17,7 +17,6 @@ import {
   formatDate,
   postImage,
   postsWithPrefix,
-  primaryCategory,
   relatedPosts,
 } from "./blog";
 
@@ -53,7 +52,6 @@ export default function PostView({ post }: { post: Post }) {
   const title = decodeEntities(post.title);
   const image = postImage(post);
   const cats = categoriesOf(post);
-  const primary = primaryCategory(post);
   const related = relatedPosts(post);
   const { newer, older } = adjacentPosts(post);
 
@@ -76,8 +74,7 @@ export default function PostView({ post }: { post: Post }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       <section className="pl-blog-heading bg-black py-12 text-white md:py-16">
         <Container>
-          <Breadcrumb light items={[{ label: "Blog", href: "/blog/" }, ...(primary && primary.slug !== "blog" ? [{ label: primary.name, href: primary.path }] : [])]} />
-          <h1 className="mt-5 max-w-[900px] text-[28px] font-medium leading-tight text-white md:text-[36px]">{title}</h1>
+          <h1 className="max-w-[900px] text-[28px] font-medium leading-tight text-white md:text-[36px]">{title}</h1>
           <div className="mt-5"><CategoryLinks categories={cats} light label="Article categories above content" /></div>
           <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-white/70">
             <time dateTime={post.date}>{formatDate(post.date)}</time>
@@ -138,7 +135,7 @@ export default function PostView({ post }: { post: Post }) {
 
         {related.length > 0 && (
           <section className="mt-20 border-t border-line pt-14">
-            <h2 className="mb-8 font-heading text-[26px] text-ink">Related Posts</h2>
+            <h2 className="mb-8 font-heading text-ink text-section">Related Posts</h2>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((p) => (
                 <PostCard key={p.id} post={p} />

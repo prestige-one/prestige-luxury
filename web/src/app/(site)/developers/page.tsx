@@ -3,7 +3,7 @@ import DeveloperDirectory from "@/components/developers/DeveloperDirectory";
 import DeveloperLogoSlider from "@/components/developers/DeveloperLogoSlider";
 import type { DeveloperCardData } from "@/components/developers/shared";
 import { Container, PageBanner } from "@/components/ui";
-import { developerLogo } from "@/lib/developer-logos";
+import { developerLogo, developerLogoClass } from "@/lib/developer-logos";
 import { developerCardImage } from "@/lib/developer-imagery";
 import { developerExcerpt, developers } from "@/lib/developers";
 import { site } from "@/lib/site";
@@ -29,6 +29,7 @@ const cards: DeveloperCardData[] = developers.map((d) => {
     featured: d.featured,
     summary: developerExcerpt(d, 240) || d.tagline,
     logo: developerLogo(d.slug),
+    logoClassName: developerLogoClass(d.slug),
     image: image.src,
     imageAlt: image.alt,
   };

@@ -1,5 +1,5 @@
 import { Accordion, CheckList, CtaBanner } from "@/components/info/blocks";
-import { Breadcrumb, Button, Container, PageBanner } from "@/components/ui";
+import { Button, Container, PageBanner } from "@/components/ui";
 import { isPagePublished } from "@/lib/site";
 
 /**
@@ -17,7 +17,6 @@ export type Guide = {
   title: string;
   subtitle: string;
   image: string;
-  crumb: string;
   intro: string[];
   glance: { label: string; value: string }[];
   stepsTitle: string;
@@ -41,10 +40,9 @@ export default function GuidePage({ g }: { g: Guide }) {
 
       <section className="py-14 md:py-[80px]">
         <Container>
-          <Breadcrumb items={[{ label: g.crumb }]} />
 
           {/* Intro + at a glance */}
-          <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_360px] lg:gap-16">
+          <div className="grid gap-10 lg:grid-cols-[1fr_360px] lg:gap-16">
             <div className="space-y-5 text-[15px] font-light leading-[1.9] text-body">
               {g.intro.map((p) => (
                 <p key={p.slice(0, 40)}>{p}</p>
@@ -71,7 +69,7 @@ export default function GuidePage({ g }: { g: Guide }) {
       {/* Steps */}
       <section className="border-y border-line bg-mist py-14 md:py-[80px]">
         <Container>
-          <h2 className="text-center text-[28px] font-medium text-ink md:text-[34px]">{g.stepsTitle}</h2>
+          <h2 className="text-center font-medium text-ink text-section">{g.stepsTitle}</h2>
           <ol className="mx-auto mt-10 max-w-[860px] space-y-4">
             {g.steps.map((s, i) => (
               <li key={s.title} className="flex gap-5 rounded-[4px] border border-line bg-white p-6 md:gap-7 md:p-7">
@@ -95,7 +93,7 @@ export default function GuidePage({ g }: { g: Guide }) {
       <section className="py-14 md:py-[80px]">
         <Container>
           <div className="mx-auto max-w-[860px]">
-            <h2 className="text-[28px] font-medium text-ink md:text-[34px]">{g.costsTitle}</h2>
+            <h2 className="font-medium text-ink text-section">{g.costsTitle}</h2>
             <p className="mt-3 text-[15px] font-light leading-[1.8] text-body">{g.costsIntro}</p>
             <div className="mt-8 overflow-hidden rounded-[4px] border border-line">
               <table className="w-full border-collapse text-left text-[14px]">
@@ -130,7 +128,7 @@ export default function GuidePage({ g }: { g: Guide }) {
       <section className="bg-black py-14 text-white md:py-[80px]">
         <Container>
           <div className="mx-auto max-w-[860px]">
-            <h2 className="text-[28px] font-medium md:text-[34px]">{g.checklistTitle}</h2>
+            <h2 className="font-medium text-section">{g.checklistTitle}</h2>
             <CheckList items={g.checklist} dark className="mt-8 text-white/85 md:columns-2 md:gap-10 [&>li]:break-inside-avoid [&>li]:mb-3" />
           </div>
         </Container>
@@ -140,7 +138,7 @@ export default function GuidePage({ g }: { g: Guide }) {
       <section className="py-14 md:py-[80px]">
         <Container>
           <div className="mx-auto max-w-[860px]">
-            <h2 className="text-[28px] font-medium text-ink md:text-[34px]">Common questions</h2>
+            <h2 className="font-medium text-ink text-section">Common questions</h2>
             <div className="mt-8">
               <Accordion items={g.faqs} />
             </div>

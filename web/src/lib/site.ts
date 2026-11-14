@@ -45,6 +45,7 @@ export const contactPhones = [
 
 /** Unpublished pages retain their source so they can be restored by removing their path here. */
 export const unpublishedPagePaths = [
+  "/prestige-embankment/",
   "/the-residence-by-prestige-one/",
   "/vista-by-prestige-one/",
   "/services/property-management/",
@@ -92,7 +93,7 @@ const buyMega: NavMega = {
     {
       title: "Properties by type",
       links: [
-        { label: "Apartments", href: "/property-type/apartment/", icon: "apartment" },
+        { label: "Apartments", href: "/property-type/apartments/", icon: "apartment" },
         { label: "Villas", href: "/property-type/villa/", icon: "villa" },
         { label: "Townhouses", href: "/property-type/townhouse/", icon: "townhouse" },
         { label: "Studios", href: "/property-type/studio/", icon: "studio" },
@@ -130,7 +131,7 @@ const rentMega: NavMega = {
     {
       title: "Properties by type",
       links: [
-        { label: "Apartments", href: "/property-type/apartment/", icon: "apartment" },
+        { label: "Apartments", href: "/property-type/apartments/", icon: "apartment" },
         { label: "Villas", href: "/property-type/villa/", icon: "villa" },
         { label: "Townhouses", href: "/property-type/townhouse/", icon: "townhouse" },
         { label: "Studios", href: "/property-type/studio/", icon: "studio" },
@@ -194,6 +195,7 @@ const developersMega: NavMega = {
     {
       title: "Featured developers",
       links: [
+        { label: "Prestige One Developments", href: "/developers/prestige-one-developments/" },
         { label: "Emaar Properties", href: "/developers/emaar-properties/" },
         { label: "DAMAC Properties", href: "/developers/damac-properties/" },
         { label: "Nakheel", href: "/developers/nakheel/" },
@@ -201,7 +203,6 @@ const developersMega: NavMega = {
         { label: "Binghatti Developers", href: "/developers/binghatti-developers/" },
         { label: "Meraas", href: "/developers/meraas/" },
         { label: "Omniyat", href: "/developers/omniyat/" },
-        { label: "Prestige One Developments", href: "/developers/prestige-one-developments/" },
       ],
     },
     { title: "Browse", links: [{ label: "All Developers", href: "/developers/" }] },
@@ -230,7 +231,7 @@ const areasMega: NavMega = {
         { label: "Downtown Dubai", href: "/area/downtown-dubai/" },
         { label: "DIFC", href: "/area/difc/" },
         { label: "Jumeirah Beach Residence", href: "/area/jumeirah-beach-residence/" },
-        { label: "Jumeirah Lake Towers", href: "/area/jumeirah-lake-towers/" },
+        { label: "Dubai Maritime City", href: "/area/dubai-maritime-city/" },
         { label: "Dubai Islands", href: "/area/dubai-islands/" },
         { label: "Palm Jumeirah", href: "/area/palm-jumeirah/" },
       ],
@@ -305,19 +306,16 @@ export const mainNav: NavItem[] = withChildren([
 ]);
 
 /** The header's primary call to action, shown as a button beside the menu. */
-export const navCta = { label: "List Your Property", href: "/sell/" };
+export const navCta = { label: "Book a Property Valuation", href: "/property-valuation/" };
 
 export const footerColumns: { title: string; links: { label: string; href: string }[] }[] = [
-  // Column lists set by the owner (2026-11-14). One substitution: "Villas & Penthouses" became
-  // "Properties for Sale", because there are no penthouse listings and so no
-  // /property-type/penthouse/ page. The three "…Guide" links go to the guides written for the
-  // new site (/buyers-guide/, /tenants-guide/, /investment-guide/).
+  // Footer links stay focused on each client journey; guide links use the new site routes.
   {
     title: "Buy",
     links: [
-      { label: "Luxury Apartments", href: "/property-type/apartment/" },
+      { label: "Luxury Apartments", href: "/property-type/apartments/" },
       { label: "Luxury Villas", href: "/property-type/villa/" },
-      { label: "Properties for Sale", href: "/status/for-sale/" },
+      { label: "Off-Plan Properties", href: "/status/off-plan/" },
       { label: "Buyer's Guide", href: "/buyers-guide/" },
     ],
   },
@@ -325,7 +323,7 @@ export const footerColumns: { title: string; links: { label: string; href: strin
     title: "Rent",
     links: [
       { label: "Properties for Rent", href: "/status/for-rent/" },
-      { label: "Residential Leasing", href: "/status/for-rent/" },
+      { label: "Rental Valuation", href: "/property-valuation/" },
       { label: "Commercial Leasing", href: "/property-type/office/" },
       { label: "Tenant's Guide", href: "/tenants-guide/" },
     ],

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import FloatingContact from "@/components/FloatingContact";
 import CurrencyProvider from "@/components/currency/CurrencyProvider";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -30,8 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Restores the saved currency and fetches rates once, rather than from whichever
             price on the page happens to hydrate first. Renders no markup of its own. */}
         <CurrencyProvider>{children}</CurrencyProvider>
-        {/* Floating WhatsApp contact button — every page, site and landing alike. */}
-        <WhatsAppButton />
+        <FloatingContact />
       </body>
     </html>
   );

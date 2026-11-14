@@ -22,7 +22,6 @@ const guide: Guide = {
   title: "Buyer's Guide",
   subtitle: "Buying property in Dubai, step by step — what happens, in what order, and what it costs.",
   image: communityPhoto("Downtown Dubai", { size: "full" }) ?? "/wp-content/uploads/2019/06/emaar-downtown-1536x864.jpg",
-  crumb: "Buyer's Guide",
   intro: [
     "Dubai is one of the most straightforward places in the world to buy property. Foreign buyers can own freehold in designated areas outright, there is no annual property tax, and every sale is registered centrally with the Dubai Land Department (DLD), which keeps the process transparent and the paperwork standardised.",
     "This guide walks through a typical purchase of a ready (completed) property from start to finish, explains how buying off-plan differs, and sets out the costs you should budget for on top of the price. Every purchase is different, so treat it as an orientation — your Prestige Luxury advisor will take you through the specifics of yours.",

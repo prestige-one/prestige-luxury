@@ -21,7 +21,7 @@ export function SectionTitle({
   return (
     <div className={`mx-auto mb-10 max-w-[760px] text-center md:mb-14 ${className}`}>
       <h2
-        className={`font-heading text-[26px] font-normal capitalize leading-[1.2] tracking-[-0.01em] sm:text-[30px] md:text-[34px] ${light ? "text-white" : "text-ink"}`}
+        className={`font-heading font-medium capitalize leading-[1.2] tracking-[-0.01em] ${light ? "text-white" : "text-ink"} text-section`}
       >
         {title}
       </h2>
@@ -69,33 +69,6 @@ export function PageBanner({ title, subtitle, image }: { title: string; subtitle
   );
 }
 
-/** Breadcrumb in the Houzez style: "⌂ Home > Page" */
-export function Breadcrumb({ items, light = false }: { items: { label: string; href?: string }[]; light?: boolean }) {
-  return (
-    <nav aria-label="Breadcrumb" className={`text-[12px] ${light ? "text-white/70" : "text-muted"}`}>
-      <ol className="flex flex-wrap items-center gap-1.5">
-        <li>
-          <Link href="/" className={`transition-colors ${light ? "hover:text-white" : "hover:text-ink"}`}>
-            Home
-          </Link>
-        </li>
-        {items.map((i) => (
-          <li key={i.label} className="flex items-center gap-1.5">
-            <span aria-hidden>›</span>
-            {i.href ? (
-              <Link href={i.href} className={`transition-colors ${light ? "hover:text-white" : "hover:text-ink"}`}>
-                {i.label}
-              </Link>
-            ) : (
-              <span className={light ? "text-white" : "text-ink"}>{i.label}</span>
-            )}
-          </li>
-        ))}
-      </ol>
-    </nav>
-  );
-}
-
 /** Renders HTML copied from WordPress (blog posts, policy pages). */
 export function WpContent({ html, className = "" }: { html: string; className?: string }) {
   return <div className={`wp-content ${className}`} dangerouslySetInnerHTML={{ __html: html }} />;
@@ -110,6 +83,7 @@ export function ImageCard({
   tone = "mist",
   aspect = "aspect-[347/249]",
   compact = false,
+  radius = 2,
 }: {
   href: string;
   image: string;
@@ -118,11 +92,12 @@ export function ImageCard({
   tone?: "mist" | "white" | "smoke";
   aspect?: string;
   compact?: boolean;
+  radius?: 2 | 8;
 }) {
   return (
     <Link
       href={href}
-      className={`pl-image-card group block h-full overflow-hidden rounded-[2px] border border-line transition-[translate,box-shadow] duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(0,0,0,0.09)] ${tone === "smoke" ? "bg-smoke" : tone === "mist" ? "bg-mist" : "bg-white"}`}
+      className={`pl-image-card group block h-full overflow-hidden ${radius === 8 ? "rounded-[8px]" : "rounded-[2px]"} border border-line transition-[translate,box-shadow] duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(0,0,0,0.09)] ${tone === "smoke" ? "bg-smoke" : tone === "mist" ? "bg-mist" : "bg-white"}`}
     >
       <div className={`relative ${aspect} overflow-hidden`}>
         <Media

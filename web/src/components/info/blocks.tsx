@@ -8,7 +8,7 @@ export function Eyebrow({ label, title, className = "", as: Tag = "h2" }: { labe
   return (
     <div className={className}>
       {label && <p className="text-[15px] font-light uppercase tracking-wide text-ink">{label}</p>}
-      <Tag className="mt-2 text-[34px] font-medium leading-tight text-ink md:text-[44px]">{title}</Tag>
+      <Tag className={`mt-2 font-medium leading-tight text-ink ${Tag === "h1" ? "text-[34px] md:text-[44px]" : "text-section"}`}>{title}</Tag>
       <span className="mt-5 block h-[2px] w-16 bg-ink" aria-hidden />
     </div>
   );
@@ -33,7 +33,7 @@ export function CtaBanner({
       <Media src={image} alt="" fill tone="ink" sizes="100vw" className="object-cover" />
       <div className={`absolute inset-0 ${overlay}`} aria-hidden />
       <Container className="relative z-10 flex flex-col items-center gap-5 py-20 text-center text-white md:py-[120px]">
-        <h2 className="max-w-[760px] text-[23px] font-semibold leading-snug">{title}</h2>
+        <h2 className="max-w-[760px] font-medium leading-snug text-section">{title}</h2>
         {lines.map((l) => (
           <p key={l} className="max-w-[580px] text-[17px] leading-[1.45] text-white/90">
             {l}
@@ -50,11 +50,12 @@ export function CtaBanner({
 }
 
 /** Accessible accordion built on <details>/<summary>; answers are HTML copied from the original page */
-export function Accordion({ items, dark = false }: { items: { q: string; a: string }[]; dark?: boolean }) {
+export function Accordion({ items, dark = false, defaultOpenFirst = false }: { items: { q: string; a: string }[]; dark?: boolean; defaultOpenFirst?: boolean }) {
   return (
     <div className={`divide-y border ${dark ? "divide-white/15 border-white/15" : "divide-line border-line"}`}>
-      {items.map((it) => (
-        <details key={it.q} className="group">
+      {items.map((it, index) => (
+        // Native toggles may change `open` before hydration; retain the visitor's choice.
+        <details key={it.q} open={defaultOpenFirst && index === 0} suppressHydrationWarning className="group">
           <summary
             className={`flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[15px] font-medium [&::-webkit-details-marker]:hidden ${
               dark ? "text-white hover:bg-white/5" : "text-ink hover:bg-mist"

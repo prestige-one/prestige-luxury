@@ -121,7 +121,7 @@ export default function AboutPage() {
       <section className="border-y border-[#ebebeb] bg-mist py-[50px] md:py-[80px]">
         <Container>
           <div className="mx-auto mb-12 max-w-[600px] text-center">
-            <h2 className="font-heading text-[30px] text-ink md:text-[34px]">Our Real Estate Services</h2>
+            <h2 className="font-heading text-ink text-section">Our Real Estate Services</h2>
             <p className="mt-3 text-[15px] text-muted">
               Explore comprehensive real estate services in Dubai, tailored to your residential, commercial and investment requirements.
             </p>
@@ -144,7 +144,7 @@ export default function AboutPage() {
       {/* The Prestige Commitment */}
       <section className="py-[50px] md:py-[80px]">
         <Container className="text-center">
-          <h2 className="font-heading text-[30px] text-ink md:text-[34px]">The Prestige Commitment</h2>
+          <h2 className="font-heading text-ink text-section">The Prestige Commitment</h2>
           <p className="mt-3 text-[15px] font-medium text-ink">Every Property Decision Deserves the Right Expertise.</p>
           <p className="mx-auto mt-4 max-w-[570px] text-[15px] leading-[1.7] text-muted">
             Whether you’re buying a luxury home, selling an investment property or exploring Dubai’s commercial real estate market, our

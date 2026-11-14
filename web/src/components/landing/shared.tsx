@@ -78,7 +78,7 @@ export function LpHeading({
 }) {
   return (
     <Tag
-      className={`pl-lp-heading text-center text-[32px] font-extrabold leading-[1.25] md:text-[48px] lg:text-[64px] ${dark ? "text-black" : "text-white"} ${className}`}
+      className={`pl-lp-heading text-center leading-[1.25] ${Tag === "h1" ? "font-extrabold text-[32px] md:text-[48px] lg:text-[64px]" : "font-medium text-section"} ${dark ? "text-black" : "text-white"} ${className}`}
     >
       {children}
     </Tag>
@@ -199,7 +199,7 @@ export function LinksFooter({ links, lang = "en", year = true }: { links: QuickL
     <footer className="border-t-[3px] border-white px-5 pb-10 pt-12 md:px-[100px]">
       <div className="flex flex-col gap-10 md:flex-row md:justify-between">
         <div>
-          <h2 className="text-[26px] font-medium md:text-[32px]">Quick Links</h2>
+          <h2 className="font-medium text-section">Quick Links</h2>
           <div className="mt-2 grid grid-cols-2 gap-x-12">
             {links.map((l) => (
               <IconBox key={l.key} icon={quickLinkIcons[l.key]} iconClass="w-[30px]" title={l.label} href={l.href} className={t} />
@@ -207,7 +207,7 @@ export function LinksFooter({ links, lang = "en", year = true }: { links: QuickL
           </div>
         </div>
         <div>
-          <h2 className="text-[26px] font-medium md:text-[32px]">Contact Us</h2>
+          <h2 className="font-medium text-section">Contact Us</h2>
           <ContactLinks lang={lang} className="mt-2" />
         </div>
       </div>
@@ -223,7 +223,7 @@ export function LinksFooter({ links, lang = "en", year = true }: { links: QuickL
 export function FormBox({ title, children, className = "" }: { title: string; children: React.ReactNode; className?: string }) {
   return (
     <div className={`pl-lp-form mx-auto w-full max-w-[560px] rounded-[15px] border-[3px] border-white bg-black p-6 sm:p-[50px] ${className}`}>
-      <h2 className="mb-6 text-center text-[32px] font-extrabold leading-tight md:text-[48px]">{title}</h2>
+      <h2 className="mb-6 text-center font-medium leading-tight text-section">{title}</h2>
       {children}
     </div>
   );
@@ -283,5 +283,5 @@ export function BenefitRow({
 
 /** Floating WhatsApp button (projects pages) */
 // The landing pages used to carry their own image-based WhatsApp float. There is now a single
-// global <WhatsAppButton /> in the root layout covering every page, so this one was removed
+// global <FloatingContact /> in the root layout covering every page, so this one was removed
 // rather than left to sit on top of it.
