@@ -1,5 +1,6 @@
 import OffPlanProject, { type OffPlanConfig } from "@/components/landing/OffPlanProject";
 import { getPage, seoMetadata } from "@/lib/content";
+import { requirePublishedPage } from "@/lib/page-publication-guard";
 
 export const metadata = seoMetadata(getPage("/orra-embankment/")!);
 
@@ -59,5 +60,6 @@ const config: OffPlanConfig = {
 };
 
 export default function OrraEmbankmentPage() {
+  requirePublishedPage("/orra-embankment/");
   return <OffPlanProject c={config} />;
 }

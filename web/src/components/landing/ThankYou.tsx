@@ -8,7 +8,7 @@ export function ThankYouPage({ children }: { children?: React.ReactNode }) {
     <>
       <LogoBar
         action={
-          <Link href="/contact-us/" className="text-[16px] font-bold text-white transition-colors hover:text-white/70">
+          <Link href="/contact-us/" className="text-[16px] font-bold text-black transition-opacity hover:opacity-70">
             Contact
           </Link>
         }

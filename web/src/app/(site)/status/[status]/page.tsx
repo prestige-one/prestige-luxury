@@ -4,6 +4,7 @@ import ListingArchive, { type RawParams } from "@/components/listings/ListingArc
 import { statuses } from "@/lib/listing-format";
 import { searchProperties } from "@/lib/properties";
 import { site } from "@/lib/site";
+import { pageTitles } from "@/lib/page-seo";
 
 export const dynamicParams = false;
 export const generateStaticParams = () => statuses.map((s) => ({ status: s.slug }));
@@ -14,13 +15,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { status } = await params;
   const s = statuses.find((x) => x.slug === status);
   if (!s) return {};
-  const title = `${s.label} | ${site.name}`;
+  const title = pageTitles[`/status/${s.slug}/`] || `${s.label} | ${site.name}`;
   const description = `Properties ${s.label.toLowerCase()} in Dubai — apartments, villas, townhouses and more from ${site.name}.`;
   return {
     title: { absolute: title },
     description,
     alternates: { canonical: `/status/${s.slug}/` },
     openGraph: { title, description, url: `/status/${s.slug}/` },
+    twitter: { title, description },
   };
 }
 

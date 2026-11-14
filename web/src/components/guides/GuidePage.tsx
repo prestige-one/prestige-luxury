@@ -1,5 +1,6 @@
 import { Accordion, CheckList, CtaBanner } from "@/components/info/blocks";
 import { Breadcrumb, Button, Container, PageBanner } from "@/components/ui";
+import { isPagePublished } from "@/lib/site";
 
 /**
  * Layout shared by the Buyer's and Tenant's guides, so the two read as a pair: banner, an intro
@@ -145,7 +146,7 @@ export default function GuidePage({ g }: { g: Guide }) {
             </div>
             <p className="mt-8 text-[14px] text-body">
               Keep reading:{" "}
-              {g.related.map((r, i) => (
+              {g.related.filter((r) => isPagePublished(r.href)).map((r, i) => (
                 <span key={r.href}>
                   {i > 0 && " · "}
                   <a href={r.href} className="underline underline-offset-4 hover:text-ink">

@@ -41,23 +41,23 @@ export const contactFields: LeadField[] = [
 /** Button styles taken from the Elementor CSS */
 export const btn = {
   /** white pill, black uppercase text (Orra / Vista / The Residence) */
-  pill: "inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-[13px] font-semibold uppercase tracking-[2px] text-black transition-colors hover:bg-accent hover:text-white sm:px-[50px] sm:py-5 sm:text-[15px]",
+  pill: "pl-lp-button inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-[13px] font-semibold uppercase tracking-[2px] text-black transition-colors hover:bg-accent hover:text-white sm:px-[50px] sm:py-5 sm:text-[15px]",
   /** white, 15px radius, bold (Prestige Embankment "Learn More", thank-you pages) */
   white:
-    "inline-flex items-center justify-center rounded-[15px] bg-white px-7 py-3 text-[20px] font-bold leading-tight text-black transition-colors hover:bg-accent hover:text-white md:text-[26px]",
+    "pl-lp-button inline-flex items-center justify-center rounded-[15px] bg-white px-7 py-3 text-[20px] font-bold leading-tight text-black transition-colors hover:bg-accent hover:text-white md:text-[26px]",
   /** black, 15px radius */
   black:
-    "inline-flex items-center justify-center rounded-[15px] border border-white/10 bg-[#020101] px-5 py-2 text-[18px] font-bold leading-[40px] text-white transition-colors hover:bg-accent md:text-[22px]",
+    "pl-lp-button inline-flex items-center justify-center rounded-[15px] border border-white/10 bg-[#020101] px-5 py-2 text-[18px] font-bold leading-[40px] text-white transition-colors hover:bg-accent md:text-[22px]",
   /** grey, 15px radius */
-  grey: "inline-flex items-center justify-center rounded-[15px] bg-[#A3A3A3] px-5 py-2 text-[18px] font-bold leading-[40px] text-black transition-colors hover:bg-white md:text-[22px]",
+  grey: "pl-lp-button inline-flex items-center justify-center rounded-[15px] bg-[#A3A3A3] px-5 py-2 text-[18px] font-bold leading-[40px] text-black transition-colors hover:bg-white md:text-[22px]",
 };
 
-/** Black bar with the white logo and a 2px white bottom border */
+/** White header shared by standalone campaign pages. */
 export function LogoBar({ action }: { action?: React.ReactNode }) {
   return (
-    <header className="border-b-2 border-white bg-black py-[15px]">
+    <header className="pl-landing-header border-b border-line bg-white py-[15px] text-black">
       <div className="flex items-center justify-between px-5 md:px-[100px]">
-        <Media src={LOGO_WHITE.src} alt="Prestige Luxury Real Estate" tone="ink" width={LOGO_WHITE.width} height={LOGO_WHITE.height} priority className="h-auto w-[150px] md:w-[199px]" />
+        <Media src={site.logoBlack} alt="Prestige Luxury Real Estate" width={438} height={82} priority className="h-auto w-[150px] md:w-[199px]" />
         {action}
       </div>
     </header>
@@ -78,7 +78,7 @@ export function LpHeading({
 }) {
   return (
     <Tag
-      className={`text-center text-[32px] font-extrabold leading-[1.25] md:text-[48px] lg:text-[64px] ${dark ? "text-black" : "text-white"} ${className}`}
+      className={`pl-lp-heading text-center text-[32px] font-extrabold leading-[1.25] md:text-[48px] lg:text-[64px] ${dark ? "text-black" : "text-white"} ${className}`}
     >
       {children}
     </Tag>
@@ -133,7 +133,7 @@ const contactIcons = {
 
 export function ContactLinks({ lang = "en", className = "" }: { lang?: "en" | "ar"; className?: string }) {
   const ar = lang === "ar";
-  const t = "text-[20px] font-light leading-[2.6] text-white md:text-[24px]";
+  const t = "pl-lp-footer-link text-[20px] font-light leading-[2.6] text-white md:text-[24px]";
   return (
     <div className={className}>
       <IconBox icon={contactIcons.email} iconClass="w-[30px]" title={ar ? "البريد الإلكتروني" : "Email"} href={`mailto:${landingContact.email}`} className={t} />
@@ -194,7 +194,7 @@ export type QuickLink = { key: keyof typeof quickLinkIcons; label: string; href?
 
 /** Footer with "Quick Links" + "Contact Us" columns (Prestige Embankment, Projects for Sale) */
 export function LinksFooter({ links, lang = "en", year = true }: { links: QuickLink[]; lang?: "en" | "ar"; year?: boolean }) {
-  const t = "text-[20px] font-light leading-[2.6] text-white md:text-[24px]";
+  const t = "pl-lp-footer-link text-[20px] font-light leading-[2.6] text-white md:text-[24px]";
   return (
     <footer className="border-t-[3px] border-white px-5 pb-10 pt-12 md:px-[100px]">
       <div className="flex flex-col gap-10 md:flex-row md:justify-between">
@@ -222,7 +222,7 @@ export function LinksFooter({ links, lang = "en", year = true }: { links: QuickL
 /** Black box with a 3px white border and 15px radius that holds the enquiry form */
 export function FormBox({ title, children, className = "" }: { title: string; children: React.ReactNode; className?: string }) {
   return (
-    <div className={`mx-auto w-full max-w-[560px] rounded-[15px] border-[3px] border-white bg-black p-6 sm:p-[50px] ${className}`}>
+    <div className={`pl-lp-form mx-auto w-full max-w-[560px] rounded-[15px] border-[3px] border-white bg-black p-6 sm:p-[50px] ${className}`}>
       <h2 className="mb-6 text-center text-[32px] font-extrabold leading-tight md:text-[48px]">{title}</h2>
       {children}
     </div>
@@ -270,7 +270,7 @@ export function BenefitRow({
   className?: string;
 }) {
   return (
-    <ul className={`mx-auto grid max-w-[1400px] grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4 ${className}`}>
+    <ul className={`pl-lp-benefits mx-auto grid max-w-[1400px] grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4 ${className}`}>
       {labels.map((label, i) => (
         <li key={label} className="flex min-w-0 items-center gap-3 sm:gap-4">
           <Media src={benefitIcons[i].src} alt="" width={benefitIcons[i].width} height={benefitIcons[i].height} className="h-[60px] w-[56px] shrink-0 object-contain md:h-[90px] md:w-[80px]" />

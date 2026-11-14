@@ -11,7 +11,7 @@ export const metadata: Metadata = seoMetadata(getPage("/sell/")!);
 
 // Photographs come from the agency's own current listings, with a photo from the media
 // library as the fallback for when a community has no well-photographed listing today.
-const heroImage = communityPhoto("Dubai Marina", { size: "full" }) ?? "/wp-content/uploads/2020/07/Dubai-Marina-2.jpg";
+const heroImage = "/images/dubai-waterfront-cta.webp";
 const whyImage = featurePhoto("Why sell with Prestige Luxury", "full") ?? "/wp-content/uploads/2021/04/aerial-view-of-dubai-palm-jumeirah-island-1170x785.jpg";
 const saleImage = communityPhoto("Downtown Dubai") ?? "/wp-content/uploads/2019/06/emaar-downtown-1536x864.jpg";
 const rentImage = communityPhoto("Jumeirah Village Circle") ?? "/wp-content/uploads/2019/05/jumeirah-village-circle.jpg";

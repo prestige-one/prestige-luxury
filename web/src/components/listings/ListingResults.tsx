@@ -10,16 +10,16 @@ type View = "list" | "grid";
 // Sorting and paging are links now, so the list/grid choice has to survive a navigation.
 // It lives outside React, in localStorage, and is read through useSyncExternalStore so the
 // toggle and the results column always agree.
-const STORAGE_KEY = "listing-view";
+const STORAGE_KEY = "pl-listing-view";
 const listeners = new Set<() => void>();
 let current: View | null = null;
 
 function readView(): View {
   if (current === null) {
     try {
-      current = localStorage.getItem(STORAGE_KEY) === "grid" ? "grid" : "list";
+      current = localStorage.getItem(STORAGE_KEY) === "list" ? "list" : "grid";
     } catch {
-      current = "list"; // private mode / storage disabled
+      current = "grid";
     }
   }
   return current;
@@ -42,7 +42,7 @@ function subscribe(onChange: () => void) {
   };
 }
 
-const useView = () => useSyncExternalStore(subscribe, readView, () => "list" as View);
+const useView = () => useSyncExternalStore(subscribe, readView, () => "grid" as View);
 
 export function ViewToggle() {
   const view = useView();
@@ -71,7 +71,7 @@ export function ViewToggle() {
 /** Holds the current page's cards (server-rendered, passed as children) and applies the layout. */
 export function ResultsGrid({ children }: { children: React.ReactNode }) {
   return (
-    <div data-view={useView()} className="group/results grid gap-6 sm:data-[view=grid]:grid-cols-2">
+    <div data-view={useView()} className="pl-listing-results group/results grid gap-6 sm:data-[view=grid]:grid-cols-2 lg:data-[view=grid]:grid-cols-3">
       {children}
     </div>
   );

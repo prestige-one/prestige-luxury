@@ -34,12 +34,12 @@ export default function MobileNavItem({
         <Link
           href={item.href}
           onClick={onNavigate}
-          aria-current={pathname === item.href ? "page" : undefined}
+          aria-current={active ? (pathname === item.href ? "page" : "location") : undefined}
           className={`flex min-h-[54px] flex-1 items-center gap-3 text-[14px] font-medium uppercase tracking-[0.08em] transition-colors ${
             active ? "text-white" : "text-white/80 hover:text-white"
           }`}
         >
-          <span aria-hidden className={`h-[2px] bg-accent transition-[width] duration-300 ${active ? "w-4" : "w-0"}`} />
+          <span aria-hidden className={`h-[2px] bg-white transition-[width] duration-300 ${active ? "w-4" : "w-0"}`} />
           {item.label}
         </Link>
         {groups.length > 0 && (

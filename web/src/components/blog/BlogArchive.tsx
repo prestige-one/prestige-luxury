@@ -1,9 +1,9 @@
 import Link from "next/link";
 import type { Post } from "@/lib/content";
 import { Breadcrumb, Container } from "@/components/ui";
-import BlogSidebar from "./BlogSidebar";
+import CategoryLinks from "./CategoryLinks";
 import PostCard from "./PostCard";
-import { pageCount, pageSlice } from "./blog";
+import { activeCategories, pageCount, pageSlice } from "./blog";
 
 /** URL of page `n` of an archive whose first page lives at `base` (WordPress style: base/page/n/). */
 export const archivePageHref = (base: string, n: number) => (n <= 1 ? base : `${base}page/${n}/`);
@@ -46,7 +46,7 @@ function Pagination({ base, page, total }: { base: string; page: number; total: 
   );
 }
 
-/** Blog index, category and tag archives: title bar + 2-column card grid + sidebar + pagination. */
+/** Blog and category archives share cards, navigation and pagination. */
 export default function BlogArchive({
   title,
   intro,
@@ -66,22 +66,25 @@ export default function BlogArchive({
   const items = pageSlice(list, page);
   return (
     <>
-      <section className="border-b border-line bg-mist py-10">
+      <section className="pl-blog-archive bg-black py-12 text-white md:py-16">
         <Container>
-          <Breadcrumb items={page > 1 ? [...crumbs.slice(0, -1), { ...crumbs[crumbs.length - 1], href: base }, { label: `Page ${page}` }] : crumbs} />
-          <h1 className="mt-3 text-[30px] font-medium text-ink md:text-[36px]">
+          <Breadcrumb light items={page > 1 ? [...crumbs.slice(0, -1), { ...crumbs[crumbs.length - 1], href: base }, { label: `Page ${page}` }] : crumbs} />
+          <p className="mt-7 text-[12px] font-medium uppercase tracking-[0.18em] text-white/70">The Prestige Journal</p>
+          <h1 className="mt-3 text-[30px] font-medium text-white md:text-[36px]">
             {title}
-            {page > 1 && <span className="ml-2 text-[18px] font-normal text-muted">— Page {page}</span>}
+            {page > 1 && <span className="ml-2 text-[18px] font-normal text-white/70">— Page {page}</span>}
           </h1>
-          {intro && <p className="mt-2 max-w-[720px] text-[15px] text-muted">{intro}</p>}
+          <p className="mt-3 max-w-[720px] text-[15px] leading-relaxed text-white/80">{intro || 'Market perspectives, neighbourhood guides and stories from Dubai, curated by Prestige Luxury Real Estate.'}</p>
+          <p className="mt-4 text-[13px] text-white/70">{list.length} {list.length === 1 ? 'article' : 'articles'}</p>
         </Container>
       </section>
 
       <Container className="py-14 md:py-20">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <div>
+        <div className="mb-9">
+          <CategoryLinks categories={activeCategories} all activePath={base} />
+        </div>
             {items.length ? (
-              <div className="grid gap-8 sm:grid-cols-2">
+              <div className="pl-blog-grid grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {items.map((p, i) => (
                   <PostCard key={p.id} post={p} priority={i < 3} />
                 ))}
@@ -90,9 +93,6 @@ export default function BlogArchive({
               <p className="text-muted">No posts found.</p>
             )}
             <Pagination base={base} page={page} total={total} />
-          </div>
-          <BlogSidebar currentPath={base} />
-        </div>
       </Container>
     </>
   );

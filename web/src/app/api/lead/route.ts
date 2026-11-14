@@ -1,17 +1,17 @@
 import { NextResponse } from "next/server";
+import { sendLeadEmail, SmtpNotConfiguredError } from "@/lib/lead-mail";
 
-/**
- * Receives every enquiry form on the site (contact, sell, careers, project landing pages, property enquiries).
- * Sends it by email through Resend when RESEND_API_KEY is set; otherwise it is only logged
- * (visible in Vercel → Logs) so no lead is silently dropped while email is being set up.
- *
- * Env: RESEND_API_KEY, LEAD_TO_EMAIL (default info@prestigeluxury.ae), LEAD_FROM_EMAIL
- */
+export const runtime = "nodejs";
+
+/** Receives every enquiry form and reports success only after SMTP accepts the email. */
 export async function POST(req: Request) {
   let body: Record<string, unknown>;
   try {
     body = await req.json();
   } catch {
+    return NextResponse.json({ ok: false, error: "Invalid request" }, { status: 400 });
+  }
+  if (!body || typeof body !== "object" || Array.isArray(body)) {
     return NextResponse.json({ ok: false, error: "Invalid request" }, { status: 400 });
   }
 
@@ -29,32 +29,19 @@ export async function POST(req: Request) {
   if (!name || !(fields.email || fields.phone)) {
     return NextResponse.json({ ok: false, error: "Please enter your name and an email or phone number." }, { status: 422 });
   }
-
-  const subject = `Website enquiry: ${fields.form || "Contact"} – ${name}`;
-  const text = Object.entries(fields)
-    .map(([k, v]) => `${k.replace(/_/g, " ")}: ${v}`)
-    .join("\n");
-
-  const key = process.env.RESEND_API_KEY;
-  if (!key) {
-    console.log(`[lead] ${subject}\n${text}`);
-    return NextResponse.json({ ok: true });
+  if (fields.email && !/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(fields.email)) {
+    return NextResponse.json({ ok: false, error: "Please enter a valid email address." }, { status: 422 });
   }
 
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      from: process.env.LEAD_FROM_EMAIL || "Prestige Luxury Website <website@prestigeluxury.ae>",
-      to: (process.env.LEAD_TO_EMAIL || "info@prestigeluxury.ae").split(","),
-      reply_to: fields.email || undefined,
-      subject,
-      text,
-    }),
-  });
-  if (!res.ok) {
-    console.error(`[lead] email failed ${res.status}: ${await res.text()}\n${subject}\n${text}`);
-    return NextResponse.json({ ok: false, error: "Sorry, something went wrong. Please call or email us." }, { status: 502 });
+  try {
+    await sendLeadEmail(fields);
+  } catch (error) {
+    // Never log credentials or the visitor's personal details.
+    console.error("[lead] SMTP delivery failed", error instanceof SmtpNotConfiguredError ? "not configured" : "send failed");
+    return NextResponse.json(
+      { ok: false, error: "Your message could not be sent. Please call or email us." },
+      { status: error instanceof SmtpNotConfiguredError ? 503 : 502 },
+    );
   }
   return NextResponse.json({ ok: true });
 }

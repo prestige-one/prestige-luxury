@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Media from "@/components/Media";
 import { Button, Container, PageBanner } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
+import { isPagePublished } from "@/lib/site";
 
 export const metadata: Metadata = seoMetadata(getPage("/services/")!);
 
@@ -85,8 +86,8 @@ export default function ServicesPage() {
                 <h2 className="text-[28px] font-medium md:text-[32px]">{s.title}</h2>
                 <p className="mt-5 text-[14.5px] leading-[1.8] text-white/85">{s.text}</p>
                 <div className="mt-8">
-                  <Button href={s.href} variant="light">
-                    Show more
+                  <Button href={isPagePublished(s.href) ? s.href : "/contact-us/"} variant="light">
+                    {isPagePublished(s.href) ? "Show more" : "Enquire"}
                   </Button>
                 </div>
               </div>

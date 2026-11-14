@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import DeveloperDirectory from "@/components/developers/DeveloperDirectory";
+import DeveloperLogoSlider from "@/components/developers/DeveloperLogoSlider";
 import type { DeveloperCardData } from "@/components/developers/shared";
-import { Breadcrumb, Container, PageBanner } from "@/components/ui";
+import { Container, PageBanner } from "@/components/ui";
+import { developerLogo } from "@/lib/developer-logos";
+import { developerCardImage } from "@/lib/developer-imagery";
 import { developerExcerpt, developers } from "@/lib/developers";
 import { site } from "@/lib/site";
 
@@ -17,15 +20,19 @@ export const metadata: Metadata = {
 };
 
 // Only what a card shows: the full developer records stay on the server.
-const cards: DeveloperCardData[] = developers.map((d) => ({
-  slug: d.slug,
-  name: d.name,
-  legalName: d.legalName,
-  status: d.status,
-  featured: d.featured,
-  tagline: d.tagline,
-  summary: developerExcerpt(d),
-}));
+const cards: DeveloperCardData[] = developers.map((d) => {
+  const image = developerCardImage(d);
+  return {
+    slug: d.slug,
+    name: d.name,
+    legalName: d.legalName,
+    featured: d.featured,
+    summary: developerExcerpt(d, 240) || d.tagline,
+    logo: developerLogo(d.slug),
+    image: image.src,
+    imageAlt: image.alt,
+  };
+});
 
 export default function DevelopersPage() {
   return (
@@ -35,10 +42,9 @@ export default function DevelopersPage() {
         subtitle="The master developers and boutique names behind the city's addresses."
         image="/wp-content/uploads/2020/02/bg-bw.jpg"
       />
+      <DeveloperLogoSlider />
 
-      <Container className="pb-[90px] pt-8">
-        <Breadcrumb items={[{ label: "Developers" }]} />
-
+      <Container className="pt-8">
         <div className="mx-auto mb-10 mt-6 max-w-[760px] text-center text-[15px] leading-[1.8] text-body md:mb-12">
           <p>
             Dubai’s skyline is the work of a few dozen developers, from the master developers who plan whole communities to the boutique
@@ -47,8 +53,10 @@ export default function DevelopersPage() {
           </p>
         </div>
 
-        <DeveloperDirectory developers={cards} />
       </Container>
+      <div className="mx-auto max-w-[1440px] px-5 pb-[90px] lg:px-10">
+        <DeveloperDirectory developers={cards} />
+      </div>
     </>
   );
 }

@@ -2,7 +2,7 @@ import Media from "@/components/Media";
 import LeadForm from "@/components/LeadForm";
 import Gallery from "@/components/landing/Gallery";
 import LeadModal from "@/components/landing/LeadModal";
-import { BenefitRow, FormBox, LinksFooter, LpHeading, LOGO_WHITE, btn, projectFields } from "@/components/landing/shared";
+import { BenefitRow, FormBox, LinksFooter, LpHeading, LogoBar, btn, projectFields } from "@/components/landing/shared";
 import { getPage, seoMetadata } from "@/lib/content";
 
 export const metadata = seoMetadata(getPage("/prestige-embankment/")!);
@@ -74,17 +74,17 @@ export default function PrestigeEmbankmentPage() {
   );
 
   return (
-    <>
+    <div className="pl-project-page pl-embankment-page">
+      <LogoBar />
       {/* Hero */}
       <section className="relative overflow-hidden px-5 pb-20 pt-8 md:px-[100px] md:pb-[100px]">
         <Media src={up("head1.png")} alt="" fill priority tone="ink" sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-[linear-gradient(0deg,#000000_3%,#02071200_77%)] opacity-[0.97]" />
         <div className="relative">
-          <Media src={LOGO_WHITE.src} alt="Prestige Luxury Real Estate" tone="ink" width={LOGO_WHITE.width} height={LOGO_WHITE.height} priority className="h-auto w-[150px] md:w-[199px]" />
           <LpHeading as="h1" className="mx-auto mt-12 max-w-[1300px] md:mt-[50px]">
             Experience a Premium Luxury Lifestyle at ORRA The Embankment
           </LpHeading>
-          <dl className="mx-auto mt-14 grid max-w-[1500px] grid-cols-1 gap-10 text-center sm:grid-cols-2 xl:grid-cols-4">
+          <dl className="pl-lp-stats mx-auto mt-9 grid max-w-[1140px] grid-cols-1 gap-5 text-center sm:grid-cols-2 xl:grid-cols-4">
             {stats.map((s) => (
               <div key={s.label}>
                 <dt className="border-b-[3px] border-white pb-2 text-[30px] font-light leading-tight md:text-[40px] xl:text-[48px] xl:leading-[82px]">{s.label}</dt>
@@ -117,7 +117,7 @@ export default function PrestigeEmbankmentPage() {
             <div key={a.title} className="text-center">
               <h3 className="text-[30px] font-extrabold leading-tight md:text-[48px] md:leading-[60px]">{a.title}</h3>
               <Media src={up(a.img)} alt={`The Embankment ${a.title}`} width={916} height={549} sizes="(min-width: 768px) 50vw, 100vw" className="mt-6 h-auto w-full" />
-              {modal("Take a 3D Tour", "mt-4 px-4 py-3 text-[24px] text-white underline-offset-8 hover:underline md:text-[32px]", `3D Tour – ${a.title}`)}
+              {modal("Take a 3D Tour", "pl-lp-tour mt-4 px-4 py-3 text-[24px] text-white underline-offset-8 hover:underline md:text-[32px]", `3D Tour – ${a.title}`)}
             </div>
           ))}
         </div>
@@ -144,7 +144,7 @@ export default function PrestigeEmbankmentPage() {
       <section className="px-5 pb-20 md:px-[100px] md:pb-[100px]">
         <LpHeading className="pt-12 md:pt-[50px]">About The Embankment</LpHeading>
         <div className="mx-auto mt-14 grid max-w-[1500px] items-start gap-12 lg:grid-cols-2">
-          <div className="text-justify text-[18px] font-light leading-[1.6] md:text-[24px] lg:pe-[50px] xl:text-[32px] xl:leading-[40px]">
+          <div className="pl-lp-copy text-left text-[16px] leading-[1.85]">
             {about.map((p) => (
               <p key={p.slice(0, 20)} className="mb-[1em]">
                 {p}
@@ -189,6 +189,6 @@ export default function PrestigeEmbankmentPage() {
           { key: "testimonials", label: "Testimonials" },
         ]}
       />
-    </>
+    </div>
   );
 }

@@ -4,6 +4,7 @@ import LeadForm, { type LeadField } from "@/components/LeadForm";
 import { Accordion, CheckList, QuoteCard } from "@/components/info/blocks";
 import { Container } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
+import { requirePublishedPage } from "@/lib/page-publication-guard";
 
 export const metadata: Metadata = seoMetadata(getPage("/services/property-management/")!);
 
@@ -119,6 +120,7 @@ const fields: LeadField[] = [
 ];
 
 export default function PropertyManagementPage() {
+  requirePublishedPage("/services/property-management/");
   return (
     <>
       {/* Hero */}
@@ -133,25 +135,15 @@ export default function PropertyManagementPage() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-[#202020]/80" aria-hidden />
-        <Container className="relative z-10 grid min-h-[600px] items-center gap-10 py-16 md:grid-cols-2">
-          <div className="text-white">
-            <h1 className="text-[38px] font-semibold leading-tight md:text-[52px]">Prestige Property Management</h1>
+        <Container className="relative z-10 flex min-h-[360px] items-center justify-center py-16 text-center md:min-h-[420px] md:py-24">
+          <div className="mx-auto max-w-[760px] text-white">
+            <h1 className="text-[34px] font-semibold leading-tight sm:text-[42px] md:text-[52px]">Prestige Property Management</h1>
             <a
               href="#pricing"
               className="mt-8 inline-flex border border-white px-8 py-3 text-[14px] font-medium text-white transition-colors hover:bg-white hover:text-ink"
             >
               Get Started
             </a>
-          </div>
-          <div className="relative aspect-video w-full overflow-hidden bg-black shadow-2xl">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/sAU6Wu7PpKE?rel=0"
-              title="Prestige Property Management"
-              className="absolute inset-0 h-full w-full"
-              loading="lazy"
-              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
           </div>
         </Container>
       </section>

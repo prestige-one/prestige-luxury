@@ -70,12 +70,12 @@ export function PageBanner({ title, subtitle, image }: { title: string; subtitle
 }
 
 /** Breadcrumb in the Houzez style: "⌂ Home > Page" */
-export function Breadcrumb({ items }: { items: { label: string; href?: string }[] }) {
+export function Breadcrumb({ items, light = false }: { items: { label: string; href?: string }[]; light?: boolean }) {
   return (
-    <nav aria-label="Breadcrumb" className="text-[12px] text-muted">
+    <nav aria-label="Breadcrumb" className={`text-[12px] ${light ? "text-white/70" : "text-muted"}`}>
       <ol className="flex flex-wrap items-center gap-1.5">
         <li>
-          <Link href="/" className="transition-colors hover:text-ink">
+          <Link href="/" className={`transition-colors ${light ? "hover:text-white" : "hover:text-ink"}`}>
             Home
           </Link>
         </li>
@@ -83,11 +83,11 @@ export function Breadcrumb({ items }: { items: { label: string; href?: string }[
           <li key={i.label} className="flex items-center gap-1.5">
             <span aria-hidden>›</span>
             {i.href ? (
-              <Link href={i.href} className="transition-colors hover:text-ink">
+              <Link href={i.href} className={`transition-colors ${light ? "hover:text-white" : "hover:text-ink"}`}>
                 {i.label}
               </Link>
             ) : (
-              <span className="text-ink">{i.label}</span>
+              <span className={light ? "text-white" : "text-ink"}>{i.label}</span>
             )}
           </li>
         ))}
@@ -109,18 +109,20 @@ export function ImageCard({
   text,
   tone = "mist",
   aspect = "aspect-[347/249]",
+  compact = false,
 }: {
   href: string;
   image: string;
   title: string;
   text: string;
-  tone?: "mist" | "white";
+  tone?: "mist" | "white" | "smoke";
   aspect?: string;
+  compact?: boolean;
 }) {
   return (
     <Link
       href={href}
-      className={`group block h-full overflow-hidden rounded-[2px] transition-[translate,box-shadow] duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(0,0,0,0.09)] ${tone === "mist" ? "bg-mist" : "border border-line bg-white"}`}
+      className={`pl-image-card group block h-full overflow-hidden rounded-[2px] border border-line transition-[translate,box-shadow] duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(0,0,0,0.09)] ${tone === "smoke" ? "bg-smoke" : tone === "mist" ? "bg-mist" : "bg-white"}`}
     >
       <div className={`relative ${aspect} overflow-hidden`}>
         <Media
@@ -131,7 +133,7 @@ export function ImageCard({
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
         />
       </div>
-      <div className="px-4 pb-7 pt-6 text-center">
+      <div className={compact ? "px-4 py-4 text-center" : "px-4 pb-7 pt-6 text-center"}>
         <h3 className="text-[18px] uppercase tracking-[0.04em] text-ink transition-colors duration-300 group-hover:text-accent md:text-[20px]">{title}</h3>
         <p className="mt-2 text-[13.5px] leading-[1.6] text-body">{text}</p>
       </div>

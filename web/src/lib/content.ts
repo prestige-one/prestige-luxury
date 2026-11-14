@@ -2,9 +2,9 @@
 import pagesJson from "../../content/pages.json";
 import postsJson from "../../content/posts.json";
 import categoriesJson from "../../content/categories.json";
-import tagsJson from "../../content/tags.json";
 import testimonialsJson from "../../content/testimonials.json";
 import { site } from "./site";
+import { pageTitles } from "./page-seo";
 
 export type Seo = { title: string; description: string; ogImage: string };
 
@@ -70,7 +70,6 @@ const withCurrentPhone = <T extends { html: string; seo: Seo }>(rows: T[]): T[] 
 export const pages = withCurrentPhone(pagesJson as Page[]);
 export const posts = withCurrentPhone(postsJson as Post[]); // newest first
 export const categories = categoriesJson as Category[];
-export const tags = tagsJson as Tag[];
 export const testimonials = testimonialsJson as { id: number; name: string; html: string; image: string }[];
 
 export const getPage = (path: string) => pages.find((p) => p.path === path);
@@ -87,7 +86,7 @@ const descriptionOverrides: Record<string, string> = {
   "/about/":
     "Prestige Luxury Real Estate is an established Dubai agency bringing together market expertise and a commitment to exceptional client experiences. Read our story.",
   "/areas/":
-    "Explore the Dubai communities Prestige Luxury Real Estate works across, and the sales, leasing, off-plan and property management services we provide in each.",
+    "Explore Dubai communities with Prestige Luxury Real Estate. Search waterfront neighbourhoods, urban districts and residential areas, then browse available properties.",
   "/meet-the-team/":
     "Meet the brokers and property specialists at Prestige Luxury Real Estate in Dubai Marina — the people who advise our buyers, sellers, landlords and tenants.",
   "/careers/":
@@ -102,12 +101,13 @@ const descriptionOverrides: Record<string, string> = {
 
 /** Build Next.js metadata from the old Yoast SEO data so search rankings carry over. */
 export function seoMetadata(item: { title: string; seo: Seo; path: string }) {
-  const title = item.seo.title || `${item.title} | Prestige Luxury Real Estate`;
+  const title = pageTitles[item.path] || item.seo.title || `${item.title} | Prestige Luxury Real Estate`;
   const description = descriptionOverrides[item.path] || item.seo.description || undefined;
   return {
     title: { absolute: title },
     description,
     alternates: { canonical: item.path },
+    twitter: { title, description },
     openGraph: {
       title,
       description,

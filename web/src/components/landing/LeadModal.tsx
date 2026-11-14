@@ -36,7 +36,7 @@ export default function LeadModal({
     <>
       <button
         type="button"
-        className={className}
+        className={`pl-lp-modal-trigger ${className}`}
         onClick={() => {
           setOpened(true);
           dialog.current?.showModal();

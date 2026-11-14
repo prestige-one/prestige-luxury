@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumb, Container, WpContent } from "@/components/ui";
 import { getPost, seoMetadata, type Post } from "@/lib/content";
 import { site } from "@/lib/site";
-import BlogSidebar from "./BlogSidebar";
+import CategoryLinks from "./CategoryLinks";
 import PostCard from "./PostCard";
 import ShareLinks from "./ShareLinks";
 import {
@@ -19,8 +19,6 @@ import {
   postsWithPrefix,
   primaryCategory,
   relatedPosts,
-  tagPath,
-  tagsOf,
 } from "./blog";
 
 /**
@@ -40,7 +38,7 @@ export function postRoute(prefix: string) {
       const meta = seoMetadata({ ...post, title: decodeEntities(post.title), seo: { ...post.seo, description } });
       return {
         ...meta,
-        openGraph: { ...meta.openGraph, type: "article", publishedTime: post.date, modifiedTime: post.modified, authors: [post.author] },
+        openGraph: { ...meta.openGraph, type: "article", publishedTime: post.date, modifiedTime: post.modified, authors: [site.name] },
       };
     },
     Page: async function PostPage({ params }: Props) {
@@ -56,7 +54,6 @@ export default function PostView({ post }: { post: Post }) {
   const image = postImage(post);
   const cats = categoriesOf(post);
   const primary = primaryCategory(post);
-  const postTags = tagsOf(post);
   const related = relatedPosts(post);
   const { newer, older } = adjacentPosts(post);
 
@@ -66,47 +63,32 @@ export default function PostView({ post }: { post: Post }) {
     headline: title,
     datePublished: post.date,
     dateModified: post.modified,
-    author: { "@type": "Person", name: post.author },
+    author: { "@type": "Organization", name: site.name, url: site.url },
     publisher: { "@type": "Organization", name: site.name },
     image: image ? site.url + image : undefined,
     mainEntityOfPage: site.url + post.path,
+    description: excerptText(post, 155),
+    articleSection: cats.map((category) => category.name),
   };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
-      <section className="border-b border-line bg-mist py-10">
+      <section className="pl-blog-heading bg-black py-12 text-white md:py-16">
         <Container>
-          <Breadcrumb items={[{ label: "Blog", href: "/blog/" }, ...(primary && primary.slug !== "blog" ? [{ label: primary.name, href: primary.path }] : [])]} />
-          <h1 className="mt-3 max-w-[900px] text-[28px] font-medium leading-tight text-ink md:text-[36px]">{title}</h1>
-          <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-muted">
-            <span>
-              By <span className="text-ink">{post.author}</span>
-            </span>
-            <span aria-hidden>•</span>
+          <Breadcrumb light items={[{ label: "Blog", href: "/blog/" }, ...(primary && primary.slug !== "blog" ? [{ label: primary.name, href: primary.path }] : [])]} />
+          <h1 className="mt-5 max-w-[900px] text-[28px] font-medium leading-tight text-white md:text-[36px]">{title}</h1>
+          <div className="mt-5"><CategoryLinks categories={cats} light label="Article categories above content" /></div>
+          <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-white/70">
             <time dateTime={post.date}>{formatDate(post.date)}</time>
-            {cats.length > 0 && (
-              <>
-                <span aria-hidden>•</span>
-                <span className="flex flex-wrap gap-x-1.5">
-                  {cats.map((c, i) => (
-                    <span key={c.id}>
-                      <Link href={c.path} className="hover:text-accent">
-                        {c.name}
-                      </Link>
-                      {i < cats.length - 1 && ","}
-                    </span>
-                  ))}
-                </span>
-              </>
-            )}
+            <span aria-hidden>•</span>
+            <span>{Math.max(1, Math.ceil(post.html.replace(/<[^>]*>/g, ' ').split(/\s+/).length / 200))} min read</span>
           </div>
         </Container>
       </section>
 
       <Container className="py-14 md:py-20">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <article className="min-w-0">
+          <article className="pl-blog-article mx-auto min-w-0 max-w-[860px]">
             {image && (
               <Media
                 src={image}
@@ -114,32 +96,22 @@ export default function PostView({ post }: { post: Post }) {
                 width={1200}
                 height={675}
                 priority
-                sizes="(min-width: 1140px) 780px, 100vw"
+                sizes="(min-width: 1024px) 860px, 100vw"
                 className="mb-10 h-auto w-full"
               />
             )}
             <WpContent
               html={cleanPostHtml(post.html)}
-              className="[&_.elementor-heading-title]:mt-0 [&_iframe]:my-6 [&_iframe]:aspect-video [&_iframe]:h-auto [&_iframe]:w-full [&_table]:block [&_table]:overflow-x-auto md:[&_table]:table"
+              className="pl-blog-content [&_table]:block [&_table]:overflow-x-auto md:[&_table]:table"
             />
 
+            <div className="mt-10 border-t border-line pt-6">
+              <p className="mb-3 text-[13px] font-medium text-muted">Filed under</p>
+              <CategoryLinks categories={cats} label="Article categories below content" />
+            </div>
+
             <div className="mt-12 flex flex-col gap-6 border-y border-line py-6 md:flex-row md:items-center md:justify-between">
-              {postTags.length > 0 ? (
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="mr-1 text-[13px] font-medium uppercase tracking-[0.06em] text-ink">Tags</span>
-                  {postTags.map((t) => (
-                    <Link
-                      key={t.id}
-                      href={tagPath(t)}
-                      className="border border-line px-2.5 py-1 text-[12px] text-body transition-colors hover:border-ink hover:bg-ink hover:text-white"
-                    >
-                      {t.name}
-                    </Link>
-                  ))}
-                </div>
-              ) : (
-                <span />
-              )}
+              <p className="text-[13px] font-medium text-muted">Share this article</p>
               <ShareLinks path={post.path} title={title} />
             </div>
 
@@ -163,8 +135,6 @@ export default function PostView({ post }: { post: Post }) {
             )}
           </article>
 
-          <BlogSidebar currentPath={post.path} />
-        </div>
 
         {related.length > 0 && (
           <section className="mt-20 border-t border-line pt-14">

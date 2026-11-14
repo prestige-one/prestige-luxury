@@ -1,0 +1,36 @@
+{
+  "inline": {
+    "https://gulfnews.com/polopoly_fs/1.2222198!image/92962549.jpg_gen/derivatives/landscape_422/92962549.jpg": {
+      "src": "/images/downtown-dubai.webp",
+      "alt": "Downtown Dubai skyline and waterfront residences"
+    },
+    "https://prestigeluxury.ae/wp-content/uploads/villa-greens.jpg": {
+      "src": "/images/dubai-sport-city-1.webp",
+      "alt": "Illustrative view of Dubai's green residential communities"
+    },
+    "https://prestigeluxury.ae/wp-content/uploads/arabian-ranches.jpg": {
+      "src": "/wp-content/uploads/2020/01/arabian-ranches-rentals.png",
+      "alt": "Villas and a community swimming pool in Arabian Ranches"
+    },
+    "https://prestigeluxury.ae/wp-content/uploads/discovery-gardens.jpg": {
+      "src": "/wp-content/uploads/2019/08/al-barari.jpg",
+      "alt": "Illustrative residential architecture surrounded by landscaped gardens"
+    },
+    "https://prestigeluxury.ae/wp-content/uploads/damac-hills.jpg": {
+      "src": "/wp-content/uploads/2019/06/damac-properties.jpg",
+      "alt": "Damac residences overlooking a golf course"
+    },
+    "https://prestigeluxury.ae/wp-content/uploads/2019/10/property-inspections-dubai-835x467.jpg": {
+      "src": "/wp-content/uploads/2020/09/PM-Cover1.jpg",
+      "alt": "Dubai apartment interior illustrating a home inspection"
+    },
+    "https://prestigeluxury.ae/wp-content/uploads/2019/10/best-rentals-in-dubai-835x467.jpg": {
+      "src": "/wp-content/uploads/2020/01/arabian-ranches-rentals.png",
+      "alt": "Dubai residential villas with shared community amenities"
+    }
+  },
+  "featured": {
+    "new-career-everything-you-need-to-know-about-working-in-real-estate-in-dubai": "/wp-content/uploads/2023/05/real-estate-agent-offer-house-design-and-contract-2023-01-30-23-52-46-utc-scaled.jpg",
+    "luxury-property-market-keeps-its-shine": "/images/downtown-dubai.webp"
+  }
+}

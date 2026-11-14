@@ -65,6 +65,8 @@ const defaultAreas = [...featuredAreas, "Jumeirah Village Circle", "Dubai Hills 
 
 /** Area pages linked from /dubai-neighbourhoods/ (slug → display name). They always exist, even with no listings. */
 export const neighbourhoodAreas: Record<string, string> = {
+  "meydan-horizon": "Meydan Horizon",
+  "dubai-maritime-city": "Dubai Maritime City",
   "dubai-marina": "Dubai Marina",
   "palm-jumeirah": "Palm Jumeirah",
   "downtown-dubai": "Downtown Dubai",
@@ -139,6 +141,11 @@ export function areaOptions() {
 export function cityOptions() {
   const cities = [...new Set(properties.map((p) => p.city).filter(Boolean))].sort();
   return cities.length ? cities : ["Dubai"];
+}
+
+/** Only location strings cross into the autocomplete client, never the listing records. */
+export function locationOptions() {
+  return [...new Set(properties.flatMap((property) => [property.community, property.city, ...property.location]).filter(Boolean))].sort((a, b) => a.localeCompare(b));
 }
 
 // ---- Search ---------------------------------------------------------------------------------

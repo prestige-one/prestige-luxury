@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import blogRedirects from "./content/blog-redirects.json";
 
 const nextConfig: NextConfig = {
   // Keep the same URLs as the old WordPress site (they all end with "/").
@@ -13,6 +14,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      ...blogRedirects.map((redirect) => ({ ...redirect, permanent: true })),
       { source: "/home/", destination: "/", permanent: true },
       { source: "/sitemap_index.xml", destination: "/sitemap.xml", permanent: true },
       { source: "/wakanda/", destination: "/", permanent: false },

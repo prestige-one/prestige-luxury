@@ -9,7 +9,7 @@ import { DeveloperCard, type DeveloperCardData } from "./shared";
  * client-side array filter; no request, no loading state.
  */
 export default function DeveloperDirectory({ developers }: { developers: DeveloperCardData[] }) {
-  const inputId = useId();
+  const inputId = `pl-developer-search-${useId()}`;
   const [query, setQuery] = useState("");
   const q = query.trim().toLowerCase();
 
@@ -40,7 +40,7 @@ export default function DeveloperDirectory({ developers }: { developers: Develop
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search developers…"
             autoComplete="off"
-            className="h-12 w-full rounded-[2px] border border-line bg-white pl-11 pr-4 text-[14px] text-ink outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-[#8a8a8a] hover:border-[#cfcfcf] focus:border-accent focus:shadow-[0_0_0_3px_rgba(131,90,90,0.14)]"
+            className="h-12 w-full rounded-[2px] border border-line bg-white pl-11 pr-4 text-[14px] text-ink outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-[#8a8a8a] hover:border-[#cfcfcf] focus:border-accent focus:shadow-[0_0_0_3px_rgba(0,0,0,0.14)]"
           />
         </div>
         <p aria-live="polite" className="mt-3 text-center text-[13px] text-muted">
@@ -66,9 +66,9 @@ export default function DeveloperDirectory({ developers }: { developers: Develop
           {featured.length > 0 && (
             <section className="mt-10 md:mt-12">
               <h2 className="mb-6 font-heading text-[20px] font-normal text-ink md:text-[24px]">Featured Developers</h2>
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div className="pl-developer-grid grid gap-x-7 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-9">
                 {featured.map((d) => (
-                  <DeveloperCard key={d.slug} developer={d} featured />
+                  <DeveloperCard key={d.slug} developer={d} />
                 ))}
               </div>
             </section>
@@ -79,7 +79,7 @@ export default function DeveloperDirectory({ developers }: { developers: Develop
               <h2 className="mb-6 font-heading text-[20px] font-normal text-ink md:text-[24px]">
                 {featured.length > 0 ? "All Developers" : "Developers"}
               </h2>
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div className="pl-developer-grid grid gap-x-7 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-9">
                 {rest.map((d) => (
                   <DeveloperCard key={d.slug} developer={d} />
                 ))}

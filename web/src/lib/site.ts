@@ -7,6 +7,8 @@ export const site = {
   url: "https://prestigeluxury.ae",
   phone: "+971 52 370 2269",
   phoneHref: "tel:+971523702269",
+  officePhone: "+971 4 446 8300",
+  officePhoneHref: "tel:+97144468300",
   // Same number on WhatsApp — digits only, as wa.me requires.
   whatsapp: "971523702269",
   whatsappHref: "https://wa.me/971523702269",
@@ -19,6 +21,7 @@ export const site = {
   // in the media library is 234x44, which looked soft at the header's new size.
   logoBlack: "/wp-content/uploads/2022/11/logo-prestige-luxury-black-2x.png",
   heroVideoId: "viL_Gac5rt0",
+  ctaImage: "/images/dubai-waterfront-cta.webp",
   /**
    * Checked live on 13 Nov 2026, because the old contact page and the old footer disagreed.
    * The contact page's Facebook (prestigerealestatemarina) and Instagram
@@ -35,9 +38,31 @@ export const site = {
   ],
 } as const;
 
+export const contactPhones = [
+  { number: site.phone, href: site.phoneHref },
+  { number: site.officePhone, href: site.officePhoneHref },
+] as const;
+
+/** Unpublished pages retain their source so they can be restored by removing their path here. */
+export const unpublishedPagePaths = [
+  "/the-residence-by-prestige-one/",
+  "/vista-by-prestige-one/",
+  "/services/property-management/",
+  "/orra-embankment/",
+] as const;
+const unpublished = new Set<string>([...unpublishedPagePaths, "/property-management/"]);
+
+/** Same-site URLs only: a matching path on another website remains an external link. */
+export function isPagePublished(href: string): boolean {
+  const local = href.replace(/^(?:https?:)?\/\/(?:www\.)?prestigeluxury\.ae(?=\/|$)/i, "");
+  if (!local.startsWith("/") || local.startsWith("//")) return true;
+  const path = `${local.split(/[?#]/, 1)[0].replace(/\/+$/, "")}/`;
+  return !unpublished.has(path);
+}
+
 // ---- Navigation -----------------------------------------------------------------------------
 // Pure data only: this file is imported by the client Header, so it must never pull in
-// lib/properties, lib/listing-views or any JSON content.
+// lib/properties, lib/listing-views or any large JSON content.
 
 /** Keys understood by `NavIcon` in components/icons.tsx. */
 export type IconName = "apartment" | "villa" | "townhouse" | "studio" | "commercial" | "office" | "grid";
@@ -52,8 +77,14 @@ export type NavItem = { label: string; href: string; children?: NavLink[]; mega?
 const childrenOf = (mega: NavMega): NavLink[] => mega.groups.flatMap((g) => g.links);
 
 /** Gives every mega item a derived `children` list, so `isActive` and any other consumer still work. */
-const withChildren = (items: NavItem[]): NavItem[] =>
-  items.map((item) => (item.mega && !item.children ? { ...item, children: childrenOf(item.mega) } : item));
+const withChildren = (items: NavItem[]): NavItem[] => items.filter((item) => isPagePublished(item.href)).map((item) => {
+  const mega = item.mega ? {
+    ...item.mega,
+    groups: item.mega.groups.map((group) => ({ ...group, links: group.links.filter((link) => isPagePublished(link.href)) })).filter((group) => group.links.length),
+    promo: item.mega.promo && isPagePublished(item.mega.promo.href) ? item.mega.promo : undefined,
+  } : undefined;
+  return { ...item, mega, children: item.children?.filter((link) => isPagePublished(link.href)) || (mega ? childrenOf(mega) : undefined) };
+});
 
 const buyMega: NavMega = {
   heading: "Properties for Sale in Dubai",
@@ -67,6 +98,7 @@ const buyMega: NavMega = {
         { label: "Studios", href: "/property-type/studio/", icon: "studio" },
         { label: "Commercial", href: "/property-type/other-commercial/", icon: "commercial" },
         { label: "See All Properties", href: "/status/for-sale/", icon: "grid" },
+        { label: "Exclusive Collection", href: "/exclusive-collection/", icon: "grid" },
       ],
     },
     {
@@ -311,7 +343,7 @@ export const footerColumns: { title: string; links: { label: string; href: strin
     title: "Pages",
     links: [
       { label: "Frequently Asked Questions", href: "/frequently-asked-questions/" },
-      { label: "Testimonials", href: "/testimonials/" },
+      { label: "Blog", href: "/blog/" },
       { label: "Privacy Policy", href: "/privacy-policy/" },
       { label: "Terms and Conditions", href: "/terms-and-conditions/" },
     ],
@@ -334,4 +366,4 @@ export const footerColumns: { title: string; links: { label: string; href: strin
       { label: "Contact Us", href: "/contact-us/" },
     ],
   },
-];
+].map((column) => ({ ...column, links: column.links.filter((link) => isPagePublished(link.href)) }));

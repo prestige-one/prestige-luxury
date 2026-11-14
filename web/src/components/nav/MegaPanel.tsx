@@ -33,7 +33,7 @@ export default function MegaPanel({
   };
   return (
     <div
-      className="invisible pointer-events-none fixed inset-x-5 z-40 flex translate-y-2 justify-center opacity-0 transition-[opacity,translate,visibility] duration-[250ms] ease-out group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 motion-reduce:translate-y-0 motion-reduce:transition-none"
+      className="pl-mega-panel invisible pointer-events-none fixed inset-x-5 z-40 flex translate-y-2 justify-center opacity-0 transition-[opacity,translate,visibility] duration-[250ms] ease-out group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 motion-reduce:translate-y-0 motion-reduce:transition-none"
       style={{ top: barHeight }}
     >
       {/* the top padding is the invisible bridge the pointer crosses from the menu item */}

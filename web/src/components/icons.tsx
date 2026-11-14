@@ -1,5 +1,5 @@
 export function SocialIcon({ name, size = 15 }: { name: string; size?: number }) {
-  const p = { width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.6, "aria-hidden": true } as const;
+  const p = { width: size, height: size, viewBox: "0 0 24 24", fill: "currentColor", stroke: "none", "aria-hidden": true } as const;
   switch (name) {
     case "Facebook":
       return (
@@ -10,31 +10,23 @@ export function SocialIcon({ name, size = 15 }: { name: string; size?: number })
     case "LinkedIn":
       return (
         <svg {...p}>
-          <path d="M4 9h4v11H4zM6 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM10 9h4v1.6A4 4 0 0 1 20 13v7h-4v-6a2 2 0 0 0-4 0v6h-2z" />
+          <path d="M4 9h4v12H4zM6 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM10 9h4v1.6A4 4 0 0 1 21 14v7h-4v-6a2 2 0 0 0-4 0v6h-3Z" />
         </svg>
       );
     case "Instagram":
       return (
         <svg {...p}>
-          <rect x="3" y="3" width="18" height="18" rx="5" />
-          <circle cx="12" cy="12" r="4" />
-          <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" />
+          <path fillRule="evenodd" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm5.5-4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clipRule="evenodd" />
         </svg>
       );
     case "YouTube":
       return (
         <svg {...p}>
-          <rect x="2.5" y="5" width="19" height="14" rx="3" />
-          <path d="m10 9 5 3-5 3z" />
+          <path fillRule="evenodd" d="M5.5 5h13A3.5 3.5 0 0 1 22 8.5v7a3.5 3.5 0 0 1-3.5 3.5h-13A3.5 3.5 0 0 1 2 15.5v-7A3.5 3.5 0 0 1 5.5 5ZM10 8.5v7l6-3.5Z" clipRule="evenodd" />
         </svg>
       );
     case "WhatsApp":
-      return (
-        <svg {...p}>
-          <path d="M3 21l1.6-4.6A8.5 8.5 0 1 1 7.7 19.6Z" />
-          <path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8a5 5 0 0 1-2.3-2.3l.8-1-1-2Z" />
-        </svg>
-      );
+      return <WhatsAppGlyph size={size} />;
     // The modern X mark (not the old bird). Solid, so it overrides the shared stroke props.
     case "X":
       return (

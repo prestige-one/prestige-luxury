@@ -1,8 +1,9 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useId, useState } from "react";
 import { budgetOptions } from "@/lib/listing-format";
+import LocationAutocomplete from "./LocationAutocomplete";
 
 export type SearchBarValues = {
   q?: string;
@@ -25,16 +26,19 @@ const fmt = (n: number) => `AED ${new Intl.NumberFormat("en-AE").format(n)}`;
 export default function ListingSearchBar({
   cities,
   areas,
+  locations,
   types,
   initial = {},
 }: {
   cities: string[];
   areas: string[];
+  locations: string[];
   types: string[];
   initial?: SearchBarValues;
 }) {
   const router = useRouter();
-  const [advanced, setAdvanced] = useState(Boolean(initial.status || initial.type || initial.beds || initial.maxPrice));
+  const [advanced, setAdvanced] = useState(false);
+  const advancedId = `pl-listing-advanced-${useId()}`;
   // Buying and renting are quoted on different scales, so the budget ladder follows the status.
   const [status, setStatus] = useState(initial.status ?? "");
   const [maxPrice, setMaxPrice] = useState(initial.maxPrice ?? "");
@@ -53,16 +57,8 @@ export default function ListingSearchBar({
   return (
     <form onSubmit={submit} action="/search-results/" method="get" className="border-b border-line bg-white py-4" role="search">
       <div className="mx-auto w-full max-w-[1140px] px-5">
-        <div className="grid gap-2.5 md:grid-cols-[2.6fr_1fr_1fr_auto_auto]">
-          <label>
-            <span className="sr-only">Keyword</span>
-            <input
-              name="q"
-              defaultValue={initial.q}
-              placeholder="Enter an address, town, street, zip or property ID"
-              className={field}
-            />
-          </label>
+        <div className="grid grid-cols-2 gap-2.5 md:grid-cols-[2.6fr_1fr_1fr_auto_auto]">
+          <LocationAutocomplete options={locations} initial={initial.q} className={field} />
           <label>
             <span className="sr-only">City</span>
             <select name="city" defaultValue={initial.city ?? ""} className={field}>
@@ -85,7 +81,7 @@ export default function ListingSearchBar({
             type="button"
             onClick={() => setAdvanced((a) => !a)}
             aria-expanded={advanced}
-            aria-controls="advanced-search"
+            aria-controls={advancedId}
             className="h-[42px] rounded-[2px] bg-black px-6 text-[14px] font-medium text-white transition-colors hover:bg-accent"
           >
             Advanced
@@ -98,7 +94,7 @@ export default function ListingSearchBar({
           </button>
         </div>
 
-        <div id="advanced-search" hidden={!advanced} className="mt-2.5 grid gap-2.5 sm:grid-cols-2 md:grid-cols-4">
+        <div id={advancedId} hidden={!advanced} className={`pl-listing-advanced mt-2.5 gap-2.5 sm:grid-cols-2 md:grid-cols-4 ${advanced ? "grid" : "hidden"}`}>
           <label>
             <span className="sr-only">Status</span>
             <select

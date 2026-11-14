@@ -16,6 +16,18 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Enquiry email setup
+
+All enquiry forms use `/api/lead` and the same Brevo SMTP configuration in `web/.env`
+(copy `.env.example` to `.env` when setting up another checkout).
+Replace `SMTP_PASSWORD` with a **Brevo SMTP key**, not a REST API key. The configured
+sender `LEAD_FROM_EMAIL` must be verified in Brevo. The current recipient is
+`sumith@prestigeone.ae`; change `LEAD_TO_EMAIL` when ready. Restart the server after
+editing credentials. `.env` is ignored by Git.
+
+Run the SMTP configuration tests with `node --test tests/lead-mail.test.mjs`.
+These tests mock delivery; a live delivery check needs a valid SMTP key.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

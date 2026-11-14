@@ -105,7 +105,7 @@ const reviews = [
 
 export default function ProjectsForSalePage() {
   return (
-    <>
+    <div className="pl-project-page">
       <ShowcaseHero
         background="/wp-content/uploads/2023/05/Rectangle-53-1.png"
         title="Prestigious Luxury Villas in Dubai"
@@ -113,7 +113,7 @@ export default function ProjectsForSalePage() {
 <p className="max-w-[560px]">Indulge in a prestigious lifestyle and elevate your living experience</p>
         }
         form={
-          <div className="mx-auto max-w-[620px] bg-white px-6 pb-10 pt-6 text-ink sm:px-[50px] sm:pb-[50px] sm:pt-5">
+          <div className="pl-lp-hero-form mx-auto max-w-[480px] rounded-[6px] bg-white p-6 text-ink sm:p-8">
             <LeadForm form={FORM} fields={contactFields} redirectTo={REDIRECT} />
           </div>
         }
@@ -218,6 +218,6 @@ export default function ProjectsForSalePage() {
           { key: "testimonials", label: "Testimonials", href: "#testimonials" },
         ]}
       />
-    </>
+    </div>
   );
 }

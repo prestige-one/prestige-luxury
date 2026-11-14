@@ -15,8 +15,8 @@
   --color-cream: #faf8f4;
   --color-mist: #f8f8f8;
   --color-smoke: #f0f0f0;
-  --color-accent: #835a5a;
-  --color-accent-dark: #6b4848;
+  --color-accent: #000000;
+  --color-accent-dark: #222222;
 
   --container-site: 1170px;
 }
@@ -52,7 +52,7 @@ p {
 }
 
 ::selection {
-  background: var(--color-accent);
+  background: #000;
   color: #fff;
 }
 
@@ -103,6 +103,14 @@ p {
 .wp-content a { transition: color 0.2s ease; }
 .wp-content a:hover { color: var(--color-accent-dark); }
 .wp-content strong, .wp-content b { color: var(--color-ink); font-weight: 600; }
+.pl-blog-content { font-size: 16px; line-height: 1.85; overflow-wrap: anywhere; }
+.pl-blog-content h2 { margin-top: 2em; font-size: 25px; line-height: 1.35; }
+.pl-blog-content h3 { font-size: 20px; line-height: 1.4; }
+.pl-blog-content img { display: block; height: auto; margin: 1.75em auto; }
+.pl-blog-content blockquote { margin: 2em 0; padding: 1em 1.5em; background: var(--color-mist); }
+.pl-blog-content figcaption { color: var(--color-muted); font-size: 13px; text-align: center; }
+.pl-blog-content a { text-underline-offset: 4px; }
+.pl-blog-content a:hover { opacity: .65; }
 .wp-content iframe, .wp-content video, .wp-content figure { max-width: 100%; }
 .wp-content h1, .wp-content h2, .wp-content h3, .wp-content h4 { scroll-margin-top: 96px; }
 @media (max-width: 767px) {
@@ -114,12 +122,62 @@ p {
 }
 
 /* Developer logo marquee */
+.pl-developer-ribbon {
+  clip-path: polygon(9px 0, 100% 0, 100% 100%, 9px 100%, 0 50%);
+}
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
 .animate-marquee {
   animation: marquee 30s linear infinite;
+}
+.pl-developer-slider:hover .animate-marquee,
+.pl-developer-slider:focus-within .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* Area descriptions stay compact until pointer or keyboard interaction. */
+@keyframes pl-photo-enter {
+  from { transform: translateX(calc(var(--pl-photo-direction) * 100%)); }
+  to { transform: translateX(0); }
+}
+@keyframes pl-photo-exit {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(var(--pl-photo-direction) * -100%)); }
+}
+.pl-photo-incoming { animation: pl-photo-enter 380ms cubic-bezier(.25,.1,.25,1) both; }
+.pl-photo-outgoing { animation: pl-photo-exit 380ms cubic-bezier(.25,.1,.25,1) both; }
+.pl-photo-slider button:focus-visible { outline-color: white; }
+@media (prefers-reduced-motion: reduce) {
+  .pl-photo-incoming, .pl-photo-outgoing { animation-duration: 1ms; }
+}
+
+.pl-area-card:focus-visible {
+  /* The underlined title is the focus indicator, keeping the photograph edge clean. */
+  outline: none;
+}
+.pl-area-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.pl-area-card:hover .pl-area-description,
+.pl-area-card:focus-visible .pl-area-description {
+  -webkit-line-clamp: unset;
+  max-height: 170px;
+}
+@media (hover: none) {
+  .pl-area-card .pl-area-description {
+    -webkit-line-clamp: unset;
+    max-height: 170px;
+  }
+}
+
+/* Decorative native video must never expose playback chrome while loading. */
+.pl-background-video::-webkit-media-controls,
+.pl-background-video::-webkit-media-controls-start-playback-button {
+  display: none !important;
 }
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee { animation: none; }

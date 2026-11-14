@@ -32,6 +32,7 @@ export default function LeadForm({
   redirectTo,
   extra,
   dark = false,
+  showLabels = false,
 }: {
   form: string;
   fields?: LeadField[];
@@ -39,6 +40,7 @@ export default function LeadForm({
   redirectTo?: string;
   extra?: Record<string, string>; // hidden values, e.g. { property: "REF-123" }
   dark?: boolean;
+  showLabels?: boolean;
 }) {
   const router = useRouter();
   const uid = useId();
@@ -47,8 +49,8 @@ export default function LeadForm({
   // Per-field validation messages, shown under the field and linked to it with aria-describedby.
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
-  const fieldId = (name: string) => `${uid}-${name}`;
-  const errorId = (name: string) => `${uid}-${name}-error`;
+  const fieldId = (name: string) => `pl-lead-${uid}-${name}`;
+  const errorId = (name: string) => `pl-lead-${uid}-${name}-error`;
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -91,7 +93,7 @@ export default function LeadForm({
   const input = `w-full min-h-[48px] rounded-[2px] border px-4 py-3 text-[14px] outline-none transition-[border-color,box-shadow,background-color] duration-200 focus-visible:outline-none ${
     dark
       ? "border-white/30 bg-white/10 text-white placeholder:text-white/65 hover:border-white/50 focus:border-white focus:bg-white/[0.14] focus:shadow-[0_0_0_3px_rgba(255,255,255,0.15)] [&>option]:text-ink"
-      : "border-line bg-white text-ink placeholder:text-[#8a8a8a] hover:border-[#cfcfcf] focus:border-accent focus:shadow-[0_0_0_3px_rgba(131,90,90,0.14)]"
+      : "border-line bg-white text-ink placeholder:text-[#8a8a8a] hover:border-[#cfcfcf] focus:border-accent focus:shadow-[0_0_0_3px_rgba(0,0,0,0.14)]"
   }`;
   const errorRing = dark ? " !border-red-300" : " !border-red-600";
 
@@ -139,13 +141,11 @@ export default function LeadForm({
         };
         return (
           <div key={f.name} className={f.half ? "col-span-2 sm:col-span-1" : "col-span-2"}>
-            {/* visually hidden: the placeholder carries the design, the label the accessible name.
-                Required fields are announced from the `required` attribute (in the reader's own language). */}
-            <label htmlFor={fieldId(f.name)} className="sr-only">
+            <label htmlFor={fieldId(f.name)} className={showLabels ? "mb-2 block text-[14px] font-medium" : "sr-only"}>
               {f.label}
             </label>
             {f.type === "textarea" ? (
-              <textarea {...common} placeholder={f.label} rows={5} />
+              <textarea {...common} placeholder={showLabels ? undefined : f.label} rows={5} />
             ) : f.type === "select" ? (
               <select {...common} defaultValue="">
                 <option value="" disabled>
@@ -159,7 +159,7 @@ export default function LeadForm({
               <input
                 {...common}
                 type={f.type ?? "text"}
-                placeholder={f.label}
+                placeholder={showLabels ? undefined : f.label}
                 dir={tel ? "ltr" : undefined}
                 className={`${common.className}${tel ? " rtl:text-right" : ""}`}
               />

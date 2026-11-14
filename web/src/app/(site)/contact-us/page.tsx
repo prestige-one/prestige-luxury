@@ -4,6 +4,7 @@ import { SocialIcon } from "@/components/icons";
 import { Container } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
 import { site } from "@/lib/site";
+import ContactPhoneItems from "@/components/ContactPhoneItems";
 
 export const metadata: Metadata = seoMetadata(getPage("/contact-us/")!);
 
@@ -19,24 +20,17 @@ export default function ContactPage() {
   return (
     <>
       <section className="py-16 md:py-[100px]">
-        <Container className="grid gap-12 md:grid-cols-[67%_1fr] md:gap-[3%]">
+        <Container className="grid gap-x-12 gap-y-8 md:grid-cols-[67%_1fr] md:gap-x-[3%]">
+          <h1 className="text-[34px] font-normal uppercase text-ink md:col-span-2 md:text-[42px]">Get in Touch</h1>
           <div>
-            <h1 className="mb-8 text-[34px] font-normal uppercase text-ink md:text-[42px]">Get in Touch</h1>
-            <LeadForm form="Contact" fields={fields} />
+            <LeadForm form="Contact" fields={fields} showLabels />
           </div>
 
           <aside className="space-y-8 text-[15px] text-body">
             <div>
-              <h2 className="mb-3 text-[16px] font-medium text-ink">For Enquiries contact:</h2>
+              <h2 className="mb-3 text-[16px] font-medium text-ink">For enquiries, please contact:</h2>
               <ul className="space-y-2">
-                <li>
-                  <a href={site.phoneHref} className="inline-flex items-center gap-3 hover:text-accent">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
-                      <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" />
-                    </svg>
-                    {site.phone}
-                  </a>
-                </li>
+                <ContactPhoneItems />
                 <li>
                   <a href={`mailto:${site.email}`} className="inline-flex items-center gap-3 hover:text-accent">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>

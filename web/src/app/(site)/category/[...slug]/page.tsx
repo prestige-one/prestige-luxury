@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CategoryArchive({ params }: Props) {
   const { category, page } = resolve((await params).slug);
-  if (!category) notFound();
+  if (!category || !Number.isInteger(page) || page < 1 || page > pageCount(postsInCategory(category).length)) notFound();
   const parent = categories.find((c) => c.id === category.parent);
   const crumbs = [
     { label: "Blog", href: "/blog/" },

@@ -1,9 +1,9 @@
 // Helpers for the blog (index, archives, single posts). Server-only (uses fs to check images).
 import { existsSync } from "node:fs";
 import { join } from "node:path";
-import { categories, posts, tags, type Category, type Post, type Tag } from "@/lib/content";
+import { categories, posts, type Category, type Post } from "@/lib/content";
 
-export const POSTS_PER_PAGE = 10;
+export const POSTS_PER_PAGE = 9;
 
 const fileCache = new Map<string, boolean>();
 /** True when a /wp-content/... file was downloaded into /public (a few old uploads are missing). */
@@ -42,7 +42,7 @@ export function excerptText(post: Post, max = 160) {
 }
 
 export function formatDate(iso: string) {
-  return new Date(iso + "Z").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
+  return new Date(/[zZ]$|[+-]\d\d:\d\d$/.test(iso) ? iso : iso + "Z").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 }
 
 export const categoriesOf = (post: Post) =>
@@ -54,27 +54,19 @@ export function primaryCategory(post: Post) {
   return cats.find((c) => c.parent !== 0) ?? cats.find((c) => c.slug !== "blog") ?? cats[0];
 }
 
-export const tagsOf = (post: Post) => post.tags.map((id) => tags.find((t) => t.id === id)).filter((t): t is Tag => Boolean(t));
-
-export const tagPath = (t: Tag) => `/tag/${t.slug}/`;
-
 /** Categories that have posts (only those get an archive page). */
 export const activeCategories = categories.filter((c) => posts.some((p) => p.categories.includes(c.id)));
-/** Tags used by at least one post. */
-export const activeTags = tags.filter((t) => posts.some((p) => p.tags.includes(t.id)));
 
 export const postsInCategory = (c: Category) => posts.filter((p) => p.categories.includes(c.id));
-export const postsWithTag = (t: Tag) => posts.filter((p) => p.tags.includes(t.id));
 
 export const pageCount = (n: number) => Math.max(1, Math.ceil(n / POSTS_PER_PAGE));
 export const pageSlice = <T,>(list: T[], page: number) => list.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE);
 
-/** Up to `n` other posts sharing the most categories/tags with `post` (newest first on ties). */
+/** Up to `n` other posts sharing the most categories (newest first on ties). */
 export function relatedPosts(post: Post, n = 3) {
   const generic = categories.find((c) => c.slug === "blog")?.id;
   const score = (p: Post) =>
-    p.categories.filter((c) => post.categories.includes(c)).reduce((s, c) => s + (c === generic ? 1 : 3), 0) +
-    p.tags.filter((t) => post.tags.includes(t)).length;
+    p.categories.filter((c) => post.categories.includes(c)).reduce((s, c) => s + (c === generic ? 1 : 3), 0);
   return posts
     .filter((p) => p.id !== post.id)
     .map((p) => ({ p, s: score(p) }))

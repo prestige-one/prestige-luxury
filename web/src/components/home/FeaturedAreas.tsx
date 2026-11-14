@@ -1,0 +1,20 @@
+import AreaCard from "@/components/areas/AreaCard";
+import { Container, SectionTitle } from "@/components/ui";
+
+const areas = [
+  { title: "Dubai Islands", slug: "dubai-islands", image: "/images/dubai-Islands-1.webp", text: "An emerging waterfront investment destination offering luxury beachfront properties, strong capital appreciation potential and long-term growth opportunities." },
+  { title: "Meydan Horizon", slug: "meydan-horizon", image: "/wp-content/uploads/2019/05/mbr-city-dubai.jpg", text: "A prestigious residential destination attracting investors with luxury developments, rental demand and long-term property value appreciation." },
+  { title: "Dubai Maritime City", slug: "dubai-maritime-city", image: "/images/dubai-maritime.webp", text: "A growing waterfront location offering premium residences, limited waterfront supply and potential for rental returns and capital appreciation." },
+  { title: "Dubai Sports City", slug: "dubai-sports-city", image: "/images/dubai-sport-city-1.webp", text: "A vibrant community with golf views, world-class sports facilities and well-connected apartments for active living and long-term investment." },
+];
+
+export default function FeaturedAreas() {
+  return <section className="pl-featured-areas bg-mist py-16 md:py-20">
+    <Container>
+      <SectionTitle title="Explore the top featured areas of Dubai" subtitle="These are the top world renowned areas in Dubai offering some of the highest ROI in the world." />
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {areas.map((area) => <AreaCard key={area.slug} {...area} href={`/area/${area.slug}/`} />)}
+      </div>
+    </Container>
+  </section>;
+}

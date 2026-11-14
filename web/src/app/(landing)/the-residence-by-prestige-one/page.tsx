@@ -1,5 +1,6 @@
 import OffPlanProject, { type OffPlanConfig } from "@/components/landing/OffPlanProject";
 import { getPage, seoMetadata } from "@/lib/content";
+import { requirePublishedPage } from "@/lib/page-publication-guard";
 
 export const metadata = seoMetadata(getPage("/the-residence-by-prestige-one/")!);
 
@@ -64,5 +65,6 @@ const config: OffPlanConfig = {
 };
 
 export default function TheResidencePage() {
+  requirePublishedPage("/the-residence-by-prestige-one/");
   return <OffPlanProject c={config} />;
 }

@@ -156,6 +156,14 @@ export const plainText = (text: string) =>
     .replace(/\s+/g, " ")
     .trim();
 
+/** Compact, readable feed description for archive cards. */
+export function propertyExcerpt(text: string, max = 150) {
+  const clean = plainText(text.replace(/<[^>]*>/g, " "));
+  if (clean.length <= max) return clean;
+  const boundary = clean.lastIndexOf(" ", max);
+  return clean.slice(0, boundary > max / 2 ? boundary : max).replace(/[,;:]$/, "") + "…";
+}
+
 /**
  * Listing photos come straight from the portals' own image CDNs, which already serve
  * resized JPEGs. We don't run them through Vercel's image optimiser (thousands of photos

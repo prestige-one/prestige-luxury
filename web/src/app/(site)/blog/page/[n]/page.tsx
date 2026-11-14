@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import BlogArchive from "@/components/blog/BlogArchive";
 import { pageCount } from "@/components/blog/blog";
 import { getPage, posts, seoMetadata } from "@/lib/content";
+import { notFound } from "next/navigation";
 
 type Props = { params: Promise<{ n: string }> };
 
@@ -20,5 +21,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPaged({ params }: Props) {
   const { n } = await params;
+  if (!/^\d+$/.test(n) || Number(n) < 2 || Number(n) > pageCount(posts.length)) notFound();
   return <BlogArchive title="Blog" crumbs={[{ label: "Blog" }]} base="/blog/" list={posts} page={Number(n)} />;
 }

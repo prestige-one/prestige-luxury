@@ -3,6 +3,7 @@ import Media from "@/components/Media";
 import { CtaBanner, Eyebrow } from "@/components/info/blocks";
 import { Container } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = seoMetadata(getPage("/about/")!);
 
@@ -76,14 +77,18 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-[1280px] items-start gap-10 px-5 lg:grid-cols-[1fr_minmax(0,440px)] lg:gap-16">
           <div>
             <Eyebrow as="h1" label="About Us" title="Prestige Luxury Real Estate" className="mb-8" />
-            <div className="space-y-5 text-[14px] font-light leading-[2] text-body">
+            <div className="pl-about-introduction space-y-5 text-[14px] font-light leading-[2] text-body">
             <p>
               Established in 2007, <b className="font-semibold">Prestige Luxury Real Estate</b> is a leading luxury real estate agency in
               Dubai, specialising in residential and commercial property sales, leasing, property management and real estate investment
               advisory.
             </p>
             <p>
-              With over 100 dedicated real estate professionals, we combine extensive local market knowledge, established industry
+              With nearly 20 years of customer-centric excellence, we have built a legacy of trust, expertise and an unwavering
+              commitment to delivering exceptional real estate experiences.
+            </p>
+            <p>
+              Backed by a team of real estate professionals, we combine extensive local market knowledge, established industry
               relationships and personalised service to connect buyers, sellers and investors with exceptional properties across Dubai.
             </p>
             <p>
@@ -149,7 +154,7 @@ export default function AboutPage() {
       </section>
 
       <CtaBanner
-        image="/wp-content/uploads/2019/06/emaar-downtown-1536x864.jpg"
+        image={site.ctaImage}
         title="Exceptional Properties. Expert Advisory. Trusted Relationships."
         cta={{ label: "Speak to a Property Specialist", href: "/contact-us/" }}
       />

@@ -20,3 +20,81 @@
 .lp-snap::-webkit-scrollbar {
   display: none;
 }
+
+/* Scoped project-campaign design system: compact type, restrained rules and consistent spacing. */
+.pl-project-page {
+  --pl-lp-width: 1180px;
+  font-family: var(--font-poppins), ui-sans-serif, sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+}
+.pl-project-page .font-raleway { font-family: inherit; }
+.pl-project-page .pl-lp-shell { width: 100%; max-width: var(--pl-lp-width); margin-inline: auto; }
+.pl-project-page h1 { font-size: clamp(30px, 3.5vw, 50px); font-weight: 500; line-height: 1.2; letter-spacing: -.025em; text-transform: none; text-wrap: balance; }
+.pl-project-page h2 { font-size: clamp(25px, 2.6vw, 34px); font-weight: 500; line-height: 1.35; letter-spacing: -.02em; text-transform: none; }
+.pl-project-page h3 { font-size: clamp(20px, 2vw, 25px); font-weight: 500; line-height: 1.4; letter-spacing: -.01em; }
+.pl-project-page p,
+.pl-project-page .pl-lp-copy { font-size: 15px; font-weight: 400; line-height: 1.85; letter-spacing: normal; }
+.pl-project-page .pl-lp-developer { font-size: 15px; letter-spacing: .18em; line-height: 1.6; }
+.pl-project-page .pl-lp-stats { border-radius: 4px; }
+.pl-project-page .pl-lp-stats > div { padding: 18px 14px; border-width: 1px 0; border-color: #ffffff30; }
+.pl-project-page .pl-lp-stats dt { font-size: 12px; font-weight: 500; line-height: 1.6; letter-spacing: .08em; text-transform: uppercase; border-bottom: 0; }
+.pl-project-page .pl-lp-stats dd { font-size: 23px; line-height: 1.5; letter-spacing: -.01em; }
+.pl-project-page .pl-lp-stats dd span { font-size: 13px; font-weight: 400; line-height: 1.8; }
+.pl-project-page.pl-embankment-page .pl-lp-stats dd > span:last-child { font-size: 22px; font-weight: 500; }
+.pl-project-page .pl-lp-text-block h2 span { margin-top: 8px; font-size: 20px; line-height: 1.5; letter-spacing: normal; }
+.pl-project-page .pl-lp-button,
+.pl-project-page .pl-lp-modal-trigger { min-height: 44px; padding: 12px 22px; border-radius: 4px; font-size: 13px; font-weight: 500; line-height: 1.5; letter-spacing: .025em; text-transform: none; }
+.pl-project-page .pl-lp-tour { padding-inline: 0; text-decoration: underline; text-underline-offset: 5px; }
+.pl-project-page .pl-lp-form,
+.pl-project-page #contact > div { max-width: 600px; padding: 28px; border: 1px solid #ffffff30; border-radius: 6px; background: #111; }
+.pl-project-page .pl-lp-form h2,
+.pl-project-page #contact > div h2 { font-size: 24px; }
+.pl-project-page form p { font-size: 13px; }
+.pl-project-page dialog { max-width: 520px; border-width: 1px; border-color: #ffffff40; border-radius: 6px; }
+.pl-project-page dialog h2 { font-size: 22px; }
+.pl-project-page .pl-lp-amenities li { padding: 22px 14px; border: 1px solid #ffffff26; border-radius: 4px; }
+.pl-project-page .pl-lp-amenities img { width: 52px; height: 52px; object-fit: contain; }
+.pl-project-page .pl-lp-amenities span { font-size: 13px; line-height: 1.7; letter-spacing: .015em; text-transform: none; }
+.pl-project-page .pl-lp-benefits { padding-block: 24px; border-block: 1px solid #ffffff26; }
+.pl-project-page .pl-lp-benefits img { width: 42px; height: 48px; }
+.pl-project-page .pl-lp-benefits span { font-size: 14px; line-height: 1.55; font-weight: 400; }
+.pl-project-page .pl-lp-feature-list li { font-size: 15px; line-height: 1.7; }
+.pl-project-page .pl-lp-feature-list img { width: 30px; height: 32px; }
+.pl-project-page .pl-lp-project-heading > div > img { width: 58px; }
+.pl-project-page .pl-lp-project-heading > img { max-width: 140px; max-height: 48px; object-fit: contain; }
+.pl-project-page .pl-lp-project-block { border-top: 1px solid #ffffff1f; }
+.pl-project-page .pl-lp-associate > div > img { max-width: 410px; border-radius: 4px; }
+.pl-project-page .pl-lp-associate > div > div { font-size: 15px; line-height: 1.85; }
+.pl-project-page figure { border-radius: 6px; }
+.pl-project-page figcaption { font-size: 16px; font-weight: 500; }
+.pl-project-page footer { border-top-width: 1px; border-top-color: #ffffff26; }
+.pl-project-page footer h2 { font-size: 18px; }
+.pl-project-page footer p { font-size: 12px; line-height: 1.7; }
+.pl-project-page footer a,
+.pl-project-page footer .pl-lp-footer-link { font-size: 13px; line-height: 2.1; }
+.pl-project-page footer a img { width: 20px; }
+.pl-project-page .pl-landing-header > div { max-width: 1180px; margin-inline: auto; padding-inline: 20px; }
+.pl-project-page .pl-landing-header img { width: 170px; }
+.pl-project-page.pl-embankment-page > section { padding-inline: max(20px, calc((100vw - 1140px) / 2)); }
+.pl-project-page.pl-embankment-page #lifestyle li > span:first-child { width: 66px; height: 66px; }
+.pl-project-page.pl-embankment-page #lifestyle img { width: 40px; height: 40px; }
+.pl-project-page.pl-embankment-page #lifestyle li > span:last-child { font-size: 14px; line-height: 1.7; }
+.pl-project-page.pl-embankment-page #location li img { height: 54px; }
+.pl-project-page.pl-embankment-page #location li span { font-size: 15px; line-height: 1.7; }
+.pl-project-page.pl-embankment-page #location li span:first-of-type { font-size: 23px; }
+@media (max-width: 639px) {
+  .pl-project-page .pl-lp-hero { min-height: 580px; }
+  .pl-project-page .pl-lp-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 24px; }
+  .pl-project-page .pl-lp-stats > div { padding: 12px 8px; }
+  .pl-project-page .pl-lp-stats dd { font-size: 19px; }
+  .pl-project-page .pl-lp-stats > div:last-child:nth-child(3) { grid-column: 1 / -1; }
+  .pl-project-page .pl-lp-form,
+  .pl-project-page #contact > div { padding: 22px 18px; }
+  .pl-project-page .pl-lp-benefits { gap: 20px 14px; }
+  .pl-project-page .pl-lp-benefits li { align-items: flex-start; }
+  .pl-project-page .pl-lp-benefits img { width: 30px; height: 38px; }
+  .pl-project-page .pl-lp-benefits span { font-size: 12px; }
+  .pl-project-page footer { padding-inline: 20px; }
+  .pl-project-page footer [class*="grid-cols-2"] { column-gap: 20px; }
+}

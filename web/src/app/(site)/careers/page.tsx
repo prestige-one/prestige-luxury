@@ -69,7 +69,7 @@ export default function CareersPage() {
       </section>
 
       <CtaBanner
-        image="/wp-content/uploads/2019/05/mbr-city-dubai.jpg"
+        image={site.ctaImage}
         title="Have the Drive to Succeed?"
         lines={[
           "We're looking for ambitious, business-minded individuals with a passion for sales and the determination to excel in Dubai's real estate market.",

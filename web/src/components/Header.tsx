@@ -9,23 +9,18 @@ import HeaderCta from "@/components/nav/HeaderCta";
 import MegaPanel from "@/components/nav/MegaPanel";
 import MobileNavItem from "@/components/nav/MobileNavItem";
 import { Chevron } from "@/components/nav/NavIcon";
-import { mainNav, site, type NavItem } from "@/lib/site";
-
-/** True when `href` is the current page (or a section the current page belongs to). */
-function isActive(item: NavItem, pathname: string): boolean {
-  if (item.href === "/") return pathname === "/";
-  if (pathname.startsWith(item.href)) return true;
-  return item.children?.some((c) => pathname.startsWith(c.href)) ?? false;
-}
+import { mainNav, site } from "@/lib/site";
+import { activeNavHref } from "@/lib/nav-active";
 
 /**
  * Matches the original Houzez header:
  * - homepage: transparent over the hero video, white logo + white menu; turns white once you scroll
- * - every other page: solid black bar with white logo
+ * - every other page: white bar with black logo and navigation
  * The bar gets slightly slimmer once the page is scrolled.
  */
 export default function Header() {
   const pathname = usePathname();
+  const currentNavHref = activeNavHref(mainNav, pathname);
   const overHero = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   // The menu remembers the page it was opened on, so it closes by itself after navigating.
@@ -104,14 +99,12 @@ export default function Header() {
     };
   }, [open]);
 
-  const light = overHero && scrolled; // white bar, dark text
+  const light = !overHero || scrolled;
   const bar = overHero
     ? scrolled
       ? "bg-white shadow-[0_2px_16px_rgba(0,0,0,0.07)]"
       : "bg-transparent"
-    : scrolled
-      ? "bg-black shadow-[0_2px_16px_rgba(0,0,0,0.25)]"
-      : "bg-black";
+    : "border-b border-line bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)]";
   const text = light ? "text-ink" : "text-white";
 
   return (
@@ -150,7 +143,7 @@ export default function Header() {
                 type are tight at lg and open up at xl */}
             <ul className="flex h-full items-center gap-[11px] xl:gap-[26px]">
               {mainNav.map((item) => {
-                const active = isActive(item, pathname);
+                const active = item.href === currentNavHref;
                 return (
                   <li
                     key={item.label}
@@ -159,19 +152,22 @@ export default function Header() {
                   >
                     <Link
                       href={item.href}
-                      aria-current={pathname === item.href ? "page" : undefined}
+                      onClick={() => {
+                        (document.activeElement as HTMLElement | null)?.blur();
+                        setDismissed(item.label);
+                      }}
+                      aria-current={active ? (pathname === item.href ? "page" : "location") : undefined}
                       className={`relative flex h-full items-center gap-1 whitespace-nowrap text-[12px] font-medium uppercase tracking-[0.05em] xl:gap-1.5 xl:text-[13px] xl:tracking-[0.08em] ${text} transition-opacity duration-200 hover:opacity-75`}
                     >
                       {item.label}
                       {item.children && (
-                        <Chevron className="transition-transform duration-300 group-hover:rotate-180 group-focus-within:rotate-180 motion-reduce:transition-none" />
+                        <Chevron className={`transition-transform duration-300 motion-reduce:transition-none ${dismissed !== item.label ? "group-hover:rotate-180 group-focus-within:rotate-180" : ""}`} />
                       )}
-                      {/* active-page / hover indicator — takes the opposite colour to the bar
-                          (white on the black header, black on the white one) rather than mauve */}
+                      {/* Only the owning section is underlined; hover changes opacity. */}
                       <span
                         aria-hidden
-                        className={`absolute inset-x-0 top-[calc(50%+13px)] h-[2px] origin-left ${light ? "bg-ink" : "bg-white"} transition-transform duration-300 ease-out ${
-                          active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                        className={`pl-nav-indicator absolute inset-x-0 top-[calc(50%+13px)] h-[2px] origin-left ${light ? "bg-ink" : "bg-white"} transition-transform duration-300 ease-out ${
+                          active ? "scale-x-100" : "scale-x-0"
                         }`}
                       />
                     </Link>
@@ -212,7 +208,7 @@ export default function Header() {
           {/* Right-hand actions, desktop only: currency first, then the primary call to action */}
           <div className="hidden shrink-0 items-center gap-2.5 lg:flex xl:gap-4">
             <CurrencySelect light={light} />
-            <HeaderCta />
+            <HeaderCta light={light} />
           </div>
 
           <button
@@ -261,7 +257,7 @@ export default function Header() {
               <MobileNavItem
                 key={item.label}
                 item={item}
-                active={isActive(item, pathname)}
+                active={item.href === currentNavHref}
                 pathname={pathname}
                 expanded={expanded === item.label}
                 onToggle={() => setExpanded((prev) => (prev === item.label ? null : item.label))}
