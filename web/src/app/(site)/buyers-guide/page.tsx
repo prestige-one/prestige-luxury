@@ -127,6 +127,7 @@ const guide: Guide = {
   related: [
     { label: "Properties for sale", href: "/status/for-sale/" },
     { label: "New developments", href: "/status/off-plan/" },
+    { label: "Investment Guide", href: "/investment-guide/" },
     { label: "Tenant's Guide", href: "/tenants-guide/" },
     { label: "Frequently asked questions", href: "/frequently-asked-questions/" },
   ],

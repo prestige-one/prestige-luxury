@@ -143,6 +143,7 @@ const offPlanMega: NavMega = {
       title: "Off-plan resources",
       links: [
         { label: "Off-Plan Listings", href: "/status/off-plan/" },
+        { label: "Investment Guide", href: "/investment-guide/" },
         { label: "Browse Developers", href: "/developers/" },
       ],
     },
@@ -275,10 +276,10 @@ export const mainNav: NavItem[] = withChildren([
 export const navCta = { label: "List Your Property", href: "/sell/" };
 
 export const footerColumns: { title: string; links: { label: string; href: string }[] }[] = [
-  // Column lists set by the owner (2026-11-14). Two substitutions, both because the page the
-  // label implies does not exist: "Villas & Penthouses" became "Properties for Sale" (there are
-  // no penthouse listings, so /property-type/penthouse/ is not generated), and the three
-  // "…Guide" links: the Buyer's and Tenant's guides are real pages; Investment Guide still points at the market articles until it is written.
+  // Column lists set by the owner (2026-11-14). One substitution: "Villas & Penthouses" became
+  // "Properties for Sale", because there are no penthouse listings and so no
+  // /property-type/penthouse/ page. The three "…Guide" links go to the guides written for the
+  // new site (/buyers-guide/, /tenants-guide/, /investment-guide/).
   {
     title: "Buy",
     links: [
@@ -302,7 +303,7 @@ export const footerColumns: { title: string; links: { label: string; href: strin
     links: [
       { label: "New Developments", href: "/status/off-plan/" },
       { label: "Developers", href: "/developers/" },
-      { label: "Investment Guide", href: "/blog/" },
+      { label: "Investment Guide", href: "/investment-guide/" },
       { label: "Featured Projects", href: "/projects-for-sale/" },
     ],
   },
