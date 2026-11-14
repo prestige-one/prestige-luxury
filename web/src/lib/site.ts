@@ -72,6 +72,7 @@ const buyMega: NavMega = {
     {
       title: "Buyer resources",
       links: [
+        { label: "Buyer's Guide", href: "/buyers-guide/" },
         { label: "Market Appraisal", href: "/services/market-appraisal/" },
         { label: "Browse Developers", href: "/developers/" },
         { label: "FAQs", href: "/frequently-asked-questions/" },
@@ -108,6 +109,7 @@ const rentMega: NavMega = {
     {
       title: "Tenant resources",
       links: [
+        { label: "Tenant's Guide", href: "/tenants-guide/" },
         { label: "Property Management", href: "/services/property-management/" },
         { label: "FAQs", href: "/frequently-asked-questions/" },
         { label: "Speak to a Leasing Agent", href: "/contact-us/" },
@@ -276,14 +278,14 @@ export const footerColumns: { title: string; links: { label: string; href: strin
   // Column lists set by the owner (2026-11-14). Two substitutions, both because the page the
   // label implies does not exist: "Villas & Penthouses" became "Properties for Sale" (there are
   // no penthouse listings, so /property-type/penthouse/ is not generated), and the three
-  // "…Guide" links point at the closest page we actually have until the guides are written.
+  // "…Guide" links: the Buyer's and Tenant's guides are real pages; Investment Guide still points at the market articles until it is written.
   {
     title: "Buy",
     links: [
       { label: "Luxury Apartments", href: "/property-type/apartment/" },
       { label: "Luxury Villas", href: "/property-type/villa/" },
       { label: "Properties for Sale", href: "/status/for-sale/" },
-      { label: "Buyer's Guide", href: "/frequently-asked-questions/" },
+      { label: "Buyer's Guide", href: "/buyers-guide/" },
     ],
   },
   {
@@ -292,7 +294,7 @@ export const footerColumns: { title: string; links: { label: string; href: strin
       { label: "Properties for Rent", href: "/status/for-rent/" },
       { label: "Residential Leasing", href: "/status/for-rent/" },
       { label: "Commercial Leasing", href: "/property-type/office/" },
-      { label: "Tenant's Guide", href: "/frequently-asked-questions/" },
+      { label: "Tenant's Guide", href: "/tenants-guide/" },
     ],
   },
   {

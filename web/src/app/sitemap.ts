@@ -37,6 +37,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Developer directory — derived from content/developers.json, the same list the routes are
   // generated from, so new developers appear here as soon as they are added to the data.
   entries.push({ url: url("/developers/"), priority: 0.7 });
+
+  // Guides written for the new site (not in the WordPress import, so listed by hand)
+  entries.push({ url: url("/buyers-guide/"), priority: 0.7 });
+  entries.push({ url: url("/tenants-guide/"), priority: 0.7 });
   for (const d of developers) entries.push({ url: url(`/developers/${d.slug}/`), priority: 0.6 });
 
   return entries;
