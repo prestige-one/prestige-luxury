@@ -40,10 +40,15 @@ export default function Header() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
+    // Re-sync the theme when client navigation or browser history restores the scroll position.
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    window.addEventListener("pageshow", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("pageshow", onScroll);
+    };
+  }, [pathname]);
 
   // Mobile menu: lock page scroll and close on Escape while it is open.
   // `overflow: hidden` alone is not enough (the body keeps scrolling on iOS and behind the

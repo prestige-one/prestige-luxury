@@ -4,9 +4,6 @@
  */
 export const googleReviewsUrl = "https://www.google.com/maps/place/Prestige+Luxury+Real+Estate/@25.0753976,55.1398252,17z/data=!3m1!5s0x3e5f13551d79ef85:0x663c69ea38055b46!4m8!3m7!1s0x3e5f6caafde397cb:0x3f96047665b8da10!8m2!3d25.0753976!4d55.1398252!9m1!1b1!16s%2Fg%2F11b63rhqjh?hl=en";
 
-// A verified snapshot, not a live feed or an average of the selected reviews.
-export const googleReviewSummary = { rating: 4.2, count: 324, verifiedAt: "2026-11-16" } as const;
-
 export const googleReviews = [
   {
     id: "himanshu",
@@ -77,6 +74,20 @@ export const googleReviews = [
     rating: 5,
     text: "One Stop for all your property requirements in Dubai is Prestige Luxury Real Estate. If you looking to Buy, Sell or lease your existing  properties in Dubai get in touch with our area Specialist today.",
     sourceUrl: "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUNyd3FyZWVnEAE!2m1!1s0x0:0x3f96047665b8da10!3m1!1s2@1:CIHM0ogKEICAgICrwqreeg%7CCgwIpreetAYQ6M3WmwI%7C",
+  },
+  {
+    id: "sharmila-mohnani",
+    author: "Sharmila Mohnani",
+    rating: 5,
+    text: "I was very lucky to meet Mr. Ilyas Slah from Prestige Luxury Real Estate.\nHe is an extremely vibrant, coordinative, brilliant human being with a lovely aura around him. Very helpful and patient.\nMy husband and myself were extremely impressed with him. He was completely dedicated till the end.\nWe wish him excellent Success in his future.\nWe wish Success to Prestige Luxury Real Estate.\nSharmila Mohnani\nRatan Mohnani",
+    sourceUrl: "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUQtN2VhNEZ3EAE!2m1!1s0x0:0x3f96047665b8da10!3m1!1s2@1:CIHM0ogKEICAgID-7ea4Fw%7C%7C",
+  },
+  {
+    id: "evgeniya-er",
+    author: "Evgeniya Er",
+    rating: 5,
+    text: "I was looking for an apartment in Dubai Marina and had a lot of viewings,  but ended up renting  a place that was shown to me by wonderful Kevin from Prestige Luxury Real estate agency. It was such a great pleasure to work with him, everything was done quickly and accurately, three days after the viewing I was already living in my new apartment.  I highly recommend Kevin as a responsible, organized, very customer-oriented agent and just a very pleasant person to deal with.",
+    sourceUrl: "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUNPdDRiOVZ3EAE!2m1!1s0x0:0x3f96047665b8da10!3m1!1s2@1:CIHM0ogKEICAgICOt4b9Vw%7C%7C",
   },
 ] as const;
 

@@ -79,6 +79,12 @@ p {
 .no-scrollbar { scrollbar-width: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 
+/* Native review expansion works before hydration and keeps long quotes inside their cards. */
+.pl-review-disclosure summary::-webkit-details-marker { display: none; }
+.pl-review-disclosure:not([open]) .pl-review-less,
+.pl-review-disclosure[open] .pl-review-more,
+.pl-review-disclosure[open] + .pl-review-excerpt { display: none; }
+
 /* Elfsight's saved dark theme supplies white text; keep live reviews legible on this white page.
    Scope overrides to its public text classes so avatars, source logos and rating stars retain their colors. */
 .pl-live-reviews {

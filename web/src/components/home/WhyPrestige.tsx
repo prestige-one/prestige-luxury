@@ -26,11 +26,10 @@ const reasons = [
 
 export default function WhyPrestige() {
   return (
-    <section aria-labelledby="why-prestige-title" className="bg-black py-14 text-white md:py-20">
-      <Container className="grid items-start gap-12 lg:grid-cols-[0.9fr_1.6fr] lg:gap-20">
+    <section aria-labelledby="pl-why-prestige-title" className="pl-why-prestige bg-black py-14 text-white md:py-20">
+      <Container className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.6fr] lg:gap-20">
         <div>
-          <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-white/65">The Prestige Advantage</p>
-          <h2 id="why-prestige-title" className="mt-3 font-medium leading-[1.2] tracking-[-0.025em] text-white text-section">Why Choose Prestige Luxury</h2>
+          <h2 id="pl-why-prestige-title" className="font-medium leading-[1.2] tracking-[-0.025em] text-white text-section">Why Choose Prestige Luxury</h2>
           <p className="mt-5 text-[14px] leading-[1.85] text-white/80">A property decision is personal. You deserve an advisor who understands Dubai’s communities, takes the time to understand you, and stays involved through the details.</p>
           <p className="mt-4 text-[14px] leading-[1.85] text-white/80">Whether you are buying, renting or selling, we bring local knowledge and personal commitment together to help you move forward with clarity and confidence.</p>
           <div className="mt-6 flex flex-col items-start gap-2">

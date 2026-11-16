@@ -5,7 +5,7 @@ import GoogleReviewLink from "@/components/reviews/GoogleReviewLink";
 import { Container } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
 import { featurePhoto } from "@/lib/imagery";
-import { googleReviews, googleReviewSummary } from "@/lib/google-reviews";
+import { googleReviews } from "@/lib/google-reviews";
 
 export const metadata: Metadata = seoMetadata(getPage("/testimonials/")!);
 
@@ -38,11 +38,13 @@ export default function TestimonialsPage() {
               </li>
             ))}
           </ul>
-          <div className="mt-12 flex flex-col items-center gap-3 border-t border-line pt-10 text-center">
-            <p className="text-[15px] text-ink">More experiences, in our clients’ own words.</p>
-            <GoogleReviewLink />
-            <p className="text-[11px] text-muted">Selected reviews shown above. Overall Google rating checked on <time dateTime={googleReviewSummary.verifiedAt}>16 November 2026</time>.</p>
-          </div>
+        </Container>
+      </section>
+
+      <section aria-labelledby="pl-google-reviews-cta-title" className="pl-google-reviews-cta flex min-h-[260px] items-center justify-center border-y border-line bg-smoke py-12 text-center md:min-h-[280px]">
+        <Container className="flex flex-col items-center justify-center gap-5">
+          <h2 id="pl-google-reviews-cta-title" className="max-w-[600px] text-[22px] font-medium leading-snug text-ink md:text-[26px]">More experiences, in our clients’ own words.</h2>
+          <GoogleReviewLink />
         </Container>
       </section>
 

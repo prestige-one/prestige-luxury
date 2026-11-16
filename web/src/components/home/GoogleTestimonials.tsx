@@ -1,9 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Container } from "@/components/ui";
+import { Button, Container } from "@/components/ui";
 import GoogleReviewCard from "@/components/reviews/GoogleReviewCard";
-import GoogleReviewLink from "@/components/reviews/GoogleReviewLink";
 import { homepageGoogleReviews } from "@/lib/google-reviews";
 
 const INTERVAL_MS = 3000;
@@ -16,13 +15,11 @@ export default function GoogleTestimonials() {
   const index = useRef(0);
   const settle = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const [active, setActive] = useState(0);
-  const [hovered, setHovered] = useState(false);
-  const [focused, setFocused] = useState(false);
   const [touching, setTouching] = useState(false);
   const [visible, setVisible] = useState(false);
   const [pageVisible, setPageVisible] = useState(true);
   const [reducedMotion, setReducedMotion] = useState(false);
-  const running = visible && pageVisible && !hovered && !focused && !touching && !reducedMotion;
+  const running = visible && pageVisible && !touching && !reducedMotion;
 
   const stride = () => {
     const el = track.current;
@@ -44,8 +41,6 @@ export default function GoogleTestimonials() {
     const visibility = () => setPageVisible(!document.hidden);
     motion();
     visibility();
-    setHovered(root.current?.matches(":hover") ?? false);
-    setFocused(root.current?.contains(document.activeElement) ?? false);
     media.addEventListener("change", motion);
     document.addEventListener("visibilitychange", visibility);
     const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: 0.1 });
@@ -63,13 +58,8 @@ export default function GoogleTestimonials() {
 
   useEffect(() => {
     if (!running) return;
-    const timer = window.setInterval(() => {
-      // Native interaction can happen before hydration attaches React's event handlers.
-      const over = root.current?.matches(":hover") ?? false;
-      const focus = root.current?.contains(document.activeElement) ?? false;
-      if (over || focus) { setHovered(over); setFocused(focus); return; }
-      go(1);
-    }, INTERVAL_MS);
+    // Pointer hover and focused controls must not stop automatic advancement after a click.
+    const timer = window.setInterval(() => go(1), INTERVAL_MS);
     return () => window.clearInterval(timer);
   }, [running, go]);
 
@@ -95,8 +85,6 @@ export default function GoogleTestimonials() {
   return (
     <section ref={root} aria-labelledby="pl-google-testimonials-title" aria-roledescription="carousel" data-active-review={active} data-autoplay={running ? "running" : "paused"}
       className="pl-google-testimonials bg-white py-16 md:py-20"
-      onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
-      onFocusCapture={() => setFocused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setFocused(false); }}
       onKeyDown={(event) => { if (event.key === "ArrowLeft" || event.key === "ArrowRight") { event.preventDefault(); go(event.key === "ArrowRight" ? 1 : -1); } }}>
       <Container className="grid items-stretch gap-9 lg:grid-cols-[0.7fr_1.6fr] lg:gap-12">
         <div className="flex flex-col items-start">
@@ -107,7 +95,7 @@ export default function GoogleTestimonials() {
             <button type="button" aria-label="Previous review" className={control} onClick={() => go(-1)}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="m15 5-7 7 7 7" /></svg></button>
             <button type="button" aria-label="Next review" className={control} onClick={() => go(1)}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="m9 5 7 7-7 7" /></svg></button>
           </div>
-          <div className="mt-6 lg:mt-auto lg:pt-6"><GoogleReviewLink /></div>
+          <div className="mt-6 lg:mt-auto lg:pt-6"><Button href="/testimonials/" className="gap-3">Read More <span aria-hidden="true">↗</span></Button></div>
         </div>
         <div className="min-w-0">
           <ul ref={track} onScroll={onScroll} onPointerDown={() => setTouching(true)} onPointerUp={() => setTouching(false)} onPointerCancel={() => setTouching(false)} onPointerLeave={() => setTouching(false)}

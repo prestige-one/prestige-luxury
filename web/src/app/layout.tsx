@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={poppins.variable}>
+    <html lang="en" data-scroll-behavior="smooth" className={poppins.variable}>
       <body className="min-h-screen antialiased">
         {/* Restores the saved currency and fetches rates once, rather than from whichever
             price on the page happens to hydrate first. Renders no markup of its own. */}
