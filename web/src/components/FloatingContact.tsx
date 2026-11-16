@@ -45,7 +45,7 @@ export default function FloatingContact() {
       <nav aria-label="Floating social links" className="fixed left-2 top-1/2 z-40 hidden -translate-y-1/2 min-[1360px]:block">
         <SocialLinks />
       </nav>
-      <details className="group fixed bottom-5 left-5 z-40 min-[1360px]:hidden">
+      <details className="group fixed bottom-20 left-5 z-40 min-[1360px]:hidden">
         <summary aria-label="Social media links" className="flex size-12 cursor-pointer list-none items-center justify-center rounded-full border border-black/10 bg-white text-black shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 [&::-webkit-details-marker]:hidden">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4" /></svg>
         </summary>

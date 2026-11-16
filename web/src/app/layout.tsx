@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import FloatingContact from "@/components/FloatingContact";
+import CookiePreferences from "@/components/cookies/CookiePreferences";
 import CurrencyProvider from "@/components/currency/CurrencyProvider";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             price on the page happens to hydrate first. Renders no markup of its own. */}
         <CurrencyProvider>{children}</CurrencyProvider>
         <FloatingContact />
+        <CookiePreferences />
       </body>
     </html>
   );

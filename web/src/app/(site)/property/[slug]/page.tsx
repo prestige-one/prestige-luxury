@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ConsentEmbed from "@/components/cookies/ConsentEmbed";
 import Media from "@/components/Media";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -230,7 +231,7 @@ export default async function PropertyPage({ params }: Props) {
             {p.coordinates && (
               <Section title="Map">
                 <div className="relative aspect-[16/9] overflow-hidden bg-smoke">
-                  <iframe
+                  <ConsentEmbed
                     src={`https://www.google.com/maps?q=${p.coordinates.lat},${p.coordinates.lng}&z=15&output=embed`}
                     title={`Map of ${p.title}`}
                     loading="lazy"

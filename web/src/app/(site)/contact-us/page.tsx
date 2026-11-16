@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ConsentEmbed from "@/components/cookies/ConsentEmbed";
 import LeadForm, { type LeadField } from "@/components/LeadForm";
 import { SocialIcon } from "@/components/icons";
 import { Container } from "@/components/ui";
@@ -80,7 +81,7 @@ export default function ContactPage() {
       </section>
 
       <section aria-label="Map" className="h-[450px] bg-mist">
-        <iframe
+        <ConsentEmbed
           src="https://www.google.com/maps?q=Marina+Plaza+Dubai+Marina&output=embed"
           title="Prestige Luxury Real Estate office location – Marina Plaza, Dubai Marina"
           className="h-full w-full border-0"
