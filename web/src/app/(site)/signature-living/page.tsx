@@ -13,18 +13,20 @@ import Link from "next/link";
 import { CtaBanner } from "@/components/info/blocks";
 import { getPage, seoMetadata } from "@/lib/content";
 import { communityPhoto } from "@/lib/imagery";
+import { requirePublishedPage } from "@/lib/page-publication-guard";
+import { isPagePublished } from "@/lib/site";
 
 const ctaImage = communityPhoto("Jumeirah Village Circle", { size: "full" }) ?? "/wp-content/uploads/2019/05/jumeirah-village-circle.jpg";
 
 const page = getPage("/signature-living/")!;
-export const metadata: Metadata = {
+export const metadata: Metadata = isPagePublished(page.path) ? {
   ...seoMetadata(page),
   // WordPress titled this "Signature Living", but every word on it is about sustainability.
   // The URL is kept so existing links and rankings survive; only the title now matches.
   title: { absolute: "Sustainable Living | Prestige Luxury Real Estate" },
   description:
     "Sustainable living, a new era of Dubai: Prestige Real Estate in partnership with Green Group supports Dubai’s first solar-powered residential building in Jumeirah Village.",
-};
+} : { title: "Page not found", robots: { index: false, follow: false } };
 
 const serif = "font-['Lora',Georgia,'Times_New_Roman',serif]";
 
@@ -70,6 +72,7 @@ function Icon({ name, className = "" }: { name: "inbox" | "heart" | "quote" | "c
 }
 
 export default function SignatureLivingPage() {
+  requirePublishedPage("/signature-living/");
   return (
     <>
       {/* Hero: black with background video */}

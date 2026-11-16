@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = new Set([
     "/", "/about/", "/contact-us/", "/sell/", "/careers/", "/meet-the-team/",
     "/testimonials/", "/services/", "/services/property-management/", "/services/market-appraisal/",
-    "/areas/", "/dubai-neighbourhoods/", "/signature-living/", "/frequently-asked-questions/",
+    "/areas/", "/dubai-neighbourhoods/", "/frequently-asked-questions/",
     "/privacy-policy/", "/terms-and-conditions/", "/inquiry-form/",
     "/projects-for-sale/", "/projects-for-sale-arabic/", "/prestige-embankment/", "/orra-embankment/",
     "/the-residence-by-prestige-one/", "/vista-by-prestige-one/", "/property-quiz/",
@@ -62,6 +62,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   entries.push({ url: url("/property-valuation/"), priority: 0.8 });
   entries.push({ url: url("/tenants-guide/"), priority: 0.7 });
   entries.push({ url: url("/investment-guide/"), priority: 0.7 });
+  entries.push({ url: url("/roadshows/"), priority: 0.6 });
+  entries.push({ url: url("/branded-residences/"), priority: 0.6 });
 
   return [...new Map(entries.filter((entry) => isPagePublished(entry.url)).map((entry) => [entry.url, entry])).values()];
 }

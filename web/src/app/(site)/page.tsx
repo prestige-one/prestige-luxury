@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Media from "@/components/Media";
+import SalesExpertsCta from "@/components/SalesExpertsCta";
 import HeroSearch from "@/components/HeroSearch";
 import BackgroundVideo from "@/components/BackgroundVideo";
 import { Button, Container, ImageCard, SectionTitle } from "@/components/ui";
@@ -162,19 +162,7 @@ export default function HomePage() {
       <GoogleTestimonials />
 
       {/* CTA */}
-      <section className="relative flex min-h-[360px] items-center justify-center overflow-hidden py-16 text-center md:min-h-[414px]">
-        <Media src={site.ctaImage} alt="Illustrated luxury Dubai waterfront terrace and skyline at blue hour" fill tone="ink" sizes="100vw" className="object-cover" />
-        <div className="absolute inset-0 bg-black/45" />
-        <div className="relative z-10 max-w-[600px] px-5">
-          <h2 className="font-medium capitalize leading-[1.25] tracking-[-0.01em] text-white text-section">Connect with our sales experts</h2>
-          <p className="mt-3 text-[15px] capitalize leading-[1.6] text-white/90 md:text-[17px]">
-            Connect with our property specialists to discover the right real estate opportunity in Dubai.
-          </p>
-          <Button href="/contact-us/" variant="light" className="mt-6">
-            Speak to a Property Specialist
-          </Button>
-        </div>
-      </section>
+      <SalesExpertsCta image={site.ctaImage} />
     </>
   );
 }

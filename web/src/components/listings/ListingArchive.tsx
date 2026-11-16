@@ -38,6 +38,7 @@ export default function ListingArchive({
   search,
   path,
   searchParams = {},
+  emptyState,
 }: {
   title: string;
   listings: Property[];
@@ -46,6 +47,7 @@ export default function ListingArchive({
   /** This archive's own URL, e.g. "/status/for-rent/" — sort and page links are built from it. */
   path: string;
   searchParams?: RawParams;
+  emptyState?: React.ReactNode;
 }) {
   const sort = parseSort(one(searchParams.sort));
   const page = parsePage(one(searchParams.page), listings.length);
@@ -76,7 +78,7 @@ export default function ListingArchive({
             </div>
 
             {shown.length === 0 ? (
-              <p className="border border-line bg-mist px-6 py-16 text-center text-[16px] text-muted">No listing found.</p>
+              emptyState ?? <p className="border border-line bg-mist px-6 py-16 text-center text-[16px] text-muted">No listing found.</p>
             ) : (
               <ResultsGrid>
                 {shown.map((p, i) => (

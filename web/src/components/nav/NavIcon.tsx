@@ -18,6 +18,12 @@ export function NavIcon({ name, size = 18 }: { name: IconName; size?: number }) 
     "aria-hidden": true,
   } as const;
   switch (name) {
+    case "arrow":
+      return <svg {...p}><path d="M4 12h16m-7-7 7 7-7 7" /></svg>;
+    case "penthouse":
+      return <svg {...p}><path d="M4 8h16v13H4zM3 3h18v5H3zM9 8v13M4 13h5" /></svg>;
+    case "mansion":
+      return <svg {...p}><path d="M3 10h18v11H3zM3 10V6h4v4M17 10V6h4v4M7 10l5-6 5 6M10 21v-6h4v6M6 14v2M18 14v2" /></svg>;
     case "apartment":
       return (
         <svg {...p}>

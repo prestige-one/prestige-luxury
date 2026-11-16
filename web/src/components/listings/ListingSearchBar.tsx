@@ -118,6 +118,7 @@ export default function ListingSearchBar({
             <span className="sr-only">Property type</span>
             <select name="type" defaultValue={initial.type ?? ""} className={field}>
               <option value="">All Types</option>
+              {initial.type && !types.includes(initial.type) && <option value={initial.type}>{initial.type}</option>}
               {types.map((t) => (
                 <option key={t}>{t}</option>
               ))}

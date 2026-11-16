@@ -15,11 +15,11 @@ export default function AreaSelect({ areas }: { areas: { name: string; href: str
         if (href) router.push(href);
       }}
     >
-      <label htmlFor="area-select" className="sr-only">
+      <label htmlFor="pl-area-select" className="sr-only">
         Select Neighbourhood
       </label>
       <select
-        id="area-select"
+        id="pl-area-select"
         value={href}
         onChange={(e) => setHref(e.target.value)}
         className="h-12 flex-1 rounded-[2px] border border-line bg-white px-4 text-[14px] text-body focus:border-ink focus:outline-none"

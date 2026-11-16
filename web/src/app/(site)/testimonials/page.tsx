@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-import { CtaBanner } from "@/components/info/blocks";
+import SalesExpertsCta from "@/components/SalesExpertsCta";
 import GoogleReviewCard from "@/components/reviews/GoogleReviewCard";
 import GoogleReviewLink from "@/components/reviews/GoogleReviewLink";
 import { Container } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
-import { featurePhoto } from "@/lib/imagery";
 import { googleReviews } from "@/lib/google-reviews";
 
 export const metadata: Metadata = seoMetadata(getPage("/testimonials/")!);
-
-const ctaImage = featurePhoto("Testimonials call to action", "full") ?? "/wp-content/uploads/2021/04/aerial-view-of-dubai-palm-jumeirah-island-1170x785.jpg";
 
 export default function TestimonialsPage() {
   return (
@@ -48,12 +45,7 @@ export default function TestimonialsPage() {
         </Container>
       </section>
 
-      <CtaBanner
-        image={ctaImage}
-        title="Thinking of buying, selling or letting in Dubai?"
-        lines={["Speak to an advisor who works your community every day."]}
-        cta={{ label: "Speak to an Advisor", href: "/contact-us/" }}
-      />
+      <SalesExpertsCta />
     </>
   );
 }

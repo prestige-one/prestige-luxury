@@ -3,7 +3,7 @@ import Link from "next/link";
 import LeadForm, { type LeadField } from "@/components/LeadForm";
 import Media from "@/components/Media";
 import { propertyTypeOptions } from "@/components/info/options";
-import { Container } from "@/components/ui";
+import { Button, Container } from "@/components/ui";
 import { site } from "@/lib/site";
 
 const title = "Book a Property Valuation";
@@ -81,11 +81,12 @@ export default function PropertyValuationPage() {
         </Container>
       </section>
 
-      <section className="border-t border-line bg-mist py-10">
+      <section aria-labelledby="pl-valuation-coverage-title" className="pl-valuation-coverage border-t border-white/15 bg-black py-12 text-white">
         <Container className="max-w-[860px]">
-          <h2 className="text-[20px] font-medium text-ink">What does the valuation cover?</h2>
-          <p className="mt-3 text-[14px] leading-relaxed text-body">We discuss the property’s sale or rental potential, relevant market comparisons and practical steps to prepare for listing. The appraisal is an indicative market opinion; the final price depends on market conditions and buyer or tenant interest.</p>
-          <p className="mt-3 text-[13px] leading-relaxed text-muted">If you need a formal valuation for a mortgage or another official purpose, please let us know so we can discuss the appropriate next step.</p>
+          <h2 id="pl-valuation-coverage-title" className="text-[20px] font-medium text-white">What does the valuation cover?</h2>
+          <p className="mt-3 text-[14px] leading-relaxed text-white/85">We discuss the property’s sale or rental potential, relevant market comparisons and practical steps to prepare for listing. The appraisal is an indicative market opinion; the final price depends on market conditions and buyer or tenant interest.</p>
+          <p className="mt-3 text-[13px] leading-relaxed text-white/75">If you need a formal valuation for a mortgage or another official purpose, please let us know so we can discuss the appropriate next step.</p>
+          <Button href="/contact-us/" variant="light" className="mt-6">Contact Us</Button>
         </Container>
       </section>
     </>

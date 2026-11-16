@@ -1,11 +1,11 @@
-// /dubai-neighbourhoods/ — Elementor page 355699: dark intro banner, neighbourhood dropdown and the Houzez area grid.
+// Keep the original neighbourhood guide and destinations, using the homepage's shared area cards.
 import type { Metadata } from "next";
-import Media from "@/components/Media";
-import Link from "next/link";
 import { Container } from "@/components/ui";
+import AreaCard from "@/components/areas/AreaCard";
 import AreaSelect from "@/components/guides/AreaSelect";
 import { getPage, seoMetadata } from "@/lib/content";
-import { properties, slugify } from "@/lib/properties";
+import { communityPhoto } from "@/lib/imagery";
+import communities from "../../../../content/communities.json";
 
 const page = getPage("/dubai-neighbourhoods/")!;
 export const metadata: Metadata = {
@@ -66,14 +66,28 @@ const areas: { slug: string; name: string; image?: string }[] = [
   { slug: "barsha-heights-tecom", name: "Barsha Heights (Tecom)" },
 ];
 
-/** Live listing count for an area (listings come from the portal sync; empty until it has run). */
-function listingCount(name: string, slug: string) {
-  const key = slugify(name);
-  return properties.filter((p) => p.location.some((l) => slugify(l) === key || slugify(l) === slug)).length;
-}
-
-/** Houzez "taxonomy grids v1": rows alternate wide-narrow-narrow / narrow-narrow-wide. */
-const isWide = (i: number) => i % 6 === 0 || i % 6 === 5;
+const communityBySlug = new Map(communities.map((community) => [community.slug, community]));
+const communityAliases: Record<string, string> = {
+  "maritime-city": "dubai-maritime-city",
+  meydan: "meydan-horizon",
+};
+const photoNames: Record<string, string> = {
+  "the-greens": "Greens",
+  "dubai-production-city-impz": "Dubai Production City",
+  "akoya-oxygen": "Damac Hills 2",
+  "nadd-al-sheba": "Nad Al Sheba",
+  "dubai-land": "Dubai Land Residence Complex",
+};
+// Reuse curated community photography first, then that community's own listing photography.
+// A general Dubai skyline is a decorative fallback for guides without a community photograph.
+const neighbourhoods = areas.map((area) => {
+  const community = communityBySlug.get(communityAliases[area.slug] ?? area.slug);
+  return {
+    ...area,
+    image: community?.image ?? area.image ?? communityPhoto(photoNames[area.slug] ?? area.name) ?? "/images/downtown-dubai.webp",
+    text: community?.description ?? `Explore properties in ${area.name} and find a home that suits your lifestyle, priorities and investment plans.`,
+  };
+});
 
 export default function DubaiNeighbourhoodsPage() {
   return (
@@ -93,40 +107,18 @@ export default function DubaiNeighbourhoodsPage() {
         </div>
       </section>
 
-      <section className="pb-20 pt-[30px]">
+      <section className="pl-neighbourhoods bg-mist pb-20 pt-[30px]">
         <Container>
           <div className="my-[30px]">
             <AreaSelect areas={areas.map((a) => ({ name: a.name, href: `/area/${a.slug}/` }))} />
           </div>
 
-          <ul className="grid gap-[30px] sm:grid-cols-2 lg:grid-cols-4">
-            {areas.map((a, i) => {
-              const count = properties.length ? listingCount(a.name, a.slug) : 0;
-              return (
-                <li key={a.slug} className={isWide(i) ? "sm:col-span-2" : ""}>
-                  <Link href={`/area/${a.slug}/`} className="group relative flex h-[280px] items-end overflow-hidden rounded-[2px] bg-[#2b2b2b]">
-                    {a.image && (
-                      <Media
-                        src={a.image}
-                        alt=""
-                        fill
-                        sizes={isWide(i) ? "(min-width: 1024px) 570px, 100vw" : "(min-width: 1024px) 285px, (min-width: 640px) 50vw, 100vw"}
-                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-                      />
-                    )}
-                    <span className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent transition-colors duration-300 group-hover:bg-black/20" />
-                    <span className="relative z-10 p-6 text-white">
-                      <span className="block text-[20px] font-medium leading-tight">{a.name}</span>
-                      {count > 0 && (
-                        <span className="mt-1 block text-[14px] text-white/85">
-                          {count} {count === 1 ? "Property" : "Properties"}
-                        </span>
-                      )}
-                    </span>
-                  </Link>
-                </li>
-              );
-            })}
+          <ul className="pl-neighbourhood-grid grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {neighbourhoods.map((area) => (
+              <li key={area.slug}>
+                <AreaCard title={area.name} text={area.text} image={area.image} href={`/area/${area.slug}/`} />
+              </li>
+            ))}
           </ul>
         </Container>
       </section>

@@ -52,7 +52,8 @@ export default function MegaPanel({
                       {group.title}
                     </p>
                   )}
-                  <ul className="grid grid-cols-2 gap-x-6 gap-y-[10px]">
+                  <ul className="grid grid-cols-2 gap-x-6 gap-y-[10px]"
+                    style={group.columnFlow ? { gridAutoFlow: "column", gridTemplateRows: `repeat(${Math.ceil(group.links.length / 2)}, auto)` } : undefined}>
                     {group.links.map((link) => (
                       <li key={link.label + link.href}>
                         <Link

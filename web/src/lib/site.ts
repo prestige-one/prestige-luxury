@@ -45,6 +45,7 @@ export const contactPhones = [
 
 /** Unpublished pages retain their source so they can be restored by removing their path here. */
 export const unpublishedPagePaths = [
+  "/signature-living/",
   "/prestige-embankment/",
   "/the-residence-by-prestige-one/",
   "/vista-by-prestige-one/",
@@ -66,10 +67,10 @@ export function isPagePublished(href: string): boolean {
 // lib/properties, lib/listing-views or any large JSON content.
 
 /** Keys understood by `NavIcon` in components/icons.tsx. */
-export type IconName = "apartment" | "villa" | "townhouse" | "studio" | "commercial" | "office" | "grid";
+export type IconName = "apartment" | "villa" | "townhouse" | "studio" | "commercial" | "office" | "grid" | "penthouse" | "mansion" | "arrow";
 
 export type NavLink = { label: string; href: string; icon?: IconName };
-export type NavGroup = { title?: string; links: NavLink[] };
+export type NavGroup = { title?: string; links: NavLink[]; columnFlow?: boolean };
 export type NavPromo = { title: string; subtitle?: string; href: string; image: string; cta: string };
 export type NavMega = { heading: string; groups: NavGroup[]; promo?: NavPromo };
 export type NavItem = { label: string; href: string; children?: NavLink[]; mega?: NavMega };
@@ -160,32 +161,38 @@ const rentMega: NavMega = {
 };
 
 const offPlanMega: NavMega = {
-  heading: "New Projects in Dubai",
+  heading: "Off-Plan Projects in Dubai",
   groups: [
     {
-      title: "Featured projects",
+      title: "Projects by type",
+      columnFlow: true,
       links: [
-        { label: "Prestige Embankment", href: "/prestige-embankment/" },
-        { label: "Orra Embankment", href: "/orra-embankment/" },
-        { label: "Vista by Prestige One", href: "/vista-by-prestige-one/" },
-        { label: "The Residence by Prestige One", href: "/the-residence-by-prestige-one/" },
-        { label: "All New Projects", href: "/projects-for-sale/" },
+        { label: "Apartments", href: "/status/off-plan/?type=Apartment", icon: "apartment" },
+        { label: "Villas", href: "/status/off-plan/?type=Villa", icon: "villa" },
+        { label: "Townhouses", href: "/status/off-plan/?type=Townhouse", icon: "townhouse" },
+        { label: "Commercial", href: "/status/off-plan/?type=Other%20Commercial", icon: "commercial" },
+        { label: "Penthouses", href: "/status/off-plan/?type=Penthouse", icon: "penthouse" },
+        { label: "Mansions", href: "/status/off-plan/?type=Mansion", icon: "mansion" },
+        { label: "See All New Projects", href: "/status/off-plan/", icon: "arrow" },
       ],
     },
     {
-      title: "Off-plan resources",
+      title: "Guide to buying off plan",
+      columnFlow: true,
       links: [
-        { label: "Off-Plan Listings", href: "/status/off-plan/" },
-        { label: "Investment Guide", href: "/investment-guide/" },
-        { label: "Browse Developers", href: "/developers/" },
+        { label: "Off Plan Guide", href: "/investment-guide/" },
+        { label: "Best Dubai Communities", href: "/dubai-neighbourhoods/" },
+        { label: "Upcoming Roadshows", href: "/roadshows/" },
+        { label: "Branded Residences", href: "/branded-residences/" },
       ],
     },
   ],
   promo: {
-    title: "Prestige One Developments",
-    href: "/developers/prestige-one-developments/",
-    cta: "View Developer",
-    image: "/wp-content/uploads/2023/05/embankment-buildingoutside-view.jpg",
+    title: "Discover Dubai’s New Projects",
+    subtitle: "Explore our off-plan collection",
+    href: "/status/off-plan/",
+    cta: "View Projects",
+    image: "/images/blog/dubai-marina-apartments-1024x576-4f90fc1d9c.webp",
   },
 };
 
@@ -248,7 +255,7 @@ const areasMega: NavMega = {
     title: "Area Guides",
     href: "/areas/",
     cta: "Explore Areas",
-    image: "/wp-content/uploads/2019/07/jbr-beach-2048x1271.jpg",
+    image: "/wp-content/uploads/2021/04/aerial-view-of-dubai-palm-jumeirah-island-1170x785.jpg",
   },
 };
 
@@ -271,7 +278,7 @@ const servicesMega: NavMega = {
         { label: "Meet the Team", href: "/meet-the-team/" },
         { label: "Careers", href: "/careers/" },
         { label: "Testimonials", href: "/testimonials/" },
-        { label: "Sustainable Living", href: "/signature-living/" },
+        { label: "Exclusive Collection", href: "/exclusive-collection/" },
       ],
     },
   ],
@@ -280,14 +287,14 @@ const servicesMega: NavMega = {
     subtitle: "Free market appraisal",
     href: "/sell/",
     cta: "Get a Valuation",
-    image: "/wp-content/uploads/2021/04/aerial-view-of-dubai-palm-jumeirah-island-1170x785.jpg",
+    image: "/images/blog/Dubai-Marina-Rentals-1-1024x576-f31d7c28b6.webp",
   },
 };
 
 export const mainNav: NavItem[] = withChildren([
   { label: "Buy", href: "/status/for-sale/", mega: buyMega },
   { label: "Rent", href: "/status/for-rent/", mega: rentMega },
-  { label: "Off-Plan", href: "/status/off-plan/", mega: offPlanMega },
+  { label: "Projects", href: "/status/off-plan/", mega: offPlanMega },
   { label: "Developers", href: "/developers/", mega: developersMega },
   { label: "Areas", href: "/areas/", mega: areasMega },
   { label: "Services", href: "/services/", mega: servicesMega },

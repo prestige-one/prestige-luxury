@@ -11,7 +11,7 @@ export function activeNavHref(items: NavItem[], pathname: string): string | null
   }
   if (direct) return direct.href;
 
-  const owner = page.startsWith("/area/") ? "/areas/"
+  const owner = page.startsWith("/area/") || page === "/dubai-neighbourhoods/" ? "/areas/"
     : /^\/(?:property|property-type|properties|search-results|advanced-search-results)\//.test(page)
       ? page.includes("-for-rent-") ? "/status/for-rent/" : "/status/for-sale/"
       : /^\/(?:blog|category|marketing|construction|luxury-living|luxury-property-market|real-estate)\//.test(page)
