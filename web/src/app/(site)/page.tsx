@@ -104,10 +104,9 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/45" />
         </div>
         <div className="relative z-10 w-full px-5 pt-14 md:pt-20">
-          <h1 className="mx-auto max-w-[900px] text-center text-[30px] font-semibold leading-[1.2] tracking-[-0.02em] text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.35)] sm:text-[36px] md:text-[44px]">
-            Dubai Property. Personal Expertise.
+          <h1 className="mx-auto mb-10 max-w-[900px] text-center text-[30px] font-semibold leading-[1.2] tracking-[-0.02em] text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.35)] sm:text-[36px] md:mb-20 md:text-[44px]">
+            The Art of Finding Your Perfect Home
           </h1>
-          <p className="mx-auto mb-10 mt-5 max-w-[660px] text-center text-[15px] leading-relaxed text-white md:mb-20 md:text-[17px] [text-shadow:0_2px_12px_rgba(0,0,0,0.6)]">Buy, rent or sell with community specialists who put your goals first, with personal guidance from the first conversation to the final handover.</p>
           <HeroSearch locations={locations} types={propertyTypes} />
         </div>
       </section>
