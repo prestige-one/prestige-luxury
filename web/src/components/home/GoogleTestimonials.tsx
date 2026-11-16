@@ -1,19 +1,14 @@
 "use client";
 
-import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Container } from "@/components/ui";
-import { googleReviews, googleReviewsUrl } from "@/lib/google-reviews";
+import GoogleReviewCard from "@/components/reviews/GoogleReviewCard";
+import GoogleReviewLink from "@/components/reviews/GoogleReviewLink";
+import { homepageGoogleReviews } from "@/lib/google-reviews";
 
 const INTERVAL_MS = 3000;
-const count = googleReviews.length;
-const slides = [...googleReviews, ...googleReviews.slice(0, 2)];
-
-function Stars() {
-  return <div role="img" aria-label="5 out of 5 stars" className="flex gap-1 text-[#e5ad00]">
-    {Array.from({ length: 5 }, (_, index) => <svg key={index} width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.76 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2Z" /></svg>)}
-  </div>;
-}
+const count = homepageGoogleReviews.length;
+const slides = [...homepageGoogleReviews, ...homepageGoogleReviews.slice(0, 2)];
 
 export default function GoogleTestimonials() {
   const root = useRef<HTMLElement>(null);
@@ -95,10 +90,10 @@ export default function GoogleTestimonials() {
     }, 180);
   }
 
-  const control = "grid size-11 place-items-center rounded-[6px] border border-line bg-white text-black transition-colors hover:border-black hover:bg-black hover:text-white motion-reduce:transition-none";
+  const control = "grid size-11 cursor-pointer place-items-center rounded-[6px] border border-line bg-white text-black transition-colors hover:border-black hover:bg-black hover:text-white motion-reduce:transition-none";
 
   return (
-    <section ref={root} aria-labelledby="google-testimonials-title" aria-roledescription="carousel" data-active-review={active} data-autoplay={running ? "running" : "paused"}
+    <section ref={root} aria-labelledby="pl-google-testimonials-title" aria-roledescription="carousel" data-active-review={active} data-autoplay={running ? "running" : "paused"}
       className="pl-google-testimonials bg-white py-16 md:py-20"
       onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
       onFocusCapture={() => setFocused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setFocused(false); }}
@@ -106,13 +101,13 @@ export default function GoogleTestimonials() {
       <Container className="grid items-stretch gap-9 lg:grid-cols-[0.7fr_1.6fr] lg:gap-12">
         <div className="flex flex-col items-start">
           <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-muted">Client Experiences</p>
-          <h2 id="google-testimonials-title" className="mt-2 font-medium leading-tight tracking-[-0.02em] text-ink text-section">What Our Clients Say</h2>
+          <h2 id="pl-google-testimonials-title" className="mt-2 font-medium leading-tight tracking-[-0.02em] text-ink text-section">What Our Clients Say</h2>
           <p className="mt-3 text-[14px] leading-[1.7] text-muted">Personal service, local knowledge and support through the details. Explore a selection of five-star Google reviews from our clients.</p>
           <div className="mt-4 flex items-center gap-3">
             <button type="button" aria-label="Previous review" className={control} onClick={() => go(-1)}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="m15 5-7 7 7 7" /></svg></button>
             <button type="button" aria-label="Next review" className={control} onClick={() => go(1)}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="m9 5 7 7-7 7" /></svg></button>
           </div>
-          <a href={googleReviewsUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-12 items-center justify-center gap-3 rounded-[2px] border border-black bg-white px-7 py-3 text-[14px] font-medium text-black transition-colors hover:bg-black hover:text-white motion-reduce:transition-none lg:mt-auto">Read All <span aria-hidden="true">↗</span></a>
+          <div className="mt-6 lg:mt-auto lg:pt-6"><GoogleReviewLink /></div>
         </div>
         <div className="min-w-0">
           <ul ref={track} onScroll={onScroll} onPointerDown={() => setTouching(true)} onPointerUp={() => setTouching(false)} onPointerCancel={() => setTouching(false)} onPointerLeave={() => setTouching(false)}
@@ -120,16 +115,7 @@ export default function GoogleTestimonials() {
             {slides.map((review, position) => {
               const copy = position >= count;
               return <li key={`${review.id}-${position}`} aria-hidden={copy ? true : undefined} className="w-full shrink-0 snap-start md:w-[calc((100%_-_24px)/2)]">
-                <figure className="flex h-full min-h-[340px] flex-col rounded-[8px] border border-line bg-[#fbfbfb] p-6">
-                  <Stars />
-                  <blockquote className="mt-4 flex-1 text-[15px] leading-[1.75] text-body">“{review.text}”</blockquote>
-                  <figcaption className="mt-6">
-                    <a href={review.sourceUrl} target="_blank" rel="noopener noreferrer" tabIndex={copy ? -1 : undefined} aria-label={`Read ${review.author}’s review on Google`} className="group inline-flex min-h-12 items-center gap-3">
-                      <Image src={`/images/reviews/${review.id}.webp`} alt="" width={44} height={44} className="size-11 shrink-0 rounded-full object-cover" />
-                      <span><span className="block text-[14px] font-medium text-ink group-hover:underline underline-offset-4">{review.author}</span><span className="mt-1 block text-[12px] text-muted">Google review</span></span>
-                    </a>
-                  </figcaption>
-                </figure>
+                <GoogleReviewCard review={review} duplicate={copy} />
               </li>;
             })}
           </ul>

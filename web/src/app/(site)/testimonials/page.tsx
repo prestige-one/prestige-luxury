@@ -1,37 +1,15 @@
 import type { Metadata } from "next";
-import Script from "next/script";
-import { CtaBanner, QuoteCard } from "@/components/info/blocks";
+import { CtaBanner } from "@/components/info/blocks";
+import GoogleReviewCard from "@/components/reviews/GoogleReviewCard";
+import GoogleReviewLink from "@/components/reviews/GoogleReviewLink";
 import { Container } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
 import { featurePhoto } from "@/lib/imagery";
+import { googleReviews, googleReviewSummary } from "@/lib/google-reviews";
 
 export const metadata: Metadata = seoMetadata(getPage("/testimonials/")!);
 
-// The original page shows live Google/Facebook reviews through an Elfsight widget (id below).
-// The quotes underneath are the client testimonials published elsewhere on the original site.
-const ELFSIGHT_APP = "elfsight-app-6f176c59-949e-42ee-818b-d9af5d8c35d5";
-
 const ctaImage = featurePhoto("Testimonials call to action", "full") ?? "/wp-content/uploads/2021/04/aerial-view-of-dubai-palm-jumeirah-island-1170x785.jpg";
-
-const quotes = [
-  {
-    quote:
-      "I would like to thank your company for your professional selection of the sales team. Really it was my pleasure to deal with you and i will do recommend always your company to all my friends and family members. Thanks Again.",
-    name: "Ayman Sharaf",
-    role: "Client",
-  },
-  {
-    quote: "My property had been managed by prestige for 2 years now. Service and communication is always amazing",
-    name: "Hilary Leigh",
-    role: "Landlord",
-  },
-  {
-    quote:
-      "Prestige property management had helped me alot as an owner who doesn’t live in Dubai. They manage your property like it’s their own. Would highly recommend",
-    name: "Quintin Angus",
-    role: "Landlord",
-  },
-];
 
 export default function TestimonialsPage() {
   return (
@@ -46,26 +24,25 @@ export default function TestimonialsPage() {
         <h1 className="relative text-[30px] font-medium tracking-[0.02em] text-white md:text-[42px]">Testimonials</h1>
       </section>
 
-      <section className="py-[70px] md:py-[90px]">
+      <section aria-labelledby="pl-testimonials-heading" className="pl-testimonials-grid bg-white py-14 md:py-20">
         <Container>
-          <div className={`pl-live-reviews ${ELFSIGHT_APP}`} data-elfsight-app-lazy />
-          {/* The live reviews are this page's main content, so they load as soon as the page is
-              interactive rather than last — on lazyOnload they took about five seconds to appear. */}
-          <Script src="https://apps.elfsight.com/p/platform.js" strategy="afterInteractive" />
-
-          <h2 className="mb-2 mt-14 text-center font-heading text-ink text-section">What our clients say</h2>
+          <p className="mb-3 text-center text-[11px] font-medium uppercase tracking-[0.18em] text-muted">Real experiences. Lasting relationships.</p>
+          <h2 id="pl-testimonials-heading" className="mb-3 text-center font-heading text-ink text-section">What our clients say</h2>
           <p className="mx-auto mb-10 max-w-[560px] text-center text-[15px] leading-[1.7] text-muted">
             Buyers, sellers, landlords and tenants on working with our sales and property management teams.
           </p>
-          {/* A plain grid rather than a scroll row: three cards fit on one line, so a carousel
-              only hid the second and third behind a swipe. */}
-          <ul className="grid gap-6 md:grid-cols-3">
-            {quotes.map((q) => (
-              <li key={q.name}>
-                <QuoteCard {...q} />
+          <ul aria-label="Selected Google reviews" className="grid items-start gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {googleReviews.map((review) => (
+              <li key={review.id} className="h-full">
+                <GoogleReviewCard review={review} />
               </li>
             ))}
           </ul>
+          <div className="mt-12 flex flex-col items-center gap-3 border-t border-line pt-10 text-center">
+            <p className="text-[15px] text-ink">More experiences, in our clients’ own words.</p>
+            <GoogleReviewLink />
+            <p className="text-[11px] text-muted">Selected reviews shown above. Overall Google rating checked on <time dateTime={googleReviewSummary.verifiedAt}>16 November 2026</time>.</p>
+          </div>
         </Container>
       </section>
 
