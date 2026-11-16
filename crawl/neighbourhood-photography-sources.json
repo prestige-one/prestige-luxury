@@ -1,0 +1,1251 @@
+[
+  {
+    "slug": "dubai-marina",
+    "name": "Dubai Marina",
+    "sourcePage": "https://www.bayut.com/area-guides/dubai-marina/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/Dubai_Marina_Cover_19_12_22_0db7389743.jpg",
+    "sourceAlt": "Dubai Marina",
+    "image": "/images/neighbourhoods/dubai-marina.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 249770,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Rebecca_Boulcott_484e91879f.jpg",
+        "alt": "Rebecca Boulcott"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/DUBAI_MARINA_2_69ebd55fc6.jpeg",
+        "alt": "Apartments for sale in Dubai Marina"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/DUBAI_MARINA_1_747380f1c5.jpeg",
+        "alt": "APARTMENTS TO RENT IN DUBAI MARINA"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/marina_diamond_910_6450532eba.jpg",
+        "alt": "Marina Diamond Dubai Marina"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Towers_in_Dubai_Marina_2777366d06.jpg",
+        "alt": "Popular buildings in Dubai Marina"
+      }
+    ]
+  },
+  {
+    "slug": "palm-jumeirah",
+    "name": "Palm Jumeirah",
+    "sourcePage": "https://www.bayut.com/area-guides/palm-jumeirah/",
+    "sourceImage": "/wp-content/uploads/2021/04/aerial-view-of-dubai-palm-jumeirah-island-1170x785.jpg",
+    "sourceAlt": "Palm Jumeirah",
+    "image": "/images/neighbourhoods/palm-jumeirah-aerial.webp",
+    "width": 1170,
+    "height": 785,
+    "bytes": 181932,
+    "alternatives": []
+  },
+  {
+    "slug": "downtown-dubai",
+    "name": "Downtown Dubai",
+    "sourcePage": "https://www.bayut.com/area-guides/downtown-dubai/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/burj_khalifa_view_342021_ad82273d42.jpg",
+    "sourceAlt": "Burj Khalifa in Downtown Dubai",
+    "image": "/images/neighbourhoods/downtown-dubai-landmark.webp",
+    "width": 1440,
+    "height": 900,
+    "bytes": 518368,
+    "alternatives": []
+  },
+  {
+    "slug": "business-bay",
+    "name": "Business Bay",
+    "sourcePage": "https://www.bayut.com/area-guides/business-bay/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/Business_Bay_cover_20200409_bb6c99c118.jpg",
+    "sourceAlt": "Business Bay",
+    "image": "/images/neighbourhoods/business-bay.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 148404,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/26_c891e628d9.jpg",
+        "alt": "Apartments for rent in Business Bay residential area"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/20_023effee28.jpg",
+        "alt": "High rise apartments for sale in Business Bay area"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/dubai_canal_121922_78241198ac.jpg",
+        "alt": "dubai canal business bay area"
+      }
+    ]
+  },
+  {
+    "slug": "jumeirah-beach-residence",
+    "name": "Jumeirah Beach Residence",
+    "sourcePage": "https://www.bayut.com/area-guides/jumeirah-beach-residence-jbr/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/JBR_cover_20200105_ad8768f546.jpg",
+    "sourceAlt": "Jumeirah Beach Residence (JBR)",
+    "image": "/images/neighbourhoods/jumeirah-beach-residence.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 302662,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/jbr_2182021_a3e655326b.jpg",
+        "alt": "jumeirah beach residence jbr dubai"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/jbr_apartments_2182021_e7d42bba1a.jpg",
+        "alt": "apartments on the walk jbr"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/jbrapartments_2182021_e9e3685dc6.jpg",
+        "alt": "popular buildings in jbr"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/jbrtransport_2182021_b34821bb92.jpg",
+        "alt": "jumeirah beach residence jbr"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/jbr_leasure6_e3d918ada5.jpeg",
+        "alt": "Al Rahim Mosque near JBR"
+      }
+    ]
+  },
+  {
+    "slug": "jumeirah-lake-towers",
+    "name": "Jumeirah Lake Towers",
+    "sourcePage": "https://www.bayut.com/area-guides/jumeirah-lake-towers/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/JLT_cover_20200409_ab7615796d.jpg",
+    "sourceAlt": "Jumeirah Lake Towers (JLT)",
+    "image": "/images/neighbourhoods/jumeirah-lake-towers.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 215440,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/11_1_8458413c98.jpg",
+        "alt": "residential buildings in JLT"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/jlt_cluster_q_141025_78e496a5a6.jpg",
+        "alt": "apartments in jlt"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/2_5e89c137d7.jpg",
+        "alt": "A mosque sign in Jumeirah Lakes Towers (JLT)"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/2_1_43d416730c.jpg",
+        "alt": "A waterfront restaurant in Jumeirah Lakes Towers (JLT)"
+      }
+    ]
+  },
+  {
+    "slug": "jumeirah-village-circle",
+    "name": "Jumeirah Village Circle",
+    "sourcePage": "https://www.bayut.com/area-guides/jumeirah-village-circle/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/Jumeirah_Village_Circle_Dubai_0d4a6b654a.jpg",
+    "sourceAlt": "Jumeirah Village Circle (JVC)",
+    "image": "/images/neighbourhoods/jumeirah-village-circle.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 118706,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/jvc121222_296248093b.jpg",
+        "alt": "living in jumeirah village circle jvc"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/jvc_villas_townhouses_121222_816efabf39.jpg",
+        "alt": "villas and townhouses in jvc"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/jvc_apartments_121222_79b1fa490a.jpg",
+        "alt": "apartments for rent in jumeirah village circle jvc"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/fortunato_jvc_121322_185409bdd0.jpg",
+        "alt": "fortunato townhouses in jvc"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/astoria_residence_jvc_121222_9b10390f09.jpg",
+        "alt": "astoria residences jvc"
+      }
+    ]
+  },
+  {
+    "slug": "al-furjan",
+    "name": "Al Furjan",
+    "sourcePage": "https://www.bayut.com/area-guides/al-furjan/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/Al_Furjan_by_Nakheel_Properties_6a5bb188f2.jpg",
+    "sourceAlt": "Al Furjan Dubai",
+    "image": "/images/neighbourhoods/al-furjan.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 272524,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Al_Furjan_051022_dc3276a763.jpg",
+        "alt": "Al Furjan community in Dubai"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Jordan_Feemster_dfe8b500d5.jpg",
+        "alt": "Jordan Feemster TruBroker"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/masakin_562021_ddd9426a7f.jpg",
+        "alt": "masakin al furjan apartment in al furjan"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/17_cd70123816.jpg",
+        "alt": "Spinneys in Al Furjan Pavillion "
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Phase_2_Al_Yaqeen_Mosque_Al_Furjan_Mosque_Body_3_11_11_22_f923b2d56b.jpg",
+        "alt": "Al Yaqeen Mosque"
+      }
+    ]
+  },
+  {
+    "slug": "dubai-sports-city",
+    "name": "Dubai Sports City",
+    "sourcePage": "https://www.bayut.com/area-guides/dubai-sports-city/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/dubai_sports_city_cover_4626_2be40e9b0e.jpg",
+    "sourceAlt": "Dubai Sports City",
+    "image": "/images/neighbourhoods/dubai-sports-city.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 177448,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/13_4_60a1a64d87.jpg",
+        "alt": "Residential Buildings in Dubai Sports City"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/bloomingdale_2222021_cf960c6da0.jpg",
+        "alt": "Gallery villas in dubai sports city"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/dsc_2222021_e83a094cdf.jpg",
+        "alt": "apartments in dubai sports city"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/canal_residence_2222021_7c986f3596.jpg",
+        "alt": "canal residence, dubai sports city"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/9_4_f310c23355.jpg",
+        "alt": "supermarkets in Dubai Sports City"
+      }
+    ]
+  },
+  {
+    "slug": "mohammed-bin-rashid-city",
+    "name": "Mohammed Bin Rashid City",
+    "sourcePage": "https://www.bayut.com/area-guides/mohammed-bin-rashid-city/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/mbr_city_cover_20200423_94a3780a3a.jpg",
+    "sourceAlt": "Mohammed Bin Rashid City (MBR City)",
+    "image": "/images/neighbourhoods/mohammed-bin-rashid-city.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 184424,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/mbr_district_1_4172020_180b20f04a.jpg",
+        "alt": "villa communities in mbr city"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/district_one_4172020_fa16da4711.jpg",
+        "alt": "district one mbr city"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Hartland_International_School_8696de8f09.jpg",
+        "alt": "Hartland International School"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/downtown_342021_de1ec1c46a.jpg",
+        "alt": "Downtown Dubai near MBR City"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Jumeirah_Public_Beach_4172020_32e0cc913d.jpg",
+        "alt": "jumeirah beach near mbr city"
+      }
+    ]
+  },
+  {
+    "slug": "the-hills",
+    "name": "The Hills",
+    "sourcePage": "https://www.bayut.com/area-guides/the-hills/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/the_hills_cover_20200315_4972c2e426.jpg",
+    "sourceAlt": "The Hills",
+    "image": "/images/neighbourhoods/the-hills.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 100066,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Vida_Community_3_55485c6e31.jpg",
+        "alt": "the hills community"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Vida_Residence_3_1_bb33833040.jpg",
+        "alt": "buildings in the hills"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Vida_Residence_2_1_2996ae33a1.jpg",
+        "alt": "vida residence a2"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Vida_Residence_4_3_a8bc12f1a8.jpg",
+        "alt": "The Hills Sheikh Zayed Road"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Dewdrops_Nursery_JLT_Cluster_X_2_28277f5d5b.jpg",
+        "alt": "dewdrops nursery jlt"
+      }
+    ]
+  },
+  {
+    "slug": "damac-hills-2",
+    "name": "Damac Hills 2",
+    "sourcePage": "https://www.propertyfinder.ae/en/area-insights/dubai/damac-hills-2",
+    "sourceImage": "https://graph-images.propertyfinder.ae/ae/community/125/fffd0e33f79384147e23dfe771d9183e/watermark.jpeg",
+    "sourceAlt": "Hero banner image for Damac Hills 2",
+    "image": "/images/neighbourhoods/damac-hills-2.webp",
+    "width": 1400,
+    "height": 1000,
+    "bytes": 247836,
+    "alternatives": [
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/125/fffd0e33f79384147e23dfe771d9183e/thumb.jpeg",
+        "alt": "Image for Community Overview in Damac Hills 2"
+      },
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/125/aaf8656919cf7723a8e04297d3103c5b/thumb.jpeg",
+        "alt": "Image for Community Overview in Damac Hills 2"
+      },
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/125/d8fa261ef07419e38321477a01846df0/thumb.jpeg",
+        "alt": "Image for Community Overview in Damac Hills 2"
+      },
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/125/c70f86d9f94ff063fd50a2b30f96a897/thumb.jpeg",
+        "alt": "Image for Community Overview in Damac Hills 2"
+      },
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/125/3c0469c4ae75da8f2e44f834ebc3d70d/thumb.jpeg",
+        "alt": "Image for Nearby Attractions in Damac Hills 2"
+      }
+    ]
+  },
+  {
+    "slug": "dubai-harbour",
+    "name": "Dubai Harbour",
+    "sourcePage": "https://www.dubaiharbour.com/marinas",
+    "sourceImage": "https://cdn.prod.website-files.com/69944f5c3c447bba91a9aa30/69944f5c3c447bba91a9abe1_Marinas%20Header.avif",
+    "sourceAlt": "Dubai Harbour marina at sunset",
+    "image": "/images/neighbourhoods/dubai-harbour.webp",
+    "width": 1800,
+    "height": 900,
+    "bytes": 123712,
+    "alternatives": []
+  },
+  {
+    "slug": "difc",
+    "name": "DIFC",
+    "sourcePage": "https://www.bayut.com/area-guides/difc/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/difc_cover_20200423_scaled_f4f1ce34b8.jpg",
+    "sourceAlt": "dubai international financial centre difc area guide",
+    "image": "/images/neighbourhoods/difc.webp",
+    "width": 1800,
+    "height": 781,
+    "bytes": 242648,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/difc_46d8a8a7f2.jpg",
+        "alt": "dubai international financial centre DIFC community in Dubai"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/DIF_Capartments_3192021_d401aed2ab.jpg",
+        "alt": "apartments for rent in difc"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/difcmetro_3192021_ce44ffbc9b.jpg",
+        "alt": "difc metro station"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/1_1_f41a7d462e.jpg",
+        "alt": "nurseries in DIFC"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/DIFC_A_22_03_b7ffc60604.jpg",
+        "alt": "gate avenue difc is a popular area"
+      }
+    ]
+  },
+  {
+    "slug": "meydan",
+    "name": "Meydan",
+    "sourcePage": "https://www.bayut.com/area-guides/meydan-city/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/2_314ed361a4.jpg",
+    "sourceAlt": "streets in Meydan",
+    "image": "/images/neighbourhoods/meydan.webp",
+    "width": 1440,
+    "height": 900,
+    "bytes": 458894,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Area_Guide_Cover_2b5d233593.jpg",
+        "alt": "Area Guide"
+      }
+    ]
+  },
+  {
+    "slug": "emaar-beachfront-2",
+    "name": "EMAAR Beachfront",
+    "sourcePage": "https://www.bayut.com/area-guides/emaar-beachfront/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/EMAAR_Beachfront_03_09_2020_8552df2cd1.jpg",
+    "sourceAlt": "EMAAR Beachfront, Dubai Harbour",
+    "image": "/images/neighbourhoods/emaar-beachfront-2.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 150040,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Golden_Mile_Galleria_03_09_2020_ef492ae062.jpg",
+        "alt": "Entrance of Golden Mile Galleria"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/JBR_Beach_Near_Arabian_Ranches_168391ad3c.jpg",
+        "alt": "JBR Beach "
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Dubai_Marina_Walk_03_09_2020_ff2dfff545.jpg",
+        "alt": "A view of Dubai Marina Walk"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Ain_Dubai_3_09_2020_160280a8ec.jpg",
+        "alt": "A view of Ain Dubai"
+      }
+    ]
+  },
+  {
+    "slug": "dubai-creek-harbour",
+    "name": "Dubai Creek Harbour",
+    "sourcePage": "https://www.bayut.com/area-guides/dubai-creek-harbour/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/dubai_creek_harbour_1_150425_cc2672e472.jpg",
+    "sourceAlt": "Dubai Creek Harbour",
+    "image": "/images/neighbourhoods/dubai-creek-harbour.webp",
+    "width": 1440,
+    "height": 900,
+    "bytes": 219874,
+    "alternatives": []
+  },
+  {
+    "slug": "dubai-hills-estate",
+    "name": "Dubai Hills Estate",
+    "sourcePage": "https://www.bayut.com/area-guides/dubai-hills-estate/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/Cover_e50ea47d64.jpg",
+    "sourceAlt": "Dubai Hills Estate",
+    "image": "/images/neighbourhoods/dubai-hills-estate.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 112278,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Dubai_Hills_Overview_by_Nicholas_Ryan_0d910b7ef7.jpg",
+        "alt": "Area Overview Dubai Hills"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/acacia_dubai_hills_25825_30c4db1bee.jpg",
+        "alt": "Emaar Dubai Hills apartments for rent"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Gems_World_academy_school_2_8b8e983189.jpg",
+        "alt": "GEMS Wellington Academy in Dubai Hills Estate"
+      }
+    ]
+  },
+  {
+    "slug": "dubai-south",
+    "name": "Dubai South",
+    "sourcePage": "https://www.propertyfinder.ae/en/area-insights/dubai/dubai-south-dubai-world-central",
+    "sourceImage": "https://graph-images.propertyfinder.ae/ae/community/8648/36360ef46df537a5a177c92a8e464d54/watermark.jpeg",
+    "sourceAlt": "Hero banner image for Dubai South (Dubai World Central)",
+    "image": "/images/neighbourhoods/dubai-south.webp",
+    "width": 1400,
+    "height": 1000,
+    "bytes": 354528,
+    "alternatives": [
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/8648/36360ef46df537a5a177c92a8e464d54/thumb.jpeg",
+        "alt": "Image for Nearby Attractions in Dubai South (Dubai World Central)"
+      },
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/8648/f65964babaa2cf2ea77ee09a48ff0f71/thumb.jpeg",
+        "alt": "Image for Nearby Attractions in Dubai South (Dubai World Central)"
+      },
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/8648/79ec66966673ffac842843cda802cc5c/thumb.jpeg",
+        "alt": "Image for Facilities in Dubai South (Dubai World Central)"
+      },
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/8648/ac021c058bbc8fc1040d3dea4bd0ce55/thumb.jpeg",
+        "alt": "Image for Facilities in Dubai South (Dubai World Central)"
+      },
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/8648/43a5e1fcbd8679e4181878b8815c82a0/thumb.jpeg",
+        "alt": "Image for Facilities in Dubai South (Dubai World Central)"
+      }
+    ]
+  },
+  {
+    "slug": "al-sufouh",
+    "name": "Al Sufouh",
+    "sourcePage": "https://www.bayut.com/area-guides/al-sufouh/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/7_1_2c994d320e.jpg",
+    "sourceAlt": "Souk Madinat in Al Sufouh",
+    "image": "/images/neighbourhoods/al-sufouh.webp",
+    "width": 1440,
+    "height": 900,
+    "bytes": 443986,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/area_cover_b791b4526e.jpg",
+        "alt": "Al Sufouh"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/34_1_bd36188974.jpg",
+        "alt": "Leo Burnett in Al Sufouh"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/36_1_85d2d0ea2e.jpg",
+        "alt": "Hilliana Tower Al Sufouh"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/24_b13f5158cf.jpg",
+        "alt": "School in Al Sufouh"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/17_9238c05216.jpg",
+        "alt": "Al Sufouh Beach - perfect leisure spot for families"
+      }
+    ]
+  },
+  {
+    "slug": "damac-lagoons",
+    "name": "DAMAC Lagoons",
+    "sourcePage": "https://www.damacgroup.com/en-ae/d-hub/press-releases/damac-lagoons-begins-handover-welcomes-first-residents-homeowners-santorini-cluster/",
+    "sourceImage": "https://images.ctfassets.net/zoq5l15g49wj/MdCGy2LrK8Iy3bgGDDYxh/54df45103b8a57d5c82c9295f5ebe355/Santorini_16x9.jpg",
+    "sourceAlt": "Santorini at DAMAC Lagoons",
+    "image": "/images/neighbourhoods/damac-lagoons.webp",
+    "width": 1800,
+    "height": 1013,
+    "bytes": 317868,
+    "alternatives": []
+  },
+  {
+    "slug": "maritime-city",
+    "name": "Maritime City",
+    "sourcePage": "https://www.bayut.com/area-guides/dubai-maritime-city/",
+    "sourceImage": "/images/dubai-maritime.webp",
+    "sourceAlt": "Maritime City",
+    "image": "/images/neighbourhoods/maritime-city.webp",
+    "width": 1800,
+    "height": 1073,
+    "bytes": 391198,
+    "alternatives": []
+  },
+  {
+    "slug": "dubai-land",
+    "name": "Dubai Land",
+    "sourcePage": "https://www.bayut.com/area-guides/dubailand/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/cover_1_1_aa2d266e32.jpg",
+    "sourceAlt": "Dubailand",
+    "image": "/images/neighbourhoods/dubai-land.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 187724,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/dubailand_residential_6825_e31c8a8101.jpg",
+        "alt": "dubailand residential area"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/apartments_in_dubailand_6825_075ca57ef7.jpg",
+        "alt": "apartments in dubailand"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Dubai_Outlet_Mall_20200710_23_193c5505f7.jpg",
+        "alt": "Dubai Outlet Mall near Dubailand"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/img_2232021_7b821a7ed4.jpg",
+        "alt": "img worlds of adventure, dubailand"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/24_7afd4c0b96.jpg",
+        "alt": "Park in The Villa Community"
+      }
+    ]
+  },
+  {
+    "slug": "deira",
+    "name": "Deira",
+    "sourcePage": "https://www.bayut.com/area-guides/deira/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/deira_area_guide_cover_2_cc7a1e6efd.jpg",
+    "sourceAlt": "Deira Dubai",
+    "image": "/images/neighbourhoods/deira.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 228268,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/4_c805c8a4a3.jpg",
+        "alt": "Apartments for rent in Deira"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Al_Rigga_30_3_2021_9c213b6dec.jpg",
+        "alt": "buildings in Al Rigga Deira"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/1_b4ad704e47.jpg",
+        "alt": "Al Ghurair Centre in Deira "
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/3_1_2fc4867915.jpg",
+        "alt": "Restaurants in Deira"
+      }
+    ]
+  },
+  {
+    "slug": "damac-hills-akoya-by-damac",
+    "name": "DAMAC Hills (Akoya By DAMAC)",
+    "sourcePage": "https://www.bayut.com/area-guides/damac-hills-akoya-damac/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/Cover_03_2e9b8836b3.jpg",
+    "sourceAlt": "Damac Hills (Akoya by DAMAC)",
+    "image": "/images/neighbourhoods/damac-hills-akoya-by-damac.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 221180,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/8_2_1605ff402f.jpg",
+        "alt": "Damac Hills (Akoya by DAMAC) community"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/2_1_54cadff909.jpg",
+        "alt": "damac hills apartments"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/damac_hills_villas_060923_c0a4bb3e5e.jpg",
+        "alt": "properties for rent in damac hills akoya by damac"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/11_d83f59b1b4.jpg",
+        "alt": "villas in damac hills "
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/14_d492efcb63.jpg",
+        "alt": "houses in Damac Hills (Akoya by DAMAC)"
+      }
+    ]
+  },
+  {
+    "slug": "akoya-oxygen",
+    "name": "Akoya Oxygen",
+    "sourcePage": "https://www.propertyfinder.ae/en/area-insights/dubai/damac-hills-2",
+    "sourceImage": "https://graph-images.propertyfinder.ae/ae/community/125/fffd0e33f79384147e23dfe771d9183e/watermark.jpeg",
+    "sourceAlt": "Hero banner image for Damac Hills 2",
+    "image": "/images/neighbourhoods/akoya-oxygen.webp",
+    "width": 1400,
+    "height": 1000,
+    "bytes": 247836,
+    "alternatives": [
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/125/fffd0e33f79384147e23dfe771d9183e/thumb.jpeg",
+        "alt": "Image for Community Overview in Damac Hills 2"
+      },
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/125/aaf8656919cf7723a8e04297d3103c5b/thumb.jpeg",
+        "alt": "Image for Community Overview in Damac Hills 2"
+      },
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/125/d8fa261ef07419e38321477a01846df0/thumb.jpeg",
+        "alt": "Image for Community Overview in Damac Hills 2"
+      },
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/125/c70f86d9f94ff063fd50a2b30f96a897/thumb.jpeg",
+        "alt": "Image for Community Overview in Damac Hills 2"
+      },
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/125/3c0469c4ae75da8f2e44f834ebc3d70d/thumb.jpeg",
+        "alt": "Image for Nearby Attractions in Damac Hills 2"
+      }
+    ]
+  },
+  {
+    "slug": "the-greens",
+    "name": "The Greens",
+    "sourcePage": "https://www.bayut.com/area-guides/the-greens/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/the_greens_cover_0bba336726.jpg",
+    "sourceAlt": "The Greens",
+    "image": "/images/neighbourhoods/the-greens.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 276138,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/greens_views_entrance_2851943b7b.jpg",
+        "alt": "entrance to the greens"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/greens_views_property_f7b66446e7.jpg",
+        "alt": "apartments in the greens"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/greens_views_property_2_5371fddcf8.jpg",
+        "alt": "apartment complexes in the greens"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/greens_views_parking_c96db2b6dd.jpg",
+        "alt": "mosque in the greens"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/the_greens_3182021_eed8eca617.jpg",
+        "alt": "the greens and the views"
+      }
+    ]
+  },
+  {
+    "slug": "dubai-silicon-oasis",
+    "name": "Dubai Silicon Oasis",
+    "sourcePage": "https://www.bayut.com/area-guides/dubai-silicon-oasis/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/Dubai_Silicon_Oasis_Cover_11_03_6e82b4655c.jpg",
+    "sourceAlt": "Dubai Silicon Oasis area guide",
+    "image": "/images/neighbourhoods/dubai-silicon-oasis.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 210032,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/3_6_137c5eb43a.jpg",
+        "alt": "buildings in Dubai Silicon Oasis dso"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Dubai_Silicon_Oasis_Overview_by_Hassan_Khan_4ba202fc9b.jpg",
+        "alt": "Dubai Silicon Oasis Overview by Hassan Khan"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/SIT_292021_55303148c1.jpg",
+        "alt": "commercial building in dubai silicon oasis dso "
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/4_4_25a1c6e689.jpg",
+        "alt": "apartments for rent in dubai Silicon Oasis dso "
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Cedre_Villas_3122020_c7a78fda33.jpg",
+        "alt": "cedre villas in dso"
+      }
+    ]
+  },
+  {
+    "slug": "the-views",
+    "name": "The Views",
+    "sourcePage": "https://www.bayut.com/area-guides/the-views/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/The_Views_cover_20200409_1a29eed09a.jpg",
+    "sourceAlt": "The Views",
+    "image": "/images/neighbourhoods/the-views.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 208366,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/greens_views_20_00bf680fc3.jpg",
+        "alt": "buildings in the views dubai"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/greens_views_06_3f60d5dc7e.jpg",
+        "alt": "apartments for rent in the views "
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/greens_views_12_40cf82fc4f.jpg",
+        "alt": "top buildings in the views "
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/greens_views_parking_93f1cb5ad7.jpg",
+        "alt": "mosque in the greens"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/greens_views_13_02113b8fbf.jpg",
+        "alt": "park in the community"
+      }
+    ]
+  },
+  {
+    "slug": "dubai-production-city-impz",
+    "name": "Dubai Production City (IMPZ)",
+    "sourcePage": "https://www.bayut.com/area-guides/dubai-production-city/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/cover5_e02d74bb42.jpg",
+    "sourceAlt": "Dubai Production City",
+    "image": "/images/neighbourhoods/dubai-production-city-impz.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 226636,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/13_1_6a16dd02b6.jpg",
+        "alt": "View Dubai Production City"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/60_b47961d949.jpg",
+        "alt": "Bus Stop Dubai Production City"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Arcadia_School_28_6_2024_9fbabf4b0b_AR_123_13cac89eb7.jpg",
+        "alt": "Arcadia British School near Dubai Production City"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/8_1_377feaf842.jpg",
+        "alt": "fitness amenities in dubai production city "
+      }
+    ]
+  },
+  {
+    "slug": "jebel-ali",
+    "name": "Jebel Ali",
+    "sourcePage": "https://www.bayut.com/area-guides/jebel-ali/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/jebalalicover_42621_540182cad6.jpg",
+    "sourceAlt": "Jebel Ali",
+    "image": "/images/neighbourhoods/jebel-ali.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 96146,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/ibnbatutatgate_42621_d7412b8e60.jpg",
+        "alt": "ibn battuta gate, jebel ali village"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/jebelalivillage_42621_976b267e97.jpg",
+        "alt": "jebel ali"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/gardenapartment3_5352a4bb7a.jpg",
+        "alt": "apartments in jebel ali"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/residential_42621_b404368fca.jpg",
+        "alt": "residential area in jebel ali"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/jebelaliresidential_42621_546b3922bb.jpg",
+        "alt": "jebel ali communities"
+      }
+    ]
+  },
+  {
+    "slug": "jumeirah-park",
+    "name": "Jumeirah Park",
+    "sourcePage": "https://www.bayut.com/area-guides/jumeirah-park/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/9_1_7a124eacdc.jpg",
+    "sourceAlt": "Jumeirah Park",
+    "image": "/images/neighbourhoods/jumeirah-park.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 183526,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Jumeirah_park_06_2_907afa4153.jpg",
+        "alt": "Villas in Jumeirah Park"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Jumeirah_park_05_dbb4fe15a3.jpg",
+        "alt": "Luxurious Villas in Jumeirah Park"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Jumeirah_park_03_3e09f529f2.jpg",
+        "alt": "Jumeirah Park Street Navigation"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/57_361757a189.jpg",
+        "alt": "supermarket in jumeirah Park "
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/59_17e5d5d5bd.jpg",
+        "alt": "Dubai British School in Jumeirah Park"
+      }
+    ]
+  },
+  {
+    "slug": "mina-rashid",
+    "name": "Mina Rashid",
+    "sourcePage": "https://www.emaar.com/en/our-communities/rashid-yachts-marina",
+    "sourceImage": "https://uae-cms.emaar.com/uploads/02_Page_top_banner_2880x900px_37f82542e8.jpg",
+    "sourceAlt": "Rashid Yachts and Marina waterfront",
+    "image": "/images/neighbourhoods/mina-rashid.webp",
+    "width": 1800,
+    "height": 563,
+    "bytes": 200926,
+    "alternatives": []
+  },
+  {
+    "slug": "arabian-ranches",
+    "name": "Arabian Ranches",
+    "sourcePage": "https://www.bayut.com/area-guides/arabian-ranches/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/16_1_abc709baef.jpg",
+    "sourceAlt": "Villas in Arabian Ranches",
+    "image": "/images/neighbourhoods/arabian-ranches.webp",
+    "width": 1440,
+    "height": 900,
+    "bytes": 304848,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Area_Guide_Cover_8ff6af931e.jpg",
+        "alt": "Area Guide Cover "
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/arabian_ranches_communities_3262020_a0409c9a56.jpg",
+        "alt": "arabian ranches"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/4_7_b58f51c038.jpg",
+        "alt": "houses in Arabian Ranches"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/arabian_ranches_golf_club_03262020_28201d83bc.jpg",
+        "alt": "arabian ranches golf club"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/mosque_in_arabian_ranches_03262020_4c7bfc486f.jpg",
+        "alt": "mosque in arabian ranches"
+      }
+    ]
+  },
+  {
+    "slug": "arabian-ranches-2",
+    "name": "Arabian Ranches 2",
+    "sourcePage": "https://www.bayut.com/area-guides/arabian-ranches-2/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/17_ddbbc9d429.jpg",
+    "sourceAlt": "Arabian Ranches 2 houses",
+    "image": "/images/neighbourhoods/arabian-ranches-2.webp",
+    "width": 1440,
+    "height": 900,
+    "bytes": 237750,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Area_Guide_Cover_2b5d233593.jpg",
+        "alt": "Arabian Ranches 2"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/8_3_2b3b687d6b.jpg",
+        "alt": "Sub-community signboard in Arabian Ranches 2"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/CASA_6302021_54b80f6523.jpg",
+        "alt": "casa arabian ranches 2"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/RASHA_2_81fb4133f5.jpg",
+        "alt": "Rasha villas"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/3_5_63b9b3c88f.jpg",
+        "alt": "Arabian Ranches 2 mosque"
+      }
+    ]
+  },
+  {
+    "slug": "green-community",
+    "name": "Green Community",
+    "sourcePage": "https://www.propertyfinder.ae/en/area-insights/dubai/dubai-investment-park-dip-dubai-investment-park-1-dip-1-green-community",
+    "sourceImage": "https://graph-images.propertyfinder.ae/ae/community/61/e7077ac8179e8c709b3726a35e93b9fc/watermark.jpeg",
+    "sourceAlt": "Hero banner image for Green Community",
+    "image": "/images/neighbourhoods/green-community.webp",
+    "width": 1400,
+    "height": 1000,
+    "bytes": 373208,
+    "alternatives": [
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/61/e7077ac8179e8c709b3726a35e93b9fc/thumb.jpeg",
+        "alt": "Image for Community Overview in Green Community"
+      },
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/61/5ee47bd67b179a885194373d98fb1083/thumb.jpeg",
+        "alt": "Image for Community Overview in Green Community"
+      },
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/61/913bfca0962aa4d7f7bf998b7084047a/thumb.jpeg",
+        "alt": "Image for Community Overview in Green Community"
+      },
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/61/2ac3041e136275993473db4363d3bf41/thumb.jpeg",
+        "alt": "Image for Community Overview in Green Community"
+      },
+      {
+        "src": "https://graph-images.propertyfinder.ae/ae/community/61/6e628928c21c0a73eaebc5bef9d3deed/thumb.jpeg",
+        "alt": "Image for Nearby Attractions in Green Community"
+      }
+    ]
+  },
+  {
+    "slug": "jumeirah-village-triangle",
+    "name": "Jumeirah Village Triangle",
+    "sourcePage": "https://www.bayut.com/area-guides/jumeirah-village-triangle/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/Cover_image_JVT_080321_74644e5ee8.jpg",
+    "sourceAlt": "Jumeirah Village Triangle (JVT)",
+    "image": "/images/neighbourhoods/jumeirah-village-triangle.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 197334,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/4_2_1_6b6ccaa10a.jpg",
+        "alt": "Villas Jumeirah Village Triangle"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/6_3_e0bd48c4ab.jpg",
+        "alt": "Apartments Jumeirah Village Triangle"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/12_563eb0be68.jpg",
+        "alt": "Parking Spaces Jumeirah Village Triangle"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/3_2_1_2305cd62ac.jpg",
+        "alt": "Arcadia Preparatory School Jumeirah Village Triangle "
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/jvc_392021_e77a5c35a9.jpg",
+        "alt": "Jumeirah Village Circle (JVC) near JVT"
+      }
+    ]
+  },
+  {
+    "slug": "al-habtoor-city",
+    "name": "Al Habtoor City",
+    "sourcePage": "https://www.bayut.com/area-guides/al-habtoor-city/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/al_habtoor_city_20200205_3691e23c9a.jpg",
+    "sourceAlt": "Al Habtoor City, Business Bay",
+    "image": "/images/neighbourhoods/al-habtoor-city.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 244486,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Al_habtoor_city_residence_collection_20200206_86f8bd6c5c.jpg",
+        "alt": "residence collection towers al habtoor city"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/bay_avenue_10_29_2019_6ed993b669.jpg",
+        "alt": "bay avenue near al habtoor city"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/jumeirah_beach_library_10_29_2019_b1a3fc29b5.jpg",
+        "alt": "activities in jumeirah beach near al habtoor city"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/dubai_canal_2_49f7bee245.jpg",
+        "alt": "dubai canal view near al habtoor city"
+      }
+    ]
+  },
+  {
+    "slug": "umm-suqeim",
+    "name": "Umm Suqeim",
+    "sourcePage": "https://www.bayut.com/area-guides/umm-suqeim/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/Volleyball_court_7_6_2024_e4f6036ea8.jpg",
+    "sourceAlt": "Kite Beach Dubai",
+    "image": "/images/neighbourhoods/umm-suqeim.webp",
+    "width": 1024,
+    "height": 640,
+    "bytes": 87478,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/area_cover_1da2471c37.jpg",
+        "alt": "Area Guide"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/6_1206259393.jpg",
+        "alt": "Mosque in Umm Suqeim"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Eat_and_Drink_restaurant_c5716f4391.jpg",
+        "alt": "restaurant in Umm Suqeim"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Umm_Suquiem_2_Dubai_Offshore_Sailing_Club_20_4_2021_08cb14d106.jpg",
+        "alt": "Street view of Dubai Offshore Sailing Club"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Umm_Suqeim_Park_jogging_track_7_6_2024_1e74770bff.jpg",
+        "alt": "Umm Suqeim Park"
+      }
+    ]
+  },
+  {
+    "slug": "the-springs",
+    "name": "The Springs",
+    "sourcePage": "https://www.bayut.com/area-guides/the-springs/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/Springs_Cover_Image_Area_Guide_1_d007891b63.jpg",
+    "sourceAlt": "Springs Dubai",
+    "image": "/images/neighbourhoods/the-springs.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 149750,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/spring_08_preview_b5c8f8aacd.jpeg",
+        "alt": "buying villas in the springs"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/spring_01_preview_e3b68fd762.jpeg",
+        "alt": "Beautiful homes in the Springs "
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/spring_04_4c25e87800.jpg",
+        "alt": "milk and honey grocery in the springs"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/9_1_84c4f835ea.jpg",
+        "alt": "Dubai British School"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/spring_06_preview_fd8cbb49d7.jpeg",
+        "alt": "a view of The Springs community in Dubai"
+      }
+    ]
+  },
+  {
+    "slug": "discovery-gardens",
+    "name": "Discovery Gardens",
+    "sourcePage": "https://www.bayut.com/area-guides/discovery-gardens/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/Discover_Gardens_featured_Image_AG_fe31b8fd9e.jpg",
+    "sourceAlt": "Discovery Gardens",
+    "image": "/images/neighbourhoods/discovery-gardens.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 361894,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/discovery_gardens_122022_0ea73d5ec1.jpg",
+        "alt": "living in discovery gardens community dubai"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Discovery_Garden_2162021_59aa838968.jpg",
+        "alt": "Discovery Gardens, Dubai"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/30_8df00fa550.jpg",
+        "alt": "Discovery gardens apartments and flats for rent and sale"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/24_20523cb3a7.jpg",
+        "alt": "Parking spaces in Discovery Gardens"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/10_762ad460fb.jpg",
+        "alt": "Nakheel Harbour and Tower metro near Discovery gardens"
+      }
+    ]
+  },
+  {
+    "slug": "nadd-al-sheba",
+    "name": "Nadd Al Sheba",
+    "sourcePage": "https://www.bayut.com/area-guides/nad-al-sheba/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/nal_al_sheba_1_8171de9769.jpg",
+    "sourceAlt": "Nad Al Sheba",
+    "image": "/images/neighbourhoods/nadd-al-sheba.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 185836,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/nadalsheba_3122021_41c4d68569.jpg",
+        "alt": "nad al sheba dubai location"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/cafe3122021_936dc9b9b9.jpg",
+        "alt": "cafeteria nad al sheba cycle park"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/IMG_Worlds_of_Adventure_20_12_2024_d07b5d752e.jpg",
+        "alt": "IMG World of Adventures"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/outdoor_3122021_5d6b1e3903.jpg",
+        "alt": "nad al sheba cycle park"
+      }
+    ]
+  },
+  {
+    "slug": "al-jaddaf",
+    "name": "Al Jaddaf",
+    "sourcePage": "https://www.bayut.com/area-guides/al-jaddaf/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/Al_Jaddaf_Cover_07_09_9e3df3357f.jpg",
+    "sourceAlt": "Al Jaddaf",
+    "image": "/images/neighbourhoods/al-jaddaf.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 81384,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Al_Jaddaf_Waterfront_Residential_buildings_in_Manazel_Al_Khor_Image_14_5_Dec_2022_07ab74e2ee.jpg",
+        "alt": "Apartment buildings in Al Jaddaf"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Al_Jaddaf_Waterfront_Palazzo_Versace_Dubai_Hotel_Image_7_5_Dec_2022_3146696c04.jpg",
+        "alt": "Hotel in Al Jadaf"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Al_Jaddaf_Waterfront_Parking_View_Body_17_6_12_22_7f125d5a96.jpg",
+        "alt": "Parking in Al Jaddaf"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Al_Jaddaf_Waterfront_Al_Jadaf_Metro_Station_Image_3_5_Dec_2022_278dca0d78.jpg",
+        "alt": "Al Jadaf Metro Station "
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Al_Jaddaf_Waterfront_W_MART_Supermarket_Body_2_7_12_22_2a5d656cfb.jpg",
+        "alt": " W Mart Supermarket in Al Jaddaf"
+      }
+    ]
+  },
+  {
+    "slug": "barsha-heights-tecom",
+    "name": "Barsha Heights (Tecom)",
+    "sourcePage": "https://www.bayut.com/area-guides/barsha-heights/",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/Barsha_Heights_Cover_11_05_d7e3fa76ae.jpg",
+    "sourceAlt": "Barsha Heights",
+    "image": "/images/neighbourhoods/barsha-heights-tecom.webp",
+    "width": 1440,
+    "height": 625,
+    "bytes": 209916,
+    "alternatives": [
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/11_f31bcb8e88.jpg",
+        "alt": "apartments in barsha heights"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Two_Towers_A_16th_March_2021_d893837a24.jpg",
+        "alt": "Two Towers A in Barsha Heights"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Media_Rotana_16th_March_2021_69ca2d1bee.jpg",
+        "alt": "Media Rotana in Tecom"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/Dubai_Internet_City_Metro_Station_16th_March_2021_7ad46aa81a.jpg",
+        "alt": "Entrance of Dubai Internet City Metro Station"
+      },
+      {
+        "src": "https://d3ob0s3rxbjyep.cloudfront.net/content/15_2ee37cd5af.jpg",
+        "alt": "Mosques in Barsha Heights"
+      }
+    ]
+  }
+]

@@ -50,9 +50,9 @@ export function CtaBanner({
 }
 
 /** Accessible accordion built on <details>/<summary>; answers are HTML copied from the original page */
-export function Accordion({ items, dark = false, defaultOpenFirst = false }: { items: { q: string; a: string }[]; dark?: boolean; defaultOpenFirst?: boolean }) {
+export function Accordion({ items, dark = false, defaultOpenFirst = false, className = "" }: { items: { q: string; a: string }[]; dark?: boolean; defaultOpenFirst?: boolean; className?: string }) {
   return (
-    <div className={`divide-y border ${dark ? "divide-white/15 border-white/15" : "divide-line border-line"}`}>
+    <div className={`divide-y border ${dark ? "divide-white/15 border-white/15" : "divide-line border-line"} ${className}`}>
       {items.map((it, index) => (
         // Native toggles may change `open` before hydration; retain the visitor's choice.
         <details key={it.q} open={defaultOpenFirst && index === 0} suppressHydrationWarning className="group">

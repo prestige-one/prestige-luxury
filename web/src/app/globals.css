@@ -219,6 +219,12 @@ p {
   }
 }
 
+/* Keep the expanded FAQ question visually distinct from its answer. */
+.pl-faq-accordion details[open] > summary {
+  background-color: #000;
+  color: #fff;
+}
+
 /* Decorative native video must never expose playback chrome while loading. */
 .pl-background-video::-webkit-media-controls,
 .pl-background-video::-webkit-media-controls-start-playback-button {

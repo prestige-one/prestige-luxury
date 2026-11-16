@@ -1,0 +1,192 @@
+{
+  "title": "Frequently Asked Questions About Dubai Real Estate",
+  "seoTitle": "Dubai Real Estate FAQs | Buy, Sell & Rent | Prestige Luxury",
+  "description": "Explore FAQs about buying, selling, renting and property management in Dubai. Get expert guidance from Prestige Luxury Real Estate.",
+  "intro": "Buying, selling, renting or managing property in Dubai? Find answers to the most common real estate questions, with expert guidance from Prestige Luxury Real Estate.",
+  "groups": [
+    {
+      "id": "buying",
+      "title": "Buying Property in Dubai",
+      "label": "Buying property",
+      "description": "Ownership, purchase costs, mortgages and investment considerations.",
+      "items": [
+        {
+          "q": "Can foreigners buy property in Dubai?",
+          "a": "<p>Yes. Foreign nationals can purchase property with full ownership rights in Dubai's designated freehold areas. Prestige Luxury Real Estate helps international and UAE-based buyers explore suitable apartments, villas and investment properties across Dubai.</p>"
+        },
+        {
+          "q": "What is the process of buying a property in Dubai?",
+          "a": "<p>Buying property in Dubai generally involves selecting a property, negotiating the purchase price, signing the sale agreement, arranging payments and completing the ownership transfer through Dubai Land Department.</p>"
+        },
+        {
+          "q": "What are the additional costs when buying property in Dubai?",
+          "a": "<p>Property buyers should budget for Dubai Land Department registration fees, real estate agency fees, trustee charges and applicable mortgage-related expenses.</p><p>The standard DLD sale-registration fee totals 4% of the property value, while other costs vary according to the transaction. Prestige Luxury Real Estate can help buyers understand the applicable expenses before proceeding.</p><p><a href=\"https://dubailand.gov.ae/en/eservices/property-sale-registration/\" target=\"_blank\" rel=\"noopener noreferrer\">DLD property sale registration</a></p>"
+        },
+        {
+          "q": "Is it better to buy an off-plan or ready property in Dubai?",
+          "a": "<p>The right choice depends on your budget, investment objectives and intended use.</p><p>Off-plan properties may offer structured payment plans and the opportunity to purchase before completion. Ready properties allow buyers to inspect the completed home and, where applicable, generate rental income sooner.</p><p>Our expert team can help you compare both options based on your requirements.</p>"
+        },
+        {
+          "q": "Can I buy property in Dubai without being a UAE resident?",
+          "a": "<p>Yes. Non-residents can purchase property in designated freehold areas without holding a UAE residence visa.</p><p>Prestige Luxury Real Estate assists overseas buyers with identifying suitable properties, coordinating viewings and navigating the purchase process. Certain transaction stages may require attendance or legally authorised representation.</p>"
+        },
+        {
+          "q": "What documents are required to buy property in Dubai?",
+          "a": "<p>The required documents depend on whether you are purchasing as an individual, company or mortgage buyer.</p><p>Individual purchasers typically need a valid Emirates ID or passport, together with the relevant purchase and financing documents. Additional paperwork may be required for corporate ownership or mortgage transactions.</p>"
+        },
+        {
+          "q": "Can expatriates and non-residents get a mortgage in Dubai?",
+          "a": "<p>Yes. UAE residents and eligible non-residents may apply for property financing through banks operating in the UAE.</p><p>Mortgage approval depends on factors such as income, employment, credit history, age and the property's eligibility. Our expert team can help you identify properties that suit your purchasing budget while you arrange financing with your chosen lender.</p>"
+        },
+        {
+          "q": "Which areas in Dubai are best for property investment?",
+          "a": "<p>The most suitable investment location depends on your priorities, whether rental income, long-term capital appreciation or personal use.</p><p>Emerging investment destinations such as Dubai Islands and Meydan attract buyers and offer different entry prices and growth opportunities.</p>"
+        },
+        {
+          "q": "How do I calculate the rental yield of a property in Dubai?",
+          "a": "<p>Gross rental yield is calculated by dividing the annual rental income by the property's purchase price and multiplying by 100.</p><p>For a more realistic assessment, investors should also consider service charges, maintenance, vacancy periods and management fees.</p>"
+        },
+        {
+          "q": "Can buying property in Dubai qualify me for a UAE Golden Visa?",
+          "a": "<p>Eligible property investors may qualify for the UAE's 10-year Golden Visa.</p><p>Dubai Land Department currently provides a Golden Visa application service for qualifying property investors whose purchase value meets the AED 2 million threshold. Other eligibility and documentation requirements apply.</p><p><a href=\"https://dubailand.gov.ae/en/eservices/request-for-golden-visa-investor/\" target=\"_blank\" rel=\"noopener noreferrer\">DLD Golden Visa application requirements</a></p>"
+        }
+      ]
+    },
+    {
+      "id": "selling",
+      "title": "Selling Property in Dubai",
+      "label": "Selling property",
+      "description": "Valuations, marketing, documentation and completing your sale.",
+      "items": [
+        {
+          "q": "How do I sell my property in Dubai?",
+          "a": "<p>Selling property in Dubai begins with understanding its market value and preparing it for sale.</p><p>Prestige Luxury Real Estate assists owners with professional property appraisals, pricing recommendations, photography, marketing, buyer enquiries, viewings and negotiations.</p><p>Once a suitable offer is accepted, the team helps coordinate the documentation and ownership transfer process.</p>"
+        },
+        {
+          "q": "What is the process of selling a property in Dubai?",
+          "a": "<p>The property selling process generally includes:</p><ul><li>Obtaining a property valuation.</li><li>Listing and marketing the property.</li><li>Receiving and negotiating offers.</li><li>Signing the sale agreement.</li><li>Obtaining the required developer NOC.</li><li>Completing payment and ownership transfer.</li></ul>"
+        },
+        {
+          "q": "How can I find out the current market value of my property in Dubai?",
+          "a": "<p>A property's market value depends on its location, size, condition, features, recent comparable transactions and current buyer demand.</p><p>Prestige Luxury Real Estate provides property appraisals supported by market knowledge and comparable sales, helping owners establish a competitive asking price.</p><p><a href=\"/property-valuation/\">Request a Property Valuation</a></p>"
+        },
+        {
+          "q": "What fees are involved in selling property in Dubai?",
+          "a": "<p>Selling costs may include real estate agency commission, developer NOC charges, mortgage settlement expenses and any agreed contribution towards registration fees.</p><p>The DLD registration fee is ordinarily 4% in total, with the allocation between buyer and seller determined by the applicable rules and transaction agreement.</p><p>Our expert team can help sellers understand their expected costs before listing.</p>"
+        },
+        {
+          "q": "How long does it take to sell a property in Dubai?",
+          "a": "<p>The time required depends on the property's location, asking price, condition, buyer demand and financing arrangements.</p><p>Our expert team uses professional property photography, digital advertising and established property portals to increase exposure to potential buyers.</p><p>A competitive asking price and complete documentation can also help reduce delays.</p>"
+        },
+        {
+          "q": "Can I sell my property in Dubai if it is currently rented out?",
+          "a": "<p>Yes. A property can generally be sold while it is occupied by a tenant.</p><p>However, the existing tenancy agreement and the buyer's intended use must be considered. Selling a tenanted property does not automatically end the tenancy.</p><p>Our expert team can help owners market rented properties and coordinate with tenants during the sales process.</p>"
+        },
+        {
+          "q": "Can I sell a mortgaged property in Dubai?",
+          "a": "<p>Yes. Property owners can sell a mortgaged property, provided the outstanding financing is addressed as part of the transaction.</p><p>Depending on the circumstances, this may involve a mortgage liability letter, loan settlement and mortgage release before ownership transfer.</p><p>Our team can help coordinate the sales process with buyers, lenders and the relevant transaction parties.</p>"
+        },
+        {
+          "q": "What documents are required to sell a property in Dubai?",
+          "a": "<p>Sellers generally need proof of ownership, identification documents, the relevant sale agreement and a developer NOC where applicable.</p><p>Additional documentation may be required for mortgaged properties, corporate ownership or transactions completed through a power of attorney.</p><p>Prestige Luxury Real Estate assists sellers in identifying and preparing the required documents.</p>"
+        },
+        {
+          "q": "Do I need a No Objection Certificate (NOC) to sell my property in Dubai?",
+          "a": "<p>A developer NOC is generally required for ownership transfers in applicable freehold developments.</p><p>The certificate confirms that the developer has no objection to the sale, subject to the relevant requirements being satisfied.</p><p>Prestige Luxury Real Estate helps coordinate the NOC process as part of its sales progression services.</p><p><a href=\"https://dubailand.gov.ae/en/eservices/property-sale-registration/\" target=\"_blank\" rel=\"noopener noreferrer\">DLD property sale registration</a></p>"
+        },
+        {
+          "q": "Why should I sell my property through Prestige Luxury Real Estate?",
+          "a": "<p>Prestige Luxury Real Estate combines 20+ years of expertise with professional marketing and dedicated sales support.</p><p>Our property marketing approach includes photography, digital advertising and listings on major property portals. The team also supports owners with negotiations, documentation and transaction coordination.</p><p>The objective is to position each property effectively and connect sellers with suitable buyers.</p>"
+        }
+      ]
+    },
+    {
+      "id": "renting",
+      "title": "Renting Property in Dubai",
+      "label": "Renting property",
+      "description": "Rental offers, tenancy agreements, payments and moving in.",
+      "items": [
+        {
+          "q": "How do I rent an apartment or villa in Dubai?",
+          "a": "<p>Start by identifying your preferred location, property type, budget and move-in date.</p><p>Prestige Luxury Real Estate can help you explore available apartments and villas, arrange viewings and negotiate rental terms.</p><p>Once an offer is accepted, the next steps generally include signing the tenancy agreement, arranging the required payments and completing the move-in formalities.</p>"
+        },
+        {
+          "q": "What documents are required to rent property in Dubai?",
+          "a": "<p>Tenants are commonly asked to provide a valid passport, Emirates ID and residence visa where applicable.</p><p>The exact requirements may vary depending on the property, landlord and applicant's circumstances.</p><p>Prestige Luxury Real Estate guides prospective tenants through the documentation required for their chosen rental property.</p>"
+        },
+        {
+          "q": "What are the upfront costs of renting a property in Dubai?",
+          "a": "<p>Initial rental expenses typically include the agreed rent payment, refundable security deposit, agency commission and Ejari registration charges.</p><p>Additional costs may include utility deposits, moving expenses and applicable building or cooling-related charges.</p><p>We can help tenants understand the expected costs before committing to a property.</p>"
+        },
+        {
+          "q": "How do I submit a rental offer for a property in Dubai?",
+          "a": "<p>Once you have selected a property, you can submit an offer outlining your proposed annual rent, payment schedule and intended move-in date.</p><p>Prestige Luxury Real Estate communicates the offer to the landlord and assists with negotiations.</p><p>If the offer is accepted, the tenancy documentation and payment arrangements can be prepared.</p>"
+        },
+        {
+          "q": "What is Ejari, and why is it required in Dubai?",
+          "a": "<p>Ejari is Dubai's official system for registering tenancy contracts.</p><p>It records the rental agreement and supports important tenancy-related procedures, including utility activation and other administrative requirements.</p><p>Our expert team can guide tenants through the Ejari registration process and explain the documents required.</p><p><a href=\"https://dubailand.gov.ae/en/frequently-asked-questions/\" target=\"_blank\" rel=\"noopener noreferrer\">Dubai Land Department tenancy FAQs</a></p>"
+        },
+        {
+          "q": "Can I rent a property in Dubai with monthly payments?",
+          "a": "<p>Some landlords offer flexible rental payment arrangements, including monthly payments. However, availability depends on the property and the landlord's agreed terms.</p><p>Many residential properties are still offered with annual rent payable through an agreed number of instalments (1-6 Cheques).</p><p>Prestige Luxury Real Estate can help tenants explore available payment options before submitting an offer.</p>"
+        },
+        {
+          "q": "How much can a landlord increase rent in Dubai?",
+          "a": "<p>Rental increases are regulated and depend on the applicable Dubai Land Department Rental Index and legal requirements.</p><p>In general, changes to rental terms must be communicated at least 90 days before the contract expires, unless otherwise agreed.</p><p>Tenants can use the official rental calculator to check whether a proposed increase is permitted.</p><p><a href=\"https://dubailand.gov.ae/en/frequently-asked-questions/\" target=\"_blank\" rel=\"noopener noreferrer\">Dubai Land Department tenancy FAQs</a></p>"
+        },
+        {
+          "q": "How much is the security deposit when renting property in Dubai?",
+          "a": "<p>Security deposits are commonly around 5% of annual rent for unfurnished residential properties and 10% for furnished properties, although the actual amount depends on the tenancy agreement.</p><p>The deposit is generally refundable at the end of the tenancy, subject to legitimate deductions.</p>"
+        },
+        {
+          "q": "Can I terminate my tenancy contract early in Dubai?",
+          "a": "<p>Early termination depends on the tenancy agreement and any applicable legal provisions.</p><p>Some contracts include a specified notice period or early termination penalty. Tenants should review these conditions and discuss their circumstances with the landlord before proceeding.</p><p>Our expert team can help tenants understand the contractual process and communicate with the relevant parties.</p>"
+        },
+        {
+          "q": "Who is responsible for maintenance and repairs in a rented property?",
+          "a": "<p>In Dubai, the landlord is generally responsible for maintenance and repairs that affect the property's intended use, unless the parties have agreed otherwise.</p><p>The tenancy contract may allocate certain minor maintenance responsibilities to the tenant.</p>"
+        }
+      ]
+    },
+    {
+      "id": "management",
+      "title": "Property Management in Dubai",
+      "label": "Property management",
+      "description": "Management packages, tenant support and looking after your property.",
+      "items": [
+        {
+          "q": "What does a property management company in Dubai do?",
+          "a": "<p>A property management company oversees the day-to-day responsibilities associated with owning rental property.</p><p>Depending on the service package, this may include marketing, tenant sourcing, tenancy documentation, rent collection, inspections, maintenance coordination and lease renewals.</p><p>Prestige Luxury Real Estate offers property management solutions designed to simplify ownership for local and overseas landlords.</p>"
+        },
+        {
+          "q": "How much does property management cost with Prestige Luxury Real Estate?",
+          "a": "<p>Prestige Luxury Real Estate currently advertises three annual property management packages:</p><ul><li>Basic: AED 3,999 per year</li><li>Advance: AED 4,999 per year</li><li>Prestige: AED 6,999 per year</li></ul><p>Each package includes different levels of assistance, from tenant sourcing and tenancy preparation to more comprehensive property and financial management services.</p><p>Additional services or expenses may be charged separately.</p>"
+        },
+        {
+          "q": "What services are included in Prestige Luxury's property management packages?",
+          "a": "<p>Prestige Luxury Real Estate offers three levels of property management.</p><p>The Basic package covers services such as property marketing, tenant sourcing, screening and tenancy agreement preparation.</p><p>The Advance package adds services including a dedicated property manager, maintenance coordination and tenancy renewals.</p><p>The Prestige package includes additional support such as quarterly financial statements, key holding and assistance with certain property-related administrative matters.</p>"
+        },
+        {
+          "q": "Can Prestige Luxury manage my property if I live outside the UAE?",
+          "a": "<p>Yes. Prestige Luxury Real Estate provides property management services for both UAE-based and overseas landlords.</p><p>Depending on your chosen package and authorisations, the team can assist with tenant coordination, rental payments, inspections, maintenance and tenancy administration.</p><p>This allows overseas property owners to manage their Dubai real estate interests without being personally present for every routine matter.</p>"
+        },
+        {
+          "q": "How does Prestige Luxury find reliable tenants for my property?",
+          "a": "<p>Prestige Luxury Real Estate's Basic property management package includes property marketing, professional photography, accompanied viewings and tenant screening.</p><p>The team also collects relevant tenant documentation and helps prepare the tenancy agreement.</p><p>While no agency can guarantee when a suitable tenant will be secured, these services are intended to support efficient leasing and informed tenant selection.</p>"
+        },
+        {
+          "q": "Can I pay the property management fee after my property has been rented?",
+          "a": "<p>Prestige Luxury Real Estate's published policy allows for a payment arrangement linked to securing a tenant.</p><p>However, a minimum upfront payment of AED 3,000 is required to cover management-related costs before the property is rented.</p><p>The remaining payment arrangements should be confirmed with the property management team before signing the agreement.</p>"
+        },
+        {
+          "q": "How does Prestige Luxury handle rent collection and property maintenance?",
+          "a": "<p>Prestige Luxury Real Estate offers rent-related administration and maintenance support according to the selected management package.</p><p>The Advance package includes services such as banking rental cheques, managing tenant complaints and coordinating repairs.</p><p>The Prestige package also includes quarterly financial reporting and additional property management assistance.</p>"
+        },
+        {
+          "q": "What happens if I want to cancel my property management agreement?",
+          "a": "<p>According to Prestige Luxury Real Estate's published policy, owners wishing to terminate their property management agreement must provide 90 days' written notice, including the reason for termination.</p><p>Outstanding rental funds held by the managing agent are returned after applicable deductions, such as authorised property expenses.</p><p>Owners should review their signed management agreement for the complete cancellation terms.</p>"
+        }
+      ]
+    }
+  ]
+}

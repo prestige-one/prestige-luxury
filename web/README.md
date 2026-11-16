@@ -22,7 +22,10 @@ All enquiry forms use `/api/lead` and the same Brevo SMTP configuration in `web/
 (copy `.env.example` to `.env` when setting up another checkout).
 Replace `SMTP_PASSWORD` with a **Brevo SMTP key**, not a REST API key. The configured
 sender `LEAD_FROM_EMAIL` must be verified in Brevo. The current recipient is
-`sumith@prestigeone.ae`; change `LEAD_TO_EMAIL` when ready. Restart the server after
+`sumith@prestigeone.ae`; change `LEAD_TO_EMAIL` when ready. Multiple recipients can
+be comma-separated. Optional `LEAD_CC_EMAIL` adds copy recipients to every enquiry.
+For Vercel, set these server environment variables in Project Settings → Environment
+Variables, then redeploy. Local `.env` changes do not update Vercel settings. Restart the server after
 editing credentials. `.env` is ignored by Git.
 
 Run the SMTP configuration tests with `node --test tests/lead-mail.test.mjs`.

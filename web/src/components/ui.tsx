@@ -56,10 +56,10 @@ export function Button({ href, children, variant = "dark", className = "" }: But
 }
 
 /** Banner used at the top of inner pages: background photo with dark overlay and centred title */
-export function PageBanner({ title, subtitle, image }: { title: string; subtitle?: string; image?: string }) {
+export function PageBanner({ title, subtitle, image, imageQuality, imageClassName = "opacity-55" }: { title: string; subtitle?: string; image?: string; imageQuality?: number; imageClassName?: string }) {
   return (
     <section className="relative flex min-h-[260px] items-center justify-center overflow-hidden bg-black text-center md:min-h-[340px]">
-      {image && <Media src={image} alt="" fill priority tone="ink" sizes="100vw" className="object-cover opacity-55" />}
+      {image && <Media src={image} alt="" fill priority tone="ink" sizes="100vw" quality={imageQuality} className={`object-cover ${imageClassName}`} />}
       {image && <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/35" aria-hidden />}
       <div className="relative z-10 px-5 py-16 md:py-20">
         <h1 className="text-[30px] font-medium capitalize leading-[1.2] tracking-[-0.01em] text-white sm:text-[34px] md:text-[44px]">{title}</h1>

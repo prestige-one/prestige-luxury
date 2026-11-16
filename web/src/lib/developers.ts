@@ -8,7 +8,7 @@ import { properties, slugify, type Property } from "./properties";
 
 export type DeveloperStatus = "registered" | "registered-portal" | "for-renewal";
 
-export type DeveloperProject = { name: string; community: string | null };
+export type DeveloperProject = { name: string; community: string | null; aliases?: string[] };
 
 export type Developer = {
   slug: string;
@@ -61,10 +61,10 @@ function termPattern(term: string): RegExp | null {
   return new RegExp(`(?<![\\p{L}\\p{N}])${escaped}(?![\\p{L}\\p{N}])`, "iu");
 }
 
-/** The project and community names a developer is recognised by, de-duplicated. */
+/** Known project names and feed aliases, without the wider communities they are located in. */
 function developerTerms(d: Developer): string[] {
   const seen = new Map<string, string>();
-  for (const term of [...d.projects.map((p) => p.name), ...d.communities]) {
+  for (const term of d.projects.flatMap((project) => [project.name, ...(project.aliases ?? [])])) {
     const key = slugify(term ?? "");
     if (key && !seen.has(key)) seen.set(key, term);
   }
@@ -72,17 +72,17 @@ function developerTerms(d: Developer): string[] {
 }
 
 /**
- * Listings that belong to a developer: any whose title, address or community names one of the
- * developer's projects or communities. Returns [] when the developer has no project/community
- * data yet, or when nothing matches.
+ * Match known projects or an explicitly branded building. Being in a community where a developer
+ * builds is not evidence that the developer built that property.
  */
 export function developerProperties(d: Developer, list: Property[] = properties): Property[] {
   const patterns = developerTerms(d)
     .map(termPattern)
     .filter((r): r is RegExp => r !== null);
-  if (!patterns.length) return [];
+  const brand = termPattern(d.name.replace(/\s+(?:developments?|developers?|properties|realty|real estate)\b.*$/i, ""));
+  if (!patterns.length && !brand) return [];
   return list.filter((p) => {
     const haystack = [p.title, ...p.location, p.community].filter(Boolean).join(" | ");
-    return patterns.some((re) => re.test(haystack));
+    return patterns.some((re) => re.test(haystack)) || Boolean(brand?.test(p.location[0] ?? ""));
   });
 }

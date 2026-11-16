@@ -9,10 +9,13 @@ test('draft routes remain unpublished with query strings, anchors, and canonical
   }
   assert.equal(isPagePublished('/property-management/'), false);
   assert.equal(isPagePublished('/prestige-embankment/'), false);
+  assert.equal(isPagePublished('/projects-for-sale/'), false);
+  assert.equal(isPagePublished('/projects-for-sale-arabic/'), true);
   assert.equal(isPagePublished('/developers/prestige-one-developments/'), true);
 });
 
 test('desktop menus, mobile menus, and footer contain no unpublished links', () => {
   const links = [...mainNav, ...mainNav.flatMap((item) => item.children || []), ...mainNav.flatMap((item) => item.mega?.groups.flatMap((group) => group.links) || []), ...footerColumns.flatMap((column) => column.links)];
   assert.ok(links.every((link) => isPagePublished(link.href)));
+  assert.ok(footerColumns.flatMap((column) => column.links).some((link) => link.label === 'Branded Residences' && link.href === '/branded-residences/'));
 });

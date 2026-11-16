@@ -12,6 +12,7 @@ import {
 } from "@/components/landing/ProjectsShowcase";
 import { BenefitRow, LinksFooter, LpHeading, Reviews, btn, contactFields } from "@/components/landing/shared";
 import { getPage, seoMetadata } from "@/lib/content";
+import { requirePublishedPage } from "@/lib/page-publication-guard";
 
 export const metadata = seoMetadata(getPage("/projects-for-sale/")!);
 
@@ -104,6 +105,7 @@ const reviews = [
 ];
 
 export default function ProjectsForSalePage() {
+  requirePublishedPage("/projects-for-sale/");
   return (
     <div className="pl-project-page">
       <ShowcaseHero

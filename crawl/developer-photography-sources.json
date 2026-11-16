@@ -1,0 +1,320 @@
+[
+  {
+    "slug": "prestige-one-developments",
+    "src": "/wp-content/uploads/2023/05/The-Residence-banner-5-scaled-1.jpg",
+    "alt": "The Residence by Prestige One in Jumeirah Village Circle",
+    "sourcePage": null
+  },
+  {
+    "slug": "nakheel",
+    "src": "/wp-content/uploads/2021/04/aerial-view-of-dubai-palm-jumeirah-island-1170x785.jpg",
+    "alt": "Palm Jumeirah, a Nakheel master community",
+    "sourcePage": null
+  },
+  {
+    "slug": "meraas",
+    "src": "/images/blog/dubai-city-walk-781f808b78.webp",
+    "alt": "City Walk, a Meraas destination in Dubai",
+    "sourcePage": null
+  },
+  {
+    "slug": "meydan",
+    "src": "/images/developers/meydan.webp",
+    "alt": "streets in Meydan",
+    "sourceImage": "/images/neighbourhoods/meydan.webp",
+    "sourcePage": "https://www.bayut.com/area-guides/meydan-city/",
+    "width": 1200,
+    "height": 750
+  },
+  {
+    "slug": "emaar-properties",
+    "src": "/images/blog/SIRDHANA-by-EMAAR-properties-329d24bc0e.webp",
+    "alt": "Sirdhana by Emaar Properties",
+    "sourcePage": null
+  },
+  {
+    "slug": "eagle-hills",
+    "src": "/images/developers/eagle-hills.webp",
+    "alt": "Eagle Hills waterfront development",
+    "sourceImage": "https://eaglehills.com/wp-content/uploads/2024/04/Eagle-Hills-Projects-United-Arab-Emirates.jpeg",
+    "sourcePage": "https://eaglehills.com",
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "slug": "omniyat",
+    "src": "/images/developers/omniyat.webp",
+    "alt": "OMNIYAT architectural development",
+    "sourceImage": "https://cdn.prod.website-files.com/64cd0df1806781d956403b26/64d117230a5dee8c2936236a_sidenav-home.webp",
+    "sourcePage": "https://omniyat.com",
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "slug": "devmark",
+    "src": "/images/developers/devmark.webp",
+    "alt": "Burj Khalifa in Downtown Dubai",
+    "sourceImage": "/images/neighbourhoods/downtown-dubai.webp",
+    "sourcePage": "https://www.bayut.com/area-guides/downtown-dubai/",
+    "width": 1200,
+    "height": 750
+  },
+  {
+    "slug": "ade-properties",
+    "src": "/images/developers/ade-properties.webp",
+    "alt": "Jumeirah Village Circle (JVC)",
+    "sourceImage": "/images/neighbourhoods/jumeirah-village-circle.webp",
+    "sourcePage": "https://www.bayut.com/area-guides/jumeirah-village-circle/",
+    "width": 1200,
+    "height": 521
+  },
+  {
+    "slug": "ag-properties",
+    "src": "/images/developers/ag-properties.webp",
+    "alt": "Dubailand",
+    "sourceImage": "/images/neighbourhoods/dubai-land.webp",
+    "sourcePage": "https://www.bayut.com/area-guides/dubailand/",
+    "width": 1200,
+    "height": 521
+  },
+  {
+    "slug": "ays-developers",
+    "src": "/images/developers/ays-developers.webp",
+    "alt": "living in jumeirah village circle jvc",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/jvc121222_296248093b.jpg",
+    "sourcePage": "https://www.bayut.com/area-guides/jumeirah-village-circle/",
+    "width": 1200,
+    "height": 750
+  },
+  {
+    "slug": "casagrand-developers",
+    "src": "/images/developers/casagrand-developers.webp",
+    "alt": "The Dubai Islands waterfront community",
+    "sourceImage": "/images/dubai-Islands-1.webp",
+    "sourcePage": null,
+    "width": 1055,
+    "height": 778
+  },
+  {
+    "slug": "citi-developers",
+    "src": "/images/developers/citi-developers.webp",
+    "alt": "villas and townhouses in jvc",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/jvc_villas_townhouses_121222_816efabf39.jpg",
+    "sourcePage": "https://www.bayut.com/area-guides/jumeirah-village-circle/",
+    "width": 1200,
+    "height": 750
+  },
+  {
+    "slug": "deca-properties",
+    "src": "/images/developers/deca-properties.webp",
+    "alt": "apartments for rent in jumeirah village circle jvc",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/jvc_apartments_121222_79b1fa490a.jpg",
+    "sourcePage": "https://www.bayut.com/area-guides/jumeirah-village-circle/",
+    "width": 1200,
+    "height": 750
+  },
+  {
+    "slug": "forum-real-estate-development",
+    "src": "/images/developers/forum-real-estate-development.webp",
+    "alt": "Apartments in Jebel Ali",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/gardenapartment3_5352a4bb7a.jpg",
+    "sourcePage": "https://www.bayut.com/area-guides/jebel-ali/",
+    "width": 1200,
+    "height": 750
+  },
+  {
+    "slug": "gfs-real-estate",
+    "src": "/images/developers/gfs-real-estate.webp",
+    "alt": "dubailand residential area",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/dubailand_residential_6825_e31c8a8101.jpg",
+    "sourcePage": "https://www.bayut.com/area-guides/dubailand/",
+    "width": 1200,
+    "height": 750
+  },
+  {
+    "slug": "the-heart-of-europe",
+    "src": "/images/developers/the-heart-of-europe.webp",
+    "alt": "The Heart of Europe island destination",
+    "sourceImage": "https://d159guvtjjsjmp.cloudfront.net/uploads/2026/01/first-bg-1.png",
+    "sourcePage": "https://thoe.com/",
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "slug": "irth-group",
+    "src": "/images/developers/irth-group.webp",
+    "alt": "Business Bay",
+    "sourceImage": "/images/neighbourhoods/business-bay.webp",
+    "sourcePage": "https://www.bayut.com/area-guides/business-bay/",
+    "width": 1200,
+    "height": 521
+  },
+  {
+    "slug": "jad-global",
+    "src": "/images/developers/jad-global-architecture.webp",
+    "alt": "J188 by JAD Global",
+    "sourceImage": "https://backend.jadglobal.ae/storage/projects/media/ci-2026-01-05-457100-ozvq8c6jnjbyx1dx-cover-img-j188.webp",
+    "sourcePage": "https://jadglobal.ae/",
+    "width": 1200,
+    "height": 687
+  },
+  {
+    "slug": "mana-comco-real-estate",
+    "src": "/images/developers/mana-comco-real-estate.webp",
+    "alt": "Dubai Marina",
+    "sourceImage": "/images/neighbourhoods/dubai-marina.webp",
+    "sourcePage": "https://www.bayut.com/area-guides/dubai-marina/",
+    "width": 1200,
+    "height": 521
+  },
+  {
+    "slug": "mashriq-elite",
+    "src": "/images/developers/mashriq-elite.webp",
+    "alt": "Street view Arjan",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/Street_view_Arjan_a8d3c06f26.jpg",
+    "sourcePage": "https://www.bayut.com/area-guides/arjan/",
+    "width": 1200,
+    "height": 750
+  },
+  {
+    "slug": "nexus-developers",
+    "src": "/images/developers/nexus-developers.webp",
+    "alt": "Dubai skyline",
+    "sourceImage": "https://nexusdeveloper.com/wp-content/uploads/2024/07/DubaiSkyline-TravelRepublic-iStock-816341758.jpg",
+    "sourcePage": "https://nexusdeveloper.com/",
+    "width": 1173,
+    "height": 800
+  },
+  {
+    "slug": "object-1",
+    "src": "/images/developers/object-1.webp",
+    "alt": "fortunato townhouses in jvc",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/fortunato_jvc_121322_185409bdd0.jpg",
+    "sourcePage": "https://www.bayut.com/area-guides/jumeirah-village-circle/",
+    "width": 1200,
+    "height": 750
+  },
+  {
+    "slug": "octa-properties",
+    "src": "/images/developers/octa-properties.webp",
+    "alt": "Apartments for rent in Business Bay residential area",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/26_c891e628d9.jpg",
+    "sourcePage": "https://www.bayut.com/area-guides/business-bay/",
+    "width": 1200,
+    "height": 750
+  },
+  {
+    "slug": "peace-homes-development",
+    "src": "/images/developers/peace-homes-development.webp",
+    "alt": "astoria residences jvc",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/astoria_residence_jvc_121222_9b10390f09.jpg",
+    "sourcePage": "https://www.bayut.com/area-guides/jumeirah-village-circle/",
+    "width": 1200,
+    "height": 750
+  },
+  {
+    "slug": "al-yakka-developers",
+    "src": "/images/developers/al-yakka-developers.webp",
+    "alt": "Dubai Studio City",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/Dubai_Studio_City_Cover_24_06_ff1ded6e69.jpg",
+    "sourcePage": "https://www.bayut.com/area-guides/dubai-studio-city/",
+    "width": 1200,
+    "height": 521
+  },
+  {
+    "slug": "stamn-real-estate-development",
+    "src": "/images/developers/stamn-real-estate-development.webp",
+    "alt": "MIA Tower by STAMN Development",
+    "sourceImage": "https://stamndevelopment.com/uploads/images/20260120/dc1a92857eb21aaf789ea85a5ff9f7b2.jpg",
+    "sourcePage": "https://stamndevelopment.com/",
+    "width": 1199,
+    "height": 800
+  },
+  {
+    "slug": "symbolic-real-estate-development",
+    "src": "/images/developers/symbolic-real-estate-development.webp",
+    "alt": "queue point in liwan ",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/4_4_0667d94b75.jpg",
+    "sourcePage": "https://www.bayut.com/area-guides/liwan/",
+    "width": 1200,
+    "height": 750
+  },
+  {
+    "slug": "taraf-development",
+    "src": "/images/developers/taraf-development.webp",
+    "alt": "Apartment buildings in Palm Jumeirah",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/Apartments_in_Palm_Jumeirah_885e7bcc7e.jpg",
+    "sourcePage": "https://www.bayut.com/area-guides/palm-jumeirah/",
+    "width": 1200,
+    "height": 750
+  },
+  {
+    "slug": "townx-development",
+    "src": "/images/developers/townx-development.webp",
+    "alt": "buildings in Arjan",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/geepas_arjan_30925_2468d77d71.jpg",
+    "sourcePage": "https://www.bayut.com/area-guides/arjan/",
+    "width": 1200,
+    "height": 750
+  },
+  {
+    "slug": "leos-developments",
+    "src": "/images/developers/leos-developments.webp",
+    "alt": "Jumeirah Village Triangle (JVT)",
+    "sourceImage": "/images/neighbourhoods/jumeirah-village-triangle.webp",
+    "sourcePage": "https://www.bayut.com/area-guides/jumeirah-village-triangle/",
+    "width": 1200,
+    "height": 521
+  },
+  {
+    "slug": "one-broker-group",
+    "src": "/images/developers/one-broker-group.webp",
+    "alt": "High rise apartments for sale in Business Bay area",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/20_023effee28.jpg",
+    "sourcePage": "https://www.bayut.com/area-guides/business-bay/",
+    "width": 1200,
+    "height": 750
+  },
+  {
+    "slug": "wadan-development",
+    "src": "/images/developers/wadan-development.webp",
+    "alt": "apartments in dubailand",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/apartments_in_dubailand_6825_075ca57ef7.jpg",
+    "sourcePage": "https://www.bayut.com/area-guides/dubailand/",
+    "width": 1200,
+    "height": 750
+  },
+  {
+    "slug": "damac-properties",
+    "src": "/images/blog/damac-properties-1024x576-84683db6e1.webp",
+    "alt": "DAMAC residential development in Dubai",
+    "sourcePage": null
+  },
+  {
+    "slug": "danube-properties",
+    "src": "/images/developers/danube-properties.webp",
+    "alt": "dubai canal business bay area",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/dubai_canal_121922_78241198ac.jpg",
+    "sourcePage": "https://www.bayut.com/area-guides/business-bay/",
+    "width": 1200,
+    "height": 750
+  },
+  {
+    "slug": "sobha-realty",
+    "src": "/images/developers/sobha-realty.webp",
+    "alt": "Ras Al Khor",
+    "sourceImage": "https://d3ob0s3rxbjyep.cloudfront.net/content/ras_al_khor_cover_140419_9929d91bab.jpg",
+    "sourcePage": "https://www.bayut.com/area-guides/ras-al-khor/",
+    "width": 1200,
+    "height": 521
+  },
+  {
+    "slug": "binghatti-developers",
+    "src": "/images/developers/binghatti-developers-architecture.webp",
+    "alt": "Binghatti Aquarise",
+    "sourceImage": "https://binghattiweb.imgix.net/aquarise-home-banner-exterior-2.webp?auto=format,compress&q=85&w=1600",
+    "sourcePage": "https://www.binghatti.com/",
+    "width": 1009,
+    "height": 800
+  }
+]

@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   // Keep the same URLs as the old WordPress site (they all end with "/").
   trailingSlash: true,
   images: {
+    qualities: [75, 85],
     remotePatterns: [
       // Listing photos synced from Property Finder / Bayut
       { protocol: "https", hostname: "**.propertyfinder.ae" },

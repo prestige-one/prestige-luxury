@@ -21,23 +21,18 @@
   ],
   "projects": [
    {
-    "name": "Vista by Prestige One",
-    "community": "Dubai Sports City"
-   },
-   {
-    "name": "Golf Residences by Prestige One",
-    "community": "Dubai Sports City"
-   },
-   {
-    "name": "The Residence by Prestige One",
-    "community": "Jumeirah Village Circle"
-   },
-   {
-    "name": "Berkeley Square North",
-    "community": "Jumeirah Village Circle"
+    "name": "FAUCHON Résidences by Prestige One",
+    "community": "Jumeirah Garden City",
+    "aliases": [
+     "FAUCHON Residences by Prestige One"
+    ]
    },
    {
     "name": "Sanctuary Residences by Prestige One",
+    "community": "Meydan Horizon"
+   },
+   {
+    "name": "Sanctuary Hive by Prestige One",
     "community": "Meydan Horizon"
    },
    {
@@ -45,12 +40,82 @@
     "community": "Dubai Maritime City"
    },
    {
-    "name": "FAUCHON Residences by Prestige One",
-    "community": "Jumeirah Garden City"
+    "name": "Berkeley Square North",
+    "community": "Jumeirah Village Circle",
+    "aliases": [
+     "Berkeley Square"
+    ]
    },
    {
-    "name": "Coastal Haven",
+    "name": "Berkeley Square South",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Luxury Canal Residences",
     "community": "Dubai Islands"
+   },
+   {
+    "name": "Coastal Haven by Prestige Harbour",
+    "community": "Dubai Islands",
+    "aliases": [
+     "Coastal Haven"
+    ]
+   },
+   {
+    "name": "The Boulevard by Prestige One",
+    "community": "Dubai Land Residence Complex"
+   },
+   {
+    "name": "Parkway by Prestige One",
+    "community": "Meydan Horizon"
+   },
+   {
+    "name": "Golf Residences by Prestige One",
+    "community": "Dubai Sports City"
+   },
+   {
+    "name": "The One by Prestige One",
+    "community": "Barsha Heights"
+   },
+   {
+    "name": "Seaside by Prestige One",
+    "community": "Dubai Islands"
+   },
+   {
+    "name": "The Waterway by Prestige One",
+    "community": "Meydan Horizon"
+   },
+   {
+    "name": "Vista by Prestige One",
+    "community": "Dubai Sports City"
+   },
+   {
+    "name": "The Residence by Prestige One",
+    "community": "Jumeirah Village Circle"
+   },
+   {
+    "name": "Luxe Villa",
+    "community": "Palm Jumeirah"
+   },
+   {
+    "name": "Seascape Villa",
+    "community": "Palm Jumeirah"
+   },
+   {
+    "name": "Palm Villa",
+    "community": "Palm Jumeirah"
+   },
+   {
+    "name": "Vista Hub",
+    "community": "Dubai"
+   },
+   {
+    "name": "Prestige Seaside",
+    "community": "Greece"
+   },
+   {
+    "name": "Prestige Square",
+    "community": "Dubai"
    }
   ],
   "communities": [
@@ -61,7 +126,8 @@
    "Meydan Horizon",
    "Palm Jumeirah",
    "Jumeirah Garden City",
-   "Barsha Heights"
+   "Barsha Heights",
+   "Dubai Land Residence Complex"
   ]
  },
  {

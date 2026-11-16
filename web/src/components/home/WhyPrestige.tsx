@@ -34,7 +34,7 @@ export default function WhyPrestige() {
           <p className="mt-4 text-[14px] leading-[1.85] text-white/80">Whether you are buying, renting or selling, we bring local knowledge and personal commitment together to help you move forward with clarity and confidence.</p>
           <div className="mt-6 flex flex-col items-start gap-2">
             <Link href="/contact-us/" className="inline-flex min-h-11 items-center gap-3 border-b border-white/50 text-[13px] font-medium text-white transition-opacity hover:opacity-70 focus-visible:outline-white motion-reduce:transition-none">Speak to a Property Specialist <span aria-hidden="true">↗</span></Link>
-            <Link href="/about/" className="inline-flex min-h-11 items-center text-[13px] text-white/75 transition-colors hover:text-white focus-visible:outline-white motion-reduce:transition-none">Get to know Prestige</Link>
+            <Link href="/about/" className="inline-flex min-h-11 items-center text-[13px] text-white/75 transition-colors hover:text-white focus-visible:outline-white motion-reduce:transition-none">Know more about Prestige Luxury</Link>
           </div>
         </div>
         <ul className="grid gap-x-10 gap-y-9 sm:grid-cols-2 md:gap-y-10">

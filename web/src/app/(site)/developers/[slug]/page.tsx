@@ -3,22 +3,21 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import LeadForm, { type LeadField } from "@/components/LeadForm";
 import PropertyCard from "@/components/listings/PropertyCard";
+import Pagination from "@/components/listings/Pagination";
 import Media from "@/components/Media";
-import { Button, Container } from "@/components/ui";
+import { Container } from "@/components/ui";
 import { developerProperties, developers, getDeveloper, type Developer } from "@/lib/developers";
 import { allAreas } from "@/lib/listing-views";
 import { slugify } from "@/lib/properties";
 import { site } from "@/lib/site";
 import { developerLogo, developerLogoClass } from "@/lib/developer-logos";
+import { PAGE_SIZE, pageCount, parsePage } from "@/lib/listing-format";
 
 // Developer URLs are generated from the shared directory data.
 export const dynamicParams = false;
 export const generateStaticParams = () => developers.map((d) => ({ slug: d.slug }));
 
-type Props = { params: Promise<{ slug: string }> };
-
-/** Listings shown on the page before we point the visitor at a fuller list. */
-const MAX_LISTINGS = 12;
+type Props = { params: Promise<{ slug: string }>; searchParams: Promise<{ page?: string | string[] }> };
 
 /** "https://www.emaar.com/en/" → "emaar.com" */
 const prettyUrl = (url: string) => url.replace(/^https?:\/\//i, "").replace(/^www\./i, "").replace(/\/$/, "");
@@ -89,7 +88,7 @@ function LocationPin() {
   return <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" className="mt-0.5 shrink-0"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z" /><circle cx="12" cy="10" r="2" /></svg>;
 }
 
-export default async function DeveloperPage({ params }: Props) {
+export default async function DeveloperPage({ params, searchParams }: Props) {
   const { slug } = await params;
   const d = getDeveloper(slug);
   if (!d) notFound();
@@ -128,10 +127,10 @@ export default async function DeveloperPage({ params }: Props) {
   });
 
   const matched = developerProperties(d);
-  const listings = matched.slice(0, MAX_LISTINGS);
-  // A "see them all" link only makes sense when one area page covers this developer's stock.
-  const areaLinks = communities.filter((c) => c.href);
-  const moreHref = matched.length > listings.length && areaLinks.length === 1 ? areaLinks[0] : null;
+  const query = await searchParams;
+  const currentPage = parsePage(Array.isArray(query.page) ? query.page[0] : query.page, matched.length);
+  const first = (currentPage - 1) * PAGE_SIZE;
+  const listings = matched.slice(first, first + PAGE_SIZE);
 
   return (
     <>
@@ -200,7 +199,7 @@ export default async function DeveloperPage({ params }: Props) {
         )}
 
         {d.projects.length > 0 && (
-          <Section id="developer-projects" title="Signature Projects">
+          <Section id="developer-projects" title={`Signature Projects (${d.projects.length})`}>
             <ul className="grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
               {d.projects.map((p) => (
                 <li key={p.name} className="border-b border-line py-3">
@@ -236,19 +235,14 @@ export default async function DeveloperPage({ params }: Props) {
         )}
 
         {listings.length > 0 && (
-          <Section id="developer-properties" title={`Available Properties${matched.length > listings.length ? ` (${listings.length} of ${matched.length})` : ""}`}>
+          <Section id="developer-properties" title={`Available Properties (${matched.length})`}>
+            <p className="mb-6 text-[14px] text-muted">Showing {first + 1}–{first + listings.length} of {matched.length} properties</p>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {listings.map((p) => (
                 <PropertyCard key={p.id} property={p} />
               ))}
             </div>
-            {moreHref && (
-              <div className="mt-8">
-                <Button href={moreHref.href!} variant="outline">
-                  View all properties in {moreHref.name}
-                </Button>
-              </div>
-            )}
+            <Pagination page={currentPage} pages={pageCount(matched.length)} href={(page) => `/developers/${d.slug}/${page > 1 ? `?page=${page}` : ""}#developer-properties`} />
           </Section>
         )}
 

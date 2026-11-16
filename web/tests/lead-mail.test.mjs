@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 import { sendLeadEmail, SmtpNotConfiguredError } from "../src/lib/lead-mail.ts";
 
 test("shared enquiry SMTP delivery", async (t) => {
-  const keys = ["SMTP_PASSWORD", "SMTP_HOST", "SMTP_PORT", "SMTP_USER", "LEAD_FROM_EMAIL", "LEAD_TO_EMAIL"];
+  const keys = ["SMTP_PASSWORD", "SMTP_HOST", "SMTP_PORT", "SMTP_USER", "LEAD_FROM_EMAIL", "LEAD_TO_EMAIL", "LEAD_CC_EMAIL"];
   const previous = Object.fromEntries(keys.map((key) => [key, process.env[key]]));
   t.after(() => {
     mock.restoreAll();
@@ -42,6 +42,7 @@ test("shared enquiry SMTP delivery", async (t) => {
       assert.equal(options.requireTLS, true);
       assert.equal(options.auth.user, "it@prestigeone.ae");
       assert.deepEqual(message.to, ["sumith@prestigeone.ae"]);
+      assert.equal(message.cc, undefined);
       assert.equal(message.from.address, "it@prestigeone.ae");
       assert.equal(message.replyTo.address, "visitor@example.com");
       assert.match(message.subject, new RegExp(form));
@@ -54,6 +55,15 @@ test("shared enquiry SMTP delivery", async (t) => {
     await sendLeadEmail({ name: "Test", phone: "+971523702269" });
     assert.deepEqual(message.to, ["new@example.com", "second@example.com"]);
     assert.equal(message.replyTo, undefined);
+  });
+
+  await t.test("optional CC supports multiple recipients and ignores empty entries", async () => {
+    process.env.LEAD_CC_EMAIL = " manager@example.com, , team@example.com ";
+    await sendLeadEmail({ name: "Test", email: "visitor@example.com" });
+    assert.deepEqual(message.cc, ["manager@example.com", "team@example.com"]);
+    process.env.LEAD_CC_EMAIL = "  ";
+    await sendLeadEmail({ name: "Test" });
+    assert.deepEqual(message.cc, []);
   });
 
   await t.test("SMTP rejection cannot report success", async () => {

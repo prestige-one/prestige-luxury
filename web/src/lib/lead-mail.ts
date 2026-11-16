@@ -6,6 +6,8 @@ export class SmtpNotConfiguredError extends Error {
   }
 }
 
+const emailList = (value?: string) => value?.split(",").map((email) => email.trim()).filter(Boolean);
+
 /** Shared server-side mail delivery for every enquiry form. No connection pool stays open. */
 export async function sendLeadEmail(fields: Record<string, string>) {
   const password = process.env.SMTP_PASSWORD?.trim();
@@ -29,7 +31,8 @@ export async function sendLeadEmail(fields: Record<string, string>) {
 
   const result = await transport.sendMail({
     from: { name: "Prestige Luxury Website", address: process.env.LEAD_FROM_EMAIL || user },
-    to: (process.env.LEAD_TO_EMAIL || "sumith@prestigeone.ae").split(",").map((email) => email.trim()).filter(Boolean),
+    to: emailList(process.env.LEAD_TO_EMAIL || "sumith@prestigeone.ae"),
+    cc: emailList(process.env.LEAD_CC_EMAIL),
     replyTo: fields.email ? { name, address: fields.email } : undefined,
     subject: `Website enquiry: ${fields.form || "Contact"} – ${name}`.replace(/[\r\n]/g, " "),
     text: Object.entries(fields).map(([key, value]) => `${key.replace(/_/g, " ")}: ${value}`).join("\n"),

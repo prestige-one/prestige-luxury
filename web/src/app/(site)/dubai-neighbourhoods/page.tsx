@@ -4,7 +4,7 @@ import { Container } from "@/components/ui";
 import AreaCard from "@/components/areas/AreaCard";
 import AreaSelect from "@/components/guides/AreaSelect";
 import { getPage, seoMetadata } from "@/lib/content";
-import { communityPhoto } from "@/lib/imagery";
+import neighbourhoodImages from "../../../../content/neighbourhood-images.json";
 import communities from "../../../../content/communities.json";
 
 const page = getPage("/dubai-neighbourhoods/")!;
@@ -14,25 +14,21 @@ export const metadata: Metadata = {
   description: "This guide breaks down some of the most frequented Dubai neighborhoods so you can experience the real Dubai and get a feel for how these enclaves flavor the city.",
 };
 
-// Areas in the order of the original grid. Photos are the site's own uploads (the original tiles had none).
-const areas: { slug: string; name: string; image?: string }[] = [
-  { slug: "dubai-marina", name: "Dubai Marina", image: "/wp-content/uploads/2020/07/Dubai-Marina-2.jpg" },
-  { slug: "palm-jumeirah", name: "Palm Jumeirah", image: "/wp-content/uploads/2021/04/aerial-view-of-dubai-palm-jumeirah-island-1170x785.jpg" },
-  {
-    slug: "downtown-dubai",
-    name: "Downtown Dubai",
-    image: "/wp-content/uploads/2024/04/Address-Downtown-Downtown-Dubai-Downtown-Dubai-ADM240062-Prestige-Luxury-Real-Estate-30-1170x785.jpg",
-  },
-  { slug: "business-bay", name: "Business Bay", image: "/wp-content/uploads/2021/04/aerial-view-of-dubai-palm-jumeirah-island-1170x785.jpg" },
-  { slug: "jumeirah-beach-residence", name: "Jumeirah Beach Residence", image: "/wp-content/uploads/2019/07/jbr-beach-2048x1271.jpg" },
-  { slug: "jumeirah-lake-towers", name: "Jumeirah Lake Towers", image: "/wp-content/uploads/2019/06/jlt-apartments.jpg" },
-  { slug: "jumeirah-village-circle", name: "Jumeirah Village Circle", image: "/wp-content/uploads/2019/05/jumeirah-village-circle.jpg" },
+// Preserve the original guide order; community photography is stored locally.
+const areas: { slug: string; name: string }[] = [
+  { slug: "dubai-marina", name: "Dubai Marina" },
+  { slug: "palm-jumeirah", name: "Palm Jumeirah" },
+  { slug: "downtown-dubai", name: "Downtown Dubai" },
+  { slug: "business-bay", name: "Business Bay" },
+  { slug: "jumeirah-beach-residence", name: "Jumeirah Beach Residence" },
+  { slug: "jumeirah-lake-towers", name: "Jumeirah Lake Towers" },
+  { slug: "jumeirah-village-circle", name: "Jumeirah Village Circle" },
   { slug: "al-furjan", name: "Al Furjan" },
   { slug: "dubai-sports-city", name: "Dubai Sports City" },
-  { slug: "mohammed-bin-rashid-city", name: "Mohammed Bin Rashid City", image: "/wp-content/uploads/2019/05/mbr-city-dubai.jpg" },
+  { slug: "mohammed-bin-rashid-city", name: "Mohammed Bin Rashid City" },
   { slug: "the-hills", name: "The Hills" },
   { slug: "damac-hills-2", name: "Damac Hills 2" },
-  { slug: "dubai-harbour", name: "Dubai Harbour", image: "/wp-content/uploads/2020/02/dubai-harbour-project.jpg" },
+  { slug: "dubai-harbour", name: "Dubai Harbour" },
   { slug: "difc", name: "DIFC" },
   { slug: "meydan", name: "Meydan" },
   { slug: "emaar-beachfront-2", name: "EMAAR Beachfront" },
@@ -43,7 +39,7 @@ const areas: { slug: string; name: string; image?: string }[] = [
   { slug: "damac-lagoons", name: "DAMAC Lagoons" },
   { slug: "maritime-city", name: "Maritime City" },
   { slug: "dubai-land", name: "Dubai Land" },
-  { slug: "deira", name: "Deira", image: "/wp-content/uploads/2019/08/deira-city-center.jpg" },
+  { slug: "deira", name: "Deira" },
   { slug: "damac-hills-akoya-by-damac", name: "DAMAC Hills (Akoya By DAMAC)" },
   { slug: "akoya-oxygen", name: "Akoya Oxygen" },
   { slug: "the-greens", name: "The Greens" },
@@ -52,8 +48,8 @@ const areas: { slug: string; name: string; image?: string }[] = [
   { slug: "dubai-production-city-impz", name: "Dubai Production City (IMPZ)" },
   { slug: "jebel-ali", name: "Jebel Ali" },
   { slug: "jumeirah-park", name: "Jumeirah Park" },
-  { slug: "mina-rashid", name: "Mina Rashid", image: "/wp-content/uploads/2019/06/mina-rashid-apartments.jpg" },
-  { slug: "arabian-ranches", name: "Arabian Ranches", image: "/wp-content/uploads/2019/10/arabian-ranches-properteis.jpg" },
+  { slug: "mina-rashid", name: "Mina Rashid" },
+  { slug: "arabian-ranches", name: "Arabian Ranches" },
   { slug: "arabian-ranches-2", name: "Arabian Ranches 2" },
   { slug: "green-community", name: "Green Community" },
   { slug: "jumeirah-village-triangle", name: "Jumeirah Village Triangle" },
@@ -71,20 +67,13 @@ const communityAliases: Record<string, string> = {
   "maritime-city": "dubai-maritime-city",
   meydan: "meydan-horizon",
 };
-const photoNames: Record<string, string> = {
-  "the-greens": "Greens",
-  "dubai-production-city-impz": "Dubai Production City",
-  "akoya-oxygen": "Damac Hills 2",
-  "nadd-al-sheba": "Nad Al Sheba",
-  "dubai-land": "Dubai Land Residence Complex",
-};
-// Reuse curated community photography first, then that community's own listing photography.
-// A general Dubai skyline is a decorative fallback for guides without a community photograph.
+// Landscape originals need a wider image candidate to stay sharp when cropped to tall cards.
+const photography: Record<string, string> = neighbourhoodImages;
 const neighbourhoods = areas.map((area) => {
   const community = communityBySlug.get(communityAliases[area.slug] ?? area.slug);
   return {
     ...area,
-    image: community?.image ?? area.image ?? communityPhoto(photoNames[area.slug] ?? area.name) ?? "/images/downtown-dubai.webp",
+    image: photography[area.slug],
     text: community?.description ?? `Explore properties in ${area.name} and find a home that suits your lifestyle, priorities and investment plans.`,
   };
 });
@@ -116,7 +105,7 @@ export default function DubaiNeighbourhoodsPage() {
           <ul className="pl-neighbourhood-grid grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {neighbourhoods.map((area) => (
               <li key={area.slug}>
-                <AreaCard title={area.name} text={area.text} image={area.image} href={`/area/${area.slug}/`} />
+                <AreaCard title={area.name} text={area.text} image={area.image} imageSizes="800px" imageQuality={85} href={`/area/${area.slug}/`} />
               </li>
             ))}
           </ul>

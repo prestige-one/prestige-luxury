@@ -45,6 +45,7 @@ export const contactPhones = [
 
 /** Unpublished pages retain their source so they can be restored by removing their path here. */
 export const unpublishedPagePaths = [
+  "/projects-for-sale/",
   "/signature-living/",
   "/prestige-embankment/",
   "/the-residence-by-prestige-one/",
@@ -341,7 +342,7 @@ export const footerColumns: { title: string; links: { label: string; href: strin
       { label: "New Developments", href: "/status/off-plan/" },
       { label: "Developers", href: "/developers/" },
       { label: "Investment Guide", href: "/investment-guide/" },
-      { label: "Featured Projects", href: "/projects-for-sale/" },
+      { label: "Branded Residences", href: "/branded-residences/" },
     ],
   },
   {
