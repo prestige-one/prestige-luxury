@@ -1,14 +1,15 @@
+import Image from "next/image";
 import { site } from "@/lib/site";
 import { SocialIcon } from "./icons";
 
 const socialOrder = ["YouTube", "LinkedIn", "WhatsApp", "X", "Instagram", "Facebook"];
 const brandHover: Record<string, string> = {
-  YouTube: "hover:text-[#f00] focus-visible:text-[#f00]",
+  YouTube: "hover:text-[#ff0033] focus-visible:text-[#ff0033]",
   LinkedIn: "hover:text-[#0a66c2] focus-visible:text-[#0a66c2]",
-  WhatsApp: "hover:text-[#128c4a] focus-visible:text-[#128c4a]",
+  WhatsApp: "hover:text-[#25d366] focus-visible:text-[#25d366]",
   X: "hover:text-black focus-visible:text-black",
-  Instagram: "hover:text-[#c13584] focus-visible:text-[#c13584]",
-  Facebook: "hover:text-[#1877f2] focus-visible:text-[#1877f2]",
+  Instagram: "",
+  Facebook: "hover:text-[#0866ff] focus-visible:text-[#0866ff]",
 };
 const socialLinks = socialOrder.flatMap((name) => {
   if (name === "WhatsApp") return [{ name, href: `${site.whatsappHref}?text=${encodeURIComponent(`Hello ${site.name}, I'd like to enquire about a property.`)}` }];
@@ -22,8 +23,14 @@ function SocialLinks() {
       {socialLinks.map(({ name, href }) => (
         <li key={name}>
           <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`${site.name} on ${name}`}
-            className={`group relative flex size-11 items-center justify-center rounded-full text-black transition-colors hover:bg-black/5 focus-visible:bg-black/5 focus-visible:outline-black motion-reduce:transition-none min-[1360px]:size-9 ${brandHover[name]}`}>
-            <SocialIcon name={name} size={19} />
+            className={`pl-sidebar-social-link group relative flex size-11 items-center justify-center rounded-full text-black transition-colors hover:bg-black/5 focus-visible:bg-black/5 focus-visible:outline-black motion-reduce:transition-none min-[1360px]:size-9 ${brandHover[name]}`}>
+            {name === "Instagram" ? (
+              <span className="pl-sidebar-instagram relative inline-flex size-[19px] shrink-0">
+                <span className="inline-flex transition-opacity group-hover:opacity-0 group-focus-visible:opacity-0 motion-reduce:transition-none"><SocialIcon name={name} size={19} /></span>
+                {/* Use Instagram's own gradient asset rather than approximating it with one pink. */}
+                <Image src="/images/social/instagram-brand.webp" alt="" aria-hidden width={19} height={19} unoptimized loading="eager" className="absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none" />
+              </span>
+            ) : <SocialIcon name={name} size={19} />}
             <span aria-hidden="true" className="pointer-events-none invisible absolute left-full ml-3 whitespace-nowrap rounded-[6px] border border-white/15 bg-[#111] px-3 py-1.5 text-[12px] font-medium text-white opacity-0 transition-opacity group-hover:visible group-hover:opacity-100 group-focus-visible:visible group-focus-visible:opacity-100 motion-reduce:transition-none">{name}</span>
           </a>
         </li>
