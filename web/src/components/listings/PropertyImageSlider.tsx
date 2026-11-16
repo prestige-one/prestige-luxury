@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { isUnoptimized, sizedImage } from "@/lib/listing-format";
 import { HomeIcon } from "./icons";
 
@@ -25,6 +25,19 @@ export default function PropertyImageSlider({ images, title, href, priority = fa
   const touch = useRef<{ x: number; y: number } | null>(null);
   const swiped = useRef(false);
   const count = images.length;
+  useEffect(() => {
+    const transition = photo.transition;
+    if (!transition) return;
+    // Navigating away or hiding a cached page can cancel animationend. Never leave controls
+    // locked on that event, and also recover if an image request never completes.
+    const timeout = window.setTimeout(() => setPhoto((current) => {
+      if (current.transition !== transition) return current;
+      return transition.ready
+        ? { active: transition.next, transition: null, failed: false }
+        : { ...current, transition: null, failed: true };
+    }), transition.ready ? 700 : 12_000);
+    return () => window.clearTimeout(timeout);
+  }, [photo.transition]);
   const active = photo.transition?.ready ? photo.transition.next : photo.active;
   const select = (next: number, direction?: 1 | -1) => setPhoto((current) => {
     if (current.transition?.ready || next === current.active || count < 2) return current;
@@ -36,7 +49,7 @@ export default function PropertyImageSlider({ images, title, href, priority = fa
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return { active: index, transition: null, failed: false };
     return { ...current, transition: { ...current.transition, ready: true } };
   });
-  const finishSlide = (index: number) => setPhoto((current) => current.transition?.next === index ? { active: index, transition: null, failed: false } : current);
+  const finishSlide = (index: number) => setPhoto((current) => current.transition?.ready && current.transition.next === index ? { active: index, transition: null, failed: false } : current);
   const frames = photo.transition ? [photo.active, photo.transition.next] : [photo.active];
   const firstDot = Math.max(0, Math.min(active - 2, count - 5));
   const control = "pl-photo-arrow absolute top-1/2 z-10 flex size-11 -translate-y-1/2 cursor-pointer items-center justify-center bg-transparent text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.7)] transition-opacity hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-white [&_svg]:size-7";
@@ -65,6 +78,7 @@ export default function PropertyImageSlider({ images, title, href, priority = fa
             style={incoming ? { transform: `translateX(${photo.transition!.direction * 100}%)` } : undefined}
             onAnimationEnd={incoming ? (e) => { if (e.target === e.currentTarget) finishSlide(index); } : undefined}>
             <Image src={source} alt="" fill unoptimized={isUnoptimized(source)} preload={priority && index === 0}
+              ref={incoming ? (image) => { if (image?.complete && image.naturalWidth > 0) startSlide(index); } : undefined}
               loading={priority && index === 0 ? undefined : incoming ? "eager" : "lazy"}
               sizes="(min-width: 1024px) 420px, (min-width: 640px) 50vw, 100vw" className="object-cover"
               onLoad={incoming ? () => startSlide(index) : undefined}

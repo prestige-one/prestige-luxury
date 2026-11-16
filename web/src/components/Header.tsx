@@ -137,6 +137,8 @@ export default function Header() {
               width={438}
               height={82}
               priority
+              // Keep the thin lettering lossless instead of resizing/recompressing this small PNG.
+              unoptimized
               className={`h-auto transition-[width] duration-300 ease-out motion-reduce:transition-none ${
                 scrolled ? "w-[160px] 2xl:w-[200px]" : "w-[172px] min-[1200px]:w-[200px] 2xl:w-[240px]"
               }`}
@@ -244,7 +246,7 @@ export default function Header() {
           }`}
         >
           <div className="flex h-[80px] shrink-0 items-center justify-between border-b border-white/10 px-6">
-            <Image src={site.logoWhite} alt={site.name} width={438} height={82} className="h-auto w-[140px]" />
+            <Image src={site.logoWhite} alt={site.name} width={438} height={82} unoptimized className="h-auto w-[140px]" />
             <button
               type="button"
               className="-mr-2 grid h-11 w-11 place-items-center text-white"

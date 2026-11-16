@@ -16,7 +16,7 @@ export default function PropertyCard({ property: p, priority = false }: { proper
 
   return (
     <article className="pl-property-card group flex h-full flex-col overflow-hidden rounded-[8px] border border-line bg-white transition-[translate,box-shadow,border-color] duration-500 ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-[0_14px_34px_rgba(0,0,0,0.09)] sm:group-data-[view=list]/results:flex-row sm:group-data-[view=list]/results:hover:translate-y-0">
-      <PropertyImageSlider images={p.images} title={p.title} href={href} priority={priority}
+      <PropertyImageSlider key={p.id} images={p.images} title={p.title} href={href} priority={priority}
         className="sm:group-data-[view=list]/results:aspect-auto sm:group-data-[view=list]/results:min-h-[230px] sm:group-data-[view=list]/results:w-[44%]">
         <span className="absolute left-3 top-3 rounded-[2px] bg-black/80 px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.08em] text-white backdrop-blur-sm">
           {status.label}
