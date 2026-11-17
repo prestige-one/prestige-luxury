@@ -147,7 +147,7 @@ export default function HomePage() {
       {/* Residential properties */}
       <section className="bg-white py-16 md:py-[100px]">
         <Container>
-          <SectionTitle title={collectionIntro.title} subtitle={collectionIntro.description} />
+          <SectionTitle title="Discover Our Properties" subtitle={collectionIntro.description} />
           <div className="grid gap-[30px] md:grid-cols-3">
             {residential.map((r) => (
               <ImageCard key={r.title} {...r} tone="smoke" radius={8} />
