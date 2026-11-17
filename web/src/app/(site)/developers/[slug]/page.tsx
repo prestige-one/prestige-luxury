@@ -246,9 +246,10 @@ export default async function DeveloperPage({ params, searchParams }: Props) {
           </Section>
         )}
 
-        <Section id="developer-enquiry" title={`Enquire about ${d.name}`} muted>
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-12">
-            <div className="text-[15px] leading-[1.85] text-body">
+        <section id="developer-enquiry" aria-labelledby="pl-developer-enquiry-title" className="pl-developer-enquiry mt-12 scroll-mt-28 rounded-[8px] bg-mist p-5 sm:p-8 md:mt-16">
+          <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-12">
+            <div className="pl-developer-enquiry-copy text-[15px] leading-[1.85] text-body">
+              <h2 id="pl-developer-enquiry-title" className="mb-6 font-medium leading-[1.25] tracking-[-0.02em] text-ink text-section">Enquire about {d.name}</h2>
               <p>
                 Tell us what you are looking for from {d.name} — a specific project, a community, or simply a budget and a handover date —
                 and one of our consultants will come back to you with what is available, including units that never reach the portals.
@@ -260,7 +261,7 @@ export default async function DeveloperPage({ params, searchParams }: Props) {
                 </a>
               </p>
             </div>
-            <div className="rounded-[8px] border border-line bg-white p-6 sm:p-8">
+            <div className="pl-developer-enquiry-form rounded-[8px] border border-line bg-white p-6 sm:p-8">
               <LeadForm
                 form={`Developer enquiry — ${d.name}`}
                 fields={enquiryFields}
@@ -269,7 +270,7 @@ export default async function DeveloperPage({ params, searchParams }: Props) {
               />
             </div>
           </div>
-        </Section>
+        </section>
       </Container>
     </>
   );
