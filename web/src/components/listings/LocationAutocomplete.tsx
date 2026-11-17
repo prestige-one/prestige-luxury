@@ -3,8 +3,8 @@
 import { useId, useMemo, useState } from "react";
 import { locationSuggestions } from "@/lib/location-suggestions";
 
-/** Location suggestions enhance the free-text query; addresses and property IDs still work. */
-export default function LocationAutocomplete({ options, initial = "", className }: { options: string[]; initial?: string; className: string }) {
+/** Search buildings, communities, cities and address fields only. */
+export default function LocationAutocomplete({ options, initial = "", className, onSelect }: { options: string[]; initial?: string; className: string; onSelect?: (location: string) => void }) {
   const id = `pl-location-${useId()}`;
   const [value, setValue] = useState(initial);
   const [open, setOpen] = useState(false);
@@ -16,17 +16,18 @@ export default function LocationAutocomplete({ options, initial = "", className 
     setValue(location);
     setOpen(false);
     setActive(-1);
+    onSelect?.(location);
   }
 
   return (
     <div className="pl-location-autocomplete relative col-span-2 min-w-0 md:col-span-1" onBlur={(event) => {
       if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
     }}>
-      <label htmlFor={id} className="sr-only">Location or property keyword</label>
+      <label htmlFor={id} className="sr-only">Area, building or location</label>
       <input id={id} name="q" type="text" role="combobox" aria-autocomplete="list" aria-expanded={expanded}
         aria-controls={expanded ? `${id}-options` : undefined} aria-activedescendant={expanded && active >= 0 ? `${id}-option-${active}` : undefined}
         value={value} autoComplete="off" spellCheck={false}
-        placeholder="Enter a location, address or property ID" className={className}
+        placeholder="Enter an area, building or location" className={className}
         onFocus={() => setOpen(true)}
         onChange={(event) => { setValue(event.target.value); setOpen(true); setActive(-1); }}
         onKeyDown={(event) => {

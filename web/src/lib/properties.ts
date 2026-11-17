@@ -64,23 +64,31 @@ export type SearchFilters = {
   q?: string;
 };
 
-export function searchProperties(f: SearchFilters, list: Property[] = properties) {
+const normaliseSearch = (value: string) => value.trim().replace(/\s+/g, " ").toLowerCase();
+const locationMatches = (value: string, query: string, exact: boolean) =>
+  exact ? normaliseSearch(value) === query : normaliseSearch(value).includes(query);
+const atLocation = (property: Property, location: string, exact = true) =>
+  locationMatches(property.community, location, exact) || locationMatches(property.city, location, exact)
+  || property.location.some((value) => locationMatches(value, location, exact));
+
+export function searchProperties(f: SearchFilters, list: Property[] = properties, locationSource: Property[] = list) {
+  const query = f.q && normaliseSearch(f.q);
+  const location = f.location && normaliseSearch(f.location);
+  // Resolve the location before purpose, type or budget filters. A rent-only building must
+  // produce zero sales, rather than unrelated sales whose titles advertise a view of it.
+  const queryIsLocation = query && locationSource.some((property) => atLocation(property, query));
   return list.filter((p) => {
     if (f.status === "for-rent" && p.purpose !== "rent") return false;
     if (f.status === "for-sale" && p.purpose !== "sale") return false;
     if (f.status === "off-plan" && p.completion !== "off-plan") return false;
-    if (f.location && !p.location.some((l) => l.toLowerCase() === f.location!.toLowerCase())) return false;
+    if (location && !atLocation(p, location)) return false;
     if (f.type && p.type.toLowerCase() !== f.type.toLowerCase()) return false;
     if (f.beds) {
       const b = Number(f.beds);
       if (b >= 5 ? (p.bedrooms ?? -1) < 5 : p.bedrooms !== b) return false;
     }
     if (f.maxPrice && p.price > Number(f.maxPrice)) return false;
-    if (f.q) {
-      const q = f.q.toLowerCase();
-      const hay = `${p.title} ${p.reference} ${p.location.join(" ")} ${p.type}`.toLowerCase();
-      if (!hay.includes(q)) return false;
-    }
+    if (query && !atLocation(p, query, !!queryIsLocation)) return false;
     return true;
   });
 }

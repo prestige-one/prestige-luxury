@@ -192,7 +192,7 @@ export function filterListings(f: ListingFilters, list: Property[] = properties)
     out = out.filter((p) => yearlyPrice(p) <= (p.purpose === "rent" ? caps.rent : caps.sale));
     f = { ...f, maxPrice: undefined };
   }
-  return searchProperties(f, out);
+  return searchProperties(f, out, list);
 }
 
 // ---- Listing SEO ----------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { budgetOptions } from "@/lib/listing-format";
 import LocationAutocomplete from "./LocationAutocomplete";
 
@@ -22,7 +22,7 @@ const statusOptions = [
 ];
 const fmt = (n: number) => `AED ${new Intl.NumberFormat("en-AE").format(n)}`;
 
-/** Houzez half-map/archive search row: keyword, city, area, "Advanced" panel, Search. Sends to /search-results/. */
+/** Location search retaining the current archive's sale/rent/off-plan scope. */
 export default function ListingSearchBar({
   cities,
   areas,
@@ -37,28 +37,35 @@ export default function ListingSearchBar({
   initial?: SearchBarValues;
 }) {
   const router = useRouter();
+  const formRef = useRef<HTMLFormElement>(null);
   const [advanced, setAdvanced] = useState(false);
   const advancedId = `pl-listing-advanced-${useId()}`;
   // Buying and renting are quoted on different scales, so the budget ladder follows the status.
-  const [status, setStatus] = useState(initial.status ?? "");
+  const fixedStatus = statusOptions.find((option) => option.value === initial.status)?.value;
+  const [selectedStatus, setStatus] = useState(initial.status ?? "");
+  const status = fixedStatus ?? selectedStatus;
   const [maxPrice, setMaxPrice] = useState(initial.maxPrice ?? "");
 
-  function submit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  function search(form: HTMLFormElement, location?: string) {
     const q = new URLSearchParams();
-    for (const [k, v] of new FormData(e.currentTarget).entries()) {
+    for (const [k, v] of new FormData(form).entries()) {
       if (typeof v === "string" && v.trim()) q.set(k, v.trim());
     }
+    // Selection runs before React commits the input's updated value.
+    if (location !== undefined) q.set("q", location);
+    if (fixedStatus) q.set("status", fixedStatus);
     router.push(`/search-results/${q.size ? `?${q}` : ""}`);
   }
 
   const field = "h-[42px] w-full rounded-[2px] border border-line bg-white px-3 text-[14px] text-ink outline-none focus:border-accent";
 
   return (
-    <form onSubmit={submit} action="/search-results/" method="get" className="border-b border-line bg-white py-4" role="search">
+    <form ref={formRef} onSubmit={(event) => { event.preventDefault(); search(event.currentTarget); }} action="/search-results/" method="get" className="border-b border-line bg-white py-4" role="search">
+      {fixedStatus && <input type="hidden" name="status" value={fixedStatus} />}
       <div className="mx-auto w-full max-w-[1140px] px-5">
         <div className="grid grid-cols-2 gap-2.5 md:grid-cols-[2.6fr_1fr_1fr_auto_auto]">
-          <LocationAutocomplete options={locations} initial={initial.q} className={field} />
+          <LocationAutocomplete options={locations} initial={initial.q} className={field}
+            onSelect={(location) => { if (formRef.current) search(formRef.current, location); }} />
           <label>
             <span className="sr-only">City</span>
             <select name="city" defaultValue={initial.city ?? ""} className={field}>
@@ -98,13 +105,14 @@ export default function ListingSearchBar({
           <label>
             <span className="sr-only">Status</span>
             <select
-              name="status"
+              name={fixedStatus ? undefined : "status"}
+              disabled={!!fixedStatus}
               value={status}
               onChange={(e) => {
                 setStatus(e.target.value);
                 setMaxPrice("");
               }}
-              className={field}
+              className={`${field} disabled:cursor-default disabled:text-ink disabled:opacity-100`}
             >
               <option value="">All Status</option>
               {statusOptions.map((s) => (

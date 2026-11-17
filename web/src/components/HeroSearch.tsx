@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { budgetOptions } from "@/lib/listing-format";
 
 const tabs = [
   { label: "All", value: "" },
@@ -10,8 +11,6 @@ const tabs = [
   { label: "Off-Plan", value: "off-plan" },
 ] as const;
 
-const prices = [500000, 1000000, 2000000, 3000000, 5000000, 10000000, 20000000, 50000000];
-const rentPrices = [50000, 100000, 150000, 200000, 300000, 500000, 1000000];
 const fmt = (n: number) => `AED ${new Intl.NumberFormat("en-AE").format(n)}`;
 
 /** Houzez "search builder" on the homepage hero. Sends the visitor to /search-results/ with filters. */
@@ -44,7 +43,7 @@ export default function HeroSearch({ locations, types }: { locations: string[]; 
           <button
             key={t.label}
             type="button"
-            onClick={() => setStatus(t.value)}
+            onClick={() => { if (status !== t.value) { setStatus(t.value); setMaxPrice(""); } }}
             aria-pressed={status === t.value}
             className={`h-[42px] min-w-[62px] shrink-0 grow px-4 text-[13px] font-medium transition-colors duration-300 sm:grow-0 sm:text-[14px] ${
               status === t.value ? "bg-black text-white" : "bg-white/60 text-ink hover:bg-white/80"
@@ -85,10 +84,10 @@ export default function HeroSearch({ locations, types }: { locations: string[]; 
         </Field>
         <Field label="Your budget">
           <select className={select} value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} aria-label="Maximum price">
-            <option value="">Max. Price</option>
-            {(status === "for-rent" ? rentPrices : prices).map((p) => (
+            <option value="">{status === "for-rent" ? "Max. Rent / year" : "Max. Price"}</option>
+            {budgetOptions(status).map((p) => (
               <option key={p} value={p}>
-                {fmt(p)}
+                {fmt(p)}{status === "for-rent" ? " / year" : ""}
               </option>
             ))}
           </select>

@@ -95,11 +95,11 @@ const buyMega: NavMega = {
     {
       title: "Properties by type",
       links: [
-        { label: "Apartments", href: "/property-type/apartments/", icon: "apartment" },
-        { label: "Villas", href: "/property-type/villa/", icon: "villa" },
-        { label: "Townhouses", href: "/property-type/townhouse/", icon: "townhouse" },
-        { label: "Studios", href: "/property-type/studio/", icon: "studio" },
-        { label: "Commercial", href: "/property-type/other-commercial/", icon: "commercial" },
+        { label: "Apartments", href: "/status/for-sale/?type=Apartment", icon: "apartment" },
+        { label: "Villas", href: "/status/for-sale/?type=Villa", icon: "villa" },
+        { label: "Townhouses", href: "/status/for-sale/?type=Townhouse", icon: "townhouse" },
+        { label: "Studios", href: "/status/for-sale/?type=Studio", icon: "studio" },
+        { label: "Commercial", href: "/status/for-sale/?type=Other%20Commercial", icon: "commercial" },
         { label: "See All Properties", href: "/status/for-sale/", icon: "grid" },
         { label: "Exclusive Collection", href: "/exclusive-collection/", icon: "grid" },
       ],
@@ -120,7 +120,7 @@ const buyMega: NavMega = {
   promo: {
     title: "Downtown Dubai",
     subtitle: "Homes beside Burj Khalifa",
-    href: "/area/downtown-dubai/",
+    href: "/area/downtown-dubai/?status=for-sale",
     cta: "Explore Downtown",
     image:
       "/wp-content/uploads/2024/04/Address-Downtown-Downtown-Dubai-Downtown-Dubai-ADM240062-Prestige-Luxury-Real-Estate-30-1170x785.jpg",
@@ -133,11 +133,11 @@ const rentMega: NavMega = {
     {
       title: "Properties by type",
       links: [
-        { label: "Apartments", href: "/property-type/apartments/", icon: "apartment" },
-        { label: "Villas", href: "/property-type/villa/", icon: "villa" },
-        { label: "Townhouses", href: "/property-type/townhouse/", icon: "townhouse" },
-        { label: "Studios", href: "/property-type/studio/", icon: "studio" },
-        { label: "Offices", href: "/property-type/office/", icon: "office" },
+        { label: "Apartments", href: "/status/for-rent/?type=Apartment", icon: "apartment" },
+        { label: "Villas", href: "/status/for-rent/?type=Villa", icon: "villa" },
+        { label: "Townhouses", href: "/status/for-rent/?type=Townhouse", icon: "townhouse" },
+        { label: "Studios", href: "/status/for-rent/?type=Studio", icon: "studio" },
+        { label: "Offices", href: "/status/for-rent/?type=Office", icon: "office" },
         { label: "See All Properties", href: "/status/for-rent/", icon: "grid" },
       ],
     },
@@ -154,7 +154,7 @@ const rentMega: NavMega = {
   promo: {
     title: "Hot Properties",
     subtitle: "in Dubai Marina",
-    href: "/area/dubai-marina/",
+    href: "/area/dubai-marina/?status=for-rent",
     cta: "Explore Now",
     image:
       "/wp-content/uploads/2024/03/Princess-Tower-Dubai-Marina-Dubai-Marina-SAL240055-Prestige-Luxury-Real-Estate-1170x785.jpg",
@@ -321,8 +321,8 @@ export const footerColumns: { title: string; links: { label: string; href: strin
   {
     title: "Buy",
     links: [
-      { label: "Luxury Apartments", href: "/property-type/apartments/" },
-      { label: "Luxury Villas", href: "/property-type/villa/" },
+      { label: "Luxury Apartments", href: "/status/for-sale/?type=Apartment" },
+      { label: "Luxury Villas", href: "/status/for-sale/?type=Villa" },
       { label: "Off-Plan Properties", href: "/status/off-plan/" },
       { label: "Buyer's Guide", href: "/buyers-guide/" },
     ],
@@ -332,7 +332,7 @@ export const footerColumns: { title: string; links: { label: string; href: strin
     links: [
       { label: "Properties for Rent", href: "/status/for-rent/" },
       { label: "Rental Valuation", href: "/property-valuation/" },
-      { label: "Commercial Leasing", href: "/property-type/office/" },
+      { label: "Commercial Leasing", href: "/status/for-rent/?type=Other%20Commercial" },
       { label: "Tenant's Guide", href: "/tenants-guide/" },
     ],
   },
