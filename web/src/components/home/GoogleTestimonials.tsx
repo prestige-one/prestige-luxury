@@ -6,14 +6,19 @@ import GoogleReviewCard from "@/components/reviews/GoogleReviewCard";
 import { homepageGoogleReviews } from "@/lib/google-reviews";
 
 const INTERVAL_MS = 3000;
-const count = homepageGoogleReviews.length;
-const slides = [...homepageGoogleReviews, ...homepageGoogleReviews.slice(0, 2)];
+
+function slideStride(el: HTMLUListElement) {
+  return el.children.length > 1 ? (el.children[1] as HTMLElement).offsetLeft - (el.children[0] as HTMLElement).offsetLeft : 0;
+}
+
+function lastSlide(el: HTMLUListElement, step: number) {
+  return step ? Math.max(0, Math.round((el.scrollWidth - el.clientWidth) / step)) : 0;
+}
 
 export default function GoogleTestimonials() {
   const root = useRef<HTMLElement>(null);
   const track = useRef<HTMLUListElement>(null);
   const index = useRef(0);
-  const settle = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const [active, setActive] = useState(0);
   const [touching, setTouching] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -21,18 +26,13 @@ export default function GoogleTestimonials() {
   const [reducedMotion, setReducedMotion] = useState(false);
   const running = visible && pageVisible && !touching && !reducedMotion;
 
-  const stride = () => {
-    const el = track.current;
-    return el && el.children.length > 1 ? (el.children[1] as HTMLElement).offsetLeft - (el.children[0] as HTMLElement).offsetLeft : 0;
-  };
-
   const go = useCallback((direction: number) => {
     const el = track.current;
     if (!el) return;
-    const current = index.current % count;
-    const next = current + direction;
-    const destination = next < 0 ? count - 1 : next;
-    el.scrollTo({ left: destination * stride(), behavior: reducedMotion || next < 0 ? "instant" : "smooth" });
+    const step = slideStride(el);
+    const positions = lastSlide(el, step) + 1;
+    const destination = (index.current + direction + positions) % positions;
+    el.scrollTo({ left: destination * step, behavior: reducedMotion ? "instant" : "smooth" });
   }, [reducedMotion]);
 
   useEffect(() => {
@@ -45,14 +45,19 @@ export default function GoogleTestimonials() {
     document.addEventListener("visibilitychange", visibility);
     const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: 0.1 });
     if (root.current) observer.observe(root.current);
-    const resize = new ResizeObserver(() => track.current?.scrollTo({ left: (index.current % count) * stride(), behavior: "instant" }));
+    const resize = new ResizeObserver(() => {
+      const el = track.current;
+      if (!el) return;
+      const step = slideStride(el);
+      index.current = Math.min(index.current, lastSlide(el, step));
+      el.scrollTo({ left: index.current * step, behavior: "instant" });
+    });
     if (track.current) resize.observe(track.current);
     return () => {
       observer.disconnect();
       resize.disconnect();
       media.removeEventListener("change", motion);
       document.removeEventListener("visibilitychange", visibility);
-      clearTimeout(settle.current);
     };
   }, []);
 
@@ -65,19 +70,12 @@ export default function GoogleTestimonials() {
 
   function onScroll() {
     const el = track.current;
-    const step = stride();
-    if (!el || !step) return;
-    const position = Math.round(el.scrollLeft / step);
+    if (!el) return;
+    const step = slideStride(el);
+    if (!step) return;
+    const position = Math.max(0, Math.min(lastSlide(el, step), Math.round(el.scrollLeft / step)));
     index.current = position;
-    setActive(position % count);
-    clearTimeout(settle.current);
-    // Trailing copies let the final review slide naturally into the first one.
-    settle.current = setTimeout(() => {
-      if (position >= count) {
-        el.scrollTo({ left: (position % count) * stride(), behavior: "instant" });
-        index.current = position % count;
-      }
-    }, 180);
+    setActive(position);
   }
 
   const control = "grid size-11 cursor-pointer place-items-center rounded-[6px] border border-line bg-white text-black transition-colors hover:border-black hover:bg-black hover:text-white motion-reduce:transition-none";
@@ -100,12 +98,9 @@ export default function GoogleTestimonials() {
         <div className="min-w-0">
           <ul ref={track} onScroll={onScroll} onPointerDown={() => setTouching(true)} onPointerUp={() => setTouching(false)} onPointerCancel={() => setTouching(false)} onPointerLeave={() => setTouching(false)}
             className="no-scrollbar relative flex h-full snap-x snap-mandatory gap-6 overflow-x-auto overscroll-x-contain" aria-label="Selected five-star Google reviews">
-            {slides.map((review, position) => {
-              const copy = position >= count;
-              return <li key={`${review.id}-${position}`} aria-hidden={copy ? true : undefined} className="w-full shrink-0 snap-start md:w-[calc((100%_-_24px)/2)]">
-                <GoogleReviewCard review={review} duplicate={copy} />
-              </li>;
-            })}
+            {homepageGoogleReviews.map((review) => <li key={review.id} className="w-full shrink-0 snap-start md:w-[calc((100%_-_24px)/2)]">
+              <GoogleReviewCard review={review} />
+            </li>)}
           </ul>
         </div>
       </Container>

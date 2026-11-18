@@ -51,7 +51,7 @@ export default async function TeamMemberPage({ params }: Props) {
           <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-white/65">The People Behind Prestige Luxury</p>
           <h1 className="mt-4 text-[34px] font-medium leading-tight tracking-[-0.02em] text-white md:text-[46px]">{member.name}</h1>
           <p className="mt-3 text-[15px] text-white/85">{member.role}</p>
-          {member.subtitle !== member.role && <p className="mt-1 text-[14px] text-white/65">{member.subtitle}</p>}
+          <p className="mt-1 text-[14px] text-white/65">{member.subtitle}</p>
         </Container>
       </section>
       <section className="py-12 md:py-16" aria-label={`${member.name} biography`}>

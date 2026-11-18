@@ -17,7 +17,7 @@ export default function MeetTheTeamPage() {
             <h1 className="font-heading text-[30px] font-medium leading-[1.2] text-ink md:text-[42px]">The People Behind Prestige Luxury</h1>
             <p className="mt-4 text-[17px] font-light text-ink md:text-[19px]">Exceptional real estate experiences begin with exceptional people.</p>
             <p className="mt-4 text-[15px] leading-[1.75] text-muted">
-              Meet the dedicated professionals behind Prestige Luxury Real Estate, bringing together local &amp; International market
+              Meet the dedicated professionals behind Prestige Luxury Real Estate, bringing together local and international market
               knowledge, industry experience and personalised expertise to help clients buy, sell, rent and invest in Dubai with confidence.
             </p>
           </div>

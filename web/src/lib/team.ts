@@ -16,7 +16,7 @@ export const team = [
   {
     slug: "michael-cullen",
     name: "Michael Cullen",
-    role: "Real Estate Sales & Leadership | Dubai",
+    role: "Associate Director",
     subtitle: "Real Estate Sales & Leadership | Dubai",
     image: "/wp-content/uploads/2026/11/michael-cullen1.webp",
     biography: [

@@ -26,23 +26,23 @@ const reasons = [
 
 export default function WhyPrestige() {
   return (
-    <section aria-labelledby="pl-why-prestige-title" className="pl-why-prestige bg-black py-14 text-white md:py-20">
+    <section aria-labelledby="pl-why-prestige-title" className="pl-why-prestige border-t border-line bg-[#fcfcfc] py-14 text-black md:py-20">
       <Container className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.6fr] lg:gap-20">
         <div>
-          <h2 id="pl-why-prestige-title" className="font-medium leading-[1.2] tracking-[-0.025em] text-white text-section">Why Choose Prestige Luxury</h2>
-          <p className="mt-5 text-[14px] leading-[1.85] text-white/80">A property decision is personal. You deserve an advisor who understands Dubai’s communities, takes the time to understand you, and stays involved through the details.</p>
-          <p className="mt-4 text-[14px] leading-[1.85] text-white/80">Whether you are buying, renting or selling, we bring local knowledge and personal commitment together to help you move forward with clarity and confidence.</p>
+          <h2 id="pl-why-prestige-title" className="font-medium leading-[1.2] tracking-[-0.025em] text-black text-section">Why Choose Prestige Luxury</h2>
+          <p className="mt-5 text-[14px] leading-[1.85] text-black">A property decision is personal. You deserve an advisor who understands Dubai’s communities, takes the time to understand you, and stays involved through the details.</p>
+          <p className="mt-4 text-[14px] leading-[1.85] text-black">Whether you are buying, renting or selling, we bring local knowledge and personal commitment together to help you move forward with clarity and confidence.</p>
           <div className="mt-6 flex flex-col items-start gap-2">
-            <Link href="/contact-us/" className="inline-flex min-h-11 items-center gap-3 border-b border-white/50 text-[13px] font-medium text-white transition-opacity hover:opacity-70 focus-visible:outline-white motion-reduce:transition-none">Speak to a Property Specialist <span aria-hidden="true">↗</span></Link>
-            <Link href="/about/" className="inline-flex min-h-11 items-center text-[13px] text-white/75 transition-colors hover:text-white focus-visible:outline-white motion-reduce:transition-none">Know more about Prestige Luxury</Link>
+            <Link href="/contact-us/" className="inline-flex min-h-11 items-center gap-3 border-b border-black/50 text-[13px] font-medium text-black transition-opacity hover:opacity-70 focus-visible:outline-black motion-reduce:transition-none">Speak to a Property Specialist <span aria-hidden="true">↗</span></Link>
+            <Link href="/about/" className="inline-flex min-h-11 items-center text-[13px] text-black transition-opacity hover:opacity-70 focus-visible:outline-black motion-reduce:transition-none">Know more about Prestige Luxury</Link>
           </div>
         </div>
         <ul className="grid gap-x-10 gap-y-9 sm:grid-cols-2 md:gap-y-10">
           {reasons.map((reason) => (
             <li key={reason.title}>
-              <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mb-4 text-white">{reason.icon}</svg>
-              <h3 className="text-[18px] font-medium leading-snug text-white">{reason.title}</h3>
-              <p className="mt-3 text-[14px] leading-[1.8] text-white/80">{reason.text}</p>
+              <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mb-4 text-black">{reason.icon}</svg>
+              <h3 className="text-[18px] font-medium leading-snug text-black">{reason.title}</h3>
+              <p className="mt-3 text-[14px] leading-[1.8] text-black">{reason.text}</p>
             </li>
           ))}
         </ul>

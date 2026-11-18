@@ -104,7 +104,7 @@ export default function HomePage() {
         </div>
         <div className="relative z-10 w-full px-5 pt-14 md:pt-20">
           <h1 className="mx-auto mb-10 max-w-[900px] text-center text-[30px] font-semibold leading-[1.2] tracking-[-0.02em] text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.35)] sm:text-[36px] md:mb-20 md:text-[44px]">
-            The Art of Finding Your Perfect Home
+            Exceptional Properties. Expert Guidance.
           </h1>
           <HeroSearch locations={locations} types={propertyTypes} />
         </div>
