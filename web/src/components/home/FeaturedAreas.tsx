@@ -13,7 +13,8 @@ export default function FeaturedAreas() {
     <Container>
       <SectionTitle title="Explore the top featured areas of Dubai" subtitle="These are the top world renowned areas in Dubai offering some of the highest ROI in the world." />
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {areas.map((area) => <AreaCard key={area.slug} {...area} href={`/area/${area.slug}/`} />)}
+        {/* Landscape originals need enough height for the portrait crop, not just the tile width. */}
+        {areas.map((area) => <AreaCard key={area.slug} {...area} href={`/area/${area.slug}/`} imageSizes="640px" imageQuality={85} />)}
       </div>
     </Container>
   </section>;
