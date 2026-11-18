@@ -13,6 +13,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const require = createRequire(import.meta.url);
 const cache = new Map();
+let pathname = '/search-results/';
 function load(file) {
   if (!existsSync(file)) file = ['.ts', '.tsx', '.json'].map(ext => file + ext).find(existsSync);
   if (cache.has(file)) return cache.get(file).exports;
@@ -22,7 +23,7 @@ function load(file) {
   const code = ts.transpileModule(readFileSync(file, 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX, esModuleInterop: true } }).outputText;
   const localRequire = name => {
     if (name === '@/components/listings/ListingArchive') return 'ListingArchive';
-    if (name === 'next/navigation') return { notFound() { throw new Error('Not found'); }, useRouter: () => ({ push() {} }) };
+    if (name === 'next/navigation') return { notFound() { throw new Error('Not found'); }, useRouter: () => ({ push() {} }), usePathname: () => pathname };
     if (name.startsWith('@/')) return load(resolve(root, 'src', name.slice(2)));
     return name.startsWith('.') ? load(resolve(dirname(file), name)) : require(name);
   };
@@ -112,4 +113,22 @@ test('scoped search forms submit a fixed purpose even with advanced filters clos
   }
   const unscoped = renderToStaticMarkup(createElement(ListingSearchBar, { cities: [], areas: [], locations: [], types: [] }));
   assert.ok(unscoped.includes('<select name="status"'));
+});
+
+test('the current archive overrides missing or conflicting status in the hidden advanced filters', () => {
+  try {
+    for (const status of ['for-sale', 'for-rent', 'off-plan']) {
+      for (const trailingSlash of ['', '/']) {
+        pathname = `/status/${status}${trailingSlash}`;
+        for (const initial of [{}, { status: status === 'for-rent' ? 'for-sale' : 'for-rent' }]) {
+          const html = renderToStaticMarkup(createElement(ListingSearchBar, { cities: [], areas: [], locations: [], types: [], initial }));
+          assert.match(html, new RegExp(`<input type="hidden" name="status" value="${status}"`));
+          assert.match(html, new RegExp(`<option value="${status}" selected="">`));
+          assert.match(html, /<select disabled=""/);
+        }
+      }
+    }
+  } finally {
+    pathname = '/search-results/';
+  }
 });

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useId, useRef, useState } from "react";
 import { budgetOptions } from "@/lib/listing-format";
 import LocationAutocomplete from "./LocationAutocomplete";
@@ -37,11 +37,14 @@ export default function ListingSearchBar({
   initial?: SearchBarValues;
 }) {
   const router = useRouter();
+  const pathname = usePathname();
   const formRef = useRef<HTMLFormElement>(null);
   const [advanced, setAdvanced] = useState(false);
   const advancedId = `pl-listing-advanced-${useId()}`;
   // Buying and renting are quoted on different scales, so the budget ladder follows the status.
-  const fixedStatus = statusOptions.find((option) => option.value === initial.status)?.value;
+  // The current archive wins over any stale filter values from a previous page.
+  const pageStatus = statusOptions.find(({ value }) => pathname === `/status/${value}/` || pathname === `/status/${value}`)?.value;
+  const fixedStatus = pageStatus ?? statusOptions.find((option) => option.value === initial.status)?.value;
   const [selectedStatus, setStatus] = useState(initial.status ?? "");
   const status = fixedStatus ?? selectedStatus;
   const [maxPrice, setMaxPrice] = useState(initial.maxPrice ?? "");
