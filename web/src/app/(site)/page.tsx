@@ -6,7 +6,6 @@ import { Button, Container, ImageCard, SectionTitle } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
 import DeveloperLogoSlider from "@/components/developers/DeveloperLogoSlider";
 import CuratedProperties from "@/components/home/CuratedProperties";
-import PrivateCollection from "@/components/home/PrivateCollection";
 import FeaturedAreas from "@/components/home/FeaturedAreas";
 import WhyPrestige from "@/components/home/WhyPrestige";
 import GoogleTestimonials from "@/components/home/GoogleTestimonials";
@@ -113,7 +112,6 @@ export default function HomePage() {
 
       <DeveloperLogoSlider />
       <CuratedProperties />
-      <PrivateCollection />
 
       <WhyPrestige />
 
