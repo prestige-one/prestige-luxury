@@ -9,6 +9,7 @@ import CuratedProperties from "@/components/home/CuratedProperties";
 import FeaturedAreas from "@/components/home/FeaturedAreas";
 import WhyPrestige from "@/components/home/WhyPrestige";
 import GoogleTestimonials from "@/components/home/GoogleTestimonials";
+import ScrollReveal from "@/components/ScrollReveal";
 import { collectionIntro } from "@/lib/page-seo";
 import { communities, properties, propertyTypes } from "@/lib/properties";
 import { site } from "@/lib/site";
@@ -93,7 +94,7 @@ export default function HomePage() {
   const locations = listed.length ? listed : defaultLocations;
 
   return (
-    <>
+    <ScrollReveal>
       {/* Self-hosted background video + search */}
       <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-black py-24 md:h-screen md:min-h-[640px] md:py-0">
         <div className="pointer-events-none absolute inset-0" aria-hidden>
@@ -103,14 +104,14 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/45" />
         </div>
         <div className="relative z-10 w-full px-5 pt-14 md:pt-20">
-          <h1 className="mx-auto mb-10 max-w-[900px] text-center text-[30px] font-semibold leading-[1.2] tracking-[-0.02em] text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.35)] sm:text-[36px] md:mb-20 md:text-[44px]">
+          <h1 data-pl-reveal className="mx-auto mb-10 max-w-[900px] text-center text-[30px] font-semibold leading-[1.2] tracking-[-0.02em] text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.35)] sm:text-[36px] md:mb-20 md:text-[44px]">
             Exceptional Properties. Expert Guidance.
           </h1>
-          <HeroSearch locations={locations} types={propertyTypes} />
+          <div data-pl-reveal><HeroSearch locations={locations} types={propertyTypes} /></div>
         </div>
       </section>
 
-      <DeveloperLogoSlider />
+      <div data-pl-reveal><DeveloperLogoSlider /></div>
       <CuratedProperties />
 
       <WhyPrestige />
@@ -118,11 +119,11 @@ export default function HomePage() {
       {/* Services */}
       <section className="bg-smoke py-16 md:py-[100px]">
         <Container>
-          <SectionTitle
+          <div data-pl-reveal><SectionTitle
             title="Every Property Decision Deserves the Right Expertise."
             subtitle="From finding your next home to making a strategic investment, discover real estate services designed around your goals."
-          />
-          <div className="grid gap-5 md:grid-cols-3">
+          /></div>
+          <div data-pl-reveal-group className="grid gap-5 md:grid-cols-3">
             {services.map((s) => (
               <div
                 key={s.title}
@@ -145,8 +146,8 @@ export default function HomePage() {
       {/* Residential properties */}
       <section className="bg-white py-16 md:py-[100px]">
         <Container>
-          <SectionTitle title="Discover Our Properties" subtitle={collectionIntro.description} />
-          <div className="grid gap-[30px] md:grid-cols-3">
+          <div data-pl-reveal><SectionTitle title="Discover Our Properties" subtitle={collectionIntro.description} /></div>
+          <div data-pl-reveal-group className="grid gap-[30px] md:grid-cols-3">
             {residential.map((r) => (
               <ImageCard key={r.title} {...r} tone="smoke" radius={8} />
             ))}
@@ -160,7 +161,7 @@ export default function HomePage() {
       <GoogleTestimonials />
 
       {/* CTA */}
-      <SalesExpertsCta image={site.ctaImage} />
-    </>
+      <div data-pl-reveal><SalesExpertsCta image={site.ctaImage} /></div>
+    </ScrollReveal>
   );
 }

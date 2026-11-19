@@ -85,7 +85,7 @@ export default function GoogleTestimonials() {
       className="pl-google-testimonials bg-white py-16 md:py-20"
       onKeyDown={(event) => { if (event.key === "ArrowLeft" || event.key === "ArrowRight") { event.preventDefault(); go(event.key === "ArrowRight" ? 1 : -1); } }}>
       <Container className="grid items-stretch gap-9 lg:grid-cols-[0.7fr_1.6fr] lg:gap-12">
-        <div className="flex flex-col items-start">
+        <div data-pl-reveal className="flex flex-col items-start">
           <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-muted">Client Experiences</p>
           <h2 id="pl-google-testimonials-title" className="mt-2 font-medium leading-tight tracking-[-0.02em] text-ink text-section">What Our Clients Say</h2>
           <p className="mt-3 text-[14px] leading-[1.7] text-muted">Personal service, local knowledge and support through the details. Explore a selection of five-star Google reviews from our clients.</p>
@@ -95,7 +95,7 @@ export default function GoogleTestimonials() {
           </div>
           <div className="mt-6 lg:mt-auto lg:pt-6"><Button href="/testimonials/" className="gap-3">Read More <span aria-hidden="true">↗</span></Button></div>
         </div>
-        <div className="min-w-0">
+        <div data-pl-reveal className="min-w-0">
           <ul ref={track} onScroll={onScroll} onPointerDown={() => setTouching(true)} onPointerUp={() => setTouching(false)} onPointerCancel={() => setTouching(false)} onPointerLeave={() => setTouching(false)}
             className="no-scrollbar relative flex h-full snap-x snap-mandatory gap-6 overflow-x-auto overscroll-x-contain" aria-label="Selected five-star Google reviews">
             {homepageGoogleReviews.map((review) => <li key={review.id} className="w-full shrink-0 snap-start md:w-[calc((100%_-_24px)/2)]">

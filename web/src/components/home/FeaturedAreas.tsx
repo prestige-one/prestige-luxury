@@ -11,8 +11,8 @@ const areas = [
 export default function FeaturedAreas() {
   return <section className="pl-featured-areas bg-mist py-16 md:py-20">
     <Container>
-      <SectionTitle title="Explore Dubai's Most Sought-After Communities" subtitle="Discover some of Dubai's most desirable residential and investment locations, each offering its own lifestyle, amenities and property opportunities." />
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div data-pl-reveal><SectionTitle title="Explore Dubai's Most Sought-After Communities" subtitle="Discover some of Dubai's most desirable residential and investment locations, each offering its own lifestyle, amenities and property opportunities." /></div>
+      <div data-pl-reveal-group className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {/* Landscape originals need enough height for the portrait crop, not just the tile width. */}
         {areas.map((area) => <AreaCard key={area.slug} {...area} href={`/area/${area.slug}/`} imageSizes="640px" imageQuality={85} />)}
       </div>

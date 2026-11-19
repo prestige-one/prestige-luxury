@@ -26,26 +26,34 @@ const reasons = [
 
 export default function WhyPrestige() {
   return (
-    <section aria-labelledby="pl-why-prestige-title" className="pl-why-prestige border-t border-line bg-[#fcfcfc] py-14 text-black md:py-20">
-      <Container className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.6fr] lg:gap-20">
-        <div>
-          <h2 id="pl-why-prestige-title" className="font-medium leading-[1.2] tracking-[-0.025em] text-black text-section">Why Choose Prestige Luxury</h2>
-          <p className="mt-5 text-[14px] leading-[1.85] text-black">A property decision is personal. You deserve an advisor who understands Dubai’s communities, takes the time to understand you, and stays involved through the details.</p>
-          <p className="mt-4 text-[14px] leading-[1.85] text-black">Whether you are buying, renting or selling, we bring local knowledge and personal commitment together to help you move forward with clarity and confidence.</p>
-          <div className="mt-6 flex flex-col items-start gap-2">
-            <Link href="/contact-us/" className="inline-flex min-h-11 items-center gap-3 border-b border-black/50 text-[13px] font-medium text-black transition-opacity hover:opacity-70 focus-visible:outline-black motion-reduce:transition-none">Speak to a Property Specialist <span aria-hidden="true">↗</span></Link>
-            <Link href="/about/" className="inline-flex min-h-11 items-center text-[13px] text-black transition-opacity hover:opacity-70 focus-visible:outline-black motion-reduce:transition-none">Know more about Prestige Luxury</Link>
+    <section id="pl-why-prestige" aria-labelledby="pl-why-prestige-title" className="pl-why-prestige scroll-mt-20 border-t border-line bg-[#fcfcfc] py-14 text-black">
+      <Container>
+        <div className="grid items-center gap-10 lg:grid-cols-[0.85fr_1.35fr] lg:gap-20">
+          <div data-pl-reveal className="pl-why-intro">
+            <h2 id="pl-why-prestige-title" className="text-[26px] font-medium leading-[1.25] tracking-[-0.025em] text-black md:text-[30px]">Why Choose Prestige Luxury</h2>
+            <div className="mt-5 space-y-5 text-[14px] leading-[1.9] text-black/75">
+              <p>A property decision is personal. You deserve an advisor who understands Dubai’s communities, takes the time to understand you, and stays involved through the details.</p>
+              <p>Whether you are buying, renting or selling, we bring local knowledge and personal commitment together to help you move forward with clarity and confidence.</p>
+            </div>
+            <div className="pl-why-actions mt-7 flex flex-col items-start gap-3">
+              <Link href="/contact-us/" className="group inline-flex min-h-11 items-center justify-between gap-6 border-b border-black pb-1 text-[13px] font-medium text-black transition-opacity hover:opacity-65 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black motion-reduce:transition-none">Speak to a Property Specialist <span aria-hidden="true" className="text-[18px] transition-transform group-hover:translate-x-1 motion-reduce:transition-none">↗</span></Link>
+              <Link href="/about/" className="inline-flex min-h-11 items-center text-[13px] text-black/70 transition-opacity hover:opacity-65 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black motion-reduce:transition-none">Know more about Prestige Luxury</Link>
+            </div>
           </div>
+
+          <ul data-pl-reveal-group className="pl-why-reasons divide-y divide-black/10 border-b border-black/10">
+            {reasons.map((reason, index) => (
+              <li key={reason.title} className="pl-why-reason grid grid-cols-[32px_1fr] items-start gap-4 py-5 sm:grid-cols-[36px_1fr_24px] sm:gap-6 lg:py-4">
+                <svg width="32" height="32" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mt-0.5 text-black">{reason.icon}</svg>
+                <div>
+                  <h3 className="text-[17px] font-medium leading-[1.5] tracking-[-0.015em] text-black">{reason.title}</h3>
+                  <p className="mt-2 text-[13px] leading-[1.85] text-black/75">{reason.text}</p>
+                </div>
+                <span aria-hidden="true" className="hidden pt-1 text-right text-[11px] tracking-[0.08em] text-black/35 sm:block">0{index + 1}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className="grid gap-x-10 gap-y-9 sm:grid-cols-2 md:gap-y-10">
-          {reasons.map((reason) => (
-            <li key={reason.title}>
-              <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mb-4 text-black">{reason.icon}</svg>
-              <h3 className="text-[18px] font-medium leading-snug text-black">{reason.title}</h3>
-              <p className="mt-3 text-[14px] leading-[1.8] text-black">{reason.text}</p>
-            </li>
-          ))}
-        </ul>
       </Container>
     </section>
   );

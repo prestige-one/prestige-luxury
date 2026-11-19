@@ -14,11 +14,11 @@ export default function CuratedProperties() {
   return (
     <section className="pl-curated-properties bg-white py-16 md:py-20">
       <Container>
-        <SectionTitle title="A Curated Collection of Dubai Properties" />
-        <div className="pl-curated-grid grid gap-6 md:grid-cols-3">
+        <div data-pl-reveal><SectionTitle title="A Curated Collection of Dubai Properties" /></div>
+        <div data-pl-reveal-group className="pl-curated-grid grid gap-6 md:grid-cols-3">
           {selection.map((property) => <PropertyCard key={property.id} property={property} />)}
         </div>
-        <div className="mt-9 text-center">
+        <div data-pl-reveal className="mt-9 text-center">
           <Button href="/properties/">Explore More</Button>
         </div>
       </Container>
