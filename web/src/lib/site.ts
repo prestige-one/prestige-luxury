@@ -361,6 +361,7 @@ export const footerColumns: { title: string; links: { label: string; href: strin
       { label: "Sell Your Property", href: "/sell/" },
       { label: "Property Valuation", href: "/services/market-appraisal/" },
       { label: "Property Management", href: "/services/property-management/" },
+      { label: "Investment Guide", href: "/investment-guide/" },
       { label: "Speak to an Advisor", href: "/contact-us/" },
     ],
   },
