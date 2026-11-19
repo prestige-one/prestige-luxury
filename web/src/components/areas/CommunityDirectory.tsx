@@ -39,7 +39,8 @@ export default function CommunityDirectory({ communities }: { communities: Commu
       </div>
     </div>
     {matches.length ? <div className="pl-community-grid grid gap-x-7 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-9">
-      {matches.map((community) => <DirectoryCard key={community.slug} className="pl-community-card" href={`/area/${community.slug}/`} title={community.name} description={community.description} image={community.image} imageAlt={community.name === "Business Bay" ? "Residential buildings in Business Bay, Dubai" : community.name} />)}
+      {/* DIFC's wide original needs a larger candidate to stay sharp in a 4:3 crop. */}
+      {matches.map((community) => <DirectoryCard key={community.slug} className="pl-community-card" href={`/area/${community.slug}/`} title={community.name} description={community.description} image={community.image} imageQuality={85} imageSizes={community.slug === "difc" ? "(min-width: 1024px) 640px, (min-width: 640px) 85vw, 170vw" : undefined} imageAlt={community.name === "Business Bay" ? "Residential buildings in Business Bay, Dubai" : community.name} />)}
     </div> : <div className="rounded-[6px] bg-mist px-6 py-14 text-center">
       <h2 className="text-[20px] font-medium text-ink">No communities match your search</h2>
       <p className="mt-3 text-[14px] text-muted">Try another community name or clear your filters.</p>

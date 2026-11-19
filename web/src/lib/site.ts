@@ -101,7 +101,6 @@ const buyMega: NavMega = {
         { label: "Studios", href: "/status/for-sale/?type=Studio", icon: "studio" },
         { label: "Commercial", href: "/status/for-sale/?type=Other%20Commercial", icon: "commercial" },
         { label: "See All Properties", href: "/status/for-sale/", icon: "grid" },
-        { label: "Exclusive Collection", href: "/exclusive-collection/", icon: "grid" },
       ],
     },
     {
@@ -173,7 +172,6 @@ const offPlanMega: NavMega = {
         { label: "Townhouses", href: "/status/off-plan/?type=Townhouse", icon: "townhouse" },
         { label: "Commercial", href: "/status/off-plan/?type=Other%20Commercial", icon: "commercial" },
         { label: "Penthouses", href: "/status/off-plan/?type=Penthouse", icon: "penthouse" },
-        { label: "Mansions", href: "/status/off-plan/?type=Mansion", icon: "mansion" },
         { label: "See All New Projects", href: "/status/off-plan/", icon: "arrow" },
       ],
     },
@@ -265,11 +263,15 @@ const servicesMega: NavMega = {
   groups: [
     {
       title: "What we do",
+      columnFlow: true,
       links: [
         { label: "Sell Your Property", href: "/sell/" },
         { label: "Property Management", href: "/services/property-management/" },
+        { label: "Property Valuation", href: "/property-valuation/" },
+        { label: "Buyer's Guide", href: "/buyers-guide/" },
+        { label: "Investment Guide", href: "/investment-guide/" },
+        { label: "Tenant's Guide", href: "/tenants-guide/" },
         { label: "Market Appraisal", href: "/services/market-appraisal/" },
-        { label: "List With Us", href: "/sell/" },
       ],
     },
     {
@@ -279,7 +281,6 @@ const servicesMega: NavMega = {
         { label: "Meet the Team", href: "/meet-the-team/" },
         { label: "Careers", href: "/careers/" },
         { label: "Testimonials", href: "/testimonials/" },
-        { label: "Exclusive Collection", href: "/exclusive-collection/" },
       ],
     },
   ],

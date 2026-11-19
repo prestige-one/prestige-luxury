@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import GuidePage, { type Guide } from "@/components/guides/GuidePage";
-import { communityPhoto } from "@/lib/imagery";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -26,11 +25,23 @@ export const metadata: Metadata = {
 const guide: Guide = {
   title: "Investment Guide",
   subtitle: "Investing in Dubai property — the strategies, the returns after costs, and what to check before you buy.",
-  image: communityPhoto("Business Bay", { size: "full" }) ?? "/wp-content/uploads/2019/06/emaar-downtown-1536x864.jpg",
+  image: "/images/faq-dubai-skyline-4k.webp",
+  imageQuality: 85,
+  imageClassName: "opacity-80 object-[center_75%]",
   intro: [
     "Dubai attracts property investors from all over the world for a few simple reasons: foreign buyers can own freehold outright, there is no annual property tax, individuals pay no tax on rental income or on the gain when they sell, and rents have historically delivered gross yields that compare well with most major cities.",
     "This guide explains how investing here works in practice — choosing between ready and off-plan, letting long-term or as a holiday home, and what you actually keep once every cost is counted. It is general information to help you ask the right questions, not financial advice; your Prestige Luxury advisor can take you through the numbers on any specific property.",
   ],
+  introChecklist: {
+    title: "Create a focused property brief",
+    items: [
+      "Define your preferred communities, property types and intended use.",
+      "Set out your purchase timeline and expected ownership period.",
+      "List the property details and running costs you want to review.",
+      "Discuss property management and ongoing support with your specialist.",
+    ],
+    cta: { label: "Explore available properties", href: "/properties/" },
+  },
   glance: [
     { label: "Tax on rent (individuals)", value: "None" },
     { label: "Capital gains tax (individuals)", value: "None" },

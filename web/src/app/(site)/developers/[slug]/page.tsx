@@ -11,6 +11,7 @@ import { allAreas } from "@/lib/listing-views";
 import { slugify } from "@/lib/properties";
 import { site } from "@/lib/site";
 import { developerLogo, developerLogoClass } from "@/lib/developer-logos";
+import { developerProjectUrl } from "@/lib/developer-project-links";
 import { PAGE_SIZE, pageCount, parsePage } from "@/lib/listing-format";
 
 // Developer URLs are generated from the shared directory data.
@@ -201,12 +202,15 @@ export default async function DeveloperPage({ params, searchParams }: Props) {
         {d.projects.length > 0 && (
           <Section id="developer-projects" title={`Signature Projects (${d.projects.length})`}>
             <ul className="grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
-              {d.projects.map((p) => (
-                <li key={p.name} className="border-b border-line py-3">
-                  <h3 className="text-[15px] font-medium leading-snug text-ink">{p.name}</h3>
+              {d.projects.map((p) => {
+                const projectUrl = developerProjectUrl(d.slug, p.name);
+                return <li key={p.name} className="border-b border-line py-3">
+                  <h3 className="text-[15px] font-medium leading-snug text-ink">{projectUrl ? <a href={projectUrl} target="_blank" rel="noopener noreferrer" aria-label={`${p.name} (opens in a new tab)`} className="inline-flex items-start gap-2 underline decoration-line underline-offset-4 transition-opacity hover:opacity-65">
+                    <span>{p.name}</span><span aria-hidden="true">↗</span>
+                  </a> : p.name}</h3>
                   {p.community && <p className="mt-1 text-[13px] leading-relaxed text-muted">{p.community}</p>}
-                </li>
-              ))}
+                </li>;
+              })}
             </ul>
           </Section>
         )}

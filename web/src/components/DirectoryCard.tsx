@@ -3,13 +3,13 @@ import Media from "@/components/Media";
 import type { ReactNode } from "react";
 
 /** Shared photograph-and-summary layout for developer and community directories. */
-export default function DirectoryCard({ href, title, description, image, imageAlt, branding, showArrow = false, className = "", imageClassName = "" }: {
+export default function DirectoryCard({ href, title, description, image, imageAlt, imageQuality, imageSizes = "(min-width: 1024px) 320px, (min-width: 640px) 50vw, 100vw", branding, showArrow = false, className = "", imageClassName = "" }: {
   href: string; title: string; description?: string | null; image: string; imageAlt: string;
-  branding?: ReactNode; showArrow?: boolean; className?: string; imageClassName?: string;
+  branding?: ReactNode; showArrow?: boolean; className?: string; imageClassName?: string; imageQuality?: number; imageSizes?: string;
 }) {
   return <Link href={href} className={`pl-directory-card group block h-full rounded-[10px] bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black ${className}`}>
     <div className={`pl-directory-photo relative aspect-[4/3] overflow-hidden rounded-[10px] bg-smoke ${imageClassName}`}>
-      <Media src={image} alt={imageAlt} fill sizes="(min-width: 1024px) 320px, (min-width: 640px) 50vw, 100vw" className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035] group-focus-visible:scale-[1.035] motion-reduce:transition-none" />
+      <Media src={image} alt={imageAlt} fill quality={imageQuality} sizes={imageSizes} className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035] group-focus-visible:scale-[1.035] motion-reduce:transition-none" />
       {branding}
     </div>
     <div className="pt-5">

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import GuidePage, { type Guide } from "@/components/guides/GuidePage";
-import { communityPhoto } from "@/lib/imagery";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -22,11 +21,23 @@ export const metadata: Metadata = {
 const guide: Guide = {
   title: "Tenant's Guide",
   subtitle: "Renting a home in Dubai, step by step — your rights, the paperwork, and the costs to plan for.",
-  image: communityPhoto("Dubai Marina", { size: "full" }) ?? "/wp-content/uploads/2020/07/Dubai-Marina-2.jpg",
+  image: "/images/dubai-waterfront-cta.webp",
+  imageQuality: 85,
+  imageClassName: "opacity-80",
   intro: [
     "Renting in Dubai is well regulated. Every residential tenancy is registered with the government through Ejari, deposits are capped, rent increases are tied to an official index, and tenants have clear protections on notice and eviction under the Dubai tenancy law administered by RERA.",
     "This guide takes you through a typical rental from first viewing to moving in, sets out what you will pay upfront, and explains the rules that matter most once you are living there. Your Prestige Luxury leasing agent will handle the detail of your own tenancy with you.",
   ],
+  introChecklist: {
+    title: "Prepare for your property search",
+    items: [
+      "Choose communities that suit your commute and everyday routine.",
+      "Set your move-in date, bedroom needs and furnishing preferences.",
+      "Allow for utilities, parking and building charges when comparing homes.",
+      "Keep a shortlist of questions to discuss with your leasing specialist.",
+    ],
+    cta: { label: "Browse properties for rent", href: "/status/for-rent/" },
+  },
   glance: [
     { label: "Usual contract length", value: "12 months" },
     { label: "Rent paid by", value: "1–4 cheques a year, usually" },

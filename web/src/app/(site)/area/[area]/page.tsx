@@ -10,8 +10,7 @@ import { allAreas, filterListings, parseFilters, propertiesInArea, searchTypeOpt
 import { sizedImage } from "@/lib/listing-format";
 import { site } from "@/lib/site";
 import { areaOverview } from "@/lib/area-overviews";
-import communities from "../../../../../content/communities.json";
-import neighbourhoodImages from "../../../../../content/neighbourhood-images.json";
+import { communities, communityImages } from "@/lib/community-content";
 
 // Every community with listings + the featured areas linked from the homepage (always present).
 export const dynamicParams = false;
@@ -53,8 +52,7 @@ export default async function AreaPage({ params, searchParams }: Props) {
   const path = `/area/${a.slug}/`;
   const aliases: Record<string, string> = { "maritime-city": "dubai-maritime-city", meydan: "meydan-horizon" };
   const community = communities.find((community) => community.slug === (aliases[a.slug] ?? a.slug));
-  const photography: Record<string, string> = neighbourhoodImages;
-  const image = photography[a.slug] ?? community?.image ?? (listings[0]?.images[0] ? sizedImage(listings[0].images[0], "full") : site.ctaImage);
+  const image = communityImages[a.slug] ?? community?.image ?? (listings[0]?.images[0] ? sizedImage(listings[0].images[0], "full") : site.ctaImage);
   const description = community?.description ?? `Explore properties in ${a.name} and find a home that suits your lifestyle, priorities and investment plans.`;
   const overview = areaOverview(a.slug, a.name, description, listings);
   const formKey = JSON.stringify({ ...search, status });

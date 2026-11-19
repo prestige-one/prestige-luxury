@@ -4,7 +4,7 @@ import LeadForm, { type LeadField } from "@/components/LeadForm";
 import Media from "@/components/Media";
 import { propertyTypeOptions } from "@/components/info/options";
 import { Button, Container } from "@/components/ui";
-import { site } from "@/lib/site";
+import ContactPhoneItems from "@/components/ContactPhoneItems";
 
 const title = "Book a Property Valuation";
 const description = "Understand your Dubai property's sale or rental potential. Request a complimentary market appraisal with a Prestige Luxury community specialist.";
@@ -69,7 +69,9 @@ export default function PropertyValuationPage() {
               ))}
             </ol>
             <p className="mt-7 text-[14px] text-body">Prefer to speak to us?</p>
-            <a href={site.phoneHref} className="mt-2 inline-flex min-h-11 items-center text-[18px] font-medium text-ink underline decoration-line underline-offset-4">{site.phone}</a>
+            <ul className="pl-valuation-contact-phones mt-2 space-y-1">
+              <ContactPhoneItems className="inline-flex min-h-11 items-center gap-3 text-[18px] font-medium text-ink underline decoration-line underline-offset-4 transition-opacity hover:opacity-65" />
+            </ul>
           </div>
 
           <div id="valuation-request" className="scroll-mt-28 rounded-[8px] border border-black bg-black p-6 text-white sm:p-10">

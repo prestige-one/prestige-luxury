@@ -17,7 +17,10 @@ export type Guide = {
   title: string;
   subtitle: string;
   image: string;
+  imageQuality?: number;
+  imageClassName?: string;
   intro: string[];
+  introChecklist?: { title: string; items: string[]; cta?: { label: string; href: string } };
   glance: { label: string; value: string }[];
   stepsTitle: string;
   steps: { title: string; text: string }[];
@@ -36,7 +39,7 @@ export type Guide = {
 export default function GuidePage({ g }: { g: Guide }) {
   return (
     <>
-      <PageBanner title={g.title} subtitle={g.subtitle} image={g.image} />
+      <PageBanner title={g.title} subtitle={g.subtitle} image={g.image} imageQuality={g.imageQuality} imageClassName={g.imageClassName} />
 
       <section className="py-14 md:py-[80px]">
         <Container>
@@ -47,6 +50,13 @@ export default function GuidePage({ g }: { g: Guide }) {
               {g.intro.map((p) => (
                 <p key={p.slice(0, 40)}>{p}</p>
               ))}
+              {g.introChecklist && <div className="pl-guide-intro-checklist rounded-[4px] border border-line bg-mist p-5 sm:p-6">
+                <h2 className="text-[18px] font-medium leading-snug text-ink">{g.introChecklist.title}</h2>
+                <CheckList items={g.introChecklist.items} className="mt-4" />
+                {g.introChecklist.cta && <a href={g.introChecklist.cta.href} className="mt-4 inline-flex min-h-11 items-center gap-2 text-[13px] font-medium text-ink underline underline-offset-4 hover:opacity-70">
+                  {g.introChecklist.cta.label} <span aria-hidden="true">↗</span>
+                </a>}
+              </div>}
             </div>
             <aside className="self-start rounded-[4px] border border-line bg-mist p-7 lg:sticky lg:top-[100px]">
               <p className="text-[12px] font-semibold uppercase tracking-[0.12em] text-ink/50">At a glance</p>

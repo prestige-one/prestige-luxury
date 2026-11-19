@@ -11,7 +11,7 @@ test('one current menu section despite cross-links in several mega menus', () =>
     ['/status/for-sale/', '/status/for-sale/'],
     ['/status/for-rent/', '/status/for-rent/'],
     ['/status/off-plan/', '/status/off-plan/'],
-    ['/exclusive-collection/', '/status/for-sale/'],
+    ['/exclusive-collection/', null],
     ['/services/property-management/', '/services/'],
     ['/services/market-appraisal/', '/services/'],
     ['/area/downtown-dubai/', '/areas/'],

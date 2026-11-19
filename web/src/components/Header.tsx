@@ -31,7 +31,8 @@ export default function Header() {
   // The desktop mega panel opens purely from CSS :hover / :focus-within. After clicking a link
   // inside it the navigation is client-side, so the pointer is still inside the item's subtree
   // and the panel stayed open over the new page. Unmounting the panel for that one item closes
-  // it; moving the pointer off the menu item clears the flag and hover works again.
+  // it. Re-entering the top-level link clears the flag even if the pointer never left the
+  // item's fixed-position subtree; keyboard focus reopens it in the same way.
   const [dismissed, setDismissed] = useState<string | null>(null);
   const setOpen = (v: boolean) => {
     setOpenOn(v ? pathname : null);
@@ -158,6 +159,8 @@ export default function Header() {
                   >
                     <Link
                       href={item.href}
+                      onMouseEnter={() => setDismissed(null)}
+                      onFocus={() => setDismissed(null)}
                       onClick={() => {
                         (document.activeElement as HTMLElement | null)?.blur();
                         setDismissed(item.label);

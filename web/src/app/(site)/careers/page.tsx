@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = seoMetadata(getPage("/careers/")!);
 
 const advantages = [
-  "50–70% Commission",
+  "Highly Competitive Commission Structure",
   "Visa & Medical Insurance",
   "Dedicated Relocation Advisor.",
   "Professional Training Academy",
@@ -30,11 +30,13 @@ export default function CareersPage() {
       <PageBanner
         title="Careers"
         subtitle="Build your career with an established Dubai agency, from our Marina Plaza offices."
-        image="/wp-content/uploads/2019/01/Spread-group-photo-PRESTIGE-REAL-ESTATE.jpg"
+        image="/images/careers/careers-office-interior.webp"
+        imageQuality={85}
+        imageClassName="opacity-70 object-[center_40%]"
       />
 
       <section className="py-16 md:py-[100px]">
-        <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <Container className="pl-careers-application grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
           <div>
             <h2 className="font-medium leading-snug text-ink text-section">Your Ambition Deserves the Right Address.</h2>
             <h3 className="mt-3 text-[17px] leading-[22px] text-body">

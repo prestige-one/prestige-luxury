@@ -1,11 +1,10 @@
 // Keep the original neighbourhood guide and destinations, using the homepage's shared area cards.
 import type { Metadata } from "next";
-import { Container } from "@/components/ui";
+import { Container, PageBanner } from "@/components/ui";
 import AreaCard from "@/components/areas/AreaCard";
 import AreaSelect from "@/components/guides/AreaSelect";
 import { getPage, seoMetadata } from "@/lib/content";
-import neighbourhoodImages from "../../../../content/neighbourhood-images.json";
-import communities from "../../../../content/communities.json";
+import { communities, communityImages } from "@/lib/community-content";
 
 const page = getPage("/dubai-neighbourhoods/")!;
 export const metadata: Metadata = {
@@ -14,7 +13,7 @@ export const metadata: Metadata = {
   description: "This guide breaks down some of the most frequented Dubai neighborhoods so you can experience the real Dubai and get a feel for how these enclaves flavor the city.",
 };
 
-// Preserve the original guide order; community photography is stored locally.
+// Curated guide order; community photography is stored locally.
 const areas: { slug: string; name: string }[] = [
   { slug: "dubai-marina", name: "Dubai Marina" },
   { slug: "palm-jumeirah", name: "Palm Jumeirah" },
@@ -29,7 +28,6 @@ const areas: { slug: string; name: string }[] = [
   { slug: "the-hills", name: "The Hills" },
   { slug: "damac-hills-2", name: "Damac Hills 2" },
   { slug: "dubai-harbour", name: "Dubai Harbour" },
-  { slug: "difc", name: "DIFC" },
   { slug: "meydan", name: "Meydan" },
   { slug: "emaar-beachfront-2", name: "EMAAR Beachfront" },
   { slug: "dubai-creek-harbour", name: "Dubai Creek Harbour" },
@@ -39,7 +37,6 @@ const areas: { slug: string; name: string }[] = [
   { slug: "damac-lagoons", name: "DAMAC Lagoons" },
   { slug: "maritime-city", name: "Maritime City" },
   { slug: "dubai-land", name: "Dubai Land" },
-  { slug: "deira", name: "Deira" },
   { slug: "damac-hills-akoya-by-damac", name: "DAMAC Hills (Akoya By DAMAC)" },
   { slug: "akoya-oxygen", name: "Akoya Oxygen" },
   { slug: "the-greens", name: "The Greens" },
@@ -49,6 +46,7 @@ const areas: { slug: string; name: string }[] = [
   { slug: "jebel-ali", name: "Jebel Ali" },
   { slug: "jumeirah-park", name: "Jumeirah Park" },
   { slug: "mina-rashid", name: "Mina Rashid" },
+  { slug: "difc", name: "DIFC" },
   { slug: "arabian-ranches", name: "Arabian Ranches" },
   { slug: "arabian-ranches-2", name: "Arabian Ranches 2" },
   { slug: "green-community", name: "Green Community" },
@@ -68,12 +66,11 @@ const communityAliases: Record<string, string> = {
   meydan: "meydan-horizon",
 };
 // Landscape originals need a wider image candidate to stay sharp when cropped to tall cards.
-const photography: Record<string, string> = neighbourhoodImages;
 const neighbourhoods = areas.map((area) => {
   const community = communityBySlug.get(communityAliases[area.slug] ?? area.slug);
   return {
     ...area,
-    image: photography[area.slug],
+    image: communityImages[area.slug],
     text: community?.description ?? `Explore properties in ${area.name} and find a home that suits your lifestyle, priorities and investment plans.`,
   };
 });
@@ -81,20 +78,13 @@ const neighbourhoods = areas.map((area) => {
 export default function DubaiNeighbourhoodsPage() {
   return (
     <>
-      <section
-        className="relative flex min-h-[500px] items-center bg-[#222] bg-cover bg-right bg-no-repeat md:bg-[length:30%_auto]"
-        style={{ backgroundImage: "url(/wp-content/uploads/2020/11/Combined-Shape.png)" }}
-      >
-        <div className="mx-auto w-full max-w-[1300px] px-5 py-20">
-          <div className="md:w-[65%]">
-            <h1 className="text-[40px] font-bold leading-[1.3] tracking-[-1px] text-white md:text-[50px]">Popular Dubai Neighbourhoods</h1>
-            <p className="mt-3 text-[18px] font-medium leading-[1.7] text-white/85">
-              This guide breaks down some of the most frequented Dubai neighborhoods so you can experience the real Dubai and get a feel for how these enclaves
-              flavor the city.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageBanner
+        title="Popular Dubai Neighbourhoods"
+        subtitle="This guide breaks down some of the most frequented Dubai neighborhoods so you can experience the real Dubai and get a feel for how these enclaves flavor the city."
+        image="/images/faq-dubai-skyline-4k.webp"
+        imageQuality={85}
+        imageClassName="opacity-80 object-[center_75%]"
+      />
 
       <section className="pl-neighbourhoods bg-mist pb-20 pt-[30px]">
         <Container>

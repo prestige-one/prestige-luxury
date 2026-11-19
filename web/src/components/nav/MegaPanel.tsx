@@ -10,7 +10,7 @@ import { NavIcon } from "./NavIcon";
  *
  * `onNavigate` is the one exception: clicking a link navigates client-side without moving the
  * pointer, which would leave the panel hovered — and so open — over the page just loaded. The
- * header responds by unmounting this panel until the pointer leaves the menu item.
+ * header closes this panel, then lets returning to the top-level link reopen it immediately.
  *
  * Positioning is `fixed` and centred on the viewport rather than on the menu item: the panel is
  * wider than any single item, and centring on the item would push the edge ones off screen at
