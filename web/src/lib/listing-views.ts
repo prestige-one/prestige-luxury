@@ -13,7 +13,8 @@ import {
   type SortKey,
   type StatusSlug,
 } from "./listing-format";
-import { site } from "./site";
+import { canonicalAreaSlug } from "./area-slugs";
+import { shortenSeoText } from "./seo";
 
 // ---- Property types -------------------------------------------------------------------------
 
@@ -109,7 +110,7 @@ export const neighbourhoodAreas: Record<string, string> = {
   "umm-suqeim": "Umm Suqeim",
   "the-springs": "The Springs",
   "discovery-gardens": "Discovery Gardens",
-  "nadd-al-sheba": "Nad Al Sheba",
+  "nad-al-sheba": "Nad Al Sheba",
   "al-jaddaf": "Al Jaddaf",
   "barsha-heights-tecom": "Barsha Heights (TECOM)",
 };
@@ -118,7 +119,7 @@ export const neighbourhoodAreas: Record<string, string> = {
 export function allAreas(list: Property[] = properties) {
   const names = new Map<string, string>(Object.entries(neighbourhoodAreas));
   for (const n of [...featuredAreas, ...communities(list)]) {
-    const slug = slugify(n ?? "");
+    const slug = canonicalAreaSlug(slugify(n ?? ""));
     if (slug && !names.has(slug)) names.set(slug, n);
   }
   return [...names.entries()].map(([slug, name]) => ({ slug, name }));
@@ -128,9 +129,10 @@ export const areaName = (slug: string) => allAreas().find((a) => a.slug === slug
 
 /** Listings whose community or any location entry slugifies to the area slug (or to its display name, e.g. "emaar-beachfront-2" ↔ "Emaar Beachfront"). */
 export function propertiesInArea(slug: string, list: Property[] = properties) {
+  slug = canonicalAreaSlug(slug);
   const keys = new Set([slug]);
   if (neighbourhoodAreas[slug]) keys.add(slugify(neighbourhoodAreas[slug]));
-  return list.filter((p) => keys.has(slugify(p.community)) || p.location.some((l) => keys.has(slugify(l))));
+  return list.filter((p) => keys.has(canonicalAreaSlug(slugify(p.community))) || p.location.some((l) => keys.has(canonicalAreaSlug(slugify(l)))));
 }
 
 /** Options for the "All Areas" select (falls back to well-known areas when there are no listings). */
@@ -195,6 +197,20 @@ export function filterListings(f: ListingFilters, list: Property[] = properties)
   return searchProperties(f, out, list);
 }
 
+/** Shared by area HTML and metadata so pagination always describes the rendered collection. */
+export function areaListingCollections(slug: string, filters: ListingFilters = {}) {
+  const listings = propertiesInArea(slug);
+  const ready = listings.filter((property) => property.completion !== "off-plan");
+  const saleCount = ready.filter((property) => property.purpose === "sale").length;
+  const rentCount = ready.length - saleCount;
+  const projects = listings.filter((property) => property.completion === "off-plan");
+  const status: StatusSlug = filters.status === "for-rent" && rentCount ? "for-rent" : saleCount ? "for-sale" : rentCount ? "for-rent" : "off-plan";
+  const search = { q: filters.q, type: filters.type, beds: filters.beds, maxPrice: filters.maxPrice };
+  return { listings, ready, saleCount, rentCount, projects, status, search,
+    matches: filterListings({ ...search, status }, ready),
+    projectMatches: status === "off-plan" ? filterListings({ ...search, status }, projects) : projects };
+}
+
 // ---- Listing SEO ----------------------------------------------------------------------------
 
 /** "Marina Gate 1, Dubai Marina" — building and community, without the rest of the address. */
@@ -212,18 +228,19 @@ const listingSummary = (p: Property) => [bedsLabel(p.bedrooms), p.type, "in", p.
 const ambiguousTitles = (() => {
   const seen = new Map<string, number>();
   for (const p of properties) {
-    const key = `${p.title} — ${listingSummary(p)}`;
+    const key = `${listingSummary(p)} for ${p.purpose}`;
     seen.set(key, (seen.get(key) ?? 0) + 1);
   }
   return new Set([...seen].filter(([, n]) => n > 1).map(([key]) => key));
 })();
 
-/** References look like "prestigedubai-133632001748C"; the agency number alone is enough. */
-const shortRef = (p: Property) => p.reference.split("-").pop() || p.reference;
+/** A trailing R/S is a purpose marker, not a unique reference. Stable feed IDs survive every sync. */
+export const listingSeoReference = (p: Property) => p.id || p.reference || p.slug;
 
-export function listingTitle(p: Property) {
-  const base = `${p.title} — ${listingSummary(p)}`;
-  return ambiguousTitles.has(base) ? `${base} (Ref ${shortRef(p)})` : base;
+export function listingTitle(p: Property, max = 52) {
+  const base = `${listingSummary(p)} for ${p.purpose}`;
+  const reference = ambiguousTitles.has(base) ? ` (${listingSeoReference(p)})` : "";
+  return `${shortenSeoText(base, Math.max(12, max - reference.length))}${reference}`;
 }
 
 /**
@@ -235,7 +252,7 @@ const MAX_DESCRIPTION = 160;
 
 export function listingDescription(p: Property) {
   const kind = p.bedrooms === null ? p.type : p.bedrooms === 0 ? "Studio" : `${bedsLabel(p.bedrooms)} ${p.type}`;
-  const tail = `Ref ${shortRef(p)}, ${site.name}.`;
+  const tail = `Ref ${listingSeoReference(p)}.`;
   const facts = [
     p.bathrooms !== null && `${p.bathrooms} ${p.bathrooms === 1 ? "bathroom" : "bathrooms"}`,
     p.sizeSqft !== null && sqft(p.sizeSqft).toLowerCase(),
@@ -255,7 +272,7 @@ export function listingDescription(p: Property) {
       shortest = line;
     }
   }
-  return shortest;
+  return `${shortenSeoText(shortest.slice(0, -tail.length).trim(), MAX_DESCRIPTION - tail.length - 1)} ${tail}`;
 }
 
 // ---- Widgets --------------------------------------------------------------------------------

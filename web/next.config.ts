@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import blogRedirects from "./content/blog-redirects.json";
+import { areaSlugAliases } from "./src/lib/area-slugs";
 
 const nextConfig: NextConfig = {
   // Keep the development badge from covering the mobile social toggle.
@@ -17,6 +18,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      ...Object.entries(areaSlugAliases).map(([alias, canonical]) => ({ source: `/area/${alias}/`, destination: `/area/${canonical}/`, permanent: true })),
       { source: "/property-type/apartment/", destination: "/property-type/apartments/", permanent: true },
       ...blogRedirects.map((redirect) => ({ ...redirect, permanent: true })),
       { source: "/home/", destination: "/", permanent: true },
@@ -26,7 +28,7 @@ const nextConfig: NextConfig = {
       { source: "/our-story/", destination: "/about/", permanent: true },
       { source: "/list-with-us/", destination: "/sell/", permanent: true },
       // Old WordPress URLs still linked from blog posts and from the web
-      { source: "/property-management/", destination: "/services/property-management/", permanent: true },
+      { source: "/property-management/", destination: "/services/", permanent: true },
       { source: "/market-appraisal/", destination: "/services/market-appraisal/", permanent: true },
       { source: "/advanced-search/", destination: "/search-results/", permanent: true },
       { source: "/properties/rentals/:slug*", destination: "/status/for-rent/", permanent: true },
@@ -37,6 +39,13 @@ const nextConfig: NextConfig = {
       // Blog post deleted years ago but still linked from another post
       { source: "/places-to-eat-out-in-ramadan-2019-under-100-aed/", destination: "/blog/", permanent: true },
     ];
+  },
+  async headers() {
+    return [{
+      source: "/:path*",
+      has: [{ type: "host", value: ".*\\.vercel\\.app" }],
+      headers: [{ key: "X-Robots-Tag", value: "noindex, follow" }],
+    }];
   },
   turbopack: {
     rules: {

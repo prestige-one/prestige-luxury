@@ -5,6 +5,7 @@ import neighbourhoodImages from "../../content/neighbourhood-images.json";
 export const communityImages: Readonly<Record<string, string>> = {
   ...neighbourhoodImages,
   difc: "/images/areas/difc-landing-cover-hq.webp",
+  "nad-al-sheba": neighbourhoodImages["nadd-al-sheba"],
 };
 
 const difc = {

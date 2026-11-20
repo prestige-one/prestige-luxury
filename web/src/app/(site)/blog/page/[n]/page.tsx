@@ -2,8 +2,9 @@
 import type { Metadata } from "next";
 import BlogArchive from "@/components/blog/BlogArchive";
 import { pageCount } from "@/components/blog/blog";
-import { getPage, posts, seoMetadata } from "@/lib/content";
+import { posts } from "@/lib/content";
 import { notFound } from "next/navigation";
+import { pageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ n: string }> };
 
@@ -14,9 +15,8 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { n } = await params;
-  const meta = seoMetadata(getPage("/blog/")!);
-  const title = `Blog - Page ${n} | Prestige Luxury Real Estate`;
-  return { ...meta, title: { absolute: title }, alternates: { canonical: `/blog/page/${n}/` }, openGraph: { ...meta.openGraph, title, url: `/blog/page/${n}/` } };
+  return pageMetadata({ title: `Dubai Real Estate Insights – Page ${n} | Prestige Luxury`,
+    description: `Browse page ${n} of Dubai real estate news, neighbourhood guides and property insights from Prestige Luxury. Explore more articles for buyers, tenants and investors.`, path: `/blog/page/${n}/` });
 }
 
 export default async function BlogPaged({ params }: Props) {

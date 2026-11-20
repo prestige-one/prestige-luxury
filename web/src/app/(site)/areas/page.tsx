@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import CommunityDirectory from "@/components/areas/CommunityDirectory";
 import { getPage, seoMetadata } from "@/lib/content";
 import { directoryCommunities } from "@/lib/community-content";
+import { BreadcrumbStructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = seoMetadata(getPage("/areas/")!);
 
 export default function AreasPage() {
   return <section className="pl-areas-page bg-white pb-20 pt-14 md:pb-24 md:pt-20">
+    <BreadcrumbStructuredData items={[{ name: "Dubai Communities", path: "/areas/" }]} />
     <div className="mx-auto max-w-[1440px] px-5 lg:px-10">
       <div className="mx-auto mb-8 max-w-[900px] text-center md:mb-10">
         <h1 className="text-[30px] font-normal leading-[1.2] tracking-[-0.025em] text-ink sm:text-[38px] md:text-[46px]">Top Dubai Communities</h1>

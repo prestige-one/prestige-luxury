@@ -6,18 +6,13 @@ import { Container, PageBanner } from "@/components/ui";
 import { developerLogo, developerLogoClass } from "@/lib/developer-logos";
 import { developerCardImage } from "@/lib/developer-imagery";
 import { developerExcerpt, developers } from "@/lib/developers";
-import { site } from "@/lib/site";
+import { brandedTitle, pageMetadata } from "@/lib/seo";
 
-const title = `Real Estate Developers in Dubai | ${site.name}`;
+const title = brandedTitle("Real Estate Developers in Dubai");
 const description =
   "A directory of Dubai's real estate developers — their story, signature projects, the communities they build in and the properties available with Prestige Luxury Real Estate.";
 
-export const metadata: Metadata = {
-  title: { absolute: title },
-  description,
-  alternates: { canonical: "/developers/" },
-  openGraph: { title, description, url: "/developers/" },
-};
+export const metadata: Metadata = pageMetadata({ title, description, path: "/developers/" });
 
 // Only what a card shows: the full developer records stay on the server.
 const cards: DeveloperCardData[] = developers.map((d) => {
@@ -39,6 +34,7 @@ export default function DevelopersPage() {
   return (
     <>
       <PageBanner
+        path="/developers/"
         title="Real Estate Developers in Dubai"
         subtitle="The master developers and boutique names behind the city's addresses."
         image="/wp-content/uploads/2020/02/bg-bw.jpg"

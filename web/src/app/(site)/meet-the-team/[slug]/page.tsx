@@ -5,6 +5,7 @@ import Media from "@/components/Media";
 import { Button, Container } from "@/components/ui";
 import { getTeamMember, team } from "@/lib/team";
 import { site } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -17,12 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = `${member.name} | ${site.name}`;
   const description = member.biography[0];
   const path = `/meet-the-team/${member.slug}/`;
-  return {
-    title: { absolute: title },
-    description,
-    alternates: { canonical: path },
-    openGraph: { title, description, url: path, images: [{ url: member.image, alt: member.name, width: 800, height: 500 }] },
-  };
+  return pageMetadata({ title, description, path, image: member.image });
 }
 
 export default async function TeamMemberPage({ params }: Props) {

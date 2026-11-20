@@ -14,6 +14,7 @@ import { isPagePublished } from "@/lib/site";
 export type GuideCost = { item: string; amount: string; note?: string };
 
 export type Guide = {
+  path: string;
   title: string;
   subtitle: string;
   image: string;
@@ -39,7 +40,7 @@ export type Guide = {
 export default function GuidePage({ g }: { g: Guide }) {
   return (
     <>
-      <PageBanner title={g.title} subtitle={g.subtitle} image={g.image} imageQuality={g.imageQuality} imageClassName={g.imageClassName} />
+      <PageBanner path={g.path} title={g.title} subtitle={g.subtitle} image={g.image} imageQuality={g.imageQuality} imageClassName={g.imageClassName} />
 
       <section className="py-14 md:py-[80px]">
         <Container>

@@ -2,15 +2,17 @@ import Link from "next/link";
 import LeadForm, { type LeadField } from "@/components/LeadForm";
 import Media from "@/components/Media";
 import { Container } from "@/components/ui";
+import { BreadcrumbStructuredData } from "@/components/StructuredData";
 
 /** Shared interest page for project services that do not have a dated event or live inventory feed. */
-export default function ProjectEnquiryPage({ title, intro, formTitle, topic, locationLabel, submitLabel }: {
+export default function ProjectEnquiryPage({ title, intro, formTitle, topic, locationLabel, submitLabel, path }: {
   title: string;
   intro: string;
   formTitle: string;
   topic: string;
   locationLabel: string;
   submitLabel: string;
+  path: string;
 }) {
   const fields: LeadField[] = [
     { name: "name", label: "Name", required: true, half: true },
@@ -21,6 +23,7 @@ export default function ProjectEnquiryPage({ title, intro, formTitle, topic, loc
   ];
 
   return <section className="pl-project-enquiry bg-mist py-14 md:py-20">
+    <BreadcrumbStructuredData items={[{ name: title, path }]} />
     <Container className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
       <div>
         <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">The next chapter in Dubai</p>

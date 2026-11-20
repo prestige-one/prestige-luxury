@@ -56,7 +56,7 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
-      <PageBanner title="Services" image="/wp-content/uploads/2020/02/bg-bw.jpg" />
+      <PageBanner path="/services/" title="Services" image="/wp-content/uploads/2020/02/bg-bw.jpg" />
 
       <section className="py-16 md:py-[80px]">
         <Container className="max-w-[900px] space-y-4 text-center text-[15px] leading-[1.8] text-body">

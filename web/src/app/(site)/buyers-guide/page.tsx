@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import GuidePage, { type Guide } from "@/components/guides/GuidePage";
-import { site } from "@/lib/site";
+import { brandedTitle, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Buyer's Guide to Dubai Property",
+export const metadata: Metadata = pageMetadata({
+  title: brandedTitle("Buyer's Guide to Dubai Property"),
   description:
     "How buying property in Dubai works: budget and mortgages, ready versus off-plan, Form F, the NOC and the transfer at the Land Department — plus every fee to budget for.",
-  alternates: { canonical: "/buyers-guide/" },
-  openGraph: { url: `${site.url}/buyers-guide/` },
-};
+  path: "/buyers-guide/",
+});
 
 /*
  * Figures were checked in November 2026 against several current 2026 sources. Where those
@@ -18,6 +17,7 @@ export const metadata: Metadata = {
  * Re-check this table whenever DLD or the Central Bank announce a change.
  */
 const guide: Guide = {
+  path: "/buyers-guide/",
   title: "Buyer's Guide",
   subtitle: "Buying property in Dubai, step by step — what happens, in what order, and what it costs.",
   image: "/wp-content/uploads/2019/06/emaar-downtown.jpg",

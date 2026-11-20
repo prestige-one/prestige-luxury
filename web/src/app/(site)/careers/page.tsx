@@ -28,6 +28,7 @@ export default function CareersPage() {
   return (
     <>
       <PageBanner
+        path="/careers/"
         title="Careers"
         subtitle="Build your career with an established Dubai agency, from our Marina Plaza offices."
         image="/images/careers/careers-office-interior.webp"

@@ -12,6 +12,8 @@ export const pageTitles: Record<string, string> = {
   "/careers/": "Real Estate Careers in Dubai | Prestige Luxury",
   "/blog/": "Dubai Real Estate News & Insights | Prestige Luxury",
   "/contact-us/": "Contact Prestige Luxury Real Estate Dubai",
+  "/projects-for-sale-arabic/": "مشاريع عقارية للبيع في دبي | Prestige Luxury",
+  "/inquiry-form/": "Property Enquiry | Prestige Luxury",
 };
 
 export const collectionIntro = {

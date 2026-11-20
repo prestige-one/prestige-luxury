@@ -15,7 +15,7 @@ const policyHtml = cleanElementorHtml(page.html)
 export default function PrivacyPolicyPage() {
   return (
     <>
-      <PageBanner title="Privacy Policy" image="/wp-content/uploads/2020/02/bg-bw.jpg" />
+      <PageBanner path="/privacy-policy/" title="Privacy Policy" image="/wp-content/uploads/2020/02/bg-bw.jpg" />
       <section className="py-[70px] md:py-[90px]">
         <Container className="max-w-[900px]">
           <WpContent html={policyHtml} />

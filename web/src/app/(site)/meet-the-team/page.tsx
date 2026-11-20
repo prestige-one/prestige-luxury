@@ -5,12 +5,14 @@ import Media from "@/components/Media";
 import { CtaBanner } from "@/components/info/blocks";
 import { Container } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
+import { BreadcrumbStructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = seoMetadata(getPage("/meet-the-team/")!);
 
 export default function MeetTheTeamPage() {
   return (
     <>
+      <BreadcrumbStructuredData items={[{ name: "Meet the Team", path: "/meet-the-team/" }]} />
       <section className="py-16 md:py-[100px]">
         <Container>
           <div className="mx-auto mb-12 max-w-[760px] text-center md:mb-16">

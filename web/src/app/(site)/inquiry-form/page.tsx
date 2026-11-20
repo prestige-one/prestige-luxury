@@ -4,7 +4,7 @@ import { areaOptions, propertyTypeOptions } from "@/components/info/options";
 import { Container } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
 
-export const metadata: Metadata = seoMetadata(getPage("/inquiry-form/")!);
+export const metadata: Metadata = { ...seoMetadata(getPage("/inquiry-form/")!), robots: { index: false, follow: true } };
 
 const fields: LeadField[] = [
   {

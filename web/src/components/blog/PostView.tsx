@@ -8,6 +8,7 @@ import { site } from "@/lib/site";
 import CategoryLinks from "./CategoryLinks";
 import PostCard from "./PostCard";
 import ShareLinks from "./ShareLinks";
+import { BreadcrumbStructuredData } from "@/components/StructuredData";
 import {
   adjacentPosts,
   categoriesOf,
@@ -34,7 +35,7 @@ export function postRoute(prefix: string) {
       if (!post) return {};
       // Some old posts store an unresolved Yoast template ("% %") as description: fall back to the excerpt.
       const description = /[a-z]{3}/i.test(post.seo.description) ? post.seo.description : excerptText(post, 155);
-      const meta = seoMetadata({ ...post, title: decodeEntities(post.title), seo: { ...post.seo, description } });
+      const meta = seoMetadata({ ...post, title: decodeEntities(post.title), seo: { ...post.seo, description } }, { image: postImage(post) });
       return {
         ...meta,
         openGraph: { ...meta.openGraph, type: "article", publishedTime: post.date, modifiedTime: post.modified, authors: [site.name] },
@@ -71,6 +72,7 @@ export default function PostView({ post }: { post: Post }) {
 
   return (
     <>
+      <BreadcrumbStructuredData items={[{ name: "Blog", path: "/blog/" }, { name: title, path: post.path }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       <section className="pl-blog-heading bg-black py-12 text-white md:py-16">
         <Container>

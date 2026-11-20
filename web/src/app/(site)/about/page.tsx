@@ -4,6 +4,7 @@ import { CtaBanner, Eyebrow } from "@/components/info/blocks";
 import { Container } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
 import { site } from "@/lib/site";
+import { BreadcrumbStructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = seoMetadata(getPage("/about/")!);
 
@@ -72,6 +73,7 @@ const services = [
 export default function AboutPage() {
   return (
     <>
+      <BreadcrumbStructuredData items={[{ name: "About Prestige Luxury", path: "/about/" }]} />
       {/* Intro: two columns — heading above the copy on the left, photograph on the right */}
       <section className="bg-[#fcfcfc] py-16 md:py-[100px]">
         <div className="mx-auto grid max-w-[1280px] items-start gap-10 px-5 lg:grid-cols-[1fr_minmax(0,440px)] lg:gap-16">

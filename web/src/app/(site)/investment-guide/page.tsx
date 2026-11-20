@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import GuidePage, { type Guide } from "@/components/guides/GuidePage";
-import { site } from "@/lib/site";
+import { brandedTitle, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Investment Guide to Dubai Property",
+export const metadata: Metadata = pageMetadata({
+  title: brandedTitle("Investment Guide to Dubai Property"),
   description:
     "How property investment in Dubai works: ready versus off-plan, long-term and holiday-home lets, yields after costs, tax, and every cost of buying, holding and selling.",
-  alternates: { canonical: "/investment-guide/" },
-  openGraph: { url: `${site.url}/investment-guide/` },
-};
+  path: "/investment-guide/",
+});
 
 /*
  * Written as general information, not advice: it explains how investing works and what it costs,
@@ -23,6 +22,7 @@ export const metadata: Metadata = {
  * is the single place they live.
  */
 const guide: Guide = {
+  path: "/investment-guide/",
   title: "Investment Guide",
   subtitle: "Investing in Dubai property — the strategies, the returns after costs, and what to check before you buy.",
   image: "/images/faq-dubai-skyline-4k.webp",

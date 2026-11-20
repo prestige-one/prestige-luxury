@@ -5,16 +5,13 @@ import Media from "@/components/Media";
 import { propertyTypeOptions } from "@/components/info/options";
 import { Button, Container } from "@/components/ui";
 import ContactPhoneItems from "@/components/ContactPhoneItems";
+import { brandedTitle, pageMetadata } from "@/lib/seo";
+import { BreadcrumbStructuredData } from "@/components/StructuredData";
 
 const title = "Book a Property Valuation";
 const description = "Understand your Dubai property's sale or rental potential. Request a complimentary market appraisal with a Prestige Luxury community specialist.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/property-valuation/" },
-  openGraph: { title, description, url: "/property-valuation/" },
-};
+export const metadata: Metadata = pageMetadata({ title: brandedTitle(title), description, path: "/property-valuation/" });
 
 const fields: LeadField[] = [
   { name: "valuation_purpose", label: "I would like a valuation for", type: "select", options: ["Selling", "Renting", "Selling and renting"], required: true },
@@ -38,6 +35,7 @@ const steps = [
 export default function PropertyValuationPage() {
   return (
     <>
+      <BreadcrumbStructuredData items={[{ name: title, path: "/property-valuation/" }]} />
       <section className="bg-black py-12 text-white md:py-16">
         <Container>
           <div className="grid items-center gap-9 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">

@@ -6,6 +6,7 @@ import { Container } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
 import { site } from "@/lib/site";
 import ContactPhoneItems from "@/components/ContactPhoneItems";
+import { BreadcrumbStructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = seoMetadata(getPage("/contact-us/")!);
 
@@ -30,6 +31,7 @@ const brandHover: Record<string, string> = {
 export default function ContactPage() {
   return (
     <>
+      <BreadcrumbStructuredData items={[{ name: "Contact Us", path: "/contact-us/" }]} />
       <section className="py-16 md:py-[100px]">
         <Container className="grid gap-x-12 gap-y-8 md:grid-cols-[67%_1fr] md:gap-x-[3%]">
           <h1 className="text-[34px] font-normal uppercase text-ink md:col-span-2 md:text-[42px]">Get in Touch</h1>

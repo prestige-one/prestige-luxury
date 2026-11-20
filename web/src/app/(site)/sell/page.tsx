@@ -96,6 +96,7 @@ export default function SellPage() {
   return (
     <>
       <PageBanner
+        path="/sell/"
         title="Sell Your Property in Dubai"
         subtitle="A free, evidence-based valuation from brokers who work your community every day."
         image={heroImage}

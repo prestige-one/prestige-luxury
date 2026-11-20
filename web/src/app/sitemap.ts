@@ -7,6 +7,8 @@ import { allAreas, typeRoutes } from "@/lib/listing-views";
 import { properties } from "@/lib/properties";
 import { isPagePublished, site } from "@/lib/site";
 import { pageCount } from "@/components/blog/blog";
+import { latestSitemapDate, nonIndexablePaths, sitemapDate } from "@/lib/seo";
+import { editorialModifiedDates } from "@/lib/seo-content-dates";
 
 // Pages that exist only for WordPress features we dropped, or that shouldn't be indexed.
 const skip = new Set([
@@ -29,15 +31,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const p of pages) {
     if (!staticPaths.has(p.path) || skip.has(p.path)) continue;
-    entries.push({ url: url(p.path), lastModified: p.modified, priority: p.path === "/" ? 1 : 0.7 });
+    entries.push({ url: url(p.path), lastModified: latestSitemapDate([p.modified, editorialModifiedDates[p.path]]), priority: p.path === "/" ? 1 : 0.7 });
   }
-  entries.push({ url: url("/blog/"), lastModified: posts[0]?.modified, priority: 0.7 });
+  entries.push({ url: url("/blog/"), lastModified: latestSitemapDate(posts.map((post) => post.modified)), priority: 0.7 });
   for (let n = 2; n <= pageCount(posts.length); n++) entries.push({ url: url(`/blog/page/${n}/`), priority: 0.4 });
   for (const p of posts) entries.push({ url: url(p.path), lastModified: p.modified, priority: 0.5 });
   for (const c of categories) {
     const list = posts.filter((post) => post.categories.includes(c.id));
     if (!list.length) continue;
-    entries.push({ url: url(c.path), lastModified: list[0]?.modified, priority: 0.4 });
+    entries.push({ url: url(c.path), lastModified: latestSitemapDate(list.map((post) => post.modified)), priority: 0.4 });
     for (let n = 2; n <= pageCount(list.length); n++) entries.push({ url: url(`${c.path}page/${n}/`), priority: 0.3 });
   }
 
@@ -65,5 +67,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   entries.push({ url: url("/roadshows/"), priority: 0.6 });
   entries.push({ url: url("/branded-residences/"), priority: 0.6 });
 
-  return [...new Map(entries.filter((entry) => isPagePublished(entry.url)).map((entry) => [entry.url, entry])).values()];
+  return [...new Map(entries.filter((entry) => isPagePublished(entry.url) && !nonIndexablePaths.has(new URL(entry.url).pathname))
+    .map((entry) => {
+      const path = new URL(entry.url).pathname;
+      return [entry.url, { ...entry, lastModified: latestSitemapDate([sitemapDate(entry.lastModified instanceof Date ? entry.lastModified.toISOString() : entry.lastModified), editorialModifiedDates[path]]) }] as const;
+    })).values()];
 }

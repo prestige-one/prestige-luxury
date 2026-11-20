@@ -13,6 +13,8 @@ import { site } from "@/lib/site";
 import { developerLogo, developerLogoClass } from "@/lib/developer-logos";
 import { developerProjectUrl } from "@/lib/developer-project-links";
 import { PAGE_SIZE, pageCount, parsePage } from "@/lib/listing-format";
+import { brandedTitle, pageMetadata } from "@/lib/seo";
+import { BreadcrumbStructuredData } from "@/components/StructuredData";
 
 // Developer URLs are generated from the shared directory data.
 export const dynamicParams = false;
@@ -31,19 +33,15 @@ function metaDescription(d: Developer) {
   return `${lead}Projects, communities and available properties with ${site.name}.`.slice(0, 160);
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const { slug } = await params;
   const d = getDeveloper(slug);
   if (!d) return {};
-  const title = `${d.name} — Dubai Property Developer | ${site.name}`;
+  const title = brandedTitle(`${d.name} – Dubai Developer`);
   const description = metaDescription(d);
   const path = `/developers/${d.slug}/`;
-  return {
-    title: { absolute: title },
-    description,
-    alternates: { canonical: path },
-    openGraph: { title, description, url: path },
-  };
+  return pageMetadata({ title, description, path,
+    pagination: [{ key: "page", value: (await searchParams).page, total: developerProperties(d).length }] });
 }
 
 function jsonLd(d: Developer) {
@@ -135,6 +133,7 @@ export default async function DeveloperPage({ params, searchParams }: Props) {
 
   return (
     <>
+      <BreadcrumbStructuredData items={[{ name: "Developers", path: "/developers/" }, { name: d.name, path: `/developers/${d.slug}/` }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(d) }} />
 
       <header className="bg-black py-12 text-white md:py-16">

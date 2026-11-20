@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import GuidePage, { type Guide } from "@/components/guides/GuidePage";
-import { site } from "@/lib/site";
+import { brandedTitle, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Tenant's Guide to Renting in Dubai",
+export const metadata: Metadata = pageMetadata({
+  title: brandedTitle("Tenant's Guide to Renting in Dubai"),
   description:
     "How renting in Dubai works: viewings, the tenancy contract, Ejari, DEWA, deposits and cheques, rent increases and notice periods — plus every upfront cost to budget for.",
-  alternates: { canonical: "/tenants-guide/" },
-  openGraph: { url: `${site.url}/tenants-guide/` },
-};
+  path: "/tenants-guide/",
+});
 
 /*
  * Figures were checked in November 2026 against several current 2026 sources. They agreed on
@@ -19,6 +18,7 @@ export const metadata: Metadata = {
  * which is the only figure that counts in a dispute.
  */
 const guide: Guide = {
+  path: "/tenants-guide/",
   title: "Tenant's Guide",
   subtitle: "Renting a home in Dubai, step by step — your rights, the paperwork, and the costs to plan for.",
   image: "/images/dubai-waterfront-cta.webp",

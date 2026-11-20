@@ -6,11 +6,13 @@ import { Container } from "@/components/ui";
 import AreaPropertyFilters from "@/components/areas/AreaPropertyFilters";
 import ListingCollection, { listingHref, type RawParams } from "@/components/listings/ListingCollection";
 import { ViewToggle } from "@/components/listings/ListingResults";
-import { allAreas, filterListings, parseFilters, propertiesInArea, searchTypeOptions } from "@/lib/listing-views";
+import { allAreas, areaListingCollections, parseFilters, searchTypeOptions } from "@/lib/listing-views";
 import { sizedImage } from "@/lib/listing-format";
 import { site } from "@/lib/site";
 import { areaOverview } from "@/lib/area-overviews";
 import { communities, communityImages } from "@/lib/community-content";
+import { brandedTitle, pageMetadata } from "@/lib/seo";
+import { BreadcrumbStructuredData } from "@/components/StructuredData";
 
 // Every community with listings + the featured areas linked from the homepage (always present).
 export const dynamicParams = false;
@@ -20,18 +22,17 @@ type Props = { params: Promise<{ area: string }>; searchParams: Promise<RawParam
 
 const findArea = (slug: string) => allAreas().find((a) => a.slug === slug);
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const { area } = await params;
   const a = findArea(area);
   if (!a) return {};
-  const title = `${a.name} | ${site.name}`;
+  const title = brandedTitle(a.name);
   const description = `Properties for sale and rent in ${a.name}, Dubai — browse the latest listings from ${site.name}.`;
-  return {
-    title: { absolute: title },
-    description,
-    alternates: { canonical: `/area/${a.slug}/` },
-    openGraph: { title, description, url: `/area/${a.slug}/` },
-  };
+  const query = await searchParams;
+  const state = areaListingCollections(a.slug, parseFilters(query));
+  return pageMetadata({ title, description, path: `/area/${a.slug}/`,
+    canonicalParams: query.status === "for-rent" && state.status === "for-rent" ? { status: "for-rent" } : {},
+    pagination: [{ key: "page", value: query.page, total: state.matches.length }, { key: "projectPage", value: query.projectPage, total: state.projectMatches.length }] });
 }
 
 export default async function AreaPage({ params, searchParams }: Props) {
@@ -40,15 +41,7 @@ export default async function AreaPage({ params, searchParams }: Props) {
   if (!a) notFound();
   const paramsQuery = await searchParams;
   const filters = parseFilters(paramsQuery);
-  const listings = propertiesInArea(a.slug);
-  const ready = listings.filter((property) => property.completion !== "off-plan");
-  const saleCount = ready.filter((property) => property.purpose === "sale").length;
-  const rentCount = ready.length - saleCount;
-  const projects = listings.filter((property) => property.completion === "off-plan");
-  const status = filters.status === "for-rent" && rentCount ? "for-rent" : saleCount ? "for-sale" : rentCount ? "for-rent" : "off-plan";
-  // The area is fixed by the route, never by a mutable CRM field or an arbitrary query.
-  const search = { q: filters.q, type: filters.type, beds: filters.beds, maxPrice: filters.maxPrice };
-  const matches = filterListings({ ...search, status }, ready);
+  const { listings, ready, saleCount, rentCount, projects, status, search, matches, projectMatches } = areaListingCollections(a.slug, filters);
   const path = `/area/${a.slug}/`;
   const aliases: Record<string, string> = { "maritime-city": "dubai-maritime-city", meydan: "meydan-horizon" };
   const community = communities.find((community) => community.slug === (aliases[a.slug] ?? a.slug));
@@ -59,6 +52,7 @@ export default async function AreaPage({ params, searchParams }: Props) {
   const tabHref = (status: string) => listingHref(path, paramsQuery, { status, page: undefined, maxPrice: undefined }, "pl-area-properties");
 
   return <div className="pl-area-detail bg-white">
+    <BreadcrumbStructuredData items={[{ name: "Areas", path: "/areas/" }, { name: a.name, path }]} />
     <section className="pl-area-hero relative isolate flex min-h-[470px] items-end overflow-hidden bg-black md:min-h-[540px]">
       <Media src={image} alt={`${a.name}, Dubai`} fill preload sizes="100vw" quality={85} className="object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/15" aria-hidden />
@@ -93,7 +87,7 @@ export default async function AreaPage({ params, searchParams }: Props) {
         <p className="mb-3 text-[11px] uppercase tracking-[0.18em] text-muted">A new perspective</p>
         <div className="mb-6 flex items-end justify-between gap-4"><h2 id="pl-area-project-title" className="text-[25px] font-normal leading-snug tracking-[-0.02em] text-ink">Off-plan properties in {a.name}</h2><ViewToggle /></div>
         {status === "off-plan" && <AreaPropertyFilters key={`projects-${formKey}`} path={path} name={a.name} status={status} initial={search} types={searchTypeOptions(projects)} />}
-        <ListingCollection listings={status === "off-plan" ? filterListings({ ...search, status: "off-plan" }, projects) : projects} path={path} searchParams={paramsQuery} pageKey="projectPage" sortKey="projectSort" anchor="pl-area-projects" alwaysShowPage priority={false} />
+        <ListingCollection listings={projectMatches} path={path} searchParams={paramsQuery} pageKey="projectPage" sortKey="projectSort" anchor="pl-area-projects" alwaysShowPage priority={false} />
       </Container>
     </section>}
 

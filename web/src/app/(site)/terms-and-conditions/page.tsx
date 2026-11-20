@@ -9,7 +9,7 @@ export const metadata: Metadata = seoMetadata(page);
 export default function TermsPage() {
   return (
     <>
-      <PageBanner title="Terms and Conditions" image="/wp-content/uploads/2020/02/bg-bw.jpg" />
+      <PageBanner path="/terms-and-conditions/" title="Terms and Conditions" image="/wp-content/uploads/2020/02/bg-bw.jpg" />
       <section className="py-[70px] md:py-[90px]">
         <Container className="max-w-[900px]">
           <WpContent html={cleanElementorHtml(page.html)} />

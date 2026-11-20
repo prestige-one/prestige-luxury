@@ -34,7 +34,7 @@ export default function FaqPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
-      <PageBanner title={faq.title} subtitle={faq.intro} image={faqImage} imageQuality={85} imageClassName="opacity-90" />
+      <PageBanner path="/frequently-asked-questions/" title={faq.title} subtitle={faq.intro} image={faqImage} imageQuality={85} imageClassName="opacity-90" />
 
       <section className="pl-faq-section bg-mist py-12 md:py-16">
         <Container className="grid items-start gap-10 lg:grid-cols-[245px_minmax(0,1fr)] lg:gap-12">

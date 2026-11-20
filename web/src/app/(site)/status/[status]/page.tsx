@@ -6,6 +6,7 @@ import { filterListings, parseFilters } from "@/lib/listing-views";
 import { Button } from "@/components/ui";
 import { site } from "@/lib/site";
 import { pageTitles } from "@/lib/page-seo";
+import { pageMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
 export const generateStaticParams = () => statuses.map((s) => ({ status: s.slug }));
@@ -13,19 +14,15 @@ export const generateStaticParams = () => statuses.map((s) => ({ status: s.slug 
 type Props = { params: Promise<{ status: string }>; searchParams: Promise<RawParams> };
 const offPlanTypeLabels: Record<string, string> = { Apartment: "Apartments", Villa: "Villas", Townhouse: "Townhouses", Penthouse: "Penthouses", Mansion: "Mansions", "Other Commercial": "Commercial Properties" };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const { status } = await params;
   const s = statuses.find((x) => x.slug === status);
   if (!s) return {};
   const title = pageTitles[`/status/${s.slug}/`] || `${s.label} | ${site.name}`;
   const description = `Properties ${s.label.toLowerCase()} in Dubai — apartments, villas, townhouses and more from ${site.name}.`;
-  return {
-    title: { absolute: title },
-    description,
-    alternates: { canonical: `/status/${s.slug}/` },
-    openGraph: { title, description, url: `/status/${s.slug}/` },
-    twitter: { title, description },
-  };
+  const query = await searchParams;
+  const count = filterListings(parseFilters({ ...query, status: s.slug })).length;
+  return pageMetadata({ title, description, path: `/status/${s.slug}/`, pagination: [{ key: "page", value: query.page, total: count }] });
 }
 
 export default async function StatusPage({ params, searchParams }: Props) {

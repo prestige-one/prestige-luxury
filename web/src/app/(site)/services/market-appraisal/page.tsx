@@ -3,6 +3,7 @@ import Media from "@/components/Media";
 import LeadForm, { type LeadField } from "@/components/LeadForm";
 import { Button, Container } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
+import { BreadcrumbStructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = seoMetadata(getPage("/services/market-appraisal/")!);
 
@@ -27,6 +28,7 @@ function Bullets({ items }: { items: string[] }) {
 export default function MarketAppraisalPage() {
   return (
     <>
+      <BreadcrumbStructuredData items={[{ name: "Services", path: "/services/" }, { name: "Market Appraisal", path: "/services/market-appraisal/" }]} />
       {/* Hero with enquiry form */}
       <section id="contact" className="scroll-mt-20 bg-black py-16 md:py-[100px]">
         <Container className="grid items-start gap-12 lg:grid-cols-[1fr_480px]">

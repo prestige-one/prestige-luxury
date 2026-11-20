@@ -15,6 +15,8 @@ import { listingDescription, listingTitle, similarListings } from "@/lib/listing
 import { formatPrice, getProperty, properties, type Property } from "@/lib/properties";
 import { site } from "@/lib/site";
 import { team } from "@/lib/team";
+import { pageMetadata } from "@/lib/seo";
+import { BreadcrumbStructuredData } from "@/components/StructuredData";
 
 // Only listings present in content/properties.json exist; anything else is a 404.
 // With an empty dataset this returns [] and the build simply prerenders no property pages.
@@ -37,15 +39,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!p) return {};
   // Feed titles repeat across listings and feed descriptions are shared bullet dumps, so both
   // are composed from the listing's own facts (lib/listing-views).
-  const title = `${listingTitle(p)} | ${site.name}`;
+  const title = `${listingTitle(p)} | Prestige Luxury`;
   const description = listingDescription(p);
   const path = `/property/${p.slug}/`;
-  return {
-    title: { absolute: title },
-    description,
-    alternates: { canonical: path },
-    openGraph: { title, description, url: path, images: p.images[0] ? [p.images[0]] : undefined },
-  };
+  return pageMetadata({ title, description, path, image: p.images[0] });
 }
 
 const enquiryFields: LeadField[] = [
@@ -145,6 +142,7 @@ export default async function PropertyPage({ params }: Props) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(p) }} />
+      <BreadcrumbStructuredData items={[{ name: p.purpose === "rent" ? "Properties for Rent" : "Properties for Sale", path: `/status/for-${p.purpose === "rent" ? "rent" : "sale"}/` }, { name: p.title, path: `/property/${p.slug}/` }]} />
       <TrackView item={{ slug: p.slug, title: p.title, price: formatPrice(p), image: p.images[0] }} />
 
       <Container className="pb-[90px] pt-8">

@@ -7,11 +7,7 @@ import { getPage, seoMetadata } from "@/lib/content";
 import { communities, communityImages } from "@/lib/community-content";
 
 const page = getPage("/dubai-neighbourhoods/")!;
-export const metadata: Metadata = {
-  ...seoMetadata(page),
-  // The stored Yoast description is the page's raw text (incl. a shortcode); use the intro sentence instead.
-  description: "This guide breaks down some of the most frequented Dubai neighborhoods so you can experience the real Dubai and get a feel for how these enclaves flavor the city.",
-};
+export const metadata: Metadata = seoMetadata(page);
 
 // Curated guide order; community photography is stored locally.
 const areas: { slug: string; name: string }[] = [
@@ -55,7 +51,7 @@ const areas: { slug: string; name: string }[] = [
   { slug: "umm-suqeim", name: "Umm Suqeim" },
   { slug: "the-springs", name: "The Springs" },
   { slug: "discovery-gardens", name: "Discovery Gardens" },
-  { slug: "nadd-al-sheba", name: "Nadd Al Sheba" },
+  { slug: "nad-al-sheba", name: "Nad Al Sheba" },
   { slug: "al-jaddaf", name: "Al Jaddaf" },
   { slug: "barsha-heights-tecom", name: "Barsha Heights (Tecom)" },
 ];
@@ -79,6 +75,7 @@ export default function DubaiNeighbourhoodsPage() {
   return (
     <>
       <PageBanner
+        path="/dubai-neighbourhoods/"
         title="Popular Dubai Neighbourhoods"
         subtitle="This guide breaks down some of the most frequented Dubai neighborhoods so you can experience the real Dubai and get a feel for how these enclaves flavor the city."
         image="/images/faq-dubai-skyline-4k.webp"

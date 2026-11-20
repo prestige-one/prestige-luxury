@@ -4,6 +4,7 @@ import { areaOptions, cityOptions, locationOptions, searchTypeOptions } from "@/
 import { ViewToggle } from "./ListingResults";
 import ListingSearchBar, { type SearchBarValues } from "./ListingSearchBar";
 import ListingCollection, { type RawParams } from "./ListingCollection";
+import { BreadcrumbStructuredData } from "@/components/StructuredData";
 
 export type { RawParams } from "./ListingCollection";
 
@@ -34,6 +35,7 @@ export default function ListingArchive({
 }) {
   return (
     <>
+      <BreadcrumbStructuredData items={[{ name: title, path }]} />
       {/* Remount the search row when the page's own filters change, but not when only sort/page do. */}
       <ListingSearchBar key={JSON.stringify(search ?? {})} cities={cityOptions()} areas={areaOptions()} locations={locationOptions()} types={searchTypeOptions()} initial={search} />
       <Container className="pb-[90px] pt-8">

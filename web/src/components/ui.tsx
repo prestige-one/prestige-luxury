@@ -1,6 +1,7 @@
 // Shared building blocks that reproduce the look of the original Houzez/Elementor widgets.
 import Media from "@/components/Media";
 import Link from "next/link";
+import { BreadcrumbStructuredData } from "@/components/StructuredData";
 
 export function Container({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return <div className={`mx-auto w-full max-w-[1140px] px-5 ${className}`}>{children}</div>;
@@ -56,9 +57,10 @@ export function Button({ href, children, variant = "dark", className = "" }: But
 }
 
 /** Banner used at the top of inner pages: background photo with dark overlay and centred title */
-export function PageBanner({ title, subtitle, image, imageQuality, imageClassName = "opacity-55" }: { title: string; subtitle?: string; image?: string; imageQuality?: number; imageClassName?: string }) {
+export function PageBanner({ title, subtitle, image, imageQuality, imageClassName = "opacity-55", path }: { title: string; subtitle?: string; image?: string; imageQuality?: number; imageClassName?: string; path?: string }) {
   return (
     <section className="pl-page-banner relative flex min-h-[260px] items-center justify-center overflow-hidden bg-black text-center md:min-h-[340px]">
+      {path && <BreadcrumbStructuredData items={[{ name: title, path }]} />}
       {image && <Media src={image} alt="" fill priority tone="ink" sizes="100vw" quality={imageQuality} className={`object-cover ${imageClassName}`} />}
       {image && <div className="pl-page-banner-overlay absolute inset-0 bg-gradient-to-b from-black/50 via-black/45 to-black/65" aria-hidden />}
       <div className="relative z-10 px-5 py-16 md:py-20">

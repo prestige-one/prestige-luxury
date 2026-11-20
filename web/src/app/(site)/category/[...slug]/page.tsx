@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import BlogArchive, { archivePageHref } from "@/components/blog/BlogArchive";
 import { activeCategories, pageCount, postsInCategory } from "@/components/blog/blog";
 import { notFound } from "next/navigation";
+import { brandedTitle, pageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string[] }> };
 
@@ -29,9 +30,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category, page } = resolve((await params).slug);
   if (!category) return {};
   const url = archivePageHref(category.path, page);
-  const title = `${category.name} Archives${page > 1 ? ` - Page ${page}` : ""} | Prestige Luxury Real Estate`;
-  const description = `Articles about ${category.name.toLowerCase()} from Prestige Luxury Real Estate, Dubai.`;
-  return { title: { absolute: title }, description, alternates: { canonical: url }, openGraph: { title, description, url } };
+  const title = brandedTitle(`${category.name} Archives${page > 1 ? ` – Page ${page}` : ""}`);
+  const description = `${page > 1 ? `Page ${page} of our` : "Explore our"} ${category.name.toLowerCase()} articles, with Dubai property news, neighbourhood insights and practical guidance from Prestige Luxury.`;
+  return pageMetadata({ title, description, path: url });
 }
 
 export default async function CategoryArchive({ params }: Props) {

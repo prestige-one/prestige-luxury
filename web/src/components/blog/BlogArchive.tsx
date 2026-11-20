@@ -4,6 +4,7 @@ import { Container } from "@/components/ui";
 import CategoryLinks from "./CategoryLinks";
 import PostCard from "./PostCard";
 import { activeCategories, pageCount, pageSlice } from "./blog";
+import { BreadcrumbStructuredData } from "@/components/StructuredData";
 
 /** URL of page `n` of an archive whose first page lives at `base` (WordPress style: base/page/n/). */
 export const archivePageHref = (base: string, n: number) => (n <= 1 ? base : `${base}page/${n}/`);
@@ -64,6 +65,7 @@ export default function BlogArchive({
   const items = pageSlice(list, page);
   return (
     <>
+      <BreadcrumbStructuredData items={[...(base !== "/blog/" ? [{ name: "Blog", path: "/blog/" }] : []), { name: title, path: base }, ...(page > 1 ? [{ name: `Page ${page}`, path: archivePageHref(base, page) }] : [])]} />
       <section className="pl-blog-archive bg-black py-12 text-white md:py-16">
         <Container>
           <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-white/70">The Prestige Journal</p>

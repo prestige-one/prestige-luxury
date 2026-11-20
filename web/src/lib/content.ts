@@ -5,6 +5,7 @@ import categoriesJson from "../../content/categories.json";
 import testimonialsJson from "../../content/testimonials.json";
 import { site } from "./site";
 import { pageTitles } from "./page-seo";
+import { brandedTitle, nonIndexablePaths, pageMetadata } from "./seo";
 
 export type Seo = { title: string; description: string; ogImage: string };
 
@@ -83,6 +84,7 @@ export const postsInCategory = (id: number) => posts.filter((p) => p.categories.
  * Google rewrites duplicate descriptions, so each page gets its own.
  */
 const descriptionOverrides: Record<string, string> = {
+  "/": "Explore properties for sale and rent in Dubai with Prestige Luxury. Discover apartments, villas and commercial spaces with personalised expert guidance.",
   "/about/":
     "Prestige Luxury Real Estate is an established Dubai agency bringing together market expertise and a commitment to exceptional client experiences. Read our story.",
   "/areas/":
@@ -97,22 +99,21 @@ const descriptionOverrides: Record<string, string> = {
   // Name Mobile Email Message Submit This site is protected by reCAPTCHA…").
   "/contact-us/":
     "Talk to Prestige Luxury Real Estate in Dubai Marina about buying, selling, renting or managing a property in Dubai. Call, WhatsApp, email or visit our Marina Plaza office.",
+  "/services/market-appraisal/": "Request a free Dubai property market appraisal from Prestige Luxury. Discuss comparable properties, sale or rental potential and your next steps with a specialist.",
+  "/inquiry-form/": "Tell Prestige Luxury what you are looking for in Dubai. Share your preferred location, property type and budget and our team will help with your enquiry.",
+  "/projects-for-sale-arabic/": "اكتشف مشاريع عقارية للبيع في دبي مع بريستيج لاكشري. تعرّف على خيارات السكن والاستثمار وتواصل مع فريقنا لمعرفة التفاصيل والتوافر الحالي.",
+  "/privacy-policy/": "Read how Prestige Luxury Real Estate collects, uses and protects your personal information, including website enquiries, cookies and your privacy choices.",
+  "/terms-and-conditions/": "Read the terms and conditions for using the Prestige Luxury Real Estate website, including property information, enquiries, website content and permitted use.",
+  "/testimonials/": "Read client experiences with Prestige Luxury Real Estate in Dubai, from finding a home and renting a property to selling and investing with our team.",
+  "/sell/": "Sell your Dubai property with Prestige Luxury. Get local market advice, a considered marketing approach and expert support from listing through to handover.",
+  "/blog/": "Explore Dubai real estate news, neighbourhood guides, property insights and practical advice for buyers, tenants, owners and investors from Prestige Luxury.",
+  "/dubai-neighbourhoods/": "Explore Dubai neighbourhoods with Prestige Luxury. Discover community lifestyles, amenities and properties to find the right location for your next home or investment.",
 };
 
 /** Build Next.js metadata from the old Yoast SEO data so search rankings carry over. */
-export function seoMetadata(item: { title: string; seo: Seo; path: string }) {
-  const title = pageTitles[item.path] || item.seo.title || `${item.title} | Prestige Luxury Real Estate`;
-  const description = descriptionOverrides[item.path] || item.seo.description || undefined;
-  return {
-    title: { absolute: title },
-    description,
-    alternates: { canonical: item.path },
-    twitter: { title, description },
-    openGraph: {
-      title,
-      description,
-      url: item.path,
-      images: item.seo.ogImage ? [item.seo.ogImage] : undefined,
-    },
-  };
+export function seoMetadata(item: { title: string; seo: Seo; path: string }, options: { image?: string | null } = {}) {
+  const title = pageTitles[item.path] || brandedTitle(item.seo.title || item.title);
+  const description = descriptionOverrides[item.path] || item.seo.description || `Explore ${item.title} with Prestige Luxury Real Estate in Dubai.`;
+  return { ...pageMetadata({ title, description, path: item.path, image: options.image }),
+    ...(nonIndexablePaths.has(item.path) ? { robots: { index: false, follow: true } } : {}) };
 }
