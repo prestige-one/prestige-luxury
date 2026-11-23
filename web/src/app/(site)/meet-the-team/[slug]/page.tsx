@@ -53,8 +53,8 @@ export default async function TeamMemberPage({ params }: Props) {
       <section className="py-12 md:py-16" aria-label={`${member.name} biography`}>
         <Container className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
           <aside className="lg:sticky lg:top-28">
-            <div className="overflow-hidden rounded-[8px] bg-mist">
-              <Media src={member.image} alt={member.name} width={800} height={500} priority sizes="(min-width: 1024px) 430px, 100vw" className="h-auto w-full" />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[8px] bg-mist">
+              <Media src={member.image} alt={member.name} fill priority sizes="(min-width: 1024px) 430px, 100vw" className="object-cover" />
             </div>
             <div className="mt-6 rounded-[8px] bg-black p-6 text-white">
               <h2 className="text-[19px] font-medium">Start a conversation</h2>
@@ -81,7 +81,7 @@ export default async function TeamMemberPage({ params }: Props) {
               <li key={person.slug}>
                 <Link href={`/meet-the-team/${person.slug}/`} aria-label={`View ${person.name}’s profile`}
                   className="group flex h-full flex-col overflow-hidden rounded-[8px] border border-white/25 bg-white/5 transition-colors hover:border-white/60 hover:bg-white/10 focus-visible:outline-white motion-reduce:transition-none sm:flex-row">
-                  <div className="relative aspect-[8/5] shrink-0 overflow-hidden bg-white/10 sm:w-[45%]">
+                  <div className="relative aspect-[4/5] shrink-0 overflow-hidden bg-white/10 sm:w-[45%] sm:self-start">
                     <Media src={person.image} alt={person.name} fill sizes="(min-width: 1024px) 250px, (min-width: 640px) 45vw, 100vw" className="object-cover transition-transform duration-300 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100" />
                   </div>
                   <div className="flex flex-1 flex-col justify-center p-6">
