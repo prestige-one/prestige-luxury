@@ -5,7 +5,7 @@ export const team = [
     name: "Chris Valentine",
     role: "Associate Director",
     subtitle: "Prestige Luxury Real Estate",
-    image: "/images/Chris-1.webp",
+    image: "/images/chris-3.webp",
     biography: [
       "With more than 24 years of real estate experience and a Master’s degree in Business Management, Chris Valentine combines extensive industry knowledge with commercial insight and a personal approach to client service.",
       "Chris has a strong track record in growing profitable businesses and leading successful sales teams. Through coaching, training and clear direction, he develops talent and builds teams committed to delivering results. His career achievements include being invited to join the main board of a prominent residential property company after six years.",
@@ -18,7 +18,7 @@ export const team = [
     name: "Michael Cullen",
     role: "Associate Director",
     subtitle: "Real Estate Sales & Leadership | Dubai",
-    image: "/images/Michael-1.webp",
+    image: "/images/michael-3.webp",
     biography: [
       "With more than two decades of experience in real estate, Michael Cullen has built his career around two key strengths: delivering results through his own property sales and building, developing and leading successful sales teams.",
       "Throughout his career, Michael has remained actively involved in the market, working directly with buyers, sellers, developers and investors, while also taking on leadership responsibilities in recruiting, mentoring and managing sales professionals.",

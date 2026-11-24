@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { team } from "@/lib/team";
-import Media from "@/components/Media";
+import TeamPortrait from "@/components/team/TeamPortrait";
 import { CtaBanner } from "@/components/info/blocks";
 import { Container } from "@/components/ui";
 import { getPage, seoMetadata } from "@/lib/content";
@@ -27,14 +27,12 @@ export default function MeetTheTeamPage() {
           <ul className="mx-auto grid max-w-[980px] gap-8 md:grid-cols-2 md:gap-10">
             {team.map((m) => (
               <li key={m.name}>
-                <article className="group h-full overflow-hidden rounded-[10px] border border-line bg-white transition-[translate,box-shadow,border-color] duration-500 ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-[0_18px_40px_rgba(0,0,0,0.09)]">
-                  <Link href={`/meet-the-team/${m.slug}/`} aria-label={`Read ${m.name}’s biography`} className="relative block aspect-[4/5] overflow-hidden bg-mist">
-                    <Media
+                <article className="pl-team-card group h-full overflow-hidden rounded-[10px] border border-line bg-white transition-[translate,box-shadow,border-color] duration-500 ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-[0_18px_40px_rgba(0,0,0,0.09)]">
+                  <Link href={`/meet-the-team/${m.slug}/`} aria-label={`Read ${m.name}’s biography`} className="block">
+                    <TeamPortrait
                       src={m.image}
                       alt={`${m.name}, ${m.role}`}
-                      fill
                       sizes="(min-width: 768px) 470px, 100vw"
-                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                     />
                   </Link>
                   <div className="px-7 pb-8 pt-6">
